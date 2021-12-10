@@ -1,0 +1,147 @@
+---
+title: "Clean_Condition_Survival"
+author: "Catarina Pien"
+date: "12/10/2021"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(lubridate)
+library(readr)
+```
+
+Tasks:
+1. Read winter/spring, summer/fall data in
+2. Clean names and bind together
+3. Calculate Pre and Post condition factors
+4. Make survival file 
+
+# Condition Factor, Length, Weight
+1. Read data
+```{r}
+summerdata <- read_csv("smelt_2019_allseasons/Raw_Smelt-Length-Weight_Summer2019.csv", col_types = cols(Deployment = "f", Period = "f", Site = "f", ID = "c", FL_mm = "c", Weight_g= "d", Cage = "f", K =  "d", Comments =  "c")) %>%
+  rename(K0 = K) 
+falldata <- read_csv("smelt_2019_allseasons/Raw_Smelt-Length-Weight_Fall2019.csv", col_types = cols(Deployment = "f", Period = "f", Site = "f", ID = "c", FL_mm = "c", Weight_g= "d", Cage = "f", K =  "d", Comments =  "c")) %>%
+  rename(K0 = K)
+
+winterspringdata <- read_csv("smelt_2019_allseasons/Cagetype_data.csv") %>%
+  rename(Pre_FL=Pre_FL_cm,
+         Post_FL=Post_FL_cm,
+         Pre_Weight=Pre_Weight_g,
+         Post_Weight=Post_Weight_g)
+```
+
+2. Reformat
+```{r}
+winspring_long <- winterspringdata %>% 
+  select(-Delta_CF, -X1) %>%
+  pivot_longer(cols = c(Pre_FL:Post_CF),
+               names_to = c("Period", ".value"),
+               names_sep = "_") 
+  
+# Filter to only large mesh and RV
+winspring_clean <- winspring_long %>%
+  filter(Site != "DWSC",
+         Mesh == "large") %>%
+  rename(FL_cm = FL,
+         Weight_g = Weight,
+         K0 = CF) %>%
+  mutate(Deployment = ifelse(Site =="DWSC", "Spring",
+                             ifelse(Site == "RV", "Winter", NA )),
+         ID = NA,
+         ID = as.character(ID),
+         Deployment = as.factor(Deployment),
+         Period = as.factor(Period),
+         Site = as.factor(Site),
+         Cage = as.factor(Cage))%>%
+  select(Deployment, Period, Site, ID, FL_cm, Weight_g, Cage)
+
+summerfall_clean <- rbind(summerdata, falldata) %>%
+  mutate(FL_mm = replace(FL_mm, FL_mm == "-", NA),
+         FL_mm = as.numeric(FL_mm),
+         FL_mm = FL_mm/10, na.rm = TRUE) %>%
+  rename(FL_cm = FL_mm) %>%
+  select(Deployment, Period, Site, ID, FL_cm, Weight_g, Cage)
+
+```
+
+Bind 
+```{r}
+CF_2019 <- rbind(winspring_clean, summerfall_clean) %>%
+  mutate(K= round(100 * Weight_g/(FL_cm^3),3)) 
+```
+
+Write file
+```{r}
+write.csv(CF_2019, "smelt_2019_allseasons/data_clean/clean_smelt_cf_2019.csv", row.names = FALSE)
+```
+
+
+# Survival
+```{r}
+Survival <- data.frame(Deployment = factor(), Site = factor(), Survived = numeric(), Total = numeric())
+
+```
+
+Winter
+RV: 60, 64, 64, 64, 62, 56 / 64
+
+Spring
+DWSC: 59, 60, 58, 60, 60, 58 / 60
+
+Summer
+Yolo: 0 / 60
+RV: / 60
+
+Fall
+Yolo: 
+RV:
+SM:
+'
+```{r}
+(152-21)/180 #RV
+(161-5)/180 #RV
+(177-5-3)/180 #SM
+(161-2)/180
+
+
+Survivors_bycage <- CF_2019 %>%
+  filter(Period == "Post",
+         !Cage %in% c("FCCL1", "FCCL2")) %>%
+  group_by(Deployment, Site, Cage) %>%
+  summarize(n=n()) %>%
+  mutate(Total = ifelse(Site == "RV", 64, 
+                        ifelse(Site == "FCCL", 30, 60))) %>%
+  filter(!is.na(Cage))
+
+Survivors_bydeployment <-  Survivors_bycage %>%
+  group_by(Deployment, Site) %>%
+  summarize(Survived = sum(n),
+            TotalFish = sum(Total)) %>%
+  mutate(Prop = Survived/TotalFish) %>%
+  ungroup()
+
+Survivors_final <- Survivors_bydeployment %>% add_row(Deployment = "Summer", Site ="Yolo", Survived = 0, TotalFish = 30, Prop = 0)
+  
+```
+
+```{r}
+Cage_survival_RV <- as.data.frame(matrix(0, ncol = 2, nrow = 384))
+colnames(Cage_survival_RV) <- c("Cage", "Survived")
+
+Cage_survival_RV$Cage <- c(rep("A", 64), rep("B", 64), rep("C", 64), rep("D", 64), rep("E", 64), rep("F", 64))
+Cage_survival_RV$Survived <- c(rep("1", 60), rep("0", 4), 
+                               rep("1", 64), rep("0", 0),
+                               rep("1", 64), rep("0", 0),
+                               rep("1", 64), rep("0", 0),
+                               rep("1", 62), rep("0", 2),
+                               rep("1", 56), rep("0", 8))
+```
+
