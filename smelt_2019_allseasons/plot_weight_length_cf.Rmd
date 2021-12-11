@@ -3,6 +3,8 @@ title: "plot_weight_length_cf"
 author: "Catarina Pien"
 date: "12/10/2021"
 output: html_document
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
@@ -32,11 +34,36 @@ summarydata <- smeltdata2 %>%
             n = n())
 ```
 
-Plot data
+Plot K
 ```{r}
-ggplot(smeltdata2, aes(x = Period, y = K, fill = Site)) + 
+box_K <- ggplot(smeltdata2, aes(x = Period, y = K, fill = Site)) + 
   geom_boxplot() + 
   facet_wrap(Deployment~.) + 
   viridis::scale_fill_viridis(discrete = TRUE, option = "plasma") + theme_bw()
+```
+
+Plot Length
+```{r}
+box_FL <- ggplot(smeltdata2, aes(x = Period, y = FL_cm, fill = Site)) + 
+  geom_boxplot() + 
+  facet_wrap(Deployment~.) + 
+  viridis::scale_fill_viridis(discrete = TRUE, option = "plasma") + theme_bw()
+```
+
+Plot Weight
+```{r}
+box_Wt <- ggplot(smeltdata2, aes(x = Period, y = Weight_g, fill = Site)) + 
+  geom_boxplot() + 
+  facet_wrap(Deployment~.) + 
+  viridis::scale_fill_viridis(discrete = TRUE, option = "plasma") + theme_bw()
+```
+
+```{r}
+getwd()
+library(ggpubr)
+tiff(filename = file.path("smelt_2019_allseasons/figures/FL-Wt-K.tiff"), res = 300, width = 7, height = 7, units = "in", pointsize = 10, type = "cairo", compression = "lzw")
+ggarrange(box_FL, box_Wt, box_K, nrow = 3)
+dev.off()
+
 ```
 

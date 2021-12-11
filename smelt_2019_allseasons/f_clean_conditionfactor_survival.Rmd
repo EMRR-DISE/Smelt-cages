@@ -6,7 +6,7 @@ output: html_document
 editor_options: 
   chunk_output_type: console
 ---
-
+This code takes raw summer, fall, winter data and combines it into one file of length, weight, condition factor. 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
@@ -15,6 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(lubridate)
 library(readr)
+root <- "smelt_2019_allseasons"
 ```
 
 Tasks:
@@ -98,50 +99,47 @@ DWSC: 59, 60, 58, 60, 60, 58 / 60
 
 Summer
 Yolo: 0 / 60
-RV: / 60
+RV: 152 fish on data sheet - 21 died in cage / 60 60 60
 
 Fall
 Yolo: 
-RV:
-SM:
-'
+RV: 161 fish on data sheet - 5 cage mortality in comments = 156/ 60 60 60
+SM: 177 fish on data sheet - 5 cage mortality in comments/ 60 60 60
+YB: 161 fish on data sheet - 2 "Dead in cage) = 159/ 60 60 60
+
+Original table: https://cawater.sharepoint.com/sites/dwrdoc-aes/Shared%20Documents/Forms/AllItems.aspx?viewid=5f80dd60%2D5e8b%2D4f46%2Dab49%2D609d1052bd85&id=%2Fsites%2Fdwrdoc%2Daes%2FShared%20Documents%2FDelta%20Smelt%20Enclosure%20Study%2FPermits%2FAnnual%20Reports%2F2019%2FDelta%20Smelt%20Enclosure%20Study%202019%20Annual%20Report%20FINAL%2Epdf&parent=%2Fsites%2Fdwrdoc%2Daes%2FShared%20Documents%2FDelta%20Smelt%20Enclosure%20Study%2FPermits%2FAnnual%20Reports%2F2019
+
+Info for this data: "V:\Data\Summer'19\August Measurements and Dissections" & "V:\Data\Summer'19\October Measurements and Dissections"
 ```{r}
-(152-21)/180 #RV
-(161-5)/180 #RV
-(177-5-3)/180 #SM
-(161-2)/180
+cage <- read.csv("smelt_2019_allseasons/data_raw/Cagetype_data.csv")
+# Cages B + F are large mesh
+# Winter
+(64+56)/(64+64) # RV 0.94
 
+# Summer
+(152-21)/180 #RV 0.73
 
-Survivors_bycage <- CF_2019 %>%
-  filter(Period == "Post",
-         !Cage %in% c("FCCL1", "FCCL2")) %>%
-  group_by(Deployment, Site, Cage) %>%
-  summarize(n=n()) %>%
-  mutate(Total = ifelse(Site == "RV", 64, 
-                        ifelse(Site == "FCCL", 30, 60))) %>%
-  filter(!is.na(Cage))
+#Fall
+(161-5)/180 #RV 0.87
+(177-5)/180 #SM 0.96
+(161-2)/180 #YB 0.88
+```
 
-Survivors_bydeployment <-  Survivors_bycage %>%
-  group_by(Deployment, Site) %>%
-  summarize(Survived = sum(n),
-            TotalFish = sum(Total)) %>%
-  mutate(Prop = Survived/TotalFish) %>%
-  ungroup()
+Make survival table
+```{r}
+Cage_survival <- as.data.frame(matrix(0, ncol = 4, nrow = 6))
+colnames(Cage_survival) <- c("Deployment", "Site", "Survived", "TotalFish")
+Cage_survival$Deployment = c("Winter", "Summer", "Summer", "Fall", "Fall", "Fall")
+Cage_survival$Site = c("RV", "RV", "Yolo", "RV", "SM", "Yolo")
+Cage_survival$Survived = c(120, 131, 0, 156, 172, 159)
+Cage_survival$TotalFish = c(128, 180, 60, 180, 180, 180)
 
-Survivors_final <- Survivors_bydeployment %>% add_row(Deployment = "Summer", Site ="Yolo", Survived = 0, TotalFish = 30, Prop = 0)
-  
+Cage_survival_total <- Cage_survival %>%
+  mutate(Prop = round(Survived/TotalFish,3))
+
 ```
 
 ```{r}
-Cage_survival_RV <- as.data.frame(matrix(0, ncol = 2, nrow = 384))
-colnames(Cage_survival_RV) <- c("Cage", "Survived")
-
-Cage_survival_RV$Cage <- c(rep("A", 64), rep("B", 64), rep("C", 64), rep("D", 64), rep("E", 64), rep("F", 64))
-Cage_survival_RV$Survived <- c(rep("1", 60), rep("0", 4), 
-                               rep("1", 64), rep("0", 0),
-                               rep("1", 64), rep("0", 0),
-                               rep("1", 64), rep("0", 0),
-                               rep("1", 62), rep("0", 2),
-                               rep("1", 56), rep("0", 8))
+write.csv(Cage_survival_total, "smelt_2019_allseasons/data_clean/cage_survival_table.csv", row.names = FALSE)
 ```
 
