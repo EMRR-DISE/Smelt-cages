@@ -1,0 +1,554 @@
+---
+title: "Relative Condition Factor"
+author: "Catarina Pien"
+date: "8/31/2020"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+rm(list=ls(all=TRUE))
+library(tidyverse)
+
+```
+
+Read in data
+
+```{r import}
+setwd("V:/Analysis/")
+Cagetype_data <- read.csv("CSV_Output/Cagetype_data.csv")
+Cagetype_data$Site <- ordered(Cagetype_data$Site, levels = c("RV", "DWSC"))
+```
+
+Complete cases
+
+```{r complete, echo=FALSE}
+# Make complete cases from column 9
+Delta_CF <- Cagetype_data[,9]
+Cagetype_CF <- Cagetype_data[complete.cases(Delta_CF),]
+```
+
+Gather length weight data and log transform
+```{r}
+LWData <- Cagetype_CF %>%
+ select(-contains("CF")) %>%
+  rename(FL_Pre = Pre_FL_cm,
+         FL_Post = Post_FL_cm,
+         Weight_Pre = Pre_Weight_g,
+         Weight_Post = Post_Weight_g) %>%
+  mutate(Site2 = ifelse(Mesh == "control", "FCCL", as.character(Site)))
+         
+# .value: this tells pivot_longer() that that part of the column name specifies the “value” being measured (which will become a variable in the output)
+LWlong <- LWData %>% 
+  pivot_longer(cols = -c(X, Cage, Site2, Site, Mesh),
+               names_to = c(".value", "Event"),
+               names_sep = "_") 
+
+LWlongT <- LWlong %>%
+  mutate(logFL = log(FL/10),
+         logWeight = log(Weight))
+
+```
+
+Plot data
+```{r plot}
+# Overall
+ggplot(LWlongT, aes(x = FL, y = Weight)) + geom_point() + 
+  labs(x = "Fork Length (cm)",
+       y = "Weight (g)") + 
+  theme_bw()
+
+# Site
+ggplot(LWlongT, aes(x = logFL, y = logWeight, shape = Site2, color = Site)) + geom_point() + 
+  geom_smooth(aes(color = Site), method = "lm", se = TRUE)+
+  scale_shape_manual(values = c(19, 2))+
+  labs(x = "Log10 Fork Length (mm)",
+       y = "Log10 Weight (g)") + 
+  theme_bw()
+
+# Pre-Post
+ggplot(LWlongT, aes(x = logFL, y = logWeight, shape = Event, color = Event)) + geom_point() + 
+  geom_smooth(aes(color = Event), method = "lm", se = TRUE)+
+  facet_wrap(~Site2) + 
+  labs(x = "Log10 Fork Length (mm)",
+       y = "Log10 Weight (g)") + 
+  theme_bw()
+```
+
+Fit a model to the LW-data
+```{r glm}
+library(visreg)
+library(lsmeans)
+# Linear model  - all data
+m1 <- lm(logWeight ~ logFL, data = LWlongT)
+summary(m1)
+par(mfrow = c(2,2))
+plot(m1) #3.31
+visreg(m1)
+
+# RV only
+RV_LW = filter(LWlongT, Site2 == "RV")
+m2 <- lm(logWeight ~ logFL, data = RV_LW)
+summary(m2)
+plot(m2) #3.35
+visreg(m2)
+
+# DWSC only
+
+DWSC_LW = filter(LWlongT, Site2 == "DWSC")
+m3 <- lm(logWeight ~ logFL, data = DWSC_LW)
+summary(m3) #3.51
+plot(m3)
+visreg(m3)
+
+# DWSC only
+
+FCCL_LW = filter(LWlongT, Site2 == "FCCL")
+m4 <- lm(logWeight ~ logFL, data = FCCL_LW)
+summary(m4) #3.62
+plot(m4)
+visreg(m4)
+
+
+```
+
+### Testing differences in L-W Relationship (ANCOVA)
+```{r}
+# Are sites different? Yes.
+m5 <- lm(logWeight ~ logFL*Site2, data = LWlongT)
+anova(m5)
+m5$coefficients
+(m.lst <- lstrends(m5, "Site2", var="logFL"))
+pairs(m.lst)
+
+# Plot Sites
+ggplot(LWlongT, aes(x = logWeight, y = logFL, color = Site2)) + 
+  geom_point() +
+  geom_smooth(method = "lm", se = TRUE) + 
+  facet_wrap(~Event) + theme_bw()
+
+# Are Pre-Post different?
+m6 <- lm(logWeight ~ logFL*Event + Site2, data = LWlongT)
+anova(m6)
+m6$coefficients
+(m.lst2 <- lstrends(m6, "Event", var="logFL")) # 3.387
+pairs(m.lst2)
+
+# Plot Event
+ggplot(LWlongT, aes(x = logWeight, y = logFL, color = Event)) + 
+  geom_point() +
+  geom_smooth(method = "lm", se = TRUE) +  
+  facet_wrap(~Site2) + theme_bw()
+
+# Including Both
+m7 <- lm(logWeight ~ logFL*Event + logFL*Site2, data = LWlongT)
+anova(m7)
+m7$coefficients
+(m.lst3 <- lstrends(m6, "Event", var="logFL")) # 3.387
+pairs(m.lst3)
+
+```
+
+Condition Factor
+LW regression: logW = 2.01266 + 3.30975 x logFL
+Relative CF: Kn = W/(a x L^b)
+Fulton's CF: W/L^3
+Ricker's CF = W/L^b
+```{r CF}
+# a = 10^intercept
+# b = slope of line
+
+a = 102.958
+b = 3.30975
+
+CFData <- LWData %>%
+  mutate(
+    FL_Pre_mm = FL_Pre/10,
+    FL_Post_mm = FL_Post/10,
+    RelCF_Pre = Weight_Pre/(a * FL_Pre_mm^b) ,
+    RelCF_Post = Weight_Post/(a * FL_Post_mm^b),
+    Delta_RelCF = RelCF_Post-RelCF_Pre,
+    RickCF_Pre = (Weight_Pre/(FL_Pre^b)) * 100,
+    RickCF_Post = (Weight_Post/(FL_Post^b)) * 100,
+    Delta_RickCF = RickCF_Post-RickCF_Pre,
+    CF_Pre = Weight_Pre/(FL_Pre^3)*100,
+    CF_Post = Weight_Post/(FL_Post^3)*100,
+    Delta_CF = CF_Post-CF_Pre)
+  
+
+```
+
+Mean CF for plots
+
+```{r meancf Plots}
+# Summarize mean, sd, median, n for condition factor
+Cage.CF <- CFData %>%
+  na.omit() %>%
+#  filter(Cage!="FCCL1") %>%
+ # filter(Cage!="FCCL2") %>%
+  group_by(Site, Mesh)%>%
+  summarize(
+    Delta_CF_Mean = mean(Delta_CF),
+    Delta_CF_sd = sd(Delta_CF),
+    Delta_CF_median = median(Delta_CF),
+    N = n(),
+    Delta_RCF_Mean = mean(Delta_RickCF),
+    Delta_RCF_sd = sd(Delta_RickCF),
+    Delta_RCF_median = median(Delta_RickCF),
+    NRick = n())
+
+# Calculate Average CF for FCCL
+FCCL_CF <- CFData %>%
+  filter(Cage == "FCCL1" | Cage == "FCCL2") %>%
+  group_by(Site, Mesh)%>%
+  summarize(
+    Delta_CF_Mean = mean(Delta_CF),
+    Delta_CF_sd = sd(Delta_CF),
+    Delta_CF_median = median(Delta_CF),
+    N = n(),
+    Delta_RCF_Mean = mean(Delta_RickCF),
+    Delta_RCF_sd = sd(Delta_RickCF),
+    Delta_RCF_median = median(Delta_RickCF),
+    NRick = n()
+  )
+```
+
+Plots
+```{r plots}
+# Overview of data (geom_point)
+ggplot(CFData, aes(Mesh, Delta_CF, col = Mesh)) + 
+  facet_wrap(~Site) +
+  geom_jitter(size = 3) +
+  scale_fill_brewer(palette="Dark2")+
+  theme_bw() +
+  theme(axis.text = element_text(size = 16),
+        axis.title = element_text(size = 20),
+        legend.text = element_text(size = 16),
+        legend.title = element_text(size = 18))
+
+# CF mean and sd by site
+# CF mean by site
+ggplot(Cage.CF, aes(Mesh, Delta_CF_Mean,  fill = Mesh)) + 
+  facet_wrap(~Site)+
+  geom_bar(width = 0.8, position = "dodge2", stat = "identity") +
+  scale_fill_brewer(palette="Dark2")+
+  labs(y = "Delta Condition Factor") +
+  geom_errorbar(aes(ymin = Delta_CF_Mean - Delta_CF_sd, ymax = Delta_CF_Mean + Delta_CF_sd), width = 0.1, 
+                position = position_dodge(0.9), color = "black") +
+  theme_bw() +
+  theme(axis.text = element_text(size = 18),
+        axis.title = element_text(size = 18),
+        strip.text = element_text(size = 18),
+        legend.position = "none")
+
+# Mean point plot
+ggplot(Cage.CF, aes(Mesh, Delta_CF_Mean,  col = Mesh)) + 
+  facet_wrap(~Site)+
+  geom_point(size = 8, shape = 18) +
+  scale_colour_brewer(palette="Dark2")+
+  labs(y = "Delta Condition Factor") +
+  geom_errorbar(aes(ymin = Delta_CF_Mean - Delta_CF_sd, ymax = Delta_CF_Mean + Delta_CF_sd), width = 0.1, 
+                position = position_dodge(0.9), color = "black") +
+  theme_bw() +
+  theme(axis.text = element_text(size = 18),
+        axis.title = element_text(size = 18),
+        strip.text = element_text(size = 18),
+        legend.position = "none")
+
+# Mean point plot - Ricker
+ggplot(Cage.CF, aes(Mesh, Delta_RCF_Mean,  col = Mesh)) + 
+  facet_wrap(~Site)+
+  geom_point(size = 8, shape = 18) +
+  scale_colour_brewer(palette="Dark2")+
+  labs(y = "Delta Condition Factor") +
+  geom_errorbar(aes(ymin = Delta_RCF_Mean - Delta_RCF_sd, ymax = Delta_RCF_Mean + Delta_RCF_sd), width = 0.1, 
+                position = position_dodge(0.9), color = "black") +
+  theme_bw() +
+  theme(axis.text = element_text(size = 18),
+        axis.title = element_text(size = 18),
+        strip.text = element_text(size = 18),
+        legend.position = "none")
+
+### CF boxplot by site #####################
+Cageonly <- CFData %>%
+  filter(Cage != "FCCL1") %>%
+  filter(Cage != "FCCL2") %>%
+  mutate(Group = ifelse(Site == "RV" & Mesh == "wrap", "B", ifelse(Site == "DWSC", " ", "A")))
+
+windowsFonts(Times = windowsFont("Times New Roman"))
+
+# Specify FCCL Delta CF label position
+ann_text <- data.frame(
+  label = c("FCCL Delta CF = 0.0048","FCCL Delta CF = 0.0027"),
+  Site = c("RV", "DWSC"),
+  x = c(2,2),
+  y = c(0.08, 0.07))
+
+# By mesh type
+ggplot(data=Cageonly) +
+  geom_boxplot(aes(x=Mesh, y=Delta_CF,  fill = Mesh)) +
+  facet_wrap(~Site) +
+  labs(y = "Delta Condition Factor") +
+  geom_text(aes(label = Group, x = Mesh, y = -0.05), family = "Times", size = 6) +
+  geom_hline(data = FCCL_CF, aes(yintercept=Delta_CF_median), size = 1) +
+  geom_text(data = ann_text, mapping = aes(x = x, y = y, label = label), family = "Times", size = 5.5)+
+  scale_fill_brewer(palette="Dark2")+
+  labs(y = "Delta Condition Factor") +
+  theme_minimal() +
+  annotate("segment", x=-Inf, xend=Inf, y=-Inf, yend=-Inf)+
+  annotate("segment", x=-Inf, xend=-Inf, y=-Inf, yend=Inf) +
+  theme(text = element_text(family = "Times"),
+        axis.text = element_text(size = 16),
+        axis.title = element_text(size = 17),
+        strip.text = element_text(size = 17),
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
+        panel.border = element_blank(),
+        axis.line = element_line(colour = "black"),
+        legend.position = "none",
+        panel.spacing = unit(2, "lines"))
+
+# Specify FCCL Delta CF label position
+ann_text2 <- data.frame(
+  label = c("FCCL Delta CF = 0.0135","FCCL Delta CF = 0.024"),
+  Site = c("RV", "DWSC"),
+  x = c(2,2),
+  y = c(0.08, 0.07))
+
+# By mesh type - Ricker
+ggplot(data=Cageonly) +
+  geom_boxplot(aes(x=Mesh, y=Delta_RelCF,  fill = Mesh)) +
+  facet_wrap(~Site) +
+  labs(y = "Delta Condition Factor") +
+  geom_text(aes(label = Group, x = Mesh, y = -0.05), family = "Times", size = 6) +
+  geom_hline(data = FCCL_CF, aes(yintercept=Delta_RCF_median), size = 1) +
+  geom_text(data = ann_text2, mapping = aes(x = x, y = y, label = label), family = "Times", size = 5.5)+
+  scale_fill_brewer(palette="Dark2")+
+  labs(y = "Delta Condition Factor") +
+  theme_minimal() +
+  annotate("segment", x=-Inf, xend=Inf, y=-Inf, yend=-Inf)+
+  annotate("segment", x=-Inf, xend=-Inf, y=-Inf, yend=Inf) +
+  theme(text = element_text(family = "Times"),
+        axis.text = element_text(size = 16),
+        axis.title = element_text(size = 17),
+        strip.text = element_text(size = 17),
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
+        panel.border = element_blank(),
+        axis.line = element_line(colour = "black"),
+        legend.position = "none",
+        panel.spacing = unit(2, "lines"))
+# By cage
+ggplot(data=Cageonly, aes(x=Cage, y=Delta_CF,  fill = Mesh)) +
+  facet_wrap(~Site) +
+  labs(y = "Delta Condition Factor") +
+  geom_boxplot()+
+  geom_hline(data = FCCL_CF, aes(yintercept=Delta_CF_median)) +
+  scale_fill_brewer(palette="Dark2")+
+  labs(y = "Delta Condition Factor") +
+  theme_bw() +
+  theme(axis.text = element_text(size = 15),
+        axis.title = element_text(size = 17),
+        strip.text = element_text(size = 16),
+        legend.position = "none")
+
+```
+
+
+ANOVA
+
+```{r anova, warning = FALSE, message = FALSE}
+library(car)
+library(FSA)
+## RV ---------------------------------------------------------------------------
+# Run ANOVA -----------------------------
+
+Cage_only_RVR <- CFData %>%
+  filter(Site == "RV")%>%
+  filter(Cage != "FCCL1") %>%
+  filter(Cage != "FCCL2")
+
+rv.cf.aov <- aov(Delta_CF~Mesh, data = Cage_only_RVR)
+summary(rv.cf.aov)
+
+# Check assumptions -----------------------------------
+# Homogeneity of variances
+par(mfrow = c(1,2))
+plot(rv.cf.aov, 1)
+leveneTest(Delta_CF ~ Mesh, data = Cage_only_RVR) # p<0.05 means not homogeneous
+
+# Normality
+plot(rv.cf.aov, 2)
+
+rv_cf_residuals <- residuals(object = rv.cf.aov)
+shapiro.test(x = rv_cf_residuals ) # p<0.05 means not normal
+
+# Does not meet assumptions: do non-parametric Kruskal-Wallis test--------------------
+kruskal.test(Delta_CF~Mesh, data = Cage_only_RVR) # still significant
+
+# Post-hoc Dunn test --------------
+# Dunn test can be used if sample size are heterogeneous
+RV.dunn <- dunnTest(Delta_CF~Mesh,
+                    data = Cage_only_RVR,
+                    method = "bonferroni") # bonferroni corrects for number of comparisons
+RV.dunn
+RV.dunn = RV.dunn$res
+
+library(rcompanion)
+
+cldList(comparison = RV.dunn$Comparison,
+        p.value    = RV.dunn$P.adj,
+        threshold  = 0.05)
+
+## DWSC ---------------------------------------------------------------------------
+
+# Run ANOVA -------------------------------------
+
+Cage_only_DWSC <- CFData %>%
+  filter(Site == "DWSC") %>%
+  filter(Cage != "FCCL1") %>%
+  filter(Cage != "FCCL2")
+
+Cage_only_DWSC$Mesh <- as.factor(Cage_only_DWSC$Mesh) 
+
+dwsc.cf.aov <- aov(Delta_CF~Mesh, data = Cage_only_DWSC)
+summary(dwsc.cf.aov)
+
+TukeyHSD(dwsc.cf.aov)
+
+# Check assumptions -----------------------------------
+# Homogeneity of variances
+plot(dwsc.cf.aov, 1)
+leveneTest(Delta_CF ~ Mesh, data = Cage_only_DWSC) # p<0.05 means not homogeneous
+
+# Normality
+plot(dwsc.cf.aov, 2)
+
+dwsc_cf_residuals <- residuals(object = dwsc.cf.aov)
+shapiro.test(x = dwsc_cf_residuals ) # p<0.05 means not normal
+
+# Does not meet assumptions: do non-parametric Kruskal-Wallis test---------------
+kruskal.test(Delta_CF~Mesh, data = Cage_only_DWSC)
+```
+
+Ricker CF - ANOVA /Kruskal Wallis
+```{r Rickeranova, warning = FALSE, message = FALSE}
+library(car)
+library(FSA)
+## RV ---------------------------------------------------------------------------
+# Run ANOVA -----------------------------
+
+Cage_only_RVR <- CFData %>%
+  filter(Site == "RV")%>%
+  filter(Cage != "FCCL1") %>%
+  filter(Cage != "FCCL2")
+
+rv.cf.aov <- aov(Delta_RickCF~Mesh, data = Cage_only_RVR)
+summary(rv.cf.aov)
+
+# Check assumptions -----------------------------------
+# Homogeneity of variances
+par(mfrow = c(1,2))
+plot(rv.cf.aov, 1)
+leveneTest(Delta_RickCF ~ Mesh, data = Cage_only_RVR) # p<0.05 means not homogeneous
+
+# Normality
+plot(rv.cf.aov, 2)
+
+rv_cf_residuals <- residuals(object = rv.cf.aov)
+shapiro.test(x = rv_cf_residuals ) # p<0.05 means not normal
+
+# Does not meet assumptions: do non-parametric Kruskal-Wallis test--------------------
+kruskal.test(Delta_RickCF~Mesh, data = Cage_only_RVR) # still significant
+
+# Post-hoc Dunn test --------------
+# Dunn test can be used if sample size are heterogeneous
+RV.dunn <- dunnTest(Delta_RickCF~Mesh,
+                    data = Cage_only_RVR,
+                    method = "bonferroni") # bonferroni corrects for number of comparisons
+RV.dunn
+RV.dunn = RV.dunn$res
+
+library(rcompanion)
+
+cldList(comparison = RV.dunn$Comparison,
+        p.value    = RV.dunn$P.adj,
+        threshold  = 0.05)
+
+## DWSC ---------------------------------------------------------------------------
+
+# Run ANOVA -------------------------------------
+
+Cage_only_DWSC <- CFData %>%
+  filter(Site == "DWSC") %>%
+  filter(Cage != "FCCL1") %>%
+  filter(Cage != "FCCL2")
+
+Cage_only_DWSC$Mesh <- as.factor(Cage_only_DWSC$Mesh) 
+
+dwsc.cf.aov <- aov(Delta_RickCF~Mesh, data = Cage_only_DWSC)
+summary(dwsc.cf.aov)
+
+TukeyHSD(dwsc.cf.aov)
+
+# Check assumptions -----------------------------------
+# Homogeneity of variances
+plot(dwsc.cf.aov, 1)
+leveneTest(Delta_RickCF ~ Mesh, data = Cage_only_DWSC) # p<0.05 means not homogeneous
+
+# Normality
+plot(dwsc.cf.aov, 2)
+
+dwsc_cf_residuals <- residuals(object = dwsc.cf.aov)
+shapiro.test(x = dwsc_cf_residuals ) # p<0.05 means not normal
+
+# Does not meet assumptions: do non-parametric Kruskal-Wallis test---------------
+kruskal.test(Delta_RickCF~Mesh, data = Cage_only_DWSC)
+```
+
+
+# Mixed Modeling to incorporate the effect of cage? Reach out to Britt or Rosie for advice. 
+```{r}
+library(lme4)
+library(lmerTest)
+
+M.RVR = lmer(Delta_CF ~ Mesh + (1|Cage), data = Cage_only_RVR, na.action = na.omit)
+summary(M.RVR)
+anova(M.RVR)
+
+M1.resid <- resid(M.RVR, type = "pearson")
+plot(M.RVR)
+par(mfrow = c(2,2))
+
+# normality
+qqnorm(residuals(M.RVR))
+# leverage
+ggplot(data.frame(lev=hatvalues(M.RVR),pearson=residuals(M.RVR,type="pearson")),
+      aes(x=lev,y=pearson)) +
+    geom_point() +
+    theme_bw()
+
+ggplot(Cage_only_RVR, aes(y = Mesh, x = M1.resid)) + geom_point()
+
+plot(hist(residuals(M.RVR)))
+
+
+M.RVR2 = lmer(Delta_CF ~ Mesh + (1|Cage), data = Cage_only_RVR, na.action = na.omit)
+summary(M.RVR)
+anova(M.RVR)
+
+par(mfrow = c(1,2))
+qqnorm(residuals(M.RVR))
+plot(residuals(M.RVR))
+
+
+
+M.DWSC = lmer(Delta_CF ~ Mesh + (1|Cage), data = Cage_only_DWSC, na.action = na.omit)
+summary(M.DWSC)
+qqnorm(residuals(M.DWSC))
+plot(residuals(M.DWSC))
+
+```
+
