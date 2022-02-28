@@ -1,0 +1,31 @@
+---
+title: "check_length-distribution"
+author: "Catarina Pien"
+date: "12/13/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(car)
+library(FSA)
+library(tidyverse)
+library(ggthemes)
+```
+
+```{r}
+Cagetype_data <- read.csv("smelt_2019_winterspring/Cagetype_data.csv")
+Cagetype_data$Site <- ordered(Cagetype_data$Site, levels = c("RV", "DWSC"))
+```
+
+```{r}
+NAs <- Cagetype_data %>%
+  filter(is.na(Delta_CF),
+         Mesh!= "Control")
+
+
+```
+
