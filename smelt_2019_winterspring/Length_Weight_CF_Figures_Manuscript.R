@@ -1,7 +1,8 @@
 # 5/10/21
-# Haley Hudson 
-# Creating Figures/Tables for Weight and Length
-#for additional information along with condition factor
+# Last modified 3/1/2022
+# Haley Hudson / Catarina Pien
+# Creating Figures/Tables for Weight and Length, Condition factor
+# All Cat's 2019 winter/spring manuscript plots are here
 
 # Set up workspace and load data ----------------------------------------------------------------------
 rm(list=ls(all=TRUE))
@@ -14,9 +15,7 @@ Cagetype_data <- read.csv(here("smelt_2019_winterspring", "data_clean", "Cagetyp
   mutate(Site = factor(Site, levels = c("RV", "DWSC")),
          Enclosure = ifelse(Mesh == "wrap", "A", ifelse(Mesh == "large", "B", ifelse(Mesh == "small", "C", ifelse(Mesh == "control", "control", NA)))))
 
-# ----------------------------------------------------------------------------------
-################## Condition Factor ################################################
-# -----------------------------------------------------------------------------------
+################## Condition Factor ---------------------------------------------------------------------------------
 
 # Make complete cases from column 9
 Delta_CF <- Cagetype_data[,9]
@@ -47,8 +46,7 @@ FCCL_CF <- Cagetype_CF %>%
   mutate(delta.CF = round(mean.PostCF - mean.PreCF,2))
 #write.csv(Cage.CF, "Condition_Factors.csv")
 
-###############################################################################
-#                      Length and Weight
+#Length and Weight###########################-------------------            
 
 # Summarize mean, sd, median, n for Pre and Post Length and Width
 Cagedata <- Cagetype_CF %>%
@@ -92,8 +90,7 @@ FCCL <- Cagetype_CF %>%
   mutate(delta.Length = round(PoL_Mean - PreL_Mean,2)) %>%
   mutate(delta.weight = round(PoW_Mean - PreW_Mean,2))
 
-###############################################################################
-#------------Tables-------------------------------------------------------
+#Tables##################################################------------------
 
 #Rename column
 #FCCL<- FCCL %>% 
@@ -107,7 +104,7 @@ FCCL <- Cagetype_CF %>%
 #DWSC_survival <- table(Cagetype_survival_DWSC$Mesh, Cagetype_survival_DWSC$Survived)
 
 
-## Plots ------------------------------------------------------------------------
+#Plots ------------------------------------------------------------------------
 
 
 ### Length barplot by site #####################
@@ -342,8 +339,7 @@ Weightplot<- ggplot(data=Cageonly) +
         panel.spacing = unit(2, "lines"))
 Weightplot
 
-################ MANUSCRIPT PLOT ######################################
-################Condition Factor -------------------------------------------
+################ MANUSCRIPT::Condition Factor ########################## -------------------------------------------
 ann_text <- data.frame(
   label = c("FCCL Delta CF = 0.11","FCCL Delta CF = 0.02"),
   Site = c("RV", "DWSC"),
@@ -376,13 +372,12 @@ CFplot<- ggplot(data=Cageonly) +
         panel.spacing = unit(2, "lines"))
 CFplot
 
-
+#### Save CF plot -----------------------------
 tiff(filename=file.path("smelt_2019_winterspring/figuresConditionFactorPlot.tiff"), units="in",type="cairo", bg="white", height=4, 
      width=7, res=300, pointsize=12,compression="lzw")
 CFplot
 dev.off()
 
-###################################################################
 
 
 
@@ -398,13 +393,15 @@ dev.off()
 
 
 
-################ MANUSCRIPT:: Combined Plot##################################
-######-----------------------------Stack Plots------------------------------
+### MANUSCRIPT:: Combined Plot##################################----------------------------
+
+# Stack Plots
 library(ggpubr)
 library(gridExtra)
 library(grid)
-#https://github.com/tidyverse/ggplot2/wiki/Share-a-legend-between-two-ggplot2-graphs
+# https://github.com/tidyverse/ggplot2/wiki/Share-a-legend-between-two-ggplot2-graphs
 
+# function
 grid_arrange_shared_legend <- function(..., ncol = length(list(...)), nrow = 1, position = c("bottom", "right")) {
   plots <- list(...)
   position <- match.arg(position)
@@ -429,11 +426,9 @@ grid_arrange_shared_legend <- function(..., ncol = length(list(...)), nrow = 1, 
   invisible(combined)
 }
 
-#--
+#### Save combined plot ------------------------------------------
 tiff(filename=file.path("smelt_2019_winterspring/figures/WeightLengthPlot.tiff"), units="in",type="cairo", bg="white", height=4, 
      width=7, res=300, pointsize=12,compression="lzw")
 combinedplot<-grid_arrange_shared_legend(MeanLenghtplot, MeanWeightplot, ncol = 1, nrow = 2)
 dev.off()
 
-#ggsave("Length_Weight.png", plot =combinedplot, dpi=300, height=7, width=10, units="in")
-############################################################################
