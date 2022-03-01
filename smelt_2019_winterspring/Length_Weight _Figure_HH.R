@@ -9,10 +9,10 @@ library(car)
 library(FSA)
 library(tidyverse)
 library(ggthemes)
-setwd("//cnrastore-des/DS Enclosures/Analysis")
-Cagetype_data <- read.csv("CSV_Output/Cagetype_data.csv") %>%
-  mutate(Mesh = recode(Mesh, large = "B", small = "A", wrap = "C")) 
-Cagetype_data$Site <- ordered(Cagetype_data$Site, levels = c("RV", "DWSC"))
+
+Cagetype_data <- read.csv(here("smelt_2019_winterspring", "data_clean", "Cagetype_data.csv")) %>%
+  mutate(Site = factor(Site, levels = c("RV", "DWSC")),
+         Enclosure = ifelse(Mesh == "wrap", "A", ifelse(Mesh == "large", "B", ifelse(Mesh == "small", "C", ifelse(Mesh == "control", "control", NA)))))
 
 # ----------------------------------------------------------------------------------
 ################## Condition Factor ################################################
@@ -109,8 +109,8 @@ FCCL <- Cagetype_CF %>%
 
 ## Plots ------------------------------------------------------------------------
 
-### Length boxplot by site #####################
 
+### Length barplot by site #####################
 Cageonly <- Cagetype_data %>%
   filter(Cage != "FCCL1") %>%
   filter(Cage != "FCCL2") %>%
@@ -194,15 +194,18 @@ ann_text <- data.frame(
 CagePrePost$PrePost <- factor(CagePrePost$PrePost,
                        levels = c('Pre_FL_cm','Post_FL_cm'),ordered = TRUE)
 
+
+################# MANUSCRIPT:: Length box plot by site ---------
+
 MeanLenghtplot<- ggplot(data=CagePrePost) +
-  geom_boxplot(outlier.size=-1,aes(x=Mesh, y=Length1,  fill = PrePost)) +
+  geom_boxplot(outlier.size=-1,aes(x=Enclosure, y=Length1,  fill = PrePost)) +
   facet_wrap(~Site) +
   labs(y = "Length (cm)") +
   #geom_text(aes(label = Group, x = Mesh, y = -0.32), family = "Times", size = 6) +
   #geom_hline(data = FCCL, aes(yintercept=delta.weight), size = 1) +
   #geom_text(data = ann_text, mapping = aes(x = x, y = y, label = label), family = "Times", size = 5.5)++
   scale_fill_manual(values=c("#E7298A", "#66A61E"), name = "", labels = c("Pre-Deployment", "Post-Deployment")) +
-  labs(y = "Length (cm)") + scale_x_discrete(labels=c("control" = "FCCL")) +
+  labs(y = "Length (cm)", x = "Enclosure Type") + scale_x_discrete(labels=c("control" = "FCCL")) +
   theme_minimal() + theme(axis.title.x = element_blank()) +
   annotate("segment", x=-Inf, xend=Inf, y=-Inf, yend=-Inf)+
   annotate("segment", x=-Inf, xend=-Inf, y=-Inf, yend=Inf) +
@@ -212,6 +215,7 @@ MeanLenghtplot<- ggplot(data=CagePrePost) +
         axis.title = element_text(size = 17),
         strip.text = element_text(size = 17),
         legend.text = element_text(size = 15),
+        legend.position = "bottom",
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank(),
         panel.border = element_blank(),
@@ -219,7 +223,11 @@ MeanLenghtplot<- ggplot(data=CagePrePost) +
         #legend.position = "none",
         panel.spacing = unit(2, "lines"))
 MeanLenghtplot
-##############Mean Weight Pre and post deployment 
+
+
+
+
+################# MANUSCRIPT:: Weight box plot by site ---------
 CagePrePostW <- gather(Cagetype_data, PrePostW,Weight1,Pre_Weight_g, Post_Weight_g)
 
 windowsFonts(Times = windowsFont("Times New Roman"))
@@ -235,7 +243,7 @@ CagePrePostW$PrePostW <- factor(CagePrePostW$PrePostW,
                               levels = c('Pre_Weight_g','Post_Weight_g'),ordered = TRUE)
 
 MeanWeightplot<- ggplot(data=CagePrePostW) +
-  geom_boxplot(outlier.size=-1,aes(x=Mesh, y=Weight1,  fill = PrePostW)) +
+  geom_boxplot(outlier.size=-1,aes(x=Enclosure, y=Weight1,  fill = PrePostW)) +
   facet_wrap(~Site) +
   labs(y = "Mean Weight (g)") +
   #geom_text(aes(label = Group, x = Mesh, y = -0.32), family = "Times", size = 6) +
@@ -243,7 +251,7 @@ MeanWeightplot<- ggplot(data=CagePrePostW) +
   #geom_text(data = ann_text, mapping = aes(x = x, y = y, label = label), family = "Times", size = 5.5)+
   scale_fill_manual(values=c("#E7298A", "#66A61E"), name = "Deployment", labels = c("Pre-Deployment", "Post-Deployment"))+
   #palette="Dark2" 
-   labs(y = "Weight (g)") + scale_x_discrete(labels=c("control" = "FCCL")) +
+   labs(y = "Weight (g)", x = "Enclosure Type") + scale_x_discrete(labels=c("control" = "FCCL")) +
   theme_minimal() + theme(strip.text.x = element_blank()) +
   annotate("segment", x=-Inf, xend=Inf, y=-Inf, yend=-Inf)+
   annotate("segment", x=-Inf, xend=-Inf, y=-Inf, yend=Inf) + 
@@ -253,6 +261,7 @@ MeanWeightplot<- ggplot(data=CagePrePostW) +
         axis.title = element_text(size = 17),
         strip.text = element_text(size = 17),
         legend.text = element_text(size = 15),
+        legend.position = "bottom",
         panel.grid.major = element_blank(), 
         panel.grid.minor = element_blank(),
         panel.border = element_blank(),
@@ -299,7 +308,7 @@ MeanLenghtvio<- ggplot(data=CagePrePost) +
 MeanLenghtvio
 
 
-################# Weight box plot by site ------------------------------
+# Delta weight boxplot
 windowsFonts(Times = windowsFont("Times New Roman"))
 
 # Specify FCCL Delta CF label position
@@ -310,7 +319,7 @@ ann_text <- data.frame(
   y = c(1.44, 0.61))
 
 Weightplot<- ggplot(data=Cageonly) +
-  geom_boxplot(aes(x=Mesh, y=delta.W,  fill = Mesh)) +
+  geom_boxplot(aes(x=Enclosure, y=delta.W,  fill = Enclosure)) +
   facet_wrap(~Site) +
   labs(y = "Delta Weight (g)") +
   #geom_text(aes(label = Group, x = Mesh, y = -0.32), family = "Times", size = 6) +
@@ -344,14 +353,14 @@ ann_text <- data.frame(
 ann_text$Site <- factor(ann_text$Site, levels = c("RV", "DWSC"))
 
 CFplot<- ggplot(data=Cageonly) +
-  geom_boxplot(aes(x=Mesh, y=Delta_CF,  fill = Mesh)) +
+  geom_boxplot(aes(x=Enclosure, y=Delta_CF,  fill = Enclosure)) +
   facet_wrap(~Site) +
   labs(y = "Delta Condition Factor") +
   geom_text(data = ann_text, mapping = aes(x = x, y = y, label = label), family = "Times", size = 5.5)+#geom_text(aes(label = Group, x = Mesh, y = -0.32), family = "Times", size = 6) +
   geom_hline(data = FCCL_CF, aes(yintercept=delta.CF), size = 1) +
   
   scale_fill_brewer(palette="Dark2")+
-  labs(y = "Delta Condition Factor") +
+  labs(y = "\u0394 Condition Factor", x = "Enclosure Type") +
   theme_minimal() +
   annotate("segment", x=-Inf, xend=Inf, y=-Inf, yend=-Inf)+
   annotate("segment", x=-Inf, xend=-Inf, y=-Inf, yend=Inf) +
@@ -368,7 +377,7 @@ CFplot<- ggplot(data=Cageonly) +
 CFplot
 
 
-tiff(filename=file.path("Figure Output/2019Manuscript_Figures/ConditionFactorPlot.tiff"), units="in",type="cairo", bg="white", height=4, 
+tiff(filename=file.path("smelt_2019_winterspring/figuresConditionFactorPlot.tiff"), units="in",type="cairo", bg="white", height=4, 
      width=7, res=300, pointsize=12,compression="lzw")
 CFplot
 dev.off()
@@ -389,8 +398,7 @@ dev.off()
 
 
 
-################ MANUSCRIPT PLOT ######################################
-########################Combined Plot##################################
+################ MANUSCRIPT:: Combined Plot##################################
 ######-----------------------------Stack Plots------------------------------
 library(ggpubr)
 library(gridExtra)
@@ -422,7 +430,7 @@ grid_arrange_shared_legend <- function(..., ncol = length(list(...)), nrow = 1, 
 }
 
 #--
-tiff(filename=file.path("Figure Output/2019Manuscript_Figures/WeightLengthPlot.tiff"), units="in",type="cairo", bg="white", height=4, 
+tiff(filename=file.path("smelt_2019_winterspring/figures/WeightLengthPlot.tiff"), units="in",type="cairo", bg="white", height=4, 
      width=7, res=300, pointsize=12,compression="lzw")
 combinedplot<-grid_arrange_shared_legend(MeanLenghtplot, MeanWeightplot, ncol = 1, nrow = 2)
 dev.off()

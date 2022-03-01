@@ -12,7 +12,14 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
-smeltdata <- read_csv("data_clean/clean_smelt_cf_2019.csv", col_types = cols(.default="f", FL_cm = "d", Weight_g = "d", K = "d", ID = "c"))
+library(dplyr)
+library(ggplot2)
+library(readr)
+library(here)
+```
+
+```{r}
+smeltdata <- read_csv(here("smelt_2019_allseasons", "data_clean", "clean_smelt_cf_2019.csv"), col_types = cols(.default="f", FL_cm = "d", Weight_g = "d", K = "d", ID = "c"))
 glimpse(smeltdata)
 ```
 
