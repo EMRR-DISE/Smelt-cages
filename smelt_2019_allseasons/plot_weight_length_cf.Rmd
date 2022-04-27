@@ -30,6 +30,8 @@ smeltdata2 <- filter(smeltdata, Site !="DWSC")%>%
 
 Summarize data
 ```{r}
+level_key = c(Pre = "Pre-Deployment", Post = "Post-Deployment")
+level_key = c(`Pre-Deployment` = "Pre", `Post-Deployment` = "Post")
 summarydata <- smeltdata2 %>%
   group_by(Deployment, Site, Period) %>%
   summarize(meanCF = mean(K, na.rm = TRUE),
@@ -38,7 +40,9 @@ summarydata <- smeltdata2 %>%
             sdFL = sd(FL_cm, na.rm = TRUE),
             meanWeight = mean(Weight_g, na.rm = TRUE),
             sdWeight = sd(Weight_g, na.rm = TRUE),
-            n = n())
+            n = n())%>%
+  ungroup() %>%
+  mutate(Period = recode(Period,"Pre" = "Pre-Deployment", "Post" = "Post-Deployment"))
 ```
 
 Plot K
@@ -46,7 +50,14 @@ Plot K
 box_K <- ggplot(smeltdata2, aes(x = Period, y = K, fill = Site)) + 
   geom_boxplot() + 
   facet_wrap(Deployment~.) + 
-  viridis::scale_fill_viridis(discrete = TRUE, option = "plasma") + theme_bw()
+  viridis::scale_fill_viridis(discrete = TRUE, option = "plasma") +
+  labs(y = "Condition Factor (K)") + 
+  theme_bw()+
+  theme(axis.title.x = element_blank(),
+        axis.text = element_text(size = 11),
+        strip.text = element_text(size = 11),
+        legend.text = element_text(size = 11),
+        legend.title = element_text(size = 11.5))
 ```
 
 Plot Length
@@ -54,7 +65,12 @@ Plot Length
 box_FL <- ggplot(smeltdata2, aes(x = Period, y = FL_cm, fill = Site)) + 
   geom_boxplot() + 
   facet_wrap(Deployment~.) + 
-  viridis::scale_fill_viridis(discrete = TRUE, option = "plasma") + theme_bw()
+  viridis::scale_fill_viridis(discrete = TRUE, option = "plasma") +
+  labs(y = "Fork Length (cm)") +
+  theme_bw()+
+  theme(axis.title.x = element_blank(),
+        axis.text = element_text(size = 11),
+        strip.text = element_text(size = 11))
 ```
 
 Plot Weight
@@ -62,14 +78,21 @@ Plot Weight
 box_Wt <- ggplot(smeltdata2, aes(x = Period, y = Weight_g, fill = Site)) + 
   geom_boxplot() + 
   facet_wrap(Deployment~.) + 
-  viridis::scale_fill_viridis(discrete = TRUE, option = "plasma") + theme_bw()
+  viridis::scale_fill_viridis(discrete = TRUE, option = "plasma") +
+  labs(y = "Weight (g)") + 
+  theme_bw()+
+  theme(axis.title.x = element_blank(),
+        axis.text = element_text(size = 11),
+        strip.text = element_text(size = 11))
 ```
 
 ```{r}
-getwd()
 library(ggpubr)
+figure_comb <- ggarrange(box_FL, box_Wt, box_K, nrow = 3, common.legend = TRUE)
+
+
 tiff(filename = file.path("smelt_2019_allseasons/figures/FL-Wt-K.tiff"), res = 300, width = 7, height = 7, units = "in", pointsize = 10, type = "cairo", compression = "lzw")
-ggarrange(box_FL, box_Wt, box_K, nrow = 3)
+annotate_figure(figure_comb, bottom = text_grob("Deployment Period", size = 11) )
 dev.off()
 
 ```
