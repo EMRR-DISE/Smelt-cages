@@ -11,12 +11,11 @@ library(tidyverse)
 library(lubridate)
 library(emmeans)
 library(multcomp)
-setwd("C:/Users/nkwan/Desktop/Zoop'19")
 ```
 
 # load data
 ```{r}
-zoop <- read_csv("ZoopDataCombined_biomass_qc'ed_12.19.19.csv")
+zoop <- read_csv("smelt_2019_winterspring/data_raw/ZoopDataCombined_biomass_qc'ed_12.19.19.csv")
 
 zoop$Date<-mdy(zoop$Date)
 
@@ -24,12 +23,12 @@ zoop$RingSize_m <- zoop$RingSize_cm/100
 
 split<- split(zoop, zoop$Method)
 
-write_excel_csv(split[["Throw"]], "C:/Users/nkwan/Desktop/Zoop'19/throw_method_zoop.csv")
+write_excel_csv(split[["Throw"]], "smelt_2019_winterspring/data_raw/throw_method_zoop.csv")
 
-write_excel_csv(split[["Tow"]], "C:/Users/nkwan/Desktop/Zoop'19/tow_method_zoop.csv")
+write_excel_csv(split[["Tow"]], "smelt_2019_winterspring/data_raw/tow_method_zoop.csv")
 
-throw<- read_csv("throw_method_zoop.csv")
-tow<- read_csv("tow_method_zoop.csv")
+throw<- read_csv("smelt_2019_winterspring/data_raw/throw_method_zoop.csv")
+tow<- read_csv("smelt_2019_winterspring/data_raw/tow_method_zoop.csv")
 ```
 
 # calculate abundance
@@ -102,7 +101,7 @@ all <- merge(rv2,dw2,by=c("ID","Taxa"),all=TRUE)
 #change NA to 0  
 all[is.na(all)] <- 0
 
-write_excel_csv(all, "species.table.csv")
+write_excel_csv(all, "smelt_2019_winterspring/data_clean/species.table.csv")
 ```
 
 # stacked bar across week plot
@@ -177,7 +176,7 @@ z<-ggplot(data = taxa.week.2, aes(x=Week2, y=bio.mean)) +
 z
 print(z)
 
-tiff(filename="Fig5.tiff", 
+tiff(filename="smelt_2019_winterspring/figures/zoopfig.tiff", 
     units="in", 
     width=7.25, #or 3.5 for single column
     height=3.75, #height you can adjust according to your plot
