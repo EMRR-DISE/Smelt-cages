@@ -11,14 +11,14 @@ editor_options:
 knitr::opts_chunk$set(echo = TRUE)
 rm(list=ls(all=TRUE))
 library(tidyverse)
+library(here)
 
 ```
 
 Read in data
 
 ```{r import}
-setwd("V:/Analysis/")
-Cagetype_data <- read.csv("CSV_Output/Cagetype_data.csv")
+Cagetype_data <- read.csv(here("smelt_2019_winterspring", "data_clean", "Cagetype_data.csv"))
 Cagetype_data$Site <- ordered(Cagetype_data$Site, levels = c("RV", "DWSC"))
 ```
 

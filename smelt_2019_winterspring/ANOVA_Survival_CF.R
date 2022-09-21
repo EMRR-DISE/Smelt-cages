@@ -11,10 +11,14 @@ library(car)
 library(FSA)
 library(tidyverse)
 library(ggthemes)
+library(here)
+library(dplyr)
 
-Cagetype_data <- read.csv("smelt_2019_winterspring/Cagetype_data.csv")
-Cagetype_data$Site <- ordered(Cagetype_data$Site, levels = c("RV", "DWSC"))
+Cagetype_data <- read.csv(here("smelt_2019_winterspring", "data_clean", "Cagetype_data.csv")) %>%
+  mutate(Site = factor(Site, levels = c("RV", "DWSC")),
+         Enclosure = ifelse(Mesh == "wrap", "A", ifelse(Mesh == "large", "B", ifelse(Mesh == "small", "C", ifelse(Mesh == "control", "control", NA)))))
 
+unique(Cagetype_data$Enclosure)
 
 # Summary Table Info ----
 # Pre
@@ -163,20 +167,23 @@ windowsFonts(Times = windowsFont("Times New Roman"))
 
 # Specify FCCL Delta CF label position
 ann_text <- data.frame(
-  label = c("FCCL Delta CF = 0.11","FCCL Delta CF = 0.02"),
+  label = c("FCCL \u0394 CF = 0.11","FCCL \u0394 CF = 0.02"),
   Site = c("RV", "DWSC"),
   x = c(2,2),
   y = c(0.16, 0.07))
+ann_text$Site <- factor(ann_text$Site, levels = c("RV", "DWSC"))
 
+
+# Boxplot by enclosure type 
 ggplot(data=Cageonly) +
-  geom_boxplot(aes(x=Mesh, y=Delta_CF,  fill = Mesh)) +
+  geom_boxplot(aes(x=Enclosure, y=Delta_CF,  fill = Enclosure)) +
   facet_wrap(~Site) +
   labs(y = "Delta Condition Factor") +
-  geom_text(aes(label = Group, x = Mesh, y = -0.32), family = "Times", size = 6) +
+  geom_text(aes(label = Group, x = Enclosure, y = -0.32), family = "Times", size = 6) +
   geom_hline(data = FCCL_CF, aes(yintercept=delta.CF), size = 1) +
   geom_text(data = ann_text, mapping = aes(x = x, y = y, label = label), family = "Times", size = 5.5)+
   scale_fill_brewer(palette="Dark2")+
-  labs(y = "Delta Condition Factor") +
+  labs(y = "\u0394 Condition Factor", x = "Enclosure Type") +
   theme_minimal() +
   annotate("segment", x=-Inf, xend=Inf, y=-Inf, yend=-Inf)+
   annotate("segment", x=-Inf, xend=-Inf, y=-Inf, yend=Inf) +
@@ -192,17 +199,19 @@ ggplot(data=Cageonly) +
         panel.spacing = unit(2, "lines"))
 
 Cageonly$Site <- factor(Cageonly$Site, levels = c("RV", "DWSC"))
+levels(Cageonly$Site)
 
+# * Plot in manuscript below ------------------------
 # No Dunn Test results here
-ggplot(data=Cageonly) +
-  geom_boxplot(aes(x=Mesh, y=Delta_CF,  fill = Mesh)) +
+(Boxplot <- ggplot(data=Cageonly) +
+  geom_boxplot(aes(x=Enclosure, y=Delta_CF,  fill = Enclosure)) +
   facet_wrap(~Site) +
   labs(y = "Delta Condition Factor") +
  # geom_text(aes(label = Group, x = Mesh, y = -0.32), family = "Times", size = 6) +
   geom_hline(data = FCCL_CF, aes(yintercept=delta.CF), size = 1) +
   geom_text(data = ann_text, mapping = aes(x = x, y = y, label = label), family = "Times", size = 5.5)+
   scale_fill_brewer(palette="Dark2")+
-  labs(y = "Delta Condition Factor") +
+  labs(y = "\u0394 Condition Factor", x = "Enclosure Type") +
   theme_minimal() +
   annotate("segment", x=-Inf, xend=Inf, y=-Inf, yend=-Inf)+
   annotate("segment", x=-Inf, xend=-Inf, y=-Inf, yend=Inf) +
@@ -215,7 +224,12 @@ ggplot(data=Cageonly) +
         panel.border = element_blank(),
         axis.line = element_line(colour = "black"),
         legend.position = "none",
-        panel.spacing = unit(2, "lines"))
+        panel.spacing = unit(2, "lines")))
+
+# * Write plot --------------
+tiff(filename = "smelt_2019_winterspring/figures/Figure_deltacfboxplot.tiff", pointsize = 12, res = 300, units = "in", width = 8, height = 5)
+Boxplot
+dev.off()
 
 
 

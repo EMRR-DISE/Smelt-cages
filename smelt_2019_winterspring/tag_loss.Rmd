@@ -1,0 +1,58 @@
+---
+title: "tag_loss"
+author: "Catarina Pien"
+date: '2022-09-07'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+```
+
+```{r}
+DWSC_raw <- read.csv(here("smelt_2019_winterspring", "data_raw", "DWSC_Edited_Pre-Post_Data.csv"))%>%
+  filter(!(grepl("FC", Cage))) 
+RV_raw <- read.csv(here("smelt_2019_winterspring", "data_raw", "RVERS_Edited_Pre-Post_Data.csv")) %>%
+  filter(!(grepl("FC", Cage))) 
+  
+
+```
+
+Look at no tags
+```{r}
+NT_DWSC <- DWSC_raw %>%
+  mutate(NT = ifelse(grepl("NT", Tag), "NT", "Tag")) %>%
+  mutate(Site = "DWSC")
+NT_RV <- RV_raw %>%
+  mutate(NT = ifelse(grepl("NT", Tag), "NT", "Tag")) %>%
+  mutate(Site = "RV")
+NT <- rbind(NT_DWSC, NT_RV) %>%
+  mutate(Site = factor(Site, levels = c("RV", "DWSC")),
+         Enclosure = ifelse(Cage %in% c("B","F"), "large", ifelse(Cage %in% c("A", "E" ), "wrap", ifelse(Cage %in% c("C", "D"), "small", "FC")))) 
+
+```
+
+Tag loss rates - used these numbers in manuscript
+```{r}
+NT_prop <- NT %>%
+  group_by(Site, Enclosure, NT) %>%
+  summarize(n = n()) %>%
+  pivot_wider(names_from = "NT", values_from = "n") %>%
+  mutate(prop = NT/(NT+Tag)*100)
+```
+
+Plot
+```{r}
+NT_summary <- NT %>%
+  filter(grepl("NT", Tag)) %>%
+  group_by(Site, Enclosure) %>%
+  summarize(n = n())
+
+
+ggplot(NT_summary) + geom_col(aes(x = Enclosure,  y = n, fill = Site), position = "dodge2") + theme_bw()
+```
+
