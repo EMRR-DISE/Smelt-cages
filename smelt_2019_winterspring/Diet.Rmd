@@ -1,0 +1,270 @@
+---
+editor_options: 
+  chunk_output_type: console
+---
+
+# load packages
+```{r}
+library(tidyverse)
+library(lubridate)
+library(emmeans)
+library(multcompView)
+```
+
+# bring in data
+```{r}
+diet <- read_csv("smelt_2019_winterspring/data_raw/DSM Cage Diets 2019 update_taxa.csv")
+diet$Location <- ordered(diet$Location, levels = c("RVR", "DWSC"))
+diet<-diet[diet$Cage.ID != "FCCL Control Tank 1",]
+diet<-diet[diet$Cage.ID != "FCCL Control Tank 2",]
+diet<-diet[diet$Cage.ID != "FCCL Control",]
+
+#fix fish that were assigned the wrong cage (came up during summary stats, check against dissected fish data, likely E and F were misread)
+diet[diet$Tag=='RK10', 'Cage.ID'] <- "E"
+diet[diet$Tag=='RN93', 'Cage.ID'] <- "E"
+
+#create new column for mesh types
+Cage_type <- as.data.frame(matrix(0, ncol = 2, nrow = 6))
+colnames(Cage_type) <- c("Cage.ID", "Mesh")
+
+Cage_type$Cage.ID <- c("A", "B", "C", "D", "E", "F")
+Cage_type$Mesh <- c("wrap", "large", "small", "small", "wrap", "large")
+
+diet_type <- merge(diet, Cage_type, by = "Cage.ID", all.x = TRUE)
+
+#pull in weight data
+DWSC <- read.csv("smelt_2019_winterspring/data_raw/DWSC_Edited_Pre-Post_Data.csv")
+DWSC$Site <- "DWSC"
+RVR <- read.csv("smelt_2019_winterspring/data_raw/RVERS_Edited_Pre-Post_Data.csv")
+RVR$Site <- "RVR"
+Cage <- rbind(DWSC, RVR)
+
+#bind fish measurements with stomach contents (note- some lost due to missing letters in ID's-update for final)
+total <- merge(diet_type, Cage, by=c("Tag"))
+
+#create instantaneous ration column
+total$IR <- (total$Contents.Weight/total$Post_Weight_g)*100
+
+#average for IR & fullness
+mean.IR<- total %>% 
+  group_by(Location, Mesh, Tag) %>% 
+  summarize("mean.IR"= mean(IR), "mean.full"=mean(Fullness))
+
+#split into RV and DWSC
+split<- split(mean.IR, mean.IR$Location)
+write_excel_csv(split[["RVR"]], "smelt_2019_winterspring/data_raw/diet.RVR.csv")
+write_excel_csv(split[["DWSC"]], "smelt_2019_winterspring/data_raw/diet.DWSC.csv")
+RVR<- read_csv("smelt_2019_winterspring/data_raw/diet.RVR.csv")
+DWSC<- read_csv("smelt_2019_winterspring/data_raw/diet.DWSC.csv")
+
+RVR$Mesh<-as.factor(RVR$Mesh)
+DWSC$Mesh<-as.factor(DWSC$Mesh)
+```
+
+# stats on IR
+```{r}
+##Shapiro-Wilk's method
+shapiro.test(RVR$mean.IR) #significant
+shapiro.test(DWSC$mean.IR) #significant
+
+#log transform
+RVR[,6] <- log(RVR[c(4)] +1)
+shapiro.test(RVR$mean.IR.1) #insiginificant
+plotNormalHistogram(RVR$mean.IR.1)
+
+DWSC$mean.IR.1 <- log(DWSC[c(4)] +1)
+shapiro.test(DWSC$mean.IR.1) #insiginificant
+plotNormalHistogram(DWSC$mean.IR.1)
+
+#RVR anova 
+RVR.IR.mod <- lm(mean.IR.1 ~ Mesh, data=RVR)
+anova(RVR.IR.mod) #significant
+
+shapiro.test(resid(RVR.IR.mod)) #insignificant
+
+leveneobject<- lm(abs(resid(RVR.IR.mod))~Mesh, data=RVR)
+anova(leveneobject) #good
+
+#post hoc test
+marginal = emmeans(RVR.IR.mod, 
+                   ~ Mesh)
+
+CLD(marginal,
+    alpha   = 0.05, 
+    Letters = letters,     
+    adjust  = "tukey")
+
+#DWSC anova 
+DW.IR.mod <- lm(mean.IR.1 ~ Mesh, data=DWSC)
+anova(DW.IR.mod) #insignificant
+
+shapiro.test(resid(DW.IR.mod)) #insignificant
+
+leveneobject<- lm(abs(resid(DW.IR.mod))~Mesh, data=DWSC)
+anova(leveneobject) #good
+
+#post hoc test
+marginal = emmeans(DW.IR.mod, 
+                   ~ Mesh)
+
+CLD(marginal,
+    alpha   = 0.05, 
+    Letters = letters,     
+    adjust  = "tukey")
+```
+
+# percent of each taxa for new Table 7 created on 3/7/2022
+```{r}
+diet_type$Count[which(diet_type$Count == "1 maybe 2")] <- 2
+
+diet_type$Count <- as.numeric(diet_type$Count)
+
+taxa.perct<- diet_type %>% 
+  group_by(Location, Taxa, Prey.Taxa) %>% 
+  summarize("count.sum"= sum(Count, na.rm=TRUE))
+
+taxa.tot<- diet_type %>% 
+  group_by(Location) %>% 
+  summarize("count.sum"= sum(Count, na.rm=TRUE))
+
+taxa.perct$Total <- ifelse(taxa.perct$Location=="RVR", 1548,
+        ifelse(taxa.perct$Location=="DWSC", 5831, NA))
+
+taxa.perct$percent <- (taxa.perct$count.sum/taxa.perct$Total)*100
+
+split<- split(taxa.perct, taxa.perct$Location)
+write_excel_csv(split[["RVR"]], "C:/Users/nkwan/Desktop/diet winter '19/perc.RVR.csv")
+write_excel_csv(split[["DWSC"]], "C:/Users/nkwan/Desktop/diet winter '19/perc.DWSC.csv")
+RVR.p<- read_csv("perc.RVR.csv")
+DWSC.p<- read_csv("perc.DWSC.csv")
+
+taxa.perct2 <- merge(RVR.p, DWSC.p, by="Prey.Taxa", all = TRUE)
+
+taxa.perct2[is.na(taxa.perct2)] = 0
+
+taxa.perct3 <- taxa.perct2[c(1,3,4,6,8,9,11)]
+  
+write_excel_csv(taxa.perct3, "C:/Users/nkwan/Desktop/diet winter '19/tableresults.csv")
+```
+
+# proportion taxa
+```{r}
+diet_type$Count<-as.numeric(diet_type$Count)
+
+#sum for taxa abundance among individual fish
+taxa_tag<- diet_type %>% 
+  group_by(Location, Mesh, Cage.ID, Tag, Taxa, LH.Stage) %>% 
+  summarize("count.sum"= sum(Count))
+
+#mean for stomach mass
+taxa<- taxa_tag %>% 
+  group_by(Location, Mesh, Cage.ID, Tag) %>% 
+  summarize("stomach.sum"= sum(count.sum))
+
+stomach_abundance<-merge(taxa_tag, taxa, by = "Tag")
+
+stomach_abundance$proportion<-(stomach_abundance$count.sum/stomach_abundance$stomach.sum)*100
+
+#add rows for all taxa for all fish
+full.prop<-stomach_abundance %>% complete(Tag, Taxa) %>%
+  as.data.frame()
+
+full.prop.2<-merge(full.prop, taxa, by = "Tag")
+
+#replace count.sum Nas with zeros
+full.count<-full.prop.2 %>% replace_na(list(count.sum=0))
+
+#select columns I want for count
+full.count<-subset(full.count, select=c("Location", "Mesh", "Tag", "Taxa", "LH.Stage", "count.sum"))
+
+#select columns I want for proportion
+full.prop.3<-subset(full.prop.2, select=c("Tag", "Taxa", "proportion", "Location", "Mesh"))
+#replace proportion Nas with zeros
+diet.prop<-full.prop.3 %>% replace_na(list(proportion=0))
+
+#average across fish
+diet.prop.mean<- diet.prop %>% 
+  group_by(Taxa, Location, Mesh) %>% 
+  summarize("prop.mean"= mean(proportion))
+```
+
+# plot count proportion in 100% stacked bar - final figure
+```{r}
+#remove empty
+full.count.e<-full.count[full.count$Taxa != "empty",]
+
+cbPalette <- c("#F0E442", "#E69F00", "#009E73", "#56B4E9", "#CC79A7", "#D55E00", "#0072B2", "#8C8C8C")
+legend_title <- "Taxa"
+
+ggplot(data=full.count.e, aes(x=Mesh, y =count.sum)) +
+    geom_bar(aes(fill=factor(Taxa, levels=c("Amphipoda", "Calanoida", "Cladocera", "Cyclopoida", "Diptera", "Harpacticoda", "Ostracoda", "Other"))),  position="fill", stat="identity") +
+  facet_grid(~Location)+
+  theme_bw() + 
+  scale_fill_manual(legend_title, values=cbPalette)+
+  theme(legend.position="right", axis.title.x = element_blank())+
+  labs(y = "Proportion of Prey Consumed") +  
+  theme(panel.grid.major = element_line(colour = "gray93",size=0.01), panel.grid.minor = element_blank()) +
+  theme(plot.title = element_text(hjust = 0.5)) + 
+  theme(axis.title = element_text(size = 23), 
+    axis.text = element_text(size = 20), 
+    axis.text.x = element_text(size = 20), 
+    axis.text.y = element_text(size = 20), 
+    legend.text = element_text(size = 20), 
+    legend.title = element_text(size = 20))+
+  theme(strip.text.x = element_text(size = 20))
+```
+
+# plot mean proportion in bar plot and 100% stacked bar
+```{r}
+#remove empty
+diet.prop.mean.e<-diet.prop.mean[diet.prop.mean$Taxa != "empty",]
+
+#bar plot
+ggplot(data=diet.prop.mean.e, aes(x=Mesh, y =prop.mean)) +
+    geom_bar(aes(fill=factor(Taxa, levels=c("Amphipoda", "Calanoida", "Cladocera", "Cyclopoida", "Diptera", "Harpacticoda", "Ostracoda", "Other"))), position="dodge", stat="identity") +
+  facet_grid(~Location)+
+  theme_bw() + 
+  scale_fill_manual(legend_title, values=cbPalette)+
+  theme(legend.position="right", axis.title.x = element_blank())+
+  labs(y = "Average Proportion of Diet") +  
+  theme(panel.grid.major = element_line(colour = "gray93",size=0.01), panel.grid.minor = element_blank()) +
+  theme(plot.title = element_text(hjust = 0.5)) + 
+  theme(axis.title = element_text(size = 23), 
+    axis.text = element_text(size = 20), 
+    axis.text.x = element_text(size = 20), 
+    axis.text.y = element_text(size = 20), 
+    legend.text = element_text(size = 20), 
+    legend.title = element_text(size = 25))+
+  theme(strip.text.x = element_text(size = 20))
+
+#stack bar plot
+windowsFonts(Times = windowsFont("Times New Roman"))
+
+d<-ggplot(data=diet.prop.mean.e, aes(x=Mesh, y =prop.mean)) +
+    geom_bar(aes(fill=factor(Taxa, levels=c("Amphipoda", "Calanoida", "Cladocera", "Cyclopoida", "Diptera", "Harpacticoda", "Ostracoda", "Other"))), position="fill", stat="identity") +
+  facet_grid(~Location)+
+  theme_bw() + 
+  scale_fill_manual(legend_title, values=cbPalette)+
+  scale_y_continuous(labels=percent)+
+  theme(legend.position="right", axis.title.x = element_blank())+
+  labs(y = "Mean Contribution to Diet") +  
+  theme(panel.grid.major = element_line(colour = "gray93",size=0.01), panel.grid.minor = element_blank()) +
+  theme(plot.title = element_text(hjust = 0.5)) + 
+  theme(axis.title = element_text(size = 17), 
+    axis.text = element_text(size = 16), 
+    legend.text = element_text(size = 16), 
+    legend.title = element_text(size = 17),
+    strip.text.x = element_text(size = 17),
+    text=element_text(family = "Times"))
+print(d)
+
+tiff(filename="Fig6.tiff", 
+    units="in", 
+    width=7.25, #or 3.5 for single column
+    height=4.00, #height you can adjust according to your plot
+    res=600, compression="lzw")
+print(d)
+dev.off()
+
+write_excel_csv(diet.prop.mean.e, "C:/Users/Nicole Aha/Desktop/Analysis/Analysis/Data/diet.prop.mean.csv")
+```
