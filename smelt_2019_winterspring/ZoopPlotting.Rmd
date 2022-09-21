@@ -1,0 +1,219 @@
+---
+librarytitle: "Zoop Plotting"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# load packages
+```{r}
+library(tidyverse)
+library(lubridate)
+library(emmeans)
+library(multcomp)
+setwd("C:/Users/nkwan/Desktop/Zoop'19")
+```
+
+# load data
+```{r}
+zoop <- read_csv("ZoopDataCombined_biomass_qc'ed_12.19.19.csv")
+
+zoop$Date<-mdy(zoop$Date)
+
+zoop$RingSize_m <- zoop$RingSize_cm/100
+
+split<- split(zoop, zoop$Method)
+
+write_excel_csv(split[["Throw"]], "C:/Users/nkwan/Desktop/Zoop'19/throw_method_zoop.csv")
+
+write_excel_csv(split[["Tow"]], "C:/Users/nkwan/Desktop/Zoop'19/tow_method_zoop.csv")
+
+throw<- read_csv("throw_method_zoop.csv")
+tow<- read_csv("tow_method_zoop.csv")
+```
+
+# calculate abundance
+```{r}
+#calculate abundance for tow samples
+
+tow$distance<-(tow$Rotations)*26873/999999 #R: Rotor constant (Regular flow = 26873, Low flow = 57560) - used Reg flow meter for this study
+tow$volumesampled<-((pi*(tow$RingSize_m^2))/4)*tow$distance
+tow$samplecount<-(tow$TotalVolume_ml/tow$Subsampled_ml)*tow$Count
+tow$ind_m3<-tow$samplecount/tow$volumesampled
+
+#to incorporate biomass
+tow$samplebiomass<-(tow$TotalVolume_ml/tow$Subsampled_ml)*tow$Total.Biomass
+tow$bio_m3<-tow$samplebiomass/tow$volumesampled
+
+#ind_m3 = individuals/m3
+
+#calculate abundance for throw samples
+
+throw$distance<- "NA"
+throw$radius<-throw$RingSize_m/2
+throw$volumesampled<- throw$radius*2*pi*throw$TowDistance_m+(2*pi*(throw$radius^2))
+throw$samplecount<-(throw$TotalVolume_ml/throw$Subsampled_ml)*throw$Count
+throw$ind_m3<-throw$samplecount/throw$volumesampled
+
+#to incorporate biomass
+throw$samplebiomass<-(throw$TotalVolume_ml/throw$Subsampled_ml)*throw$Total.Biomass
+throw$bio_m3<-throw$samplebiomass/throw$volumesampled
+```
+
+# bind throw and tow methods & calcualte species abundance for Table 6
+```{r}
+#combine
+tow$radius<-tow$RingSize_m*2
+abundance <- rbind(tow, throw)
+abundance$Date<-ymd(abundance$Date)
+abundance$Taxa<-as.factor(abundance$Taxa)
+abundance$ind_m3<-as.numeric(abundance$ind_m3)
+
+#put together results for Table 6
+top.sp<-abundance %>% 
+  group_by(SiteName, Taxa, ID) %>% 
+  summarize("ind"= sum(ind_m3), "bio"=sum(bio_m3))
+
+#remove microzooplankton
+top.sp <- top.sp[top.sp$Taxa != "Microzoo",]
+
+#sum by site (to get denominator)
+sum<-top.sp %>% 
+  group_by(SiteName) %>% 
+  summarize("sum"= sum(bio))
+
+#break into DWSC and RV
+dw <- top.sp %>% filter(SiteName == "DWSC")
+rv <- top.sp %>% filter(SiteName == "RV")
+
+dw$DWSC.Bio <- dw$bio
+dw$DWSC.Perc <- (dw$DWSC.Bio/12832.26)*100
+dw <- dw[c(2,3,7,8)]
+dw2 <- subset(dw, DWSC.Bio!=0)
+
+rv$RV.Bio <- rv$bio
+rv$RV.Perc <- (rv$RV.Bio/32782.81)*100
+rv <- rv[c(2,3,7,8)]
+rv2 <- subset(rv, RV.Bio!=0)
+
+#merge
+all <- merge(rv2,dw2,by=c("ID","Taxa"),all=TRUE)
+
+#change NA to 0  
+all[is.na(all)] <- 0
+
+write_excel_csv(all, "species.table.csv")
+```
+
+# stacked bar across week plot
+```{r}
+taxa<-abundance %>% 
+  group_by(SiteName, Date, Taxa) %>% 
+  summarize("ind"= sum(ind_m3), "bio"=sum(bio_m3))
+
+#create week column
+taxa$Week <- epiweek(taxa$Date)
+
+#zeros already exist, go ahead and average 
+taxa.week<-taxa %>% 
+  group_by(SiteName, Week, Taxa) %>% 
+  summarize("bio.mean"=mean(bio))
+
+taxa.week$Week2 <- NA 
+
+taxa.week$Week2[taxa.week$Week == 9] <- 1
+taxa.week$Week2[taxa.week$Week == 10] <- 2
+taxa.week$Week2[taxa.week$Week == 11] <- 3
+taxa.week$Week2[taxa.week$Week == 12] <- 4
+taxa.week$Week2[taxa.week$Week == 13] <- 5
+taxa.week$Week2[taxa.week$Week == 4] <- 1
+taxa.week$Week2[taxa.week$Week == 5] <- 2
+taxa.week$Week2[taxa.week$Week == 6] <- 3
+taxa.week$Week2[taxa.week$Week == 7] <- 4
+taxa.week$Week2[taxa.week$Week == 8] <- 5
+
+#plot all zoop
+
+cbPalette <- c("#009E73", "#E69F00", "#56B4E9", "#D55E00", "#F0E442", "#999999", "#CC79A7")
+legend_title <- "Taxa"
+
+ggplot(data = taxa.week, aes(x=Week2, y=bio.mean)) +
+  geom_bar(stat = "identity", data=taxa.week, aes (x=Week2, y=bio.mean, fill=factor(Taxa, levels=c("Cladocera", "Calanoid", "Cyclopoid", "Harpacticoid", "Macrozoo", "Microzoo"))), colour="black", width = .5) +
+  facet_wrap(~SiteName)+
+  theme_bw() + 
+    scale_fill_manual(legend_title, values=cbPalette)+theme(axis.title.x = element_blank()) +
+  labs(x = "Week") +
+  labs(y = "Biomass (ugC/m3)")+
+ theme(legend.position="bottom")+theme(axis.text = element_text(size = 20),
+        axis.title = element_text(size = 25),
+        legend.text = element_text(size = 20),
+        legend.title = element_text(size = 25))
+
+#remove microzooplankton
+taxa.week.2 <- taxa.week[taxa.week$Taxa != "Microzoo",]
+
+taxa.week.2$SiteName = factor(taxa.week.2$SiteName, levels=c('RV','DWSC'))
+
+taxa.week.2$Taxa <- as.character(taxa.week.2$Taxa)
+taxa.week.2$Taxa[taxa.week.2$Taxa=='Macrozoo'] <- 'Other'
+
+windowsFonts(Times = windowsFont("Times New Roman"))
+
+#plot just macrozoop
+z<-ggplot(data = taxa.week.2, aes(x=Week2, y=bio.mean)) +
+  geom_bar(stat = "identity", data=taxa.week.2, aes (x=Week2, y=bio.mean, fill=factor(Taxa, levels=c("Cladocera", "Calanoid", "Cyclopoid", "Harpacticoid", "Other"))), colour="black", width = .5) +
+    facet_wrap(~SiteName)+
+  theme_bw() + 
+    scale_fill_manual(legend_title, values=cbPalette)+
+  labs(x = "Week") +
+  labs(y = "Biomass (ugC/m3)")+
+ theme(legend.position="right")+
+  theme(axis.text = element_text(size = 16),
+        axis.title = element_text(size =17),
+        legend.text = element_text(size = 16),
+        legend.title = element_text(size = 17),
+        strip.text.x = element_text(size = 17),
+        text=element_text(family = "Times"))
+z
+print(z)
+
+tiff(filename="Fig5.tiff", 
+    units="in", 
+    width=7.25, #or 3.5 for single column
+    height=3.75, #height you can adjust according to your plot
+    res=600, compression="lzw")
+print(z)
+dev.off()
+```
+
+# repeated measures ANOVA
+```{r}
+#combine taxa 
+for.mod<-taxa.week.2 %>% 
+  group_by(SiteName, Week, Week2) %>% 
+  summarize("bio.all"=sum(bio.mean))
+
+shapiro.test(for.mod$bio.all) #not significant
+
+model<-lm(bio.all~SiteName*Week2, data=for.mod)
+anova(model)
+
+shapiro.test(resid(model)) #insigificant
+
+leveneobject<- lm(abs(resid(model))~SiteName*Week2, data=for.mod)
+anova(leveneobject) #insignificant
+
+marginal = emmeans(model, 
+                   ~ SiteName*Week2)
+
+cld(marginal,
+    alpha   = 0.05, 
+    Letters = letters,     
+    adjust  = "tukey") #DWSC and RV different
+```
+
+
+
+
+
+
