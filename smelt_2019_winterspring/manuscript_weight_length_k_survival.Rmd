@@ -1,0 +1,824 @@
+---
+title: "weight_analyses"
+author: "Catarina Pien"
+date: '2022-09-30'
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+rm(list=ls(all=TRUE))
+
+library(car)
+library(FSA)
+library(tidyverse)
+library(ggthemes)
+library(here)
+library(dplyr)
+```
+
+# Read in data
+```{r}
+# Add change in weight
+Cagetype_data <- read.csv(here("smelt_2019_winterspring", "data_clean", "Cagetype_data.csv")) %>%
+  mutate(deltaWt = Post_Weight_g - Pre_Weight_g,
+         changeWt = round(deltaWt/Pre_Weight_g,2),
+        deltaFL = Post_FL_cm - Pre_FL_cm,
+         changeFL = round(deltaFL/Pre_FL_cm,2),
+        Site = factor(Site, levels = c("RV", "DWSC")),
+         Enclosure = ifelse(Mesh == "wrap", "A", ifelse(Mesh == "large", "B", ifelse(Mesh == "small", "C", ifelse(Mesh == "control", "control", NA)))))
+
+# Make complete cases from column 9
+Delta_CF <- Cagetype_data$Delta_CF
+Cagetype_CF <- Cagetype_data[complete.cases(Delta_CF),]
+Cageonly <- Cagetype_data %>%
+  filter(Cage != "FCCL1") %>%
+  filter(Cage != "FCCL2") %>%
+  mutate(Group = ifelse(Site == "RV" & Mesh == "wrap", "B", ifelse(Site == "DWSC", " ", "A")))
+
+```
+
+# Make manuscript boxplot
+```{r}
+windowsFonts(Times = windowsFont("Times New Roman"))
+
+(Boxplot <- ggplot(data=Cageonly) +
+   geom_boxplot(aes(x=Enclosure, y=deltaWt,  fill = Enclosure)) +
+   geom_hline(yintercept = 0, size = 0.5) +
+   facet_wrap(~Site) +
+   # geom_text(aes(label = Group, x = Mesh, y = -0.32), family = "Times", size = 6) +
+   scale_fill_brewer(palette="Dark2")+
+   labs(y = "\u0394 Weight", x = "Enclosure Type") +
+   theme_minimal() +
+   annotate("segment", x=-Inf, xend=Inf, y=-Inf, yend=-Inf)+
+   annotate("segment", x=-Inf, xend=-Inf, y=-Inf, yend=Inf) +
+   theme(text = element_text(family = "Times"),
+         axis.text = element_text(size = 16),
+         axis.title = element_text(size = 17),
+         strip.text = element_text(size = 17),
+         panel.grid.major = element_blank(),
+         panel.grid.minor = element_blank(),
+         panel.border = element_blank(),
+         axis.line = element_line(colour = "black"),
+         legend.position = "none",
+         panel.spacing = unit(2, "lines")))
+
+(Boxplot2 <- ggplot(data=Cageonly) +
+    geom_boxplot(aes(x=Enclosure, y=changeWt,  fill = Enclosure)) +
+    geom_hline(yintercept = 0, size = 0.5) +
+    facet_wrap(~Site) +
+    # geom_text(aes(label = Group, x = Mesh, y = -0.32), family = "Times", size = 6) +
+    scale_fill_brewer(palette="Dark2")+
+    labs(y = "Proportional Change in Weight", x = "Enclosure Type", labs = "Proportional Change in Weight") +
+    theme_minimal() +
+    annotate("segment", x=-Inf, xend=Inf, y=-Inf, yend=-Inf)+
+    annotate("segment", x=-Inf, xend=-Inf, y=-Inf, yend=Inf) +
+    theme(text = element_text(family = "Times"),
+          axis.text = element_text(size = 16),
+          axis.title = element_text(size = 17),
+          strip.text = element_text(size = 17),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank(),
+          panel.border = element_blank(),
+          axis.line = element_line(colour = "black"),
+          legend.position = "none",
+          panel.spacing = unit(2, "lines")))
+```
+
+Export figure
+```{r}
+tiff(filename=file.path("smelt_2019_winterspring/figures/Fig4_WeightByCage.tiff"), units="in",type="cairo", bg="white", height=4, 
+     width=6, res=300, pointsize=12,compression="lzw")
+Boxplot2
+dev.off()
+```
+
+# Run analyses
+
+## Pre-Post changes in weight and length
+### RVR
+```{r}
+Cage_only_RVR <- Cagetype_CF %>%
+  filter(Site == "RV")%>%
+  filter(Cage != "FCCL1") %>%
+  filter(Cage != "FCCL2")
+```
+
+Mean
+```{r}
+Cage_only_RVR %>%
+  summarize(meanWtPre = mean(Pre_Weight_g),
+            meanWtPost = mean(Post_Weight_g),
+            meandeltaWt = mean(deltaWt),
+            n = n(),
+            sddeltaWt = sd(deltaWt),
+            sedeltaWt = sddeltaWt/n,
+            meanchangeWt = mean(changeWt*100),
+            sdchangeWt = sd(changeWt),
+            sechangeWt = sdchangeWt/n,
+            meanchangeFL =mean(changeFL*100),
+            sechangeFL = sd(changeFL)/n,
+            meanCFPre = mean(Pre_CF),
+            meanCFPost = mean(Post_CF),
+            seCF = sd(Pre_CF)/n,
+            meandeltaCF = mean(Delta_CF),
+            sedeltaCF = sd(Delta_CF)/n)
+```
+
+Does weight change in RVR? Yes
+```{r}
+hist(Cage_only_RVR$Pre_Weight_g)
+hist(Cage_only_RVR$changeWt)
+hist(log(Cage_only_RVR$changeWt+1))
+hist(Cage_only_RVR$Post_Weight_g)
+t.test(log(Cage_only_RVR$Pre_Weight_g+1), log(Cage_only_RVR$Post_Weight_g)+1)
+```
+
+Does length change in RVR? Yes
+```{r}
+hist(Cage_only_RVR$Pre_FL_cm)
+hist(Cage_only_RVR$Post_FL_cm)
+t.test(Cage_only_RVR$Pre_FL_cm, Cage_only_RVR$Post_FL_cm)
+```
+
+Does CF change in RVR?
+```{r}
+hist(Cage_only_RVR$Pre_CF)
+hist(Cage_only_RVR$Post_CF)
+t.test(log(Cage_only_RVR$Pre_CF+1), log(Cage_only_RVR$Post_CF+1))
+```
+
+
+
+### DWSC
+```{r}
+Cage_only_DWSC <- Cagetype_CF %>%
+  filter(Site == "DWSC") %>%
+  filter(Cage != "FCCL1") %>%
+  filter(Cage != "FCCL2")
+```
+
+Summary Stats
+```{r}
+Cage_only_DWSC %>%
+  summarize(meanWtPre = mean(Pre_Weight_g),
+            meanWtPost = mean(Post_Weight_g),
+            meandeltaWt = mean(deltaWt),
+            n = n(),
+            sddeltaWt = sd(deltaWt),
+            sedeltaWt = sddeltaWt/n,
+            meanchangeWt = mean(changeWt*100),
+            sdchangeWt = sd(changeWt),
+            sechangeWt = sdchangeWt/n,
+            meanchangeFL =mean(changeFL*100),
+            sechangeFL = sd(changeFL)/n,
+            meanCFPre = mean(Pre_CF),
+            meanCFPost = mean(Post_CF),
+            seCF = sd(Pre_CF)/n,
+            meandeltaCF = mean(Delta_CF),
+            sedeltaCF = sd(Delta_CF)/n)
+```
+
+T-test: Does weight change in DWSC? Yes
+```{r}
+hist(Cage_only_DWSC$Pre_Weight_g)
+hist(Cage_only_DWSC$Post_Weight_g)
+hist(Cage_only_DWSC$changeWt)
+hist(log(Cage_only_DWSC$changeWt+1))
+t.test(log(Cage_only_DWSC$Pre_Weight_g+1), log(Cage_only_DWSC$Post_Weight_g)+1)
+```
+
+Does length change in DWSC? No
+```{r}
+hist(Cage_only_DWSC$Pre_FL_cm)
+hist(Cage_only_DWSC$Post_FL_cm)
+t.test(Cage_only_DWSC$Pre_FL_cm, Cage_only_DWSC$Post_FL_cm)
+```
+
+Does CF change in DWSC? Yes
+```{r}
+t.test(log(Cage_only_DWSC$Pre_CF+1), log(Cage_only_DWSC$Post_CF)+1)
+```
+
+## Weight differences by cage type
+### RVR
+
+```{r}
+library(lme4)
+library(effects)
+library(lmerTest)
+
+# Checking if fish of each cage started at the same length
+m_wtstart <- lm(Pre_Weight_g ~ Cage, data = Cage_only_RVR)
+summary(m_wtstart)
+anova((m_wtstart))
+plot(m_wtstart)
+
+# Simple LM
+RV1 <- lm(changeWt ~ Enclosure, data = Cage_only_RVR)
+summary(RV1)
+anova(RV1)
+# Residual standard dev = 0.117
+
+# LMER - used this in manuscript
+RV2 <- lmer(log(changeWt+1) ~ Mesh + (1|Cage), data = Cage_only_RVR, REML = TRUE)
+summary(RV2)
+anova(RV2)
+plot(RV2)
+qqnorm(resid(RV2))
+# Residual standard dev = 0.113
+
+confint(RV2)
+
+```
+
+```{r}
+rv_residuals <- residuals(object = RV2)
+
+par(mfrow = c(2,2))
+plot(RV1)
+leveneTest(log(changeWt+1) ~ Enclosure, data = Cage_only_RVR) # p<0.05 means not homogeneous; however, not too deviant in this case
+
+shapiro.test(x = rv_residuals)
+
+tab_model(RV2)
+```
+
+
+### DWSC
+
+
+```{r}
+
+# Checking if fish of each cage started at the same length
+m_wtstart2 <- lm(Pre_Weight_g ~ Cage, data = Cage_only_DWSC)
+summary(m_wtstart2)
+anova((m_wtstart2))
+plot(m_wtstart2)
+
+# LM
+DWSC1 <- lm(log(changeWt+1) ~ Enclosure, data = Cage_only_DWSC)
+summary(DWSC1)
+anova(DWSC1)
+# Residual standard dev = 0.1675
+
+# LMER
+DWSC2 <- lmer(changeWt ~ Mesh + (1|Cage), data = Cage_only_DWSC, REML = TRUE)
+summary(DWSC2)
+anova(DWSC2)
+# Residual standard dev = 0.1675
+
+```
+
+Check assumptions
+```{r}
+dwsc_resid= resid(DWSC1,type = "pearson")
+par(mfrow = c(2,2))
+plot(DWSC1)
+
+leveneTest(DWSC1)
+shapiro.test(log(Cage_only_DWSC$changeWt+1))
+```
+
+```{r}
+library(sjPlot)
+library(sjmisc)
+library(sjlabelled)
+
+tab_model(DWSC1)
+```
+
+
+## Length-Weight-CF Figures
+```{r}
+# Summarize mean, sd, median, n for Pre and Post Length and Width
+Cagedata <- Cagetype_CF %>%
+  na.omit() %>%
+  filter(Cage!="FCCL1") %>%
+  filter(Cage!="FCCL2") %>%
+  group_by(Site, Mesh)%>%
+  summarize(
+    PreL_Mean = mean(Pre_FL_cm),
+    PreL_sd = sd(Pre_FL_cm),
+    PreL_median = median(Pre_FL_cm),
+    PoL_Mean = mean(Post_FL_cm),
+    PoL_sd = sd(Post_FL_cm),
+    PoL_median = median(Post_FL_cm), 
+    PreW_Mean = mean(Pre_Weight_g),
+    PreW_sd = sd(Pre_Weight_g),
+    PreW_median = median(Pre_Weight_g),
+    PoW_Mean = mean(Post_Weight_g),
+    PoW_sd = sd(Post_Weight_g),
+    PoW_median = median(Post_Weight_g),  N = n()) %>%
+    mutate(delta.Length = round(PoL_Mean - PreL_Mean,2)) %>%
+  mutate(delta.weight = round(PoW_Mean - PreW_Mean,2)) %>%
+  ungroup()
+```
+
+```{r}
+Cageonly2 <- Cagetype_data %>%
+  filter(Cage != "FCCL1") %>%
+  filter(Cage != "FCCL2") 
+
+Cageonly <- Cagetype_data %>%
+  filter(Cage != "FCCL1") %>%
+  filter(Cage != "FCCL2") %>%
+  mutate(Group = ifelse(Site == "RV" & Mesh == "wrap", "B", ifelse(Site == "DWSC", " ", "A")))  %>%
+  mutate(delta.L = round(Post_FL_cm - Pre_FL_cm,2))%>%
+  mutate(delta.W = round(Post_Weight_g - Pre_Weight_g,2))
+
+
+
+windowsFonts(Times = windowsFont("Times New Roman"))
+```
+
+Make length plot
+```{r}
+CagePrePost <- gather(Cageonly2, PrePost,Length1,Pre_FL_cm, Post_FL_cm)
+CagePrePost$Site <- factor(CagePrePost$Site, levels = c("RV", "DWSC"))
+
+MeanLengthplot<- ggplot(data=CagePrePost) +
+  geom_boxplot(outlier.size=-1,aes(x=Enclosure, y=Length1,  fill = PrePost)) +
+  facet_wrap(~Site) +
+  labs(y = "Length (cm)") +
+  #geom_text(aes(label = Group, x = Mesh, y = -0.32), family = "Times", size = 6) +
+  #geom_hline(data = FCCL, aes(yintercept=delta.weight), size = 1) +
+  #geom_text(data = ann_text, mapping = aes(x = x, y = y, label = label), family = "Times", size = 5.5)++
+  scale_fill_manual(values=c("#E7298A", "#66A61E"), name = "", labels = c("Pre-Deployment", "Post-Deployment")) +
+  labs(y = "Length (cm)", x = "Enclosure Type") + scale_x_discrete(labels=c("control" = "FCCL")) +
+  theme_minimal() + theme(axis.title.x = element_blank()) +
+  annotate("segment", x=-Inf, xend=Inf, y=-Inf, yend=-Inf)+
+  annotate("segment", x=-Inf, xend=-Inf, y=-Inf, yend=Inf) +
+  #scale_fill_discrete(name = "", labels = c("Pre-Deployment", "Post-Deployment")) +
+  theme(text = element_text(family = "Times"),
+        axis.text = element_text(size = 16),
+        axis.title = element_text(size = 17),
+        strip.text = element_text(size = 17),
+        legend.text = element_text(size = 15),
+        legend.title = element_blank(),
+        legend.position = "bottom",
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
+        panel.border = element_blank(),
+        axis.line = element_line(colour = "black"),
+        #legend.position = "none",
+        panel.spacing = unit(2, "lines"))
+MeanLengthplot
+```
+
+Make weight plot
+```{r}
+CagePrePostW <- gather(Cageonly2, PrePostW,Weight1,Pre_Weight_g, Post_Weight_g)
+windowsFonts(Times = windowsFont("Times New Roman"))
+
+CagePrePostW$PrePostW <- factor(CagePrePostW$PrePostW,
+                              levels = c('Pre_Weight_g','Post_Weight_g'),ordered = TRUE)
+CagePrePostW$Site <- factor(CagePrePostW$Site, levels = c("RV", "DWSC"))
+
+MeanWeightplot<- ggplot(data=CagePrePostW) +
+  geom_boxplot(outlier.size=-1,aes(x=Enclosure, y=Weight1,  fill = PrePostW)) +
+  facet_wrap(~Site) +
+  labs(y = "Mean Weight (g)") +
+  #geom_text(aes(label = Group, x = Mesh, y = -0.32), family = "Times", size = 6) +
+  #geom_hline(data = FCCL, aes(yintercept=delta.weight), size = 1) +
+  #geom_text(data = ann_text, mapping = aes(x = x, y = y, label = label), family = "Times", size = 5.5)+
+  scale_fill_manual(values=c("#E7298A", "#66A61E"), name = "Deployment", labels = c("Pre-Deployment", "Post-Deployment"))+
+  #palette="Dark2" 
+   labs(y = "Weight (g)", x = "Enclosure Type") + scale_x_discrete(labels=c("control" = "FCCL")) +
+  theme_minimal() + theme(strip.text.x = element_blank()) +
+  annotate("segment", x=-Inf, xend=Inf, y=-Inf, yend=-Inf)+
+  annotate("segment", x=-Inf, xend=-Inf, y=-Inf, yend=Inf) + 
+  #scale_fill_discrete(name = "Deployment", labels = c("Pre-Deployment", "Post-Deployment")) +
+  theme(text = element_text(family = "Times"),
+        axis.title.x = element_blank(),
+        axis.title.y = element_text(size = 16),
+        axis.text = element_text(size = 16),
+        strip.text = element_text(size = 17),
+        legend.text = element_text(size = 15),
+        legend.title = element_blank(),
+        legend.position = "bottom",
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
+        panel.border = element_blank(),
+        axis.line = element_line(colour = "black"),
+        #legend.position = "none",
+        panel.spacing = unit(2, "lines"))
+MeanWeightplot
+```
+
+Make CF plot
+
+```{r}
+CagePrePostK <- gather(Cageonly2, PrePostK,K1,Pre_CF, Post_CF)
+windowsFonts(Times = windowsFont("Times New Roman"))
+
+CagePrePostK$PrePostK <- factor(CagePrePostK$PrePostK,
+                              levels = c('Pre_CF','Post_CF'),ordered = TRUE)
+CagePrePostK$Site <- factor(CagePrePostK$Site, levels = c("RV", "DWSC"))
+
+MeanKplot<- ggplot(data=CagePrePostK) +
+  geom_boxplot(outlier.size=-1,aes(x=Enclosure, y=K1,  fill = PrePostK)) +
+  facet_wrap(~Site) +
+  labs(y = "Mean K") +
+  #geom_text(aes(label = Group, x = Mesh, y = -0.32), family = "Times", size = 6) +
+  #geom_hline(data = FCCL, aes(yintercept=delta.weight), size = 1) +
+  #geom_text(data = ann_text, mapping = aes(x = x, y = y, label = label), family = "Times", size = 5.5)+
+  scale_fill_manual(values=c("#E7298A", "#66A61E"), name = "Deployment", labels = c("Pre-Deployment", "Post-Deployment"))+
+  #palette="Dark2" 
+   labs(y = expression(K~(g~cm^-3)), x = "Enclosure Type") + scale_x_discrete(labels=c("control" = "FCCL")) +
+  theme_minimal() + theme(strip.text.x = element_blank()) +
+  annotate("segment", x=-Inf, xend=Inf, y=-Inf, yend=-Inf)+
+  annotate("segment", x=-Inf, xend=-Inf, y=-Inf, yend=Inf) + 
+  #scale_fill_discrete(name = "Deployment", labels = c("Pre-Deployment", "Post-Deployment")) +
+  theme(text = element_text(family = "Times"),
+        axis.text = element_text(size = 16),
+        axis.title = element_text(size = 17),
+        strip.text = element_text(size = 17),
+        legend.text = element_text(size = 15),
+        legend.title = element_blank(),
+        legend.position = "bottom",
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
+        panel.border = element_blank(),
+        axis.line = element_line(colour = "black"),
+        #legend.position = "none",
+        panel.spacing = unit(2, "lines"))
+MeanKplot
+```
+
+```{r}
+library(patchwork)
+
+lwkplot <- MeanLengthplot+MeanWeightplot+MeanKplot + plot_layout(nrow = 3, guides = "collect") &
+  theme(legend.position = "bottom")
+```
+
+Export
+```{r}
+tiff(filename=file.path("smelt_2019_winterspring/figures/WeightLengthKPlot.tiff"), units="in",type="cairo", bg="white", height=7, 
+     width=7, res=300, pointsize=12,compression="lzw")
+lwkplot
+dev.off()
+```
+
+## Survival
+
+### RVR
+Make data for RVR
+```{r}
+# Reorganize data
+# Make complete cases from column 7 (post_weight)
+post_fish <- Cagetype_data$Post_Weight_g
+Cagetype_s <- Cagetype_data[complete.cases(post_fish),]
+
+# ----------------Rio Vista-----------------------------------------
+# Calculate sample sizes for alive and dead
+surv_RV <- Cagetype_s %>%
+  filter(Site == "RV") %>%
+  group_by(Site, Cage, Mesh)%>%
+  summarize(
+    Alive = n(),
+    Dead = 64-n()
+  ) %>%
+  mutate(rate = Alive/(Alive + Dead)*100)
+
+# Create data frame of each individual fish - survived or did not survive
+Cage_survival_RV <- as.data.frame(matrix(0, ncol = 2, nrow = 384))
+colnames(Cage_survival_RV) <- c("Cage", "Survived")
+
+# Add dead fish from data sheet
+  # Add RN82 from cage A that was decomposed
+  # RG49 from cage A already included in the dead count (no Weight data)
+  # Add RJ08 from cage E that was dead prior, stomach torn open
+
+Cage_survival_RV$Cage <- c(rep("A", 64), rep("B", 64), rep("C", 64), rep("D", 64), rep("E", 64), rep("F", 64))
+Cage_survival_RV$Survived <- c(rep("1", 60), rep("0", 4),
+                               rep("1", 64), rep("0", 0),
+                               rep("1", 64), rep("0", 0),
+                               rep("1", 64), rep("0", 0),
+                               rep("1", 62), rep("0", 2),
+                               rep("1", 56), rep("0", 8))
+
+Cagetype_survival_RV <- left_join(Cage_survival_RV, surv_RV, by = "Cage")
+
+Cagetype_survival_RV <- Cagetype_survival_RV %>%
+  mutate(Cage = factor(Cage),
+         Survived = factor(Survived),
+         Site = factor(Site),
+         Mesh = factor(Mesh))
+```
+
+Survival rate
+```{r}
+surv_RV %>%
+  ungroup() %>%
+  filter(Cage != "FCCL1") %>%
+  summarize(meanRate = mean(rate),
+            n = n(),
+            seRate = sd(rate)/n)
+```
+
+
+
+Logistic Mixed Model
+```{r}
+mRV_surv <- glmer(Survived ~ Mesh + (1|Cage), data = Cagetype_survival_RV, family = binomial(link = "logit"))
+
+summary(mRV_surv)
+se <- sqrt(diag(vcov(mRV_surv)))
+# table of estimates with 95% CI
+(tab <- cbind(Est = fixef(mRV_surv), LL = fixef(mRV_surv) - 1.96 * se, UL = fixef(mRV_surv) + 1.96 *
+                se))
+```
+
+
+### DWSC
+```{r}
+
+surv_DWSC <- Cagetype_s %>%
+  filter(Site == "DWSC") %>%
+  group_by(Site, Cage, Mesh)%>%
+  summarize(
+    Alive = n(),
+    Dead = 60-n()
+  ) 
+# Add dead fish
+  # Add NTF4 to dead in Cage F - "decomposed"
+  # Add RB61 to dead in Cage F - "partly decomposed"
+
+Cage_survival_DWSC <- as.data.frame(matrix(0, ncol = 2, nrow = 360))
+colnames(Cage_survival_DWSC) <- c("Cage", "Survived")
+
+Cage_survival_DWSC$Cage <- c(rep("A", 60), rep("B", 60), rep("C", 60), rep("D", 60), rep("E", 60), rep("F", 60))
+Cage_survival_DWSC$Survived <- c(rep("1", 59), rep("0", 1),
+                                 rep("1", 60), rep("0", 0),
+                                 rep("1", 58), rep("0", 2),
+                                 rep("1", 60), rep("0", 0),
+                                 rep("1", 60), rep("0", 0),
+                                 rep("1", 58), rep("0", 2))
+
+Cagetype_survival_DWSC <- left_join(Cage_survival_DWSC, surv_DWSC, by = "Cage")
+
+Cagetype_survival_DWSC <- Cagetype_survival_DWSC %>%
+  mutate(Cage = factor(Cage),
+         Survived = factor(Survived),
+         Site = factor(Site),
+         Mesh = factor(Mesh))%>%
+  mutate(rate = Alive/(Alive + Dead)*100)
+```
+
+
+
+Survival rate
+```{r}
+Cagetype_survival_DWSC %>%
+  select(-Survived) %>%
+  distinct() %>%
+  summarize(meanRate = mean(rate),
+            n = n(),
+            seRate = sd(rate)/n)
+```
+
+```{r}
+mDWSC_surv <- glmer(Survived ~ Mesh + (1|Cage), data = Cagetype_survival_DWSC, family = binomial(link = "logit"))
+# is singular
+
+summary(mDWSC_surv)
+
+se <- sqrt(diag(vcov(mDWSC_surv)))
+# table of estimates with 95% CI
+(tab <- cbind(Est = fixef(mDWSC_surv), LL = fixef(mDWSC_surv) - 1.96 * se, UL = fixef(mDWSC_surv) + 1.96 *
+                se))
+plot(mDWSC_surv)
+
+r.squaredGLMM(mDWSC_surv)
+plot_model(mDWSC_surv, type = "pred", terms = c("Mesh"))
+tab_model(mDWSC_surv)
+```
+
+
+
+
+
+
+### Plots
+```{r}
+# Survival Plot ---------------------------------------
+# * By Mesh ----
+RV_survival_sum <- Cagetype_survival_RV %>%
+  group_by(Mesh) %>%
+  summarize(Survive = sum(Survived == 1),
+            Died = -1 * sum(Survived == 0),
+            n = n()) %>%
+  pivot_longer(cols = c(Survive, Died), names_to = "Survival", values_to = "Count")
+
+DWSC_survival_sum <- Cagetype_survival_DWSC %>%
+  group_by(Mesh) %>%
+  summarize(Survive = sum(Survived == 1),
+            Died = -1 * sum(Survived == 0),
+            n = n()) %>%
+  pivot_longer(cols = c(Survive, Died), names_to = "Survival", values_to = "Count")
+
+DWSC_survival_sum$Site <- "DWSC"
+RV_survival_sum$Site <- "RV"
+
+Survival_sum <- rbind(DWSC_survival_sum, RV_survival_sum)
+Survival_sum <- Survival_sum %>%
+  mutate(prop = ifelse(Survival == "Survive", round(Count/n * 100,1), round((-1 * Count/n * 100),1)))
+
+# Survival plot
+ggplot(Survival_sum, aes(Mesh, Count, fill = Survival)) +
+  facet_wrap(~Site) +
+  geom_col(width = 0.55) +
+  coord_cartesian(y = c(-30,130)) +
+  scale_y_continuous(breaks = seq(0, 125, by = 25)) +
+  geom_text(aes(label = paste0(prop, "%")), vjust = 1.5, size = 5)+
+  geom_hline(yintercept=0)+
+  scale_fill_brewer(palette="Set1")+
+  theme_bw() +
+  theme(axis.text = element_text(size = 15),
+        axis.text.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.title = element_text(size = 17),
+        axis.ticks.y = element_blank(),
+        strip.text = element_text(size = 16),
+        legend.position = "none")
+
+
+
+# * By Cage ----
+RV_survival_sum2 <- Cagetype_survival_RV %>%
+  group_by(Mesh, Cage) %>%
+  summarize(Survive = sum(Survived == 1),
+            Died = -1 * sum(Survived == 0),
+            n = n()) %>%
+  pivot_longer(cols = c(Survive, Died), names_to = "Survival", values_to = "Count")
+
+DWSC_survival_sum2 <- Cagetype_survival_DWSC %>%
+  group_by(Mesh, Cage) %>%
+  summarize(Survive = sum(Survived == 1),
+            Died = -1 * sum(Survived == 0),
+            n = n()) %>%
+  pivot_longer(cols = c(Survive, Died), names_to = "Survival", values_to = "Count")
+
+DWSC_survival_sum2$Site <- "DWSC"
+RV_survival_sum2$Site <- "RV"
+
+Survival_sum2 <- rbind(DWSC_survival_sum2, RV_survival_sum2)
+Survival_sum2 <- Survival_sum2 %>%
+  mutate(prop = ifelse(Survival == "Survive", round(Count/n * 100,1), round((-1 * Count/n * 100),1)))
+
+ggplot(Survival_sum2, aes(Cage, Count, fill = Survival)) +
+  facet_wrap(~Site) +
+  geom_col(width = 0.7, aes(colour = Mesh), size = 3) +
+  coord_cartesian(y = c(-30,130)) +
+  scale_y_continuous(breaks = seq(0, 125, by = 25)) +
+  scale_color_brewer(palette="Dark2")+
+  geom_text(aes(label = paste0(prop, "%")), vjust = 1.5, size = 5)+
+  geom_hline(yintercept=0)+
+  scale_fill_brewer(palette="Set1")+
+  theme_bw() +
+  theme(axis.text = element_text(size = 15),
+        axis.text.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.title = element_text(size = 17),
+        axis.ticks.y = element_blank(),
+        strip.text = element_text(size = 16),
+        legend.position = "none")
+
+### Mean survival
+
+Survival_sum3 <- Survival_sum2 %>%
+  mutate(prop = ifelse(Survival == "Survive", Count/n * 100, -1 * Count/n * 100))
+
+propSurvival <- filter(Survival_sum3, Survival == "Survive") %>%
+  ungroup() %>%
+group_by(Site) %>%
+  summarize(meanSurvival = mean(prop),
+            n = n(),
+            seSurvival = sd(prop)/n)
+
+```
+
+
+
+
+
+
+### Old Code
+```{r}
+# Logistic mixed model ----
+
+library(lme4)
+library(lmerTest)
+
+mRV_surv <- glmer(Survived ~ Mesh + (1|Cage), data = Cagetype_survival_RV, family = binomial(link = "logit"))
+
+summary(mRV_surv)
+se <- sqrt(diag(vcov(mRV_surv)))
+# table of estimates with 95% CI
+(tab <- cbind(Est = fixef(mRV_surv), LL = fixef(mRV_surv) - 1.96 * se, UL = fixef(mRV_surv) + 1.96 *
+                se))
+# * * Check assumptions ----
+Ms1.resid <- resid(mRV_surv, type = "pearson")
+plot(mRV_surv)
+plot(mRV_surv, form = resid(., type = "pearson") ~ fitted(.) | Mesh, abline = 0,
+     cex = .5, pch = 20, col = "black")
+
+# normality
+par(mfrow = c(1,1))
+qqnorm(Ms1.resid)
+qqline(Ms1.resid)
+hist(Ms1.resid)
+
+# observed vs fitted
+# There is no funnel
+plot(mRV_surv, Survived ~ fitted(.), id = 0.05, adj = -0.3,
+     cex = .8, pch = 20, col = "blue")
+# leverage
+ggplot(data.frame(lev=hatvalues(mRV_surv),pearson=residuals(mRV_surv,type="pearson")),
+       aes(x=lev,y=pearson)) +
+  geom_point() +
+  theme_bw()
+
+# variance by mesh
+ggplot(Cagetype_survival_RV, aes(x = Mesh, y = Ms1.resid)) + geom_boxplot()
+
+leveneTest(Survived ~ Mesh, data = Cage_only_DWSC)
+
+# * * Plot results ----
+library(MuMIn) #extract R2
+library(sjPlot)
+library(sjstats) # for intraclass-correlation coefficient
+library(caret) # model comparison & utility functions
+
+r.squaredGLMM(mRV_surv)
+plot_model(mRV_surv, type = "pred", terms = c("Mesh"))
+tab_model(mRV_surv)
+
+library(ggeffects)
+ggpredict(mRV_surv, "Survived")
+
+
+
+
+
+# Logistic mixed model ----
+
+library(lme4)
+library(lmerTest)
+
+#logit transform survival data
+#lmer with random effect cage
+#anova
+
+mDWSC_surv <- glmer(Survived ~ Mesh + (1|Cage), data = Cagetype_survival_DWSC, family = binomial(link = "logit"))
+# is singular
+
+summary(mDWSC_surv)
+
+se <- sqrt(diag(vcov(mDWSC_surv)))
+# table of estimates with 95% CI
+(tab <- cbind(Est = fixef(mDWSC_surv), LL = fixef(mDWSC_surv) - 1.96 * se, UL = fixef(mDWSC_surv) + 1.96 *
+                se))
+plot(mDWSC_surv)
+
+# * * Check assumptions ----
+Ms2.resid <- resid(mDWSC_surv, type = "pearson")
+plot(mDWSC_surv)
+plot(mDWSC_surv, form = resid(., type = "pearson") ~ fitted(.) | Mesh, abline = 0,
+     cex = .5, pch = 20, col = "black")
+
+# normality
+par(mfrow = c(1,1))
+qqnorm(Ms2.resid)
+qqline(Ms2.resid)
+hist(Ms2.resid)
+
+# leverage
+ggplot(data.frame(lev=hatvalues(mDWSC_surv),pearson=residuals(mDWSC_surv,type="pearson")),
+       aes(x=lev,y=pearson)) +
+  geom_point() +
+  theme_bw()
+
+# check variance
+ggplot(Cagetype_survival_DWSC, aes(x = Mesh, y = Ms2.resid)) + geom_boxplot()
+
+
+# * * Plot results ----
+library(MuMIn) #extract R2
+library(sjPlot)
+library(sjstats) # for intraclass-correlation coefficient
+library(caret) # model comparison & utility functions
+
+
+
+
+
+
+

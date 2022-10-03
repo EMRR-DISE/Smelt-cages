@@ -1,8 +1,8 @@
 # 12/19/19
 # Catarina Pien
-# Comparison of Mesh types 
-# Anova for Delta Smelt Condition Factor 
-# Chi Square for Delta Smelt Survival 
+# Comparison of Mesh types
+# Anova for Delta Smelt Condition Factor
+# Chi Square for Delta Smelt Survival
 
 # Set up workspace and load data --------------------------
 rm(list=ls(all=TRUE))
@@ -15,7 +15,9 @@ library(here)
 library(dplyr)
 
 Cagetype_data <- read.csv(here("smelt_2019_winterspring", "data_clean", "Cagetype_data.csv")) %>%
-  mutate(Site = factor(Site, levels = c("RV", "DWSC")),
+  mutate(deltaWt = Post_Weight_g - Pre_Weight_g,
+         changeWt = round(deltaWt/Pre_Weight_g,2),
+        Site = factor(Site, levels = c("RV", "DWSC")),
          Enclosure = ifelse(Mesh == "wrap", "A", ifelse(Mesh == "large", "B", ifelse(Mesh == "small", "C", ifelse(Mesh == "control", "control", NA)))))
 
 unique(Cagetype_data$Enclosure)
@@ -76,6 +78,20 @@ Cage.CF <- Cagetype_CF %>%
     N = n()
   )
 
+# Means by site
+Cage.CF.site <- Cagetype_CF %>%
+  na.omit() %>%
+  filter(Cage!="FCCL1") %>%
+  filter(Cage!="FCCL2") %>%
+  group_by(Site)%>%
+  summarize(
+    Delta_CF_Mean = mean(Delta_CF),
+    Delta_CF_sd = sd(Delta_CF),
+    Delta_CF_median = median(Delta_CF),
+    N = n(),
+    se = Delta_CF_sd/sqrt(N)
+  )
+
 # Summarize mean, sd, median, n for condition factor
 Cage.LW <- Cagetype_CF %>%
   na.omit() %>%
@@ -106,7 +122,7 @@ FCCL_CF <- Cagetype_CF %>%
 # Plots -----
 
 # * Overview of data (geom_point) ----
-ggplot(Cagetype_CF, aes(Mesh, Delta_CF, col = Mesh)) + 
+ggplot(Cagetype_CF, aes(Mesh, Delta_CF, col = Mesh)) +
   facet_wrap(~Site) +
   geom_jitter(size = 3) +
   scale_fill_brewer(palette="Dark2")+
@@ -116,7 +132,7 @@ ggplot(Cagetype_CF, aes(Mesh, Delta_CF, col = Mesh)) +
         legend.text = element_text(size = 16),
         legend.title = element_text(size = 18))
 
-ggplot(Cagetype_CF, aes(Cage, Delta_CF, col = Cage)) + 
+ggplot(Cagetype_CF, aes(Cage, Delta_CF, col = Cage)) +
   facet_wrap(~Site) +
   geom_boxplot() +
   scale_fill_brewer(palette="Dark2")+
@@ -130,12 +146,12 @@ ggplot(Cagetype_CF, aes(Cage, Delta_CF, col = Cage)) +
 
 # * CF mean and sd by site ----
 # CF mean by site
-ggplot(Cage.CF, aes(Mesh, Delta_CF_Mean,  fill = Mesh)) + 
+ggplot(Cage.CF, aes(Mesh, Delta_CF_Mean,  fill = Mesh)) +
   facet_wrap(~Site)+
   geom_bar(width = 0.8, position = "dodge2", stat = "identity") +
   scale_fill_brewer(palette="Dark2")+
   labs(y = "Delta Condition Factor") +
-  geom_errorbar(aes(ymin = Delta_CF_Mean - Delta_CF_sd, ymax = Delta_CF_Mean + Delta_CF_sd), width = 0.1, 
+  geom_errorbar(aes(ymin = Delta_CF_Mean - Delta_CF_sd, ymax = Delta_CF_Mean + Delta_CF_sd), width = 0.1,
                 position = position_dodge(0.9), color = "black") +
   theme_bw() +
   theme(axis.text = element_text(size = 18),
@@ -144,12 +160,12 @@ ggplot(Cage.CF, aes(Mesh, Delta_CF_Mean,  fill = Mesh)) +
         legend.position = "none")
 
 # Mean point plot
-ggplot(Cage.CF, aes(Mesh, Delta_CF_Mean,  col = Mesh)) + 
+ggplot(Cage.CF, aes(Mesh, Delta_CF_Mean,  col = Mesh)) +
   facet_wrap(~Site)+
   geom_point(size = 8, shape = 18) +
   scale_colour_brewer(palette="Dark2")+
   labs(y = "Delta Condition Factor") +
-  geom_errorbar(aes(ymin = Delta_CF_Mean - Delta_CF_sd, ymax = Delta_CF_Mean + Delta_CF_sd), width = 0.1, 
+  geom_errorbar(aes(ymin = Delta_CF_Mean - Delta_CF_sd, ymax = Delta_CF_Mean + Delta_CF_sd), width = 0.1,
                 position = position_dodge(0.9), color = "black") +
   theme_bw() +
   theme(axis.text = element_text(size = 18),
@@ -174,7 +190,7 @@ ann_text <- data.frame(
 ann_text$Site <- factor(ann_text$Site, levels = c("RV", "DWSC"))
 
 
-# Boxplot by enclosure type 
+# Boxplot by enclosure type
 ggplot(data=Cageonly) +
   geom_boxplot(aes(x=Enclosure, y=Delta_CF,  fill = Enclosure)) +
   facet_wrap(~Site) +
@@ -191,7 +207,7 @@ ggplot(data=Cageonly) +
         axis.text = element_text(size = 16),
         axis.title = element_text(size = 17),
         strip.text = element_text(size = 17),
-        panel.grid.major = element_blank(), 
+        panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         panel.border = element_blank(),
         axis.line = element_line(colour = "black"),
@@ -219,12 +235,18 @@ levels(Cageonly$Site)
         axis.text = element_text(size = 16),
         axis.title = element_text(size = 17),
         strip.text = element_text(size = 17),
-        panel.grid.major = element_blank(), 
+        panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
         panel.border = element_blank(),
         axis.line = element_line(colour = "black"),
         legend.position = "none",
         panel.spacing = unit(2, "lines")))
+
+
+
+
+
+
 
 # * Write plot --------------
 tiff(filename = "smelt_2019_winterspring/figures/Figure_deltacfboxplot.tiff", pointsize = 12, res = 300, units = "in", width = 8, height = 5)
@@ -248,6 +270,11 @@ ggplot(data=Cageonly, aes(x=Cage, y=Delta_CF,  fill = Mesh)) +
         legend.position = "none")
 
 ## RV -----------------------------
+
+# * T-test pre-post----
+hist(Cage_only_RVR$Pre_CF)
+hist(Cage_only_RVR$Post_CF)
+t.test(Cage_only_RVR$Pre_CF, Cage_only_RVR$Post_CF)
 
 # * Run ANOVA ----
 
@@ -342,7 +369,7 @@ qqline(M1.resid2)
 # * * Check assumptions ----
 M1.resid <- resid(M.RVR, type = "pearson")
 plot(M.RVR)
-plot(M.RVR, form = resid(., type = "pearson") ~ fitted(.) | Mesh, abline = 0, 
+plot(M.RVR, form = resid(., type = "pearson") ~ fitted(.) | Mesh, abline = 0,
      cex = .5, pch = 20, col = "black")
 
 # normality
@@ -355,7 +382,7 @@ shapiro.test(x = rv_cf_residuals2 ) # p<0.05 means not normal
 
 # observed vs fitted
 # There is no funnel
-plot(M.RVR, Delta_CF ~ fitted(.), id = 0.05, adj = -0.3, 
+plot(M.RVR, Delta_CF ~ fitted(.), id = 0.05, adj = -0.3,
       cex = .8, pch = 20, col = "blue")
 # leverage
 ggplot(data.frame(lev=hatvalues(M.RVR),pearson=residuals(M.RVR,type="pearson")),
@@ -397,6 +424,10 @@ cldList(comparison = RV.dunn$Comparison,
         threshold  = 0.05)
 
 ## DWSC ---------------------------------------------------------------------------
+# * T-test pre-post----
+hist(Cage_only_DWSC$Pre_CF)
+hist(Cage_only_DWSC$Post_CF)
+t.test(Cage_only_DWSC$Pre_CF, Cage_only_DWSC$Post_CF)
 
 # * Run ANOVA -------------------------------------
 
@@ -405,7 +436,7 @@ Cage_only_DWSC <- Cagetype_CF %>%
   filter(Cage != "FCCL1") %>%
   filter(Cage != "FCCL2")
 
-Cage_only_DWSC$Mesh <- as.factor(Cage_only_DWSC$Mesh) 
+Cage_only_DWSC$Mesh <- as.factor(Cage_only_DWSC$Mesh)
 
 dwsc.cf.aov <- aov(Delta_CF~Mesh, data = Cage_only_DWSC)
 summary(dwsc.cf.aov)
@@ -438,7 +469,7 @@ Anova(M.DWSC, type = "2")
 M2.resid <- resid(M.DWSC, type = "pearson")
 
 plot(M.DWSC)
-plot(M.DWSC, form = resid(., type = "pearson") ~ fitted(.) | Mesh, abline = 0, 
+plot(M.DWSC, form = resid(., type = "pearson") ~ fitted(.) | Mesh, abline = 0,
      cex = .5, pch = 20, col = "black")
 
 # normality
@@ -449,7 +480,7 @@ hist(M2.resid)
 
 # observed vs fitted
 # There is no funnel
-plot(M.DWSC, Delta_CF ~ fitted(.), id = 0.05, adj = -0.3, 
+plot(M.DWSC, Delta_CF ~ fitted(.), id = 0.05, adj = -0.3,
      cex = .8, pch = 20, col = "blue")
 # leverage
 ggplot(data.frame(lev=hatvalues(M.DWSC),pearson=residuals(M.DWSC,type="pearson")),
@@ -483,7 +514,7 @@ wilcox.test(Delta_CF~Cage, data = MeshLD) #ns
 
 
 # * Kruskal-Wallis test. Does not meet assumptions: do non-parametric ---------------
-kruskal.test(Delta_CF~Mesh, data = Cage_only_DWSC) 
+kruskal.test(Delta_CF~Mesh, data = Cage_only_DWSC)
 
 
 ########################### Survival ##############################################---------------------------------------------------------------------------------
@@ -513,7 +544,7 @@ colnames(Cage_survival_RV) <- c("Cage", "Survived")
   # Add RJ08 from cage E that was dead prior, stomach torn open
 
 Cage_survival_RV$Cage <- c(rep("A", 64), rep("B", 64), rep("C", 64), rep("D", 64), rep("E", 64), rep("F", 64))
-Cage_survival_RV$Survived <- c(rep("1", 60), rep("0", 4), 
+Cage_survival_RV$Survived <- c(rep("1", 60), rep("0", 4),
                                rep("1", 64), rep("0", 0),
                                rep("1", 64), rep("0", 0),
                                rep("1", 64), rep("0", 0),
@@ -529,7 +560,7 @@ Cagetype_survival_RV <- Cagetype_survival_RV %>%
          Mesh = factor(Mesh))
 
 # * Chi square test  ------------------------------
-# Does surival differ significantly between meshes?
+# Does survival differ significantly between meshes?
 RV_survival <- table(Cagetype_survival_RV$Mesh, Cagetype_survival_RV$Survived)
 
 (RV_survival_chi <- chisq.test(RV_survival)) # Significant
@@ -537,7 +568,7 @@ RV_survival <- table(Cagetype_survival_RV$Mesh, Cagetype_survival_RV$Survived)
 
 fisher.test(RV_survival, alternative = "two.sided") # Significant
 
-# 2 x 2 
+# 2 x 2
 ###### Large-small
 RV_large_small <- Cagetype_survival_RV %>%
   filter(Mesh != "wrap")
@@ -546,7 +577,7 @@ fisher.test(RV_large_small_t, alternative = "one.sided") # Significant
 
 fisher.test(RV_large_small_t)$p.value/3 # Bonferroni correction: Significant
 
-p.adjust(fisher.test(RV_large_small_t)$p.value, method = "bonferroni", 
+p.adjust(fisher.test(RV_large_small_t)$p.value, method = "bonferroni",
          n = 3) # Not Significant
 
 ###### Large-wrap
@@ -561,7 +592,7 @@ RV_small_wrap <- Cagetype_survival_RV %>%
 RV_small_wrap_t <- table(RV_small_wrap$Mesh, RV_small_wrap$Survived)
 fisher.test(RV_small_wrap_t, alternative = "one.sided") # Significant
 
-p.adjust(fisher.test(RV_small_wrap_t)$p.value, method = "bonferroni", 
+p.adjust(fisher.test(RV_small_wrap_t)$p.value, method = "bonferroni",
          n = 3) # Not Significant
 
 # Logistic mixed model ----
@@ -579,7 +610,7 @@ se <- sqrt(diag(vcov(mRV_surv)))
 # * * Check assumptions ----
 Ms1.resid <- resid(mRV_surv, type = "pearson")
 plot(mRV_surv)
-plot(mRV_surv, form = resid(., type = "pearson") ~ fitted(.) | Mesh, abline = 0, 
+plot(mRV_surv, form = resid(., type = "pearson") ~ fitted(.) | Mesh, abline = 0,
      cex = .5, pch = 20, col = "black")
 
 # normality
@@ -590,7 +621,7 @@ hist(Ms1.resid)
 
 # observed vs fitted
 # There is no funnel
-plot(mRV_surv, Survived ~ fitted(.), id = 0.05, adj = -0.3, 
+plot(mRV_surv, Survived ~ fitted(.), id = 0.05, adj = -0.3,
      cex = .8, pch = 20, col = "blue")
 # leverage
 ggplot(data.frame(lev=hatvalues(mRV_surv),pearson=residuals(mRV_surv,type="pearson")),
@@ -633,7 +664,7 @@ Cage_survival_DWSC <- as.data.frame(matrix(0, ncol = 2, nrow = 360))
 colnames(Cage_survival_DWSC) <- c("Cage", "Survived")
 
 Cage_survival_DWSC$Cage <- c(rep("A", 60), rep("B", 60), rep("C", 60), rep("D", 60), rep("E", 60), rep("F", 60))
-Cage_survival_DWSC$Survived <- c(rep("1", 59), rep("0", 1), 
+Cage_survival_DWSC$Survived <- c(rep("1", 59), rep("0", 1),
                                  rep("1", 60), rep("0", 0),
                                  rep("1", 58), rep("0", 2),
                                  rep("1", 60), rep("0", 0),
@@ -679,7 +710,7 @@ plot(mDWSC_surv)
 # * * Check assumptions ----
 Ms2.resid <- resid(mDWSC_surv, type = "pearson")
 plot(mDWSC_surv)
-plot(mDWSC_surv, form = resid(., type = "pearson") ~ fitted(.) | Mesh, abline = 0, 
+plot(mDWSC_surv, form = resid(., type = "pearson") ~ fitted(.) | Mesh, abline = 0,
      cex = .5, pch = 20, col = "black")
 
 # normality
@@ -735,10 +766,10 @@ Survival_sum <- rbind(DWSC_survival_sum, RV_survival_sum)
 Survival_sum <- Survival_sum %>%
   mutate(prop = ifelse(Survival == "Survive", round(Count/n * 100,0), round((-1 * Count/n * 100),0)))
 
-# Survival plot 
+# Survival plot
 ggplot(Survival_sum, aes(Mesh, Count, fill = Survival)) +
   facet_wrap(~Site) +
-  geom_col(width = 0.55) + 
+  geom_col(width = 0.55) +
   coord_cartesian(y = c(-30,130)) +
   scale_y_continuous(breaks = seq(0, 125, by = 25)) +
   geom_text(aes(label = paste0(prop, "%")), vjust = 1.5, size = 5)+
@@ -779,7 +810,7 @@ Survival_sum2 <- Survival_sum2 %>%
 
 ggplot(Survival_sum2, aes(Cage, Count, fill = Survival)) +
   facet_wrap(~Site) +
-  geom_col(width = 0.7, aes(colour = Mesh), size = 3) + 
+  geom_col(width = 0.7, aes(colour = Mesh), size = 3) +
   coord_cartesian(y = c(-30,130)) +
   scale_y_continuous(breaks = seq(0, 125, by = 25)) +
   scale_color_brewer(palette="Dark2")+
