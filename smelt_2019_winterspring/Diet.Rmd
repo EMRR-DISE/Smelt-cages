@@ -187,6 +187,8 @@ diet.prop.mean.e$Mesh[diet.prop.mean.e$Mesh == "wrap"] <- "C"
 #plot
 windowsFonts(Times = windowsFont("Times New Roman"))
 
+cbPalette <- c("#F0E442", "#E69F00", "#009E73", "#56B4E9", "#CC79A7", "#D55E00", "#0072B2", "#8C8C8C")
+
 d<-ggplot(data=diet.prop.mean.e, aes(x=Mesh, y =prop.mean)) +
     geom_bar(aes(fill=factor(Taxa, levels=c("Amphipoda", "Calanoida", "Cladocera", "Cyclopoida", "Diptera", "Harpacticoda", "Ostracoda", "Other"))), position="fill", stat="identity") +
   facet_grid(~Location)+
