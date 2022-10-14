@@ -1,324 +1,324 @@
-﻿SiteName,Date,Method,TowDistance_m,SetTime_min,FlowMeterBegin,FlowMeterEnd,Rotations,MeshSize,RingSize_cm,TotalVolume_ml,Subsampled_ml,ID,Count,#ofSubsample,Taxa,ugC.ind,Total.Biomass,X19,QC'ed by,Date_1,RingSize_m
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,1.2,Rotifers,132,1,Microzoo,0.12,15.84,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,1.2,Barnacles,0,NA,Microzoo,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,1.2,Copepod nauplii,174,1,Microzoo,0.1,17.4,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,1.2,Ostracods,1,1,Microzoo,0.6,0.6,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Acanthocyclops vernalis adult,4,1,Cyclopoid,3.36,13.44,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Acanthocyclops sp.,0,NA,Cyclopoid,0,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Cyclopoid adult,0,NA,Cyclopoid,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Cyclopoid copepodid,60,1,Cyclopoid,1.68,100.8,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Diacyclops thomasi,2,1,Cyclopoid,3.36,6.72,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Ectocyclops phaleratus,0,NA,Cyclopoid,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Eucyclops,0,NA,Cyclopoid,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Limnoithona copepodid,0,NA,Cyclopoid,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Limnoithona sinensis,0,NA,Cyclopoid,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Limnoithona spp.,0,NA,Cyclopoid,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Limnoithona tetraspina,0,NA,Cyclopoid,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Macrocyclops albidus,1,1,Cyclopoid,3.36,3.36,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Mesocyclops edax,0,NA,Cyclopoid,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Microcyclops rubellus,1,1,Cyclopoid,3.36,3.36,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Monospilus,0,NA,Cladocera,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Oithona copepodid,0,NA,Cyclopoid,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Oithona davisae,0,NA,Cyclopoid,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Oithona similis,0,NA,Cyclopoid,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Oithona spp.,0,NA,Cyclopoid,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Paracyclops spp.,0,NA,Cyclopoid,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Acartia copepodid,0,NA,Calanoid,1.301,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Acartia spp.,0,NA,Calanoid,0,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Acartiella copepodid,0,NA,Calanoid,1.162,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Acartiella sinensis,0,NA,Calanoid,2.666,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Calanoid copepodid,8,1,Calanoid,1.5,12,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Diaptomus copepodid,0,NA,Calanoid,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Diaptomus spp.,0,NA,Calanoid,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Eurytemora affinis adult,0,NA,Calanoid,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Eurytemora affinis copepodid,0,NA,Calanoid,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Osphranticum copepodid,0,NA,Calanoid,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Osphranticum labronectum,0,NA,Calanoid,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Pseudodiaptomus forbesi adult,0,NA,Calanoid,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Pseudodiaptomus forbesi copepodid,0,NA,Calanoid,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Sinocalanus doerrii adult,0,NA,Calanoid,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Sinocalanus doerrii copepodid,0,NA,Calanoid,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Skistodiaptomus pallidus,0,NA,Calanoid,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Tortanus copepodid,0,NA,Calanoid,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Tortanus spp.,0,NA,Calanoid,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Alona,2,1,Cladocera,0.6,1.2,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Alonella,0,NA,Cladocera,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Bosmina,23,1,Cladocera,0.6,13.8,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Camptocercus,4,1,Cladocera,0.6,2.4,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Ceriodaphnia,25,1,Cladocera,1.4,35,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Chydorus,22,1,Cladocera,0.6,13.2,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Daphnia,13,1,Cladocera,4,52,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Diaphanosoma,0,NA,Cladocera,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Disparalona,0,NA,Cladocera,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Eurycercus,0,NA,Cladocera,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Graptoleberis,0,NA,Cladocera,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Ilyocryptus,1,1,Cladocera,0.6,0.6,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Kurzia,0,NA,Cladocera,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Macrothrix,0,NA,Cladocera,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Moina,0,NA,Cladocera,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Monospilus,0,NA,Cladocera,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Picripleuroxus,0,NA,Cladocera,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Pleuroxus,0,NA,Cladocera,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Scaphloberis,0,NA,Cladocera,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Sida,0,NA,Cladocera,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Simocephalus,1,1,Cladocera,1,1,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Harpacticoids,2,1,Harpacticoid,1,2,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Americorophium,0,NA,Macrozoo,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Annelid,0,NA,Macrozoo,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Baby Clam,0,NA,Macrozoo,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Baby snail,0,NA,Macrozoo,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Clam,0,NA,Macrozoo,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Corophium spp.,0,NA,Macrozoo,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Cumacean,0,NA,Macrozoo,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Fish,0,NA,Macrozoo,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Fish eggs,0,NA,Macrozoo,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Gammarus spp.,0,NA,Macrozoo,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Insect larvae,0,NA,Macrozoo,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Isopod,0,NA,Macrozoo,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Larval Fish,0,NA,Macrozoo,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Mysids,0,NA,Macrozoo,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Shrimp,0,NA,Macrozoo,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Snail,0,NA,Macrozoo,NA,0,NA,TJ,12/19/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,1,Rotifers,257,1,Microzoo,0.12,30.84,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,1,Barnacles,0,NA,Microzoo,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,1,Copepod nauplii,45,1,Microzoo,0.1,4.5,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,1,Ostracods,0,NA,Microzoo,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Acanthocyclops vernalis adult,2,1,Cyclopoid,3.36,6.72,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Acanthocyclops vernalis copepodid,0,NA,Cyclopoid,1.68,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Cyclopoid adult,0,NA,Cyclopoid,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Cyclopoid copepodid,17,1,Cyclopoid,1.68,28.56,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Diacyclops thomasi,2,1,Cyclopoid,3.36,6.72,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Ectocyclops phaleratus,0,NA,Cyclopoid,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Eucyclops elegans,1,1,Cyclopoid,3.36,3.36,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Limnoithona copepodid,0,NA,Cyclopoid,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Limnoithona sinensis,0,NA,Cyclopoid,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Limnoithona spp.,0,NA,Cyclopoid,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Limnoithona tetraspina,0,NA,Cyclopoid,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Macrocyclops albidus,0,NA,Cyclopoid,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Mesocyclops edax,0,NA,Cyclopoid,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Microcyclops rubellus,1,1,Cyclopoid,3.36,3.36,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Monospilus,0,NA,Cladocera,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Oithona copepodid,0,NA,Cyclopoid,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Oithona davisae,0,NA,Cyclopoid,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Oithona similis,0,NA,Cyclopoid,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Oithona spp.,0,NA,Cyclopoid,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Paracyclops fimbriatus,0,NA,Cyclopoid,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Acartia copepodid,0,NA,Calanoid,1.301,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Acartia spp.,0,NA,Calanoid,0,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Acartiella copepodid,0,NA,Calanoid,1.162,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Acartiella sinensis,0,NA,Calanoid,2.666,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Calanoid copepodid,2,1,Calanoid,1.5,3,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Diaptomus copepodid,0,NA,Calanoid,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Diaptomus spp.,0,NA,Calanoid,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Eurytemora affinis adult,0,NA,Calanoid,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Eurytemora affinis copepodid,0,NA,Calanoid,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Osphranticum copepodid,0,NA,Calanoid,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Osphranticum labronectum,0,NA,Calanoid,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Pseudodiaptomus forbesi adult,0,NA,Calanoid,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Pseudodiaptomus forbesi copepodid,0,NA,Calanoid,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Sinocalanus doerrii adult,0,NA,Calanoid,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Sinocalanus doerrii copepodid,0,NA,Calanoid,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Skistodiaptomus pallidus,0,NA,Calanoid,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Tortanus copepodid,0,NA,Calanoid,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Tortanus spp.,0,NA,Calanoid,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Alona,7,1,Cladocera,0.6,4.2,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Alonella,0,NA,Cladocera,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Bosmina,47,1,Cladocera,0.6,28.2,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Camptocercus,0,NA,Cladocera,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Ceriodaphnia,32,1,Cladocera,1.4,44.8,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Chydorus,37,1,Cladocera,0.6,22.2,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Daphnia,32,1,Cladocera,4,128,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Diaphanosoma,0,NA,Cladocera,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Disparalona,0,NA,Cladocera,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Eurycercus,0,NA,Cladocera,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Graptoleberis,1,1,Cladocera,0.6,0.6,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Ilyocryptus,0,NA,Cladocera,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Kurzia,5,1,Cladocera,0.6,3,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Leydigia,0,NA,Cladocera,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Macrothrix,0,NA,Cladocera,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Moina,0,NA,Cladocera,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Monospilus,0,NA,Cladocera,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Picripleuroxus,1,1,Cladocera,0.6,0.6,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Pleuroxus,0,NA,Cladocera,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Pseudochydorus,1,1,Cladocera,0.6,0.6,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Scaphloberis,0,NA,Cladocera,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Sida,0,NA,Cladocera,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Simocephalus,18,1,Cladocera,1,18,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Harpacticoids,2,1,Harpacticoid,1,2,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Americorophium,0,NA,Macrozoo,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Annelid,0,NA,Macrozoo,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Baby Clam,0,NA,Macrozoo,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Baby snail,0,NA,Macrozoo,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Clam,0,NA,Macrozoo,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Corophium spp.,0,NA,Macrozoo,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Cumacean,0,NA,Macrozoo,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Fish,0,NA,Macrozoo,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Fish eggs,0,NA,Macrozoo,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Gammarus spp.,0,NA,Macrozoo,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Insect larvae,0,NA,Macrozoo,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Isopod,0,NA,Macrozoo,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Larval Fish,0,NA,Macrozoo,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Mysids,0,NA,Macrozoo,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Shrimp,0,NA,Macrozoo,NA,0,NA,TJ,12/23/2019,0.15
-RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Snail,0,NA,Macrozoo,NA,0,NA,TJ,12/23/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,10,Rotifers,21,1,Microzoo,0.12,2.52,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,10,Barnacles,0,NA,Microzoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,10,Copepod nauplii,286,1,Microzoo,0.1,28.6,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,10,Ostracods,0,NA,Microzoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Acanthocyclops vernalis adult,1,1,Cyclopoid,3.36,3.36,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Acanthocyclops vernalis copepodid,0,NA,Cyclopoid,1.68,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Cyclopoid adult,0,NA,Cyclopoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Cyclopoid copepodid,31,1,Cyclopoid,1.68,52.08,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Diacyclops thomasi,0,NA,Cyclopoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Ectocyclops phaleratus,0,NA,Cyclopoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Eucyclops prionophorus,0,NA,Cyclopoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Limnoithona copepodid,0,NA,Cyclopoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Limnoithona sinensis,0,NA,Cyclopoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Limnoithona spp.,0,NA,Cyclopoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Limnoithona tetraspina,11,1,Cyclopoid,0.133,1.463,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Macrocyclops albidus,0,NA,Cyclopoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Mesocyclops edax,0,NA,Cyclopoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Microcyclops rubellus,0,NA,Cyclopoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Monospilus,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Oithona copepodid,0,NA,Cyclopoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Oithona davisae,0,NA,Cyclopoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Oithona similis,0,NA,Cyclopoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Oithona spp.,0,NA,Cyclopoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Paracyclops fimbriatus,0,NA,Cyclopoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Acartia copepodid,0,NA,Calanoid,1.301,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Acartia spp.,0,NA,Calanoid,0,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Acartiella copepodid,0,NA,Calanoid,1.162,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Acartiella sinensis,0,NA,Calanoid,2.666,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Calanoid copepodid,40,1,Calanoid,1.5,60,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Diaptomus copepodid,0,NA,Calanoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Diaptomus spp.,0,NA,Calanoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Eurytemora affinis adult,0,NA,Calanoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Eurytemora affinis copepodid,0,NA,Calanoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Osphranticum copepodid,0,NA,Calanoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Osphranticum labronectum,0,NA,Calanoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Pseudodiaptomus forbesi adult,6,1,Calanoid,2.662,15.972,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Pseudodiaptomus forbesi copepodid,0,NA,Calanoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Sinocalanus doerrii adult,0,NA,Calanoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Sinocalanus doerrii copepodid,0,NA,Calanoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Skistodiaptomus pallidus,0,NA,Calanoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Tortanus copepodid,0,NA,Calanoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Tortanus spp.,0,NA,Calanoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Alona,1,1,Cladocera,0.6,0.6,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Alonella,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Bosmina,2,1,Cladocera,0.6,1.2,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Camptocercus,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Ceriodaphnia,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Chydorus,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Daphnia,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Diaphanosoma,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Disparalona,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Eurycercus,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Graptoleberis,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Ilyocryptus,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Kurzia,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Leydigia,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Macrothrix,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Moina,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Monospilus,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Picripleuroxus,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Pleuroxus,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Scaphloberis,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Sida,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Simocephalus,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Harpacticoids,6,1,Harpacticoid,1,6,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Americorophium,0,NA,Macrozoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Annelid,0,NA,Macrozoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Baby Clam,0,NA,Macrozoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Baby snail,0,NA,Macrozoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Clam,0,NA,Macrozoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Corophium spp.,0,NA,Macrozoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Cumacean,0,NA,Macrozoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Fish,0,NA,Macrozoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Fish eggs,0,NA,Macrozoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Gammarus spp.,0,NA,Macrozoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Insect larvae,0,NA,Macrozoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Isopod,0,NA,Macrozoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Larval Fish,0,NA,Macrozoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Mysids,0,NA,Macrozoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Shrimp,0,NA,Macrozoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Snail,0,NA,Macrozoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,11,Rotifers,112,1,Microzoo,0.12,13.44,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,11,Barnacles,0,NA,Microzoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,11,Copepod nauplii,217,1,Microzoo,0.1,21.7,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,11,Ostracods,2,1,Microzoo,0.6,1.2,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Acanthocyclops vernalis adult,0,NA,Cyclopoid,3.36,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Acanthocyclops vernalis copepodid,0,NA,Cyclopoid,1.68,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Cyclopoid adult,0,NA,Cyclopoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Cyclopoid copepodid,52,1,Cyclopoid,1.68,87.36,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Diacyclops thomasi,0,NA,Cyclopoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Ectocyclops phaleratus,0,NA,Cyclopoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Eucyclops elegans,0,NA,Cyclopoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Limnoithona copepodid,0,NA,Cyclopoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Limnoithona sinensis,0,NA,Cyclopoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Limnoithona spp.,0,NA,Cyclopoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Limnoithona tetraspina,111,1,Cyclopoid,0.133,14.763,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Mesocyclops edax,0,NA,Cyclopoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Microcyclops rubellus,0,NA,Cyclopoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Monospilus,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Oithona copepodid,0,NA,Cyclopoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Oithona davisae,0,NA,Cyclopoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Oithona similis,0,NA,Cyclopoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Oithona spp.,0,NA,Cyclopoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Paracyclops,0,NA,Cyclopoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Acartia copepodid,0,NA,Calanoid,1.301,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Acartia spp.,0,NA,Calanoid,0,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Acartiella copepodid,0,NA,Calanoid,1.162,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Acartiella sinensis,0,NA,Calanoid,2.666,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Arctodiaptomus dorsalis,0,NA,Calanoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Calanoid copepodid,38,1,Calanoid,1.5,57,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Diaptomus copepodid,0,NA,Calanoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Diaptomus spp.,0,NA,Calanoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Eurytemora affinis adult,5,1,Calanoid,3.068,15.34,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Eurytemora affinis copepodid,0,NA,Calanoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Osphranticum copepodid,0,NA,Calanoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Osphranticum labronectum,0,NA,Calanoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Pseudodiaptomus forbesi adult,0,NA,Calanoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Pseudodiaptomus forbesi copepodid,0,NA,Calanoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Sinocalanus doerrii adult,9,1,Calanoid,3.413,30.717,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Sinocalanus doerrii copepodid,0,NA,Calanoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Skistodiaptomus pallidus,0,NA,Calanoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Tortanus spp.,0,NA,Calanoid,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Alona,2,1,Cladocera,0.6,1.2,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Alonella,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Bosmina,18,1,Cladocera,0.6,10.8,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Camptocercus,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Ceriodaphnia,1,1,Cladocera,1.4,1.4,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Chydorus,1,1,Cladocera,0.6,0.6,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Daphnia,2,1,Cladocera,4,8,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Diaphanosoma,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Disparalona,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Eurycercus,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Graptoleberis,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Ilyocryptus,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Kurzia,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Leydigia,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Macrothrix,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Moina,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Monospilus,1,1,Cladocera,0.6,0.6,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Picripleuroxus,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Pleuroxus,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Scaphloberis,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Sida,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Simocephalus,0,NA,Cladocera,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Harpacticoids,2,1,Harpacticoid,1,2,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Americorophium,0,NA,Macrozoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Annelid,0,NA,Macrozoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Baby Clam,0,NA,Macrozoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Baby snail,0,NA,Macrozoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Clam,0,NA,Macrozoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Corophium spp.,0,NA,Macrozoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Cumacean,0,NA,Macrozoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Fish,0,NA,Macrozoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Fish eggs,0,NA,Macrozoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Gammarus spp.,0,NA,Macrozoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Insect larvae,0,NA,Macrozoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Isopod,0,NA,Macrozoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Larval Fish,0,NA,Macrozoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Mysids,0,NA,Macrozoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Shrimp,0,NA,Macrozoo,NA,0,NA,TJ,12/26/2019,0.15
-DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Snail,0,NA,Macrozoo,NA,0,NA,TJ,12/26/2019,0.15
+﻿SiteName,Date,Method,TowDistance_m,SetTime_min,FlowMeterBegin,FlowMeterEnd,Rotations,MeshSize,RingSize_cm,TotalVolume_ml,Subsampled_ml,ID,Count,#ofSubsample,Taxa,ugC.ind,Total.Biomass,QC'ed.Date,RingSize_m
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,1.2,Rotifers,132,1,Microzoo,0.12,15.84,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,1.2,Barnacles,0,NA,Microzoo,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,1.2,Copepod nauplii,174,1,Microzoo,0.1,17.4,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,1.2,Ostracods,1,1,Microzoo,0.6,0.6,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Acanthocyclops vernalis adult,4,1,Cyclopoid,3.36,13.44,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Acanthocyclops sp.,0,NA,Cyclopoid,0,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Cyclopoid adult,0,NA,Cyclopoid,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Cyclopoid copepodid,60,1,Cyclopoid,1.68,100.8,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Diacyclops thomasi,2,1,Cyclopoid,3.36,6.72,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Ectocyclops phaleratus,0,NA,Cyclopoid,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Eucyclops,0,NA,Cyclopoid,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Limnoithona copepodid,0,NA,Cyclopoid,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Limnoithona sinensis,0,NA,Cyclopoid,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Limnoithona spp.,0,NA,Cyclopoid,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Limnoithona tetraspina,0,NA,Cyclopoid,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Macrocyclops albidus,1,1,Cyclopoid,3.36,3.36,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Mesocyclops edax,0,NA,Cyclopoid,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Microcyclops rubellus,1,1,Cyclopoid,3.36,3.36,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Monospilus,0,NA,Cladocera,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Oithona copepodid,0,NA,Cyclopoid,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Oithona davisae,0,NA,Cyclopoid,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Oithona similis,0,NA,Cyclopoid,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Oithona spp.,0,NA,Cyclopoid,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Paracyclops spp.,0,NA,Cyclopoid,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Acartia copepodid,0,NA,Calanoid,1.301,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Acartia spp.,0,NA,Calanoid,0,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Acartiella copepodid,0,NA,Calanoid,1.162,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Acartiella sinensis,0,NA,Calanoid,2.666,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Calanoid copepodid,8,1,Calanoid,1.5,12,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Diaptomus copepodid,0,NA,Calanoid,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Diaptomus spp.,0,NA,Calanoid,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Eurytemora affinis adult,0,NA,Calanoid,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Eurytemora affinis copepodid,0,NA,Calanoid,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Osphranticum copepodid,0,NA,Calanoid,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Osphranticum labronectum,0,NA,Calanoid,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Pseudodiaptomus forbesi adult,0,NA,Calanoid,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Pseudodiaptomus forbesi copepodid,0,NA,Calanoid,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Sinocalanus doerrii adult,0,NA,Calanoid,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Sinocalanus doerrii copepodid,0,NA,Calanoid,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Skistodiaptomus pallidus,0,NA,Calanoid,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Tortanus copepodid,0,NA,Calanoid,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Tortanus spp.,0,NA,Calanoid,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Alona,2,1,Cladocera,0.6,1.2,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Alonella,0,NA,Cladocera,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Bosmina,23,1,Cladocera,0.6,13.8,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Camptocercus,4,1,Cladocera,0.6,2.4,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Ceriodaphnia,25,1,Cladocera,1.4,35,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Chydorus,22,1,Cladocera,0.6,13.2,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Daphnia,13,1,Cladocera,4,52,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Diaphanosoma,0,NA,Cladocera,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Disparalona,0,NA,Cladocera,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Eurycercus,0,NA,Cladocera,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Graptoleberis,0,NA,Cladocera,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Ilyocryptus,1,1,Cladocera,0.6,0.6,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Kurzia,0,NA,Cladocera,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Macrothrix,0,NA,Cladocera,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Moina,0,NA,Cladocera,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Monospilus,0,NA,Cladocera,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Picripleuroxus,0,NA,Cladocera,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Pleuroxus,0,NA,Cladocera,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Scaphloberis,0,NA,Cladocera,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Sida,0,NA,Cladocera,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Simocephalus,1,1,Cladocera,1,1,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Harpacticoids,2,1,Harpacticoid,1,2,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Americorophium,0,NA,Macrozoo,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Annelid,0,NA,Macrozoo,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Baby Clam,0,NA,Macrozoo,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Baby snail,0,NA,Macrozoo,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Clam,0,NA,Macrozoo,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Corophium spp.,0,NA,Macrozoo,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Cumacean,0,NA,Macrozoo,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Fish,0,NA,Macrozoo,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Fish eggs,0,NA,Macrozoo,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Gammarus spp.,0,NA,Macrozoo,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Insect larvae,0,NA,Macrozoo,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Isopod,0,NA,Macrozoo,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Larval Fish,0,NA,Macrozoo,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Mysids,0,NA,Macrozoo,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Shrimp,0,NA,Macrozoo,NA,0,12/19/2019,0.15
+RV,2019-01-23,Throw,5,NA,NA,NA,NA,50,15,86,12,Snail,0,NA,Macrozoo,NA,0,12/19/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,1,Rotifers,257,1,Microzoo,0.12,30.84,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,1,Barnacles,0,NA,Microzoo,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,1,Copepod nauplii,45,1,Microzoo,0.1,4.5,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,1,Ostracods,0,NA,Microzoo,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Acanthocyclops vernalis adult,2,1,Cyclopoid,3.36,6.72,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Acanthocyclops vernalis copepodid,0,NA,Cyclopoid,1.68,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Cyclopoid adult,0,NA,Cyclopoid,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Cyclopoid copepodid,17,1,Cyclopoid,1.68,28.56,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Diacyclops thomasi,2,1,Cyclopoid,3.36,6.72,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Ectocyclops phaleratus,0,NA,Cyclopoid,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Eucyclops elegans,1,1,Cyclopoid,3.36,3.36,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Limnoithona copepodid,0,NA,Cyclopoid,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Limnoithona sinensis,0,NA,Cyclopoid,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Limnoithona spp.,0,NA,Cyclopoid,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Limnoithona tetraspina,0,NA,Cyclopoid,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Macrocyclops albidus,0,NA,Cyclopoid,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Mesocyclops edax,0,NA,Cyclopoid,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Microcyclops rubellus,1,1,Cyclopoid,3.36,3.36,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Monospilus,0,NA,Cladocera,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Oithona copepodid,0,NA,Cyclopoid,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Oithona davisae,0,NA,Cyclopoid,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Oithona similis,0,NA,Cyclopoid,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Oithona spp.,0,NA,Cyclopoid,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Paracyclops fimbriatus,0,NA,Cyclopoid,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Acartia copepodid,0,NA,Calanoid,1.301,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Acartia spp.,0,NA,Calanoid,0,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Acartiella copepodid,0,NA,Calanoid,1.162,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Acartiella sinensis,0,NA,Calanoid,2.666,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Calanoid copepodid,2,1,Calanoid,1.5,3,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Diaptomus copepodid,0,NA,Calanoid,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Diaptomus spp.,0,NA,Calanoid,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Eurytemora affinis adult,0,NA,Calanoid,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Eurytemora affinis copepodid,0,NA,Calanoid,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Osphranticum copepodid,0,NA,Calanoid,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Osphranticum labronectum,0,NA,Calanoid,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Pseudodiaptomus forbesi adult,0,NA,Calanoid,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Pseudodiaptomus forbesi copepodid,0,NA,Calanoid,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Sinocalanus doerrii adult,0,NA,Calanoid,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Sinocalanus doerrii copepodid,0,NA,Calanoid,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Skistodiaptomus pallidus,0,NA,Calanoid,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Tortanus copepodid,0,NA,Calanoid,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Tortanus spp.,0,NA,Calanoid,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Alona,7,1,Cladocera,0.6,4.2,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Alonella,0,NA,Cladocera,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Bosmina,47,1,Cladocera,0.6,28.2,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Camptocercus,0,NA,Cladocera,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Ceriodaphnia,32,1,Cladocera,1.4,44.8,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Chydorus,37,1,Cladocera,0.6,22.2,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Daphnia,32,1,Cladocera,4,128,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Diaphanosoma,0,NA,Cladocera,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Disparalona,0,NA,Cladocera,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Eurycercus,0,NA,Cladocera,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Graptoleberis,1,1,Cladocera,0.6,0.6,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Ilyocryptus,0,NA,Cladocera,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Kurzia,5,1,Cladocera,0.6,3,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Leydigia,0,NA,Cladocera,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Macrothrix,0,NA,Cladocera,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Moina,0,NA,Cladocera,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Monospilus,0,NA,Cladocera,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Picripleuroxus,1,1,Cladocera,0.6,0.6,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Pleuroxus,0,NA,Cladocera,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Pseudochydorus,1,1,Cladocera,0.6,0.6,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Scaphloberis,0,NA,Cladocera,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Sida,0,NA,Cladocera,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Simocephalus,18,1,Cladocera,1,18,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Harpacticoids,2,1,Harpacticoid,1,2,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Americorophium,0,NA,Macrozoo,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Annelid,0,NA,Macrozoo,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Baby Clam,0,NA,Macrozoo,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Baby snail,0,NA,Macrozoo,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Clam,0,NA,Macrozoo,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Corophium spp.,0,NA,Macrozoo,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Cumacean,0,NA,Macrozoo,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Fish,0,NA,Macrozoo,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Fish eggs,0,NA,Macrozoo,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Gammarus spp.,0,NA,Macrozoo,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Insect larvae,0,NA,Macrozoo,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Isopod,0,NA,Macrozoo,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Larval Fish,0,NA,Macrozoo,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Mysids,0,NA,Macrozoo,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Shrimp,0,NA,Macrozoo,NA,0,12/23/2019,0.15
+RV,2019-02-19,Throw,6.5,NA,NA,NA,NA,50,15,75,15,Snail,0,NA,Macrozoo,NA,0,12/23/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,10,Rotifers,21,1,Microzoo,0.12,2.52,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,10,Barnacles,0,NA,Microzoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,10,Copepod nauplii,286,1,Microzoo,0.1,28.6,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,10,Ostracods,0,NA,Microzoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Acanthocyclops vernalis adult,1,1,Cyclopoid,3.36,3.36,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Acanthocyclops vernalis copepodid,0,NA,Cyclopoid,1.68,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Cyclopoid adult,0,NA,Cyclopoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Cyclopoid copepodid,31,1,Cyclopoid,1.68,52.08,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Diacyclops thomasi,0,NA,Cyclopoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Ectocyclops phaleratus,0,NA,Cyclopoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Eucyclops prionophorus,0,NA,Cyclopoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Limnoithona copepodid,0,NA,Cyclopoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Limnoithona sinensis,0,NA,Cyclopoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Limnoithona spp.,0,NA,Cyclopoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Limnoithona tetraspina,11,1,Cyclopoid,0.133,1.463,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Macrocyclops albidus,0,NA,Cyclopoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Mesocyclops edax,0,NA,Cyclopoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Microcyclops rubellus,0,NA,Cyclopoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Monospilus,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Oithona copepodid,0,NA,Cyclopoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Oithona davisae,0,NA,Cyclopoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Oithona similis,0,NA,Cyclopoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Oithona spp.,0,NA,Cyclopoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Paracyclops fimbriatus,0,NA,Cyclopoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Acartia copepodid,0,NA,Calanoid,1.301,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Acartia spp.,0,NA,Calanoid,0,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Acartiella copepodid,0,NA,Calanoid,1.162,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Acartiella sinensis,0,NA,Calanoid,2.666,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Calanoid copepodid,40,1,Calanoid,1.5,60,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Diaptomus copepodid,0,NA,Calanoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Diaptomus spp.,0,NA,Calanoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Eurytemora affinis adult,0,NA,Calanoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Eurytemora affinis copepodid,0,NA,Calanoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Osphranticum copepodid,0,NA,Calanoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Osphranticum labronectum,0,NA,Calanoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Pseudodiaptomus forbesi adult,6,1,Calanoid,2.662,15.972,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Pseudodiaptomus forbesi copepodid,0,NA,Calanoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Sinocalanus doerrii adult,0,NA,Calanoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Sinocalanus doerrii copepodid,0,NA,Calanoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Skistodiaptomus pallidus,0,NA,Calanoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Tortanus copepodid,0,NA,Calanoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Tortanus spp.,0,NA,Calanoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Alona,1,1,Cladocera,0.6,0.6,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Alonella,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Bosmina,2,1,Cladocera,0.6,1.2,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Camptocercus,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Ceriodaphnia,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Chydorus,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Daphnia,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Diaphanosoma,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Disparalona,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Eurycercus,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Graptoleberis,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Ilyocryptus,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Kurzia,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Leydigia,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Macrothrix,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Moina,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Monospilus,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Picripleuroxus,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Pleuroxus,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Scaphloberis,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Sida,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Simocephalus,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Harpacticoids,6,1,Harpacticoid,1,6,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Americorophium,0,NA,Macrozoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Annelid,0,NA,Macrozoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Baby Clam,0,NA,Macrozoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Baby snail,0,NA,Macrozoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Clam,0,NA,Macrozoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Corophium spp.,0,NA,Macrozoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Cumacean,0,NA,Macrozoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Fish,0,NA,Macrozoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Fish eggs,0,NA,Macrozoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Gammarus spp.,0,NA,Macrozoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Insect larvae,0,NA,Macrozoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Isopod,0,NA,Macrozoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Larval Fish,0,NA,Macrozoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Mysids,0,NA,Macrozoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Shrimp,0,NA,Macrozoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-12,Throw,6.5,NA,NA,NA,NA,50,15,82,30,Snail,0,NA,Macrozoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,11,Rotifers,112,1,Microzoo,0.12,13.44,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,11,Barnacles,0,NA,Microzoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,11,Copepod nauplii,217,1,Microzoo,0.1,21.7,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,11,Ostracods,2,1,Microzoo,0.6,1.2,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Acanthocyclops vernalis adult,0,NA,Cyclopoid,3.36,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Acanthocyclops vernalis copepodid,0,NA,Cyclopoid,1.68,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Cyclopoid adult,0,NA,Cyclopoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Cyclopoid copepodid,52,1,Cyclopoid,1.68,87.36,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Diacyclops thomasi,0,NA,Cyclopoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Ectocyclops phaleratus,0,NA,Cyclopoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Eucyclops elegans,0,NA,Cyclopoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Limnoithona copepodid,0,NA,Cyclopoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Limnoithona sinensis,0,NA,Cyclopoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Limnoithona spp.,0,NA,Cyclopoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Limnoithona tetraspina,111,1,Cyclopoid,0.133,14.763,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Mesocyclops edax,0,NA,Cyclopoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Microcyclops rubellus,0,NA,Cyclopoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Monospilus,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Oithona copepodid,0,NA,Cyclopoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Oithona davisae,0,NA,Cyclopoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Oithona similis,0,NA,Cyclopoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Oithona spp.,0,NA,Cyclopoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Paracyclops,0,NA,Cyclopoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Acartia copepodid,0,NA,Calanoid,1.301,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Acartia spp.,0,NA,Calanoid,0,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Acartiella copepodid,0,NA,Calanoid,1.162,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Acartiella sinensis,0,NA,Calanoid,2.666,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Arctodiaptomus dorsalis,0,NA,Calanoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Calanoid copepodid,38,1,Calanoid,1.5,57,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Diaptomus copepodid,0,NA,Calanoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Diaptomus spp.,0,NA,Calanoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Eurytemora affinis adult,5,1,Calanoid,3.068,15.34,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Eurytemora affinis copepodid,0,NA,Calanoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Osphranticum copepodid,0,NA,Calanoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Osphranticum labronectum,0,NA,Calanoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Pseudodiaptomus forbesi adult,0,NA,Calanoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Pseudodiaptomus forbesi copepodid,0,NA,Calanoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Sinocalanus doerrii adult,9,1,Calanoid,3.413,30.717,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Sinocalanus doerrii copepodid,0,NA,Calanoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Skistodiaptomus pallidus,0,NA,Calanoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Tortanus spp.,0,NA,Calanoid,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Alona,2,1,Cladocera,0.6,1.2,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Alonella,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Bosmina,18,1,Cladocera,0.6,10.8,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Camptocercus,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Ceriodaphnia,1,1,Cladocera,1.4,1.4,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Chydorus,1,1,Cladocera,0.6,0.6,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Daphnia,2,1,Cladocera,4,8,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Diaphanosoma,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Disparalona,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Eurycercus,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Graptoleberis,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Ilyocryptus,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Kurzia,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Leydigia,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Macrothrix,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Moina,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Monospilus,1,1,Cladocera,0.6,0.6,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Picripleuroxus,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Pleuroxus,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Scaphloberis,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Sida,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Simocephalus,0,NA,Cladocera,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Harpacticoids,2,1,Harpacticoid,1,2,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Americorophium,0,NA,Macrozoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Annelid,0,NA,Macrozoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Baby Clam,0,NA,Macrozoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Baby snail,0,NA,Macrozoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Clam,0,NA,Macrozoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Corophium spp.,0,NA,Macrozoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Cumacean,0,NA,Macrozoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Fish,0,NA,Macrozoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Fish eggs,0,NA,Macrozoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Gammarus spp.,0,NA,Macrozoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Insect larvae,0,NA,Macrozoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Isopod,0,NA,Macrozoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Larval Fish,0,NA,Macrozoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Mysids,0,NA,Macrozoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Shrimp,0,NA,Macrozoo,NA,0,12/26/2019,0.15
+DWSC,2019-03-20,Throw,6.5,NA,NA,NA,NA,50,15,70,16,Snail,0,NA,Macrozoo,NA,0,12/26/2019,0.15
