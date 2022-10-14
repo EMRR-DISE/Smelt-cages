@@ -16,7 +16,7 @@ library(Rcpp)
 
 # bring in data
 ```{r}
-diet <- read_csv("smelt_2019_winterspring/data_raw/DSM Cage Diets 2019 update_taxa.csv")
+diet <- read_csv("smelt_2019_winterspring/data_raw/2019_smeltstudy_diet_data.csv")
 diet$Location <- ordered(diet$Location, levels = c("RVR", "DWSC"))
 diet<-diet[diet$Cage.ID != "FCCL Control Tank 1",]
 diet<-diet[diet$Cage.ID != "FCCL Control Tank 2",]
