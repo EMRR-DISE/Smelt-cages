@@ -15,7 +15,7 @@ library(multcomp)
 
 # load data
 ```{r}
-zoop <- read_csv("smelt_2019_winterspring/data_raw/ZoopDataCombined_biomass_qc'ed_12.19.19.csv")
+zoop <- read_csv("smelt_2019_winterspring/data_raw/2019_smeltstudy_zoop_data.csv")
 
 zoop$Date<-mdy(zoop$Date)
 
