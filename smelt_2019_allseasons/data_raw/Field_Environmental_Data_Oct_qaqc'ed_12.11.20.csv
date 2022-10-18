@@ -1,0 +1,38 @@
+Location,Recorder,Field.Check,Date,YSI#,Time,Weather,Secchi_m,Water.Temp_C,DO_mg_L,SpCond_uS,EC,pH,Tide,Microsystis_Rank,Turb1,Turb2,Turb3,Avg.Turb_ntu,Vel1,Vel2,Vel3,Avg.Vel_f/s,Zooplankton?,Flow.Speed,Set.Time.min,Start.Time,Start.Meter,End.Meter,Revs,Zoop.Notes,Damage.A,Damage.B,Damage.C,Damage.Notes,Bio.A,Bio.B,Bio.C,Bio.Notes,Plate.Collection?,Mort.A,Mort.B,Mort.C,Fish.Notes,Misc.Notes,Entered.By,Entry.Date,Checked.By,Check.Date
+SM,EE,Y,10/21/2019,NA,13:04,CLR,NA,17.98,7.91,8139.6,7039.3,7.81,Ebb,1,12.8,12.3,11.9,12.33,NA,NA,NA,NA,Y,Low,2,13:07,992210,992112,98,NA,X,X,X,NA,2,2,2,NA,NA,0,0,1,NA,NA,TJ,12/2/2019,NK,12/16/2019
+SM,EE,N,10/15/2019,NA,12:17,CLR,NA,17.93,7.74,7763,6688.8,7.65,Flood,1,18.5,19.9,18.4,18.93,NA,NA,NA,NA,Y,Low,2,12:17,993443,993014,429,NA,ü,ü,ü,"Anchors moved, appear to have tangled together. Cages have bunched together. A + C touching.",2,2,2,NA,NA,0,0,0,NA,NA,TJ,12/2/2019,NK,12/16/2019
+SM,EE,N,10/16/2019,NA,12:11,CLD,NA,17.8,7.65,7807.1,6733.8,7.68,Flood,1,15.2,16.1,15.7,15.67,NA,NA,NA,NA,Y,Low,2,12:14,992658,992494,164,NA,X,X,X,NA,2,2,2,NA,NA,0,0,0,NA,NA,TJ,12/2/2019,NK,12/16/2019
+SM,EE,Y,10/11/2019,NA,11:19,CLR,NA,17.48,7.81,7803.5,6680.4,7.76,Flood,1,29.2,28.8,29.1,29.03,NA,NA,NA,NA,Y,Low,2,11:20,994325,994129,196,NA,X,X,X,NA,1,1,1,NA,NA,0,0,0,NA,NA,TJ,12/2/2019,NK,12/16/2019
+SM,TJ,Y,10/14/2019,Exo 2,9:26,CLR,NA,17.3,7.56,7692,6570,7.55,NA,1,22.1,24.1,23.8,23.33,NA,NA,NA,NA,Y,Low,2,10:15,994127,993982,145,NA,X,X,X,NA,1,1,1,NA,NA,0,0,0,NA,NA,TJ,12/2/2019,NK,12/16/2019
+Yolo,CS,Y,10/16/2019,2,13:11,CLD,0.50,16.9,9.04,226,191,8.45,Ebb,1,15.3,16.4,17.4,16.37,NA,NA,NA,NA,Y,Low,2,12:03,985292,985472,180,Copied Yolo sample (NDFA),X,X,X,NA,2,2,2,NA,NA,0,0,0,NA,KG = Karla Garibay,TJ,11/26/2019,NK,12/16/2019
+Yolo,NI,Y,10/25/2019,3,9:51,CLR,0.37,16.8,7.72,215,182,7.84,Ebb,1,21.7,21.8,21.8,21.77,1.24,1.29,1.20,1.24,Y,Low,2,9:51,984680,985000,320,Tied off to cage.,X,X,X,NA,2,2,2,Lots of SAV debris outside.,NA,1,0,1,"Fungus all over head of fish from cage A. Fish from A 66mm, fish from C 59mm",NA,TJ,11/26/2019,NK,12/16/2019
+Yolo,CS,Y,10/10/2019,3,11:16,CLR,0.36,16.7,8.20,272,229,7.96,Ebb,1,21.1,22.7,22.3,22.03,NA,NA,NA,#DIV/0!,Y,Low,2,11:16,986666,987016,350,Air bubble for first ~20s,X,X,X,"Bumped cage A a bit. Hinge on cage A is creating about a 1/4"" gap between cage and top cover.",2,1,1,Cage A with debris caught on upstream side of cage. Not much but could of blocked flow on upper portion of cage.,NA,0,0,0,NA,Did not measure velocity.,TJ,11/26/2019,NK,12/16/2019
+Yolo,CP,Y,10/15/2019,2,11:02,CLR,0.55,16.4,9.04,227,190,8.35,Ebb,1,13.1,12.9,13.2,13.07,0.83,0.70,0.84,0.79,Y,Low,2,11:14,1000000,999276,724,NA,X,X,X,NA,2,2,2,Debris built downstream of C,NA,1,0,0,One spotted swimming.,NA,TJ,11/26/2019,NK,12/16/2019
+Yolo,NI,Y,10/18/2019,3,9:50,CLD,0.49,16.4,8.86,211,177,8.41,Flood,1,16.0,15.9,15.8,15.90,0.69,0.78,0.79,0.75,Y,Low,2,10:45,998755,999200,445,NA,X,X,X,NA,2,2,2,NA,NA,0,0,0,NA,NA,TJ,11/26/2019,NK,12/16/2019
+RV,TJ,Y,10/14/2019,Exo 2,11:00,CLR,NA,16.20,8.94,129,108,8.09,NA,1,2.5,2.6,2.5,2.53,NA,NA,NA,NA,Y,Low,2,11:47,993967,993626,341,NA,X,X,X,NA,2,2,2,NA,NA,0,0,0,NA,NA,TJ,12/2/2019,NK,12/16/2019
+Yolo,CP,Y,10/11/2019,1,11:08,CLR,0.35,16.2,8.20,268,223,7.95,Ebb,1,18.7,18.4,19.0,18.70,1.03,1.10,1.04,1.06,Y,Low,2,11:14,986600,986244,356,Done at trap with W/Q,X,X,X,NA,2,2,2,"Film of algae. Some debris, likely from screw trap on upstream side of cage A.",NA,0,0,0,NA,NA,TJ,11/26/2019,NK,12/16/2019
+RV,EE,N,10/15/2019,NA,10:23,CLR,NA,16.16,8.81,129.8,107.7,7.99,Ebb,1,3.6,3.1,2.9,3.20,NA,NA,NA,NA,Y,Low,2,10:26,993621,993448,173,NA,X,X,X,NA,2,2,2,NA,NA,0,0,0,NA,NA,TJ,12/2/2019,NK,12/16/2019
+RV,EE,N,10/16/2019,NA,10:15,CLD,NA,16.12,8.78,131.4,109.1,8.32,Ebb,1,2.7,2.5,2.6,2.60,NA,NA,NA,NA,Y,Low,2,10:18,993000,992662,338,NA,X,X,X,NA,2,2,2,NA,NA,0,0,0,NA,NA,TJ,12/2/2019,NK,12/16/2019
+Yolo,JA,Y,10/14/2019,1,10:50,CLR,0.42,16.1,9.03,235,195,8.17,Ebb,1,12.8,13.1,13.0,12.97,0.86,0.90,0.82,0.86,Y,Low,2,10:50,999581,999999,418,NA,X,X,X,NA,2,2,2,Thin layer of filamentous algae on inside/outside of all cages. Cleaned exterior.,NA,0,0,0,NA,NA,TJ,11/26/2019,NK,12/16/2019
+RV,EE,Y,10/21/2019,NA,10:37,CLR,NA,16.04,9.01,134.8,111.6,8.23,Flood,1,3.1,3.2,2.7,3.00,NA,NA,NA,NA,Y,Low,2,10:43,992483,992209,274,NA,X,X,X,NA,2,2,2,NA,NA,0,0,1,NA,NA,TJ,12/2/2019,NK,12/16/2019
+RV,EE,Y,10/11/2019,NA,9:18,CLR,NA,16.01,9.19,120.1,99.2,8.48,Ebb,1,4.8,4.5,5.6,4.97,NA,NA,NA,NA,Y,Low,2,9:21,994445,994328,117,NA,X,X,X,NA,1,1,1,NA,NA,0,0,1,NA,NA,TJ,12/2/2019,NK,12/16/2019
+RV,EE,N,10/28/2019,NA,13:28,CLR,NA,15.42,9.03,133.1,108.6,8.17,Flood,1,12.1,11.6,13.1,12.27,NA,NA,NA,NA,Y,Low,2,13:50,991676,991457,219,NA,ü,ü,ü,"PVC cables between A-B, and B-C cut (Top cables).",2,2,2,NA,NA,0,1,0,Mort sunk before we could get it.,NA,TJ,12/2/2019,NK,12/16/2019
+SM,EE,N,10/28/2019,NA,11:35,CLR,NA,15.3,8.44,7683,6251,7.55,Ebb,NA,34.3,31.5,33.2,33.00,NA,NA,NA,NA,Y,Low,2,11:20,992105,991678,427,NA,X,X,X,NA,2,2,2,NA,NA,0,0,0,NA,NA,TJ,12/2/2019,NK,12/16/2019
+SM,EE,Y,11/4/2019,NA,12:31,CLR,NA,14.40,7.78,8802.1,7041.9,7.75,Ebb,1,19.4,18.0,19.7,19.03,NA,NA,NA,NA,Y,Low,2,12:43,991391,991281,110,NA,X,X,X,NA,2,2,2,NA,NA,0,0,0,NA,NA,TJ,12/2/2019,NK,12/16/2019
+RV,EE,Y,11/4/2019,NA,10:52,CLR,NA,13.54,9.15,134.4,105.0,8.36,Flood,1,4.5,4.9,5.2,4.87,NA,NA,NA,NA,Y,Low,2,10:55,991459,991412,47,NA,X,X,X,NA,2,2,2,NA,NA,0,0,0,NA,NA,TJ,12/2/2019,NK,12/16/2019
+Yolo,NK,Y,10/29/2019,2,10:20,CLR,0.34,12.9,9.29,198,152,7.98,Ebb,1,22.3,21.0,20.5,21.27,NA,NA,NA,NA,Y,Low,2,10:20,718196,718400,204,Taken as part of STTD LT.,X,X,X,"Downstream safety line was caught up with a tree, causing cage C to tilt.",1,1,1,Some SAV caught on sides of cages.,NA,0,1,0,NA,NA,TJ,11/26/2019,NK,12/16/2019
+Yolo,AC,Y,11/4/2019,3,10:25,CLR,0.48,12.9,9.95,190,146,7.94,Flood,1,13.6,13.6,13.4,13.53,NA,NA,NA,NA,Y,Low,2,10:25,984670,985000,330,Flooding motor against current.,X,X,ü,A hinge(right/downstream) is damaged on cage C.,2,2,2,NA,NA,0,0,0,NA,No flowmeter,TJ,11/26/2019,NK,12/16/2019
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

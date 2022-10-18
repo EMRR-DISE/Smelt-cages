@@ -1,0 +1,191 @@
+---
+librarytitle: "Zoop Plotting"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+# load packages
+```{r}
+library(tidyverse)
+library(lubridate)
+library(Polychrome)
+```
+
+# load & prep summer/fall data
+```{r}
+zoop <- read_csv("hybrid study/ZoopData_SummerFall_2019.csv")
+
+zoop$Date <- mdy(zoop$Date)
+zoop$Day <- day(zoop$Date)
+zoop$Month <- month(zoop$Date)
+zoop$Month <- month.abb[zoop$Month]
+zoop$MD <- paste(zoop$Month, zoop$Day, sep="-")
+
+#add ring size (0.5m for 50um net)
+zoop$RingSize_m <- 0.5
+
+#add 0s for count with NA
+zoop$Count[is.na(zoop$Count)] <- 0
+
+#bring in tow data
+aug <- read_csv("hybrid study/Field_Environmental_Data_Aug_qaqc'ed_11.04.20.csv")
+oct <- read_csv("hybrid study/Field_Environmental_Data_Oct_qaqc'ed_12.11.20.csv")
+aug$Date <- mdy(aug$Date)
+oct$Date <- mdy(oct$Date)
+
+#condense to columns of interest
+aug2 <- aug[c(1,4,22,24:27)]
+oct2 <- oct[c(1,4,26,28:31)]
+
+tow <- rbind(aug2,oct2)
+tow2 <- tow[!is.na(tow$Location),]
+
+#merge
+#rename column
+zoop <- zoop %>% rename(Location = "Station")
+
+#make locations match
+unique(zoop$Location)
+unique(tow2$Location)
+
+zoop[zoop$Location %in% c("STTD", "STTD-YOLO", "YOLO"),]$Location <- "Yolo"
+
+all <- merge(zoop, tow2, by = c('Location', 'Date'))
+
+#calculate abundance -----------------------
+all$distance <- (all$Revs)*57560/999999
+all$volumesampled <- ((pi*(all$RingSize_m^2))/4)*all$distance
+all$samplecount <- (all$TotalVolume_ml/all$Subsampled_ml)*all$Count
+
+#calculate ind/m3
+all$ind_m3 <- all$samplecount/all$volumesampled
+
+#remove 0's
+caught <- all[!(all$ind_m3==0),]
+```
+# plot summer/fall data
+```{r}
+#order factors
+unique(caught$MD)
+caught$MD <- factor(caught$MD, levels=c("Jul-31", "Aug-1", "Aug-2",  "Aug-5", "Aug-6", "Aug-8",  "Aug-12", "Aug-15", "Aug-19", "Aug-22", "Aug-26", "Oct-10", "Oct-11", "Oct-15", "Oct-16", "Oct-18", "Oct-21", "Oct-25", "Oct-28", "Nov-4"))
+
+legend_title <- "Species"
+
+pal36 <- palette36.colors(36)
+pal36 <- as.vector(t(pal36))
+
+ggplot(data = caught, aes(x=MD, y=samplecount)) +
+  geom_bar(position = "fill", stat = "identity", data=caught, aes (x=MD, y=samplecount, fill=ID), colour="black", width = .5) +
+  facet_wrap(~Location, ncol = 1) +
+  theme_bw() + 
+  scale_fill_manual(values=pal36)+
+  labs(x = "Date") +
+  labs(y = "Relative Abundance of all Zoop in Sample")+
+  theme(legend.position="right")+
+      theme(axis.text = element_text(size = 12),
+      axis.title = element_text(size = 12),
+      legend.text = element_text(size = 8),
+      legend.title = element_text(size = 10),
+      axis.text.x = element_text(angle = 90))
+
+ggsave("hybrid study/plots/allzoop.png", dpi=250, height=6, width=10, units="in")
+
+#plot with microzoop removed
+macro <- caught[!(caught$ID=="Copepod nauplii"),]
+macro <- macro[!(macro$ID=="Rotifers"),]
+macro <- macro[!(macro$ID=="Ostracods"),]
+
+ggplot(data = macro, aes(x=MD, y=samplecount)) +
+  geom_bar(position = "fill", stat = "identity", data=macro, aes (x=MD, y=samplecount, fill=ID), colour="black", width = .5) +
+  facet_wrap(~Location, ncol = 1) +
+  theme_bw() + 
+  scale_fill_manual(values=pal36)+
+  labs(x = "Date") +
+  labs(y = "Relative Abundance of Macrozoop in Sample")+
+  theme(legend.position="right")+
+      theme(axis.text = element_text(size = 12),
+      axis.title = element_text(size = 12),
+      legend.text = element_text(size = 8),
+      legend.title = element_text(size = 10),
+      axis.text.x = element_text(angle = 90))
+
+ggsave("hybrid study/plots/macrozoop.png", dpi=250, height=6, width=10, units="in")
+```
+#bring in winter data
+```{r}
+#prep of this dataset (code and raw data) can be found here: https://cawater.sharepoint.com/:f:/r/sites/dwrdoc-aes/Shared%20Documents/Delta%20Smelt%20Enclosure%20Study/Analysis/Zooplankton/Zoop%2719?csf=1&web=1&e=YhKzMy
+
+winter <- read_csv("hybrid study/zoop_abundance.csv")
+
+winter$Day <- day(winter$Date)
+winter$Month <- month(winter$Date)
+winter$Month <- month.abb[winter$Month]
+winter$MD <- paste(winter$Month, winter$Day, sep="-")
+
+#remove throw samples
+winter <- winter[!(winter$Method=="Throw"),]
+
+#remove DWSC samples
+winter <- winter[!(winter$SiteName=="DWSC"),]
+
+#merge with catch df
+
+#condense to columns of interest
+winter2 <- winter[c(1,2,13,16,32,25,26)]
+caught2 <- caught[c(1,2,7,10,20,29,30)]
+
+#rename column
+winter2 <- winter2 %>% rename(Location = "SiteName")
+
+#make locations match
+unique(winter2$Location)
+unique(caught2$Location)
+
+all2019 <- rbind(winter2, caught2)
+
+#remove 0's
+caught.19 <- all2019[!(all2019$ind_m3==0),]
+```
+# plot all 2019
+```{r}
+#order factors
+unique(caught.19$MD)
+caught.19$MD <- factor(caught.19$MD, levels=c("Jan-24", "Jan-29", "Jan-31", "Feb-6", "Feb-8", "Feb-12", "Feb-15", "Feb-22", "Jul-31", "Aug-1", "Aug-2",  "Aug-5", "Aug-6", "Aug-8",  "Aug-12", "Aug-15", "Aug-19", "Aug-22", "Aug-26", "Oct-10", "Oct-11", "Oct-15", "Oct-16", "Oct-18", "Oct-21", "Oct-25", "Oct-28", "Nov-4"))
+
+ggplot(data = caught.19, aes(x=MD, y=samplecount)) +
+  geom_bar(position = "fill", stat = "identity", data=caught.19, aes (x=MD, y=samplecount, fill=ID), colour="black", width = .5) +
+  facet_wrap(~Location, ncol = 1) +
+  theme_bw() + 
+  scale_fill_manual(values=pal36)+
+  labs(x = "Date") +
+  labs(y = "Relative Abundance of all Zoop in Sample")+
+  theme(legend.position="right")+
+      theme(axis.text = element_text(size = 12),
+      axis.title = element_text(size = 12),
+      legend.text = element_text(size = 8),
+      legend.title = element_text(size = 10),
+      axis.text.x = element_text(angle = 90))
+
+ggsave("hybrid study/plots/allzoop19.png", dpi=250, height=6, width=10, units="in")
+
+#plot with microzoop removed
+macro2 <- caught.19[!(caught.19$ID=="Copepod nauplii"),]
+macro2 <- macro2[!(macro2$ID=="Rotifers"),]
+macro2 <- macro2[!(macro2$ID=="Ostracods"),]
+
+ggplot(data = macro2, aes(x=MD, y=samplecount)) +
+  geom_bar(position = "fill", stat = "identity", data=macro2, aes (x=MD, y=samplecount, fill=ID), colour="black", width = .5) +
+  facet_wrap(~Location, ncol = 1) +
+  theme_bw() + 
+  scale_fill_manual(values=pal36)+
+  labs(x = "Date") +
+  labs(y = "Relative Abundance of Macrozoop in Sample")+
+  theme(legend.position="right")+
+      theme(axis.text = element_text(size = 12),
+      axis.title = element_text(size = 12),
+      legend.text = element_text(size = 8),
+      legend.title = element_text(size = 10),
+      axis.text.x = element_text(angle = 90))
+
+ggsave("hybrid study/plots/macrozoop19.png", dpi=250, height=6, width=10, units="in")
+```

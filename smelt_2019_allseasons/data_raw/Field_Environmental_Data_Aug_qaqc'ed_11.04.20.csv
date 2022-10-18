@@ -1,0 +1,37 @@
+Location,Recorder,Field.Check,Date,YSI#,Time,Weather,Secchi_m,Water.Temp_C,DO_mg_L,SpCond_uS,EC,pH,Tide,Microsystis_Rank,Turb1,Turb2,Turb3,Avg.Turb_ntu,Zooplankton?,Flow.Speed,Set.Time.min,Start.Time,Start.Meter,End.Meter,Revs,Zoop.Notes,Damage.A,Damage.B,Damage.C,Damage.Notes,Bio.A,Bio.B,Bio.C,Bio.Notes,Plate.Collection?,Mort.A,Mort.B,Mort.C,Fish.Notes,Misc.Notes,Entered.By,Entry.Date,Checked.By,Check.Date
+RV,CP,Y,7/30/2019,2,8:18,CLR,1,23.4,7.68,127,123,7.99,Ebb,1,8,8,7.8,7.93,N,NA,NA,NA,NA,NA,NA,NA,X,X,X,NA,2,2,2,NA,N,NA,NA,NA,NA,Deployment Day/Vel. meter not working,TJ,10/30/2019,NK,11/4/2019
+RV,OP/JK,Y,7/31/2019,Exo1,10:48,CLR,NA,23.17,7.52,125.9,121.5,NA,Ebb,1,6.28,6.03,6.18,6.16,Y,Low,0:00,11:31,999671,999171,500,NA,X,X,X,NA,2,2,2,NA,N,0,1,0,NA,No PH probe,TJ,10/30/2019,NK,11/4/2019
+RV,EE,Y,8/1/2019,18F103765,10:08,CLR,NA,23.2,7.74,126.1,121.6,7.67,Ebb,1,7.16,6.79,7.06,7.00,Y,Low,2,10:14,999142,998473,669,NA,X,X,X,NA,2,2,2,NA,N,0,0,0,NA,NA,TJ,10/30/2019,NK,11/4/2019
+RV,EE,Y,8/2/2019,NA,10:02,CLR,NA,22.9,7.81,125,119.1,7.73,Ebb,1,6.25,6.88,6.94,6.69,Y,Low,2,10:06,998473,997680,793,NA,X,X,X,NA,2,2,2,NA,N,0,0,0,NA,NA,TJ,10/30/2019,NK,11/4/2019
+RV,OP,Y,8/5/2019,NA,9:54,CLR,NA,23.1,7.73,135,129,7.65,Ebb,1,4.9,4.5,5.2,4.87,Y,Low,2,10:23,997680,996891,789,NA,X,X,X,NA,3,3,3,NA,N,0,0,0,NA,NA,TJ,10/30/2019,NK,11/4/2019
+RV,JK,Y,8/6/2019,NA,10:16,CLR,NA,23.1,7.86,137,132,7.81,Ebb,1,4.9,4.8,4.6,4.77,Y,Low,2,10:21,996876,996499,377,NA,X,X,X,NA,2.5,2.5,2.5,NA,N,0,0,0,NA,NA,TJ,10/30/2019,NK,11/4/2019
+RV,EG,Y,8/8/2019,NA,10:28,CLR,NA,22.56,8.14,129.9,123.9,7.86,Flood,1,3.3,3.6,3.6,3.50,Y,Low,2,10:34,996502,996155,347,NA,X,X,X,NA,2,2,2,NA,N,1,0,0,NA,NA,TJ,10/30/2019,NK,11/4/2019
+RV,EE,Y,8/12/2019,NA,10:10,CLR,NA,21.99,7.93,133.5,125.6,7.77,Ebb,1,3.7,3.6,3.5,3.60,Y,Low,2,10:18,996156,995799,357,NA,X,X,X,NA,3,3,3,NA,N,0,0,0,NA,NA,TJ,10/30/2019,NK,11/4/2019
+RV,EE,N,8/15/2019,NA,10:22,CLR,NA,22.79,7.81,135.5,129.7,7.6,Ebb,1,4.8,4.9,4.4,4.70,Y,Low,2,10:28,995798,995420,378,NA,X,X,X,NA,2,2,2,NA,N,0,0,0,NA,NA,TJ,10/30/2019,NK,11/4/2019
+RV,EE,Y,8/19/2019,NA,10:49,CLR,NA,22.32,7.96,131.4,124.7,7.78,Ebb,1,4.3,4.4,4.2,4.30,Y,Low,2,10:52,995420,995128,292,NA,X,X,X,NA,3,3,3,Lots of black hair algae,N,1,0,1,NA,NA,TJ,10/30/2019,NK,11/4/2019
+RV,EE,Y,8/22/2019,NA,10:28,CLR,NA,22.25,8.23,129.9,123,7.96,Ebb,1,2.5,2.8,2.4,2.57,Y,Low,2,10:31,995125,994987,138,NA,X,X,X,NA,2,2,2,More black hair algae,N,0,0,0,NA,"Cage Temp: A - Top: 22.22, Bottom: 22.15, B - Top: 22.22, Bottom: 22.16, C - Top: 22.17, Bottom: 22.14",TJ,10/30/2019,NK,11/4/2019
+RV,JK,Y,8/26/2019,NA,10:30,CLR,NA,22.48,8.22,137.2,130.7,7.79,Flood,1,3.24,2.78,3.29,3.10,Y,Low,2,11:06,994983,994437,546,NA,X,X,X,NA,3,3,3,NA,N,0,0,0,One mort seen but were unable to get it. Three smelt swimming near suface in cage B.,three smelt swimming near surface in cage B,TJ,10/30/2019,NK,11/4/2019
+RV,NA,N,8/27/2019,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,N,NA,NA,NA,NA,NA,NA,NA,X,X,X,NA,2,2,2,NA,N,1,1,0,"Found one stuck on the side of the cage, 6"" off the water line.",GoPro camera deployment.,TJ,10/30/2019,NK,11/4/2019
+Yolo,CS,Y,7/31/2019,1,9:22,CLR,0.45,23,7.41,192,185,8.66,Ebb,1,20.8,20.2,19,20.00,Y,Low,2,9:33,997356,996800,556,Bubble in net for first ~20 seconds.,X,NA,NA,Cage was sitting level on the ebb tide because bouy was held under metal walking platform. This seemed to help cage stay level and secure.,1,NA,NA,NA,N,0,NA,NA,NA,NA,TJ,10/31/2019,NK,11/4/2019
+Yolo,NK,Y,8/1/2019,1,10:20,CLR,0.46,23.1,7.63,192,186,8.62,Ebb,1,19.3,18.8,19.4,19.17,Y,Low,2,10:47,996725,996165,560,NA,X,NA,NA,NA,1,NA,NA,NA,N,0,NA,NA,None on surface. Saw one fish but fairly below surface.,Used Aris camera to look for fish,TJ,10/31/2019,NK,11/4/2019
+Yolo,AC,Y,8/2/2019,1,9:06,CLR,0.5,22.6,7.66,184,176,8.52,Ebb,1,14.3,14.3,14.3,14.30,Y,Low,2,9:19,995920,995402,518,NA,X,NA,NA,NA,1,NA,NA,Small amount of algae build up on the inside.,N,0,NA,NA,NA,NA,TJ,10/31/2019,NK,11/4/2019
+Yolo,NK,Y,8/5/2019,2,9:48,CLR,0.51,23.8,7.39,190,186,8.43,Flood,1,17.3,17.4,17.9,17.53,N,NA,NA,NA,NA,NA,NA,NA,X,NA,NA,NA,2,NA,NA,NA,N,1,NA,NA,One mort seen on surface. Dead one popped up after camera. Saw one swimming and did not look distressed.,24.9°C @ Lis @ 9:30 on flood tide.,TJ,10/31/2019,NK,11/4/2019
+Yolo,CP,Y,8/6/2019,1,12:42,CLR,0.31,25,8.05,199,199,8.63,Flood,1,21.2,21.5,21.4,21.37,Y,Low,2,12:59,994735,994240,495,Air bubble for about 45 seconds.,X,NA,NA,NA,2,NA,NA,NA,N,0,NA,NA,NA,NA,TJ,10/31/2019,NK,11/4/2019
+Yolo,NK,Y,8/7/2019,1,12:39,CLR,0.4,24.1,7.87,194,191,8.62,Flood,1,21.2,21.1,21,21.10,Y,NA,NA,NA,NA,NA,NA,See lower trophic yolo sample from same day/time.,X,NA,NA,Branch caught on cage.,2,NA,NA,NA,N,0,NA,NA,Saw one live fish near surface after scrubbing the cage for a while.,NA,TJ,10/31/2019,NK,11/4/2019
+Yolo,JA,Y,8/12/2019,1,11:48,CLR,0.25,23.7,7.09,201,196,8.17,Ebb,1,26.6,26.3,26.9,26.60,Y,Low,2,11:57,993160,992636,524,NA,X,NA,NA,NA,2,NA,NA,Lots of filamentous algae on bouys.,N,0,NA,NA,NA,NA,TJ,10/31/2019,NK,11/4/2019
+Yolo,NK,N,8/15/2019,1,9:30,CLR,0.54,25.6,7.5,189,192,8.5,Ebb,1,16.2,16.1,16.2,16.17,Y,Low,2,9:52,992600,992139,461,NA,X,NA,NA,NA,3,NA,NA,Lots of algae and SAV,N,2,NA,NA,One very decomposed. Around 6 dead on bottom in GoPro footage. Saw one swimming. One fish swimming at top in panic during scrubbing (later).,"TEMP @ DEPTH: 0.3M - 25.7C, 0.5M - 25.7C, 0.8M - 25.7C, BOTTOM - 25.7C",TJ,10/31/2019,NK,11/4/2019
+Yolo,TJ,Y,8/16/2019,1,9:49,CLR,0.61,26.2,7.12,185,190,8.27,Ebb,1,14.3,14.3,14.3,14.30,Y,Low,2,10:21,992000,991510,490,NA,X,NA,NA,NA,2,NA,NA,Light biofouling,N,3,NA,NA,Saw one live smelt swimming up to surface and then swam back down. Later saw three fish swim to the top.,NA,TJ,10/31/2019,NK,11/4/2019
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
