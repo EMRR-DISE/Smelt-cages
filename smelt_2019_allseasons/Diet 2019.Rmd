@@ -1,5 +1,5 @@
 ---
-title: "Delta Smelt Enclosure Study 2019 Hybrid Paper Analysis"
+title: "Delta Smelt Enclosure Study 2019 Hybrid Paper Diet Analysis"
 output:
   pdf_document: default
   html_document: default
@@ -12,11 +12,12 @@ editor_options:
 knitr::opts_chunk$set(message = FALSE, warning = FALSE)
 library(tidyverse)
 library(FSA)
+library(lubridate)
 ```
 
 # bring in contractor (UW) data
 ```{r}
-diet2 <- read_csv("hybrid study/DSM Cage Diets 2019-2020.csv") #new data, not edited at all
+diet2 <- read_csv("smelt_2019_allseasons/data_raw/DSM Cage Diets 2019-2020.csv") #new data, not edited at all
 
 diet2$Date <- mdy(diet2$Date)
 
@@ -104,7 +105,7 @@ diet<-diet[diet$Cage.ID != "FCCL Control Tank 2",]
 diet<-diet[diet$Cage.ID != "FCCL Control",]
 
 #remove DWSC
-diet<-diet[diet$Location != "DWSC.Apr",]
+#diet<-diet[diet$Location != "DWSC.Apr",]
 
 #fix fish that were assigned the wrong cage (came up during summary stats, check against dissected fish data, likely E and F were misread)
 diet[diet$Tag=='RK10', 'Cage.ID'] <- "E"
@@ -164,7 +165,7 @@ diet.prop.mean<- diet.prop %>%
 ```{r}
 #order locations
 stomach_abundance$Location <- stomach_abundance$Location.x
-stomach_abundance$Location <- ordered(stomach_abundance$Location, levels = c("RV.Feb", "RV.Aug", "SM.Nov", "YB.Nov", "RV.Nov"))
+stomach_abundance$Location <- ordered(stomach_abundance$Location, levels = c("DWSC.Apr", "RV.Feb", "RV.Aug", "SM.Nov", "YB.Nov", "RV.Nov"))
 
 #subset for only empty stomachs
 empty <- filter(stomach_abundance, Taxa == "empty")
@@ -178,7 +179,7 @@ ggplot(empty, aes(Location)) + geom_bar() + scale_x_discrete(drop=FALSE)
 prop<-diet.prop.mean[diet.prop.mean$Taxa != "empty",]
 
 #order locations
-prop$Location <- ordered(prop$Location, levels = c("RV.Feb", "RV.Aug", "SM.Nov", "YB.Nov", "RV.Nov"))
+prop$Location <- ordered(prop$Location, levels = c("DWSC.Apr", "RV.Feb", "RV.Aug", "RV.Nov", "YB.Nov", "SM.Nov"))
 
 cbPalette <- c("#F0E442", "#E69F00", "#009E73", "#56B4E9", "#CC79A7", "#D55E00", "#0072B2")
 legend_title <- "Taxa"
