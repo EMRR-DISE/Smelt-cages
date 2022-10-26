@@ -477,16 +477,6 @@ post_fish <- Cagetype_data$Post_Weight_g
 Cagetype_s <- Cagetype_data[complete.cases(post_fish),]
 
 # ----------------Rio Vista-----------------------------------------
-# Calculate sample sizes for alive and dead
-surv_RV <- Cagetype_s %>%
-  filter(Site == "RV") %>%
-  group_by(Site, Cage, Mesh)%>%
-  summarize(
-    Alive = n(),
-    Dead = 64-n()
-  ) %>%
-  mutate(rate = Alive/(Alive + Dead)*100)
-
 # Create data frame of each individual fish - survived or did not survive
 Cage_survival_RV <- as.data.frame(matrix(0, ncol = 2, nrow = 384))
 colnames(Cage_survival_RV) <- c("Cage", "Survived")
@@ -506,11 +496,16 @@ Cage_survival_RV$Survived <- c(rep("1", 60), rep("0", 4),
 
 Cagetype_survival_RV <- left_join(Cage_survival_RV, surv_RV, by = "Cage")
 
-Cagetype_survival_RV <- Cagetype_survival_RV %>%
-  mutate(Cage = factor(Cage),
-         Survived = factor(Survived),
+survival_RV <- Cagetype_survival_RV %>%
+   mutate(Cage = factor(Cage),
+         fSurvived = factor(Survived),
+         Survived = as.numeric(Survived),
          Site = factor(Site),
-         Mesh = factor(Mesh))
+         Mesh = factor(Mesh))%>%
+  group_by(Mesh, Cage) %>%
+  summarize(Survived = sum(Survived),
+            n= n()) %>%
+  mutate(rate = Survived/n*100)
 ```
 
 Survival rate
@@ -539,14 +534,6 @@ se <- sqrt(diag(vcov(mRV_surv)))
 
 ### DWSC
 ```{r}
-
-surv_DWSC <- Cagetype_s %>%
-  filter(Site == "DWSC") %>%
-  group_by(Site, Cage, Mesh)%>%
-  summarize(
-    Alive = n(),
-    Dead = 60-n()
-  ) 
 # Add dead fish
   # Add NTF4 to dead in Cage F - "decomposed"
   # Add RB61 to dead in Cage F - "partly decomposed"
@@ -564,14 +551,24 @@ Cage_survival_DWSC$Survived <- c(rep("1", 59), rep("0", 1),
 
 Cagetype_survival_DWSC <- left_join(Cage_survival_DWSC, surv_DWSC, by = "Cage")
 
-Cagetype_survival_DWSC <- Cagetype_survival_DWSC %>%
+survival_DWSC <- Cagetype_survival_DWSC %>%
   mutate(Cage = factor(Cage),
-         Survived = factor(Survived),
+         fSurvived = factor(Survived),
+         Survived = as.numeric(Survived),
          Site = factor(Site),
          Mesh = factor(Mesh))%>%
-  mutate(rate = Alive/(Alive + Dead)*100)
+  group_by(Mesh, Cage) %>%
+  summarize(Survived = sum(Survived),
+            n= n()) %>%
+  mutate(rate = Survived/n*100)
 ```
 
+EDI table for survival
+```{r}
+survival_bind <- rbind(survival_DWSC, survival_RV) %>%
+  mutate(rate = round(rate,2))
+write_csv(survival_bind, here::here("smelt_2019_winterspring", "data_clean", "2019_smeltstudy_survival_data.csv"))
+```
 
 
 Survival rate
@@ -583,6 +580,8 @@ Cagetype_survival_DWSC %>%
             n = n(),
             seRate = sd(rate)/n)
 ```
+
+
 
 ```{r}
 mDWSC_surv <- glmer(Survived ~ Mesh + (1|Cage), data = Cagetype_survival_DWSC, family = binomial(link = "logit"))
