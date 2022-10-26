@@ -502,7 +502,7 @@ survival_RV <- Cagetype_survival_RV %>%
          Survived = as.numeric(Survived),
          Site = factor(Site),
          Mesh = factor(Mesh))%>%
-  group_by(Mesh, Cage) %>%
+  group_by(Site, Mesh, Cage) %>%
   summarize(Survived = sum(Survived),
             n= n()) %>%
   mutate(rate = Survived/n*100)
@@ -557,7 +557,7 @@ survival_DWSC <- Cagetype_survival_DWSC %>%
          Survived = as.numeric(Survived),
          Site = factor(Site),
          Mesh = factor(Mesh))%>%
-  group_by(Mesh, Cage) %>%
+  group_by(Site, Mesh, Cage) %>%
   summarize(Survived = sum(Survived),
             n= n()) %>%
   mutate(rate = Survived/n*100)
@@ -566,7 +566,8 @@ survival_DWSC <- Cagetype_survival_DWSC %>%
 EDI table for survival
 ```{r}
 survival_bind <- rbind(survival_DWSC, survival_RV) %>%
-  mutate(rate = round(rate,2))
+  mutate(rate = round(rate,2)) %>%
+  rename(Location = Site)
 write_csv(survival_bind, here::here("smelt_2019_winterspring", "data_clean", "2019_smeltstudy_survival_data.csv"))
 ```
 

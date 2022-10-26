@@ -1,4 +1,4 @@
-Site,Cage,Enclosure,Mesh,Pre_FL_cm,Post_FL_cm,PropChange_FL,Pre_Weight_g,Post_Weight_g,PropChange_Weight,Pre_CF,Post_CF,Delta_CF
+Location,Cage,Enclosure,Mesh,Pre_FL_cm,Post_FL_cm,PropChange_FL,Pre_Weight_g,Post_Weight_g,PropChange_Weight,Pre_CF,Post_CF,Delta_CF
 DWSC,A,A,wrap,6,6.1,0.02,1.59,1.28,-0.19,0.736,0.564,-0.172
 DWSC,A,A,wrap,6.3,6.4,0.02,1.1,0.97,-0.12,0.44,0.37,-0.07
 DWSC,A,A,wrap,5.6,5.8,0.04,1.2,1.06,-0.12,0.683,0.543,-0.14
