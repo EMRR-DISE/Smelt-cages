@@ -9,7 +9,7 @@ Cagetype_data <- read.csv(here::here("smelt_2019_winterspring", "data_clean", "C
          PropChange_FL = round(Delta_FL/Pre_FL_cm,2),
          Site = factor(Site, levels = c("RV", "DWSC")),
          Enclosure = ifelse(Mesh == "wrap", "A", ifelse(Mesh == "large", "B", ifelse(Mesh == "small", "C", ifelse(Mesh == "control", "control", NA)))))%>%
-  select(Site, Cage, Enclosure, Mesh, Pre_FL_cm, Post_FL_cm, PropChange_FL, Pre_Weight_g, Post_Weight_g, PropChange_Weight, Pre_CF, Post_CF, Delta_CF) %>%
+  select(Location = Site, Cage, Enclosure, Mesh, Pre_FL_cm, Post_FL_cm, PropChange_FL, Pre_Weight_g, Post_Weight_g, PropChange_Weight, Pre_CF, Post_CF, Delta_CF) %>%
   filter(Mesh!= "control")
 
 write_csv(Cagetype_data, here::here("smelt_2019_winterspring", "data_clean", "2019_smeltstudy_growth-cf_data.csv"))
