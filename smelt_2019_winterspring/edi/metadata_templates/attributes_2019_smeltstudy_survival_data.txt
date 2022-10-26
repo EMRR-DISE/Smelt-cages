@@ -1,0 +1,7 @@
+attributeName	attributeDefinition	class	unit	dateTimeFormatString	missingValueCode	missingValueCodeExplanation
+Location		categorical				
+Mesh		categorical				
+Cage		character				
+Survived		numeric	!Add units here!			
+n		numeric	!Add units here!			
+rate		numeric	!Add units here!			

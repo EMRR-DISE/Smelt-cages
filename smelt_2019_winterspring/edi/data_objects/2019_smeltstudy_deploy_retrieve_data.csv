@@ -1,0 +1,25 @@
+Location,Action,Date,Cage,MeshType,nFish,Time,B1_Temp_C,B1_DO_mg/L,B2_Temp_C,B2_DO_mg/L,Cage_Temp_C,Cage_DO_mg/L,Notes
+RV,Deployment,1/23/2019,A,"""5/32+WRAP""",64,9:00,15.47,8.9,16.4,8.6,9.32,10.7,good release; only 1 or 2 fish over all buckets acting a little off; saw no morts
+RV,Deployment,1/23/2019,B,"""5/32""",64,9:13,16.4,8.6,15.6,8.4,9.32,10.7,good release; only 1 or 2 fish over all buckets acting a little off; saw no morts
+RV,Deployment,1/23/2019,C,"""1/8""",64,9:25,16.65,8.9,12.52,8.6,9.63,10.4,good release; only 1 or 2 fish over all buckets acting a little off; saw no morts
+RV,Deployment,1/23/2019,D,"""1/8""",64,9:53,15.75,8.9,14.92,9,9.62,10.4,good release; only 1 or 2 fish over all buckets acting a little off; saw no morts
+RV,Deployment,1/23/2019,E,"""5/32+WRAP""",64,9:44,16.53,9.4,14.58,9.2,9.62,10.4,good release; only 1 or 2 fish over all buckets acting a little off; saw no morts
+RV,Deployment,1/23/2019,F,"""5/32""",64,9:33,16.11,9.3,15.24,9.2,9.63,10.4,good release; only 1 or 2 fish over all buckets acting a little off; saw no morts
+RV,Retrieval,2/25/2019,A,"""5/32+WRAP""",NA,10:20,NA,NA,NA,NA,NA,NA,all cages had live fish
+RV,Retrieval,2/25/2019,B,"""5/32""",NA,10:15,NA,NA,NA,NA,NA,NA,all cages had live fish
+RV,Retrieval,2/25/2019,C,"""1/8""",NA,10:00,NA,NA,NA,NA,NA,NA,all cages had live fish
+RV,Retrieval,2/25/2019,D,"""1/8""",NA,9:44,NA,NA,NA,NA,NA,NA,all cages had live fish
+RV,Retrieval,2/25/2019,E,"""5/32+WRAP""",NA,9:35,NA,NA,NA,NA,NA,NA,all cages had live fish
+RV,Retrieval,2/25/2019,F,"""5/32""",NA,9:20,NA,NA,NA,NA,NA,NA,all cages had live fish
+DWSC,Deployment,2/27/2019,A,"""5/32+WRAP""",60,9:23,10.4,13.24,10.4,12.86,9.8,10.67,"windy day, good release"
+DWSC,Deployment,2/27/2019,B,"""5/32""",60,9:00,10.3,12.84,10.4,13.86,9.8,10.67,"windy day, good release"
+DWSC,Deployment,2/27/2019,C,"""1/8""",60,9:33,10.4,12.97,10.5,13.64,9.8,10.67,"windy day, good release"
+DWSC,Deployment,2/27/2019,D,"""1/8""",60,9:05,10.4,13.07,10.4,12.87,9.7,10.69,"windy day, good release"
+DWSC,Deployment,2/27/2019,E,"""5/32+WRAP""",60,9:40,10.5,14.05,10.5,12.06,9.7,10.69,"windy day, good release"
+DWSC,Deployment,2/27/2019,F,"""5/32""",60,9:15,10.4,12.41,10.4,12.99,9.7,10.69,"windy day, good release"
+DWSC,Retrieval,3/27/2019,A,"""5/32+WRAP""",NA,10:42,NA,NA,NA,NA,NA,NA,all cages had live fish
+DWSC,Retrieval,3/27/2019,B,"""5/32""",NA,10:35,NA,NA,NA,NA,NA,NA,all cages had live fish
+DWSC,Retrieval,3/27/2019,C,"""1/8""",NA,10:29,NA,NA,NA,NA,NA,NA,all cages had live fish
+DWSC,Retrieval,3/27/2019,D,"""1/8""",NA,11:06,NA,NA,NA,NA,NA,NA,all cages had live fish
+DWSC,Retrieval,3/27/2019,E,"""5/32+WRAP""",NA,10:59,NA,NA,NA,NA,NA,NA,all cages had live fish
+DWSC,Retrieval,3/27/2019,F,"""5/32""",NA,10:51,NA,NA,NA,NA,NA,NA,all cages had live fish

@@ -1,0 +1,51 @@
+attributeName	attributeDefinition	class	unit	dateTimeFormatString	missingValueCode	missingValueCodeExplanation
+Location		categorical				
+Date		Date		!Add datetime specifier here!		
+Time		Date		!Add datetime specifier here!		
+Weather		categorical				
+Secchi_m		numeric	!Add units here!			
+Temp_C		numeric	!Add units here!			
+DO_mg_L		numeric	!Add units here!			
+SpCond_uS		numeric	!Add units here!			
+EC		numeric	!Add units here!			
+pH		numeric	!Add units here!			
+Tide		categorical				
+Microsystis_Rank		numeric	!Add units here!			
+Turb1		numeric	!Add units here!			
+Turb2		numeric	!Add units here!			
+Turb3		numeric	!Add units here!			
+Avg_Turb_ntu		numeric	!Add units here!			
+Vel1		numeric	!Add units here!			
+Vel2		numeric	!Add units here!			
+Vel3		numeric	!Add units here!			
+Avg_Vel_cfs		numeric	!Add units here!			
+ZooplanktonCollected		categorical				
+FlowmeterSpeed		categorical				
+SetTime		Date		!Add datetime specifier here!		
+StartMeter		numeric	!Add units here!			
+EndMeter		numeric	!Add units here!			
+Revs		numeric	!Add units here!			
+ZoopNotes		character				
+Damage_A		categorical				
+Damage_B		categorical				
+Damage_C		categorical				
+Damage_D		categorical				
+Damage_E		categorical				
+Damage_F		categorical				
+DamageNotes		character				
+Biofoul_A		numeric	!Add units here!			
+Biofoul_B		numeric	!Add units here!			
+Biofoul_C		numeric	!Add units here!			
+Biofoul_D		numeric	!Add units here!			
+Biofoul_E		numeric	!Add units here!			
+Biofoul_F		numeric	!Add units here!			
+Biofoul_Notes		categorical				
+Plate.Collection		categorical				
+Mortality_A		numeric	!Add units here!			
+Mortality_B		numeric	!Add units here!			
+Mortality_C		numeric	!Add units here!			
+Mortality_D		numeric	!Add units here!			
+Mortality_E		numeric	!Add units here!			
+Mortality_F		numeric	!Add units here!			
+FishNotes		character				
+MiscNotes		character				

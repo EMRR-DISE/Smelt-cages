@@ -1,0 +1,13 @@
+Location,Mesh,Cage,Survived,n,rate
+DWSC,large,B,60,60,100
+DWSC,large,F,58,60,96.67
+DWSC,small,C,58,60,96.67
+DWSC,small,D,60,60,100
+DWSC,wrap,A,59,60,98.33
+DWSC,wrap,E,60,60,100
+RV,large,B,64,64,100
+RV,large,F,56,64,87.5
+RV,small,C,64,64,100
+RV,small,D,64,64,100
+RV,wrap,A,60,64,93.75
+RV,wrap,E,62,64,96.88

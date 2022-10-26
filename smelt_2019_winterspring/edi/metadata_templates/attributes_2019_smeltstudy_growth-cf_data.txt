@@ -1,0 +1,14 @@
+attributeName	attributeDefinition	class	unit	dateTimeFormatString	missingValueCode	missingValueCodeExplanation
+Location		categorical				
+Cage		categorical				
+Enclosure		categorical				
+Mesh		categorical				
+Pre_FL_cm		numeric	!Add units here!			
+Post_FL_cm		numeric	!Add units here!			
+PropChange_FL		numeric	!Add units here!			
+Pre_Weight_g		numeric	!Add units here!			
+Post_Weight_g		numeric	!Add units here!			
+PropChange_Weight		numeric	!Add units here!			
+Pre_CF		numeric	!Add units here!			
+Post_CF		numeric	!Add units here!			
+Delta_CF		numeric	!Add units here!			

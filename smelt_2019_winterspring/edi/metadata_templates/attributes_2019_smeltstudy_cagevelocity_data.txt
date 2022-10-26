@@ -1,0 +1,23 @@
+attributeName	attributeDefinition	class	unit	dateTimeFormatString	missingValueCode	missingValueCodeExplanation
+Location		categorical				
+Date		Date		!Add datetime specifier here!		
+Weather		categorical				
+Tide		categorical				
+Cage		character				
+Vel1		numeric	!Add units here!			
+Vel2		numeric	!Add units here!			
+Vel3		numeric	!Add units here!			
+Avg.Vel_f/s		numeric	!Add units here!			
+Time		Date		!Add datetime specifier here!		
+Water.Temp_C		numeric	!Add units here!			
+DO_mg/L		numeric	!Add units here!			
+SpCond_uS		numeric	!Add units here!			
+EC		numeric	!Add units here!			
+pH		numeric	!Add units here!			
+Turb1		numeric	!Add units here!			
+Turb2		numeric	!Add units here!			
+Turb3		numeric	!Add units here!			
+Avg.Turb_ntu		numeric	!Add units here!			
+Zooplankton?		categorical				
+Plates.Deployed?		categorical				
+Notes		categorical				

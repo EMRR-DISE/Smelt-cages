@@ -1,0 +1,20 @@
+attributeName	attributeDefinition	class	unit	dateTimeFormatString	missingValueCode	missingValueCodeExplanation
+SiteName		categorical				
+Date		Date		!Add datetime specifier here!		
+Method		categorical				
+TowDistance_m		numeric	!Add units here!			
+SetTime_min		Date		!Add datetime specifier here!		
+FlowMeterBegin		numeric	!Add units here!			
+FlowMeterEnd		numeric	!Add units here!			
+Rotations		numeric	!Add units here!			
+MeshSize		numeric	!Add units here!			
+RingSize_cm		numeric	!Add units here!			
+TotalVolume_ml		numeric	!Add units here!			
+Subsampled_ml		numeric	!Add units here!			
+ID		character				
+Count		numeric	!Add units here!			
+#ofSubsample		numeric	!Add units here!			
+Taxa		categorical				
+ugC.ind		numeric	!Add units here!			
+Total.Biomass		numeric	!Add units here!			
+QC'ed.Date		Date		!Add datetime specifier here!		

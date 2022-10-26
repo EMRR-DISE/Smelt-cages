@@ -1,0 +1,15 @@
+attributeName	attributeDefinition	class	unit	dateTimeFormatString	missingValueCode	missingValueCodeExplanation
+Location		categorical				
+Action		categorical				
+Date		Date		!Add datetime specifier here!		
+Cage		character				
+MeshType		categorical				
+nFish		numeric	!Add units here!			
+Time		Date		!Add datetime specifier here!		
+B1_Temp_C		numeric	!Add units here!			
+B1_DO_mg/L		numeric	!Add units here!			
+B2_Temp_C		numeric	!Add units here!			
+B2_DO_mg/L		numeric	!Add units here!			
+Cage_Temp_C		numeric	!Add units here!			
+Cage_DO_mg/L		numeric	!Add units here!			
+Notes		categorical				

@@ -1,0 +1,15 @@
+givenName	middleInitial	surName	organizationName	electronicMailAddress	userId	role	projectTitle	fundingAgency	fundingNumber
+Catarina		Pien	Bureau of Reclamation and California Department of Water Resources	cpien@usbr.gov	0000-0003-4427-6300	Creator			
+Catarina		Pien	Bureau of Reclamation and California Department of Water Resources	cpien@usbr.gov	0000-0003-4427-6300	Field crew			
+Nicole		Kwan	California Department of Water Resources	Nicole.Kwan@water.ca.gov	0000-0003-1178-7788	Creator			
+Nicole		Kwan	California Department of Water Resources	Nicole.Kwan@water.ca.gov	0000-0003-1178-7788	Contact			
+Nicole		Kwan	California Department of Water Resources	Nicole.Kwan@water.ca.gov	0000-0003-1178-7788	Field lead			
+Brian	M	Schreier	California Department of Water Resources	Brian.Schreier@water.ca.gov	0000-0002-5075-3946	Creator			
+Melinda		Baerwald	California Department of Water Resources	Melinda.Baerwald@water.ca.gov		Creator			
+Melinda		Baerwald	California Department of Water Resources	Melinda.Baerwald@water.ca.gov		PI	SmeltCages	State Water Project	Not applicable
+Naoaki		Ikemiyagi	California Department of Water Resources	Naoaki.Ikemiyagi@water.ca.gov		Field crew			
+Craig		Stuart	California Department of Water Resources			Field crew			
+Craig		Stuart	California Department of Water Resources			Data entry			
+Jeff		Jenkins	California Department of Water Resources			Field crew			
+Brittany		Davis	California Department of Water Resources	Brittany.E.Davis@water.ca.gov	0000-0003-3752-1830	Field crew			
+Mallory		Boro	California Department of Water Resources		0000-0001-9553-6032	Field crew			
