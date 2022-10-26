@@ -1,0 +1,13 @@
+Mesh,Cage,Survived,n,rate
+large,B,60,60,100
+large,F,58,60,96.67
+small,C,58,60,96.67
+small,D,60,60,100
+wrap,A,59,60,98.33
+wrap,E,60,60,100
+large,B,64,64,100
+large,F,56,64,87.5
+small,C,64,64,100
+small,D,64,64,100
+wrap,A,60,64,93.75
+wrap,E,62,64,96.88
