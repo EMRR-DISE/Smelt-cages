@@ -4,7 +4,7 @@
 
 # Update EMLassemblyline and load
 
-remotes::install_github("EDIorg/EMLassemblyline")
+#remotes::install_github("EDIorg/EMLassemblyline")
 library(EMLassemblyline)
 
 # Define paths for your metadata templates, data, and EML
@@ -56,47 +56,58 @@ EMLassemblyline::template_categorical_variables(
 EMLassemblyline::template_geographic_coverage(
   path = path_templates,
   data.path = path_data,
-  data.table = "",
-  lat.col = "",
-  lon.col = "",
-  site.col = "")
+  data.table = "2019_smeltstudy_stations.csv",
+  lat.col = "Latitude",
+  lon.col = "Longitude",
+  site.col = "StationCode")
 
 # Create taxonomic coverage template (Not-required. Use this to report
 # taxonomic entities in the metadata)
 
-remotes::install_github("EDIorg/taxonomyCleanr")
-library(taxonomyCleanr)
+# no taxonomy this time -----------------------------------
+# remotes::install_github("EDIorg/taxonomyCleanr")
+# library(taxonomyCleanr)
 
-taxonomyCleanr::view_taxa_authorities()
+# taxonomyCleanr::view_taxa_authorities()
 
-EMLassemblyline::template_taxonomic_coverage(
-  path = path_templates,
-  data.path = path_data,
-  taxa.table = "",
-  taxa.col = "",
-  taxa.name.type = "",
-  taxa.authority = 3)
+# EMLassemblyline::template_taxonomic_coverage(
+#   path = path_templates,
+#   data.path = path_data,
+#   taxa.table = "",
+#   taxa.col = "",
+#   taxa.name.type = "",
+#   taxa.authority = 3)
 
 # Make EML from metadata templates --------------------------------------------
 
 # Once all your metadata templates are complete call this function to create
-# the EML.
+# the EML.Removed the geographic options because using the geographic template above.
 
 EMLassemblyline::make_eml(
   path = path_templates,
   data.path = path_data,
   eml.path = path_eml,
-  dataset.title = "",
-  temporal.coverage = c("YYYY-MM-DD", "YYYY-MM-DD"),
-  geographic.description = "",
-  geographic.coordinates = c("N", "E", "S", "W"),
-  maintenance.description = "",
-  data.table = c(""),
-  data.table.name = c(""),
-  data.table.description = c(""),
-  other.entity = c(""),
-  other.entity.name = c(""),
-  other.entity.description = c(""),
-  user.id = "",
-  user.domain = "",
-  package.id = "")
+  dataset.title = "Environmental and biological data associated with captive-reared Delta Smelt Study, Sacramento-San Joaquin Delta, CA, January-March 2019",
+  temporal.coverage = c("2019-01-23", "2019-03-27"),
+  #geographic,coordinates = c()
+  #geographic.description = "Rio Vista and Deepwater Shipping Channel, Sacramento-San Joaquin Delta",
+  maintenance.description = "not updated, associated with completed study",
+  data.table = c("2019_smeltstudy_diet_data.csv",
+                 "2019_smeltstudy_growth-cf_data.csv",
+                 "2019_smeltstudy_survival_data.csv",
+                 "2019_smeltstudy_zoop_data.csv",
+                 "2019_smeltstudy_cagevelocity_data.csv",
+                 "2019_smeltstudy_deploy_retrieve_data.csv",
+                 "2019_smeltstudy_dailycheck_data.csv",
+                 "2019_smeltstudy_stations.csv"),
+  data.table.name = c("Delta Smelt Diet", "Delta Smelt Growth and Condition Factor", "Delta Smelt Survival", "Zooplankton Data",
+                      "Velocity Data", "Deployment and Retrieval Information", "Field Data", "Stations"),
+  data.table.description = c("Delta Smelt Diet Composition", "Delta Smelt Growth and Condition Factor", "Delta Smelt Survival", "Zooplankton Data",
+                             "Velocity Data", "Information associated with deployment and retrieval of fish", "Field data associated with daily checks", "Station locations"),
+  data.table.quote.character = c('"', '"','"','"', '"','"','"', '"'), # If you have columns that have commas in the text, you will need to use "quote = TRUE" when you write your R file (write.csv), and then use this to tell make_eml what is going around your character cells. c(apostrophe, quote, apostrophe, comma, etc...)
+  other.entity = c("metadata_2019_smeltstudy_winterspring.pdf"),
+  other.entity.name = c("Metadata for Smelt"),
+  other.entity.description = c("Metadata for Smelt Study"),
+  user.id = "aquaticecology",
+  user.domain = "EDI",
+  package.id = "edi.1248.2")
