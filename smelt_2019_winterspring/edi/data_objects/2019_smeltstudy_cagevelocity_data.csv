@@ -1,4 +1,4 @@
-Location,Date,Weather,Tide,Cage,Vel1,Vel2,Vel3,Avg.Vel_f/s,Time,Water.Temp_C,DO_mg/L,SpCond_uS,EC,pH,Turb1,Turb2,Turb3,Avg.Turb_ntu,Zooplankton?,Plates.Deployed?,Notes
+Location,Date,Weather,Tide,Cage,Vel1,Vel2,Vel3,AvgVel,Time,WaterTemp,DO,SpCond,EC,pH,Turb1,Turb2,Turb3,AvgTurb,ZooplanktonCollected,PlatesDeployed,Notes
 RV,1/22/2019,CLR,FLD,A,0.21,0.21,0.17,0.196666667,13:25,10.8,9.13,186,136,7.61,78.4,72.9,78.6,76.63333333,Y,N,bucket sampling not great
 RV,1/22/2019,CLR,FLD,B,0.24,0.21,0.35,0.266666667,14:32,10.8,9.08,184,134,7.54,86.9,80.3,72.9,80.03333333,Y,N,bucket sampling not great
 RV,1/22/2019,CLR,FLD,C,0.14,0.07,0.15,0.12,13:57,10.8,9.12,185,135,7.63,76.4,92.3,80.4,83.03333333,Y,N,bucket sampling not great
