@@ -1,0 +1,5 @@
+attributeName	code	definition
+Location	DWSC	Deepwater Shipping Channel
+Location	RV	Rio Vista
+Method	Throw	Net was thrown
+Method	Tow	Net was towed

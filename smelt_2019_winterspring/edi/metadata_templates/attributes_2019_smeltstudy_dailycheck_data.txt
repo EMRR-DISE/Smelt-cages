@@ -1,51 +1,51 @@
 attributeName	attributeDefinition	class	unit	dateTimeFormatString	missingValueCode	missingValueCodeExplanation
-Location		categorical				
-Date		Date		!Add datetime specifier here!		
-Time		Date		!Add datetime specifier here!		
-Weather		categorical				
-Secchi_m		numeric	!Add units here!			
-Temp_C		numeric	!Add units here!			
-DO_mg_L		numeric	!Add units here!			
-SpCond_uS		numeric	!Add units here!			
-EC		numeric	!Add units here!			
-pH		numeric	!Add units here!			
-Tide		categorical				
-Microsystis_Rank		numeric	!Add units here!			
-Turb1		numeric	!Add units here!			
-Turb2		numeric	!Add units here!			
-Turb3		numeric	!Add units here!			
-Avg_Turb_ntu		numeric	!Add units here!			
-Vel1		numeric	!Add units here!			
-Vel2		numeric	!Add units here!			
-Vel3		numeric	!Add units here!			
-Avg_Vel_cfs		numeric	!Add units here!			
-ZooplanktonCollected		categorical				
-FlowmeterSpeed		categorical				
-SetTime		Date		!Add datetime specifier here!		
-StartMeter		numeric	!Add units here!			
-EndMeter		numeric	!Add units here!			
-Revs		numeric	!Add units here!			
-ZoopNotes		character				
-Damage_A		categorical				
-Damage_B		categorical				
-Damage_C		categorical				
-Damage_D		categorical				
-Damage_E		categorical				
-Damage_F		categorical				
-DamageNotes		character				
-Biofoul_A		numeric	!Add units here!			
-Biofoul_B		numeric	!Add units here!			
-Biofoul_C		numeric	!Add units here!			
-Biofoul_D		numeric	!Add units here!			
-Biofoul_E		numeric	!Add units here!			
-Biofoul_F		numeric	!Add units here!			
-Biofoul_Notes		categorical				
-Plate.Collection		categorical				
-Mortality_A		numeric	!Add units here!			
-Mortality_B		numeric	!Add units here!			
-Mortality_C		numeric	!Add units here!			
-Mortality_D		numeric	!Add units here!			
-Mortality_E		numeric	!Add units here!			
-Mortality_F		numeric	!Add units here!			
-FishNotes		character				
-MiscNotes		character				
+Location	Location of cage deployment	categorical				
+Date	Date	Date		MM/DD/YYYY		
+Time	Time	Date		hh:mm	NA	not collected or recorded
+Weather	Weather Code	categorical				
+Secchi	Secchi depth	numeric	meter		NA	not collected or recorded
+WaterTemp	Temperature	numeric	celsius			
+DO	Dissolved Oxygen	numeric	milligramPerLiter			
+SpCond	Specific Conductance	numeric	microSeimensPerCentimeter			
+EC	Electrical Conductivity	numeric	microSeimensPerCentimeter			
+pH	pH	numeric	number			
+Tide	Tide stage	categorical			NA	not collected or recorded
+MicrocystisRank	Microcystis rank	categorical				
+Turb1	Turbidity 1	numeric	nephelometricTurbidityUnit			
+Turb2	Turbidity 2	numeric	nephelometricTurbidityUnit			
+Turb3	Turbidity 3	numeric	nephelometricTurbidityUnit			
+AvgTurb	Average Turbidity	numeric	nephelometricTurbidityUnit			
+Vel1	Velocity 1	numeric	footPerSecond		NA	not collected or recorded
+Vel2	Velocity 2	numeric	footPerSecond		NA	not collected or recorded
+Vel3	Velocity 3	numeric	footPerSecond		NA	not collected or recorded
+AvgVel	Average Velocity	numeric	footPerSecond		NA	not collected or recorded
+ZooplanktonCollected	Whether or not zooplankton was collected	categorical				
+FlowmeterSpeed	Flowmeter speed	categorical			NA	not collected or recorded
+SetTime	Set time	numeric	minute		NA	not collected or recorded
+FlowmeterStart	Flowmeter start number	numeric	number		NA	not collected or recorded
+FlowmeterEnd	Flowmeter end number	numeric	number		NA	not collected or recorded
+Rotations	Number of flowmeter rotations	numeric	number		NA	not collected or recorded
+ZoopNotes	Zooplankton Notes	character			NA	not collected or recorded
+Damage_A	Whether cage A was damaged	categorical			NA	not collected or recorded
+Damage_B	Whether cage B was damaged	categorical			NA	not collected or recorded
+Damage_C	Whether cage C was damaged	categorical			NA	not collected or recorded
+Damage_D	Whether cage D was damaged	categorical			NA	not collected or recorded
+Damage_E	Whether cage E was damaged	categorical			NA	not collected or recorded
+Damage_F	Whether cage F was damaged	categorical			NA	not collected or recorded
+DamageNotes	Notes on cage damage	character			NA	not collected or recorded
+Biofoul_A	Rank of biofouling on cage A	categorical			NA	not collected or recorded
+Biofoul_B	Rank of biofouling on cage B	categorical			NA	not collected or recorded
+Biofoul_C	Rank of biofouling on cage C	categorical			NA	not collected or recorded
+Biofoul_D	Rank of biofouling on cage D	categorical			NA	not collected or recorded
+Biofoul_E	Rank of biofouling on cage E	categorical			NA	not collected or recorded
+Biofoul_F	Rank of biofouling on cage F	categorical			NA	not collected or recorded
+Biofoul_Notes	Biofouling notes	character			NA	not collected or recorded
+PlatesCollected	Whether or not plates were collected	categorical			NA	not collected or recorded
+Mortality_A	Number of mortalities in cage A	numeric	number		NA	not collected or recorded
+Mortality_B	Number of mortalities in cage B	numeric	number		NA	not collected or recorded
+Mortality_C	Number of mortalities in cage C	numeric	number		NA	not collected or recorded
+Mortality_D	Number of mortalities in cage D	numeric	number		NA	not collected or recorded
+Mortality_E	Number of mortalities in cage E	numeric	number		NA	not collected or recorded
+Mortality_F	Number of mortalities in cage F	numeric	number		NA	not collected or recorded
+FishNotes	Notes on fish	character			NA	not collected or recorded
+MiscNotes	Miscellaneous notes	character			NA	not collected or recorded

@@ -1,0 +1,11 @@
+attributeName	code	definition
+Location	DWSC	Deepwater Shipping Channel
+Location	RV	Rio Vista
+PlatesDeployed	N	Plates not deployed
+PlatesDeployed	Y	Plates deployed
+Tide	EBB	Ebb tide
+Tide	FLD	Flood Tide
+Weather	CLR	Clear
+Weather	RAN	Rainy
+ZooplanktonCollected	N	No
+ZooplanktonCollected	Y	Yes

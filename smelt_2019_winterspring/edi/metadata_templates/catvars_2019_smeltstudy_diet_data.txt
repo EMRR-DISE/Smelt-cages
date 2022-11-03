@@ -1,0 +1,25 @@
+attributeName	code	definition
+Digestion	0	Nothing identifiable or empty
+Digestion	3	25% or less identifiable
+Digestion	4	25-50%  identifiable
+Digestion	5	50-75%  identifiable
+Digestion	6	No digestion; all prey identifiable
+Fullness	1	No prey; empty stomach
+Fullness	2	Trace of prey
+Fullness	3	25% or less full
+Fullness	4	25-50% full
+Fullness	5	50-75% full
+Fullness	6	Full stomach
+LHStage	adult	adult
+LHStage	copepodid	copepodid
+LHStage	egg	egg
+LHStage	eggs	eggs
+LHStage	juvenile	juvenile
+LHStage	larva	larva
+LHStage	nauplius	nauplius
+LHStage	nymph	nymph
+LHStage	pupae	pupae
+LHStage	Resting egg	Resting egg
+LHStage	undetermined	undetermined
+Location	DWSC	Deepwater Shipping Channel
+Location	RV	Rio Vista

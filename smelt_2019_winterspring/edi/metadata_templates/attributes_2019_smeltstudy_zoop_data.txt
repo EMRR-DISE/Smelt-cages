@@ -1,20 +1,19 @@
 attributeName	attributeDefinition	class	unit	dateTimeFormatString	missingValueCode	missingValueCodeExplanation
-SiteName		categorical				
-Date		Date		!Add datetime specifier here!		
-Method		categorical				
-TowDistance_m		numeric	!Add units here!			
-SetTime_min		Date		!Add datetime specifier here!		
-FlowMeterBegin		numeric	!Add units here!			
-FlowMeterEnd		numeric	!Add units here!			
-Rotations		numeric	!Add units here!			
-MeshSize		numeric	!Add units here!			
-RingSize_cm		numeric	!Add units here!			
-TotalVolume_ml		numeric	!Add units here!			
-Subsampled_ml		numeric	!Add units here!			
-ID		character				
-Count		numeric	!Add units here!			
-#ofSubsample		numeric	!Add units here!			
-Taxa		categorical				
-ugC.ind		numeric	!Add units here!			
-Total.Biomass		numeric	!Add units here!			
-QC'ed.Date		Date		!Add datetime specifier here!		
+Location	Location of cage deployment	categorical				
+Date	Date date	Date		MM/DD/YYYY		
+Method	Tow method	categorical				
+TowDistance	Zooplankton tow distance in meters	numeric	meter		NA	not relevant to sampling method
+SetTime	Zooplankton set time in minutess	numeric	minute		NA	not relevant to sampling method
+FlowMeterStart	Zooplankton flowmeter start number	numeric	number		NA	not relevant to sampling method
+FlowMeterEnd	Zooplankton flowmeter end number	numeric	number		NA	not relevant to sampling method
+Rotations	Number of flowmeter rotations	numeric	number		NA	not relevant to sampling method
+MeshSize	Mesh size of net	numeric	micrometer			
+RingSize	Ring size of net	numeric	centimeter			
+TotalVolume	Total volume sampled	numeric	milliliter			
+SubsampledVolume	Volume subsampled	numeric	milliliter			
+Taxon	Taxonomic ID	character				
+Count	Count	numeric	number			
+nSubsamples	number of subsamples	numeric	number			
+TaxonomicGrouping	Taxonomic grouping	character				
+BiomassIndex	Biomass index	numeric	microgramCarbonPerIndividual			
+TotalBiomass	Total biomass	numeric	gram			

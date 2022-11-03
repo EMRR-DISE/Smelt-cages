@@ -1,15 +1,15 @@
 attributeName	attributeDefinition	class	unit	dateTimeFormatString	missingValueCode	missingValueCodeExplanation
-Location		categorical				
-Action		categorical				
-Date		Date		!Add datetime specifier here!		
-Cage		character				
-MeshType		categorical				
-nFish		numeric	!Add units here!			
-Time		Date		!Add datetime specifier here!		
-B1_Temp_C		numeric	!Add units here!			
-B1_DO_mg/L		numeric	!Add units here!			
-B2_Temp_C		numeric	!Add units here!			
-B2_DO_mg/L		numeric	!Add units here!			
-Cage_Temp_C		numeric	!Add units here!			
-Cage_DO_mg/L		numeric	!Add units here!			
-Notes		categorical				
+Location	Location of cage deployment	categorical				
+Action	Deployment or retrieval	categorical				
+Date	Date	Date		MM/DD/YYYY		
+Cage	Cage ID	character				
+MeshType	Cage mesh type	categorical				
+nFish	Number of fish in cage	numeric	number		NA	not relevant so not collected
+Time	Time	Date		hh:mm		
+B1_WaterTemp	Temperature in bucket 1	numeric	celsius		NA	not relevant so not collected
+B1_DO	DO in bucket 1	numeric	milligramPerLiter		NA	not relevant so not collected
+B2_WaterTemp	Temperature in bucket 2	numeric	celsius		NA	not relevant so not collected
+B2_DO	DO in bucket 2	numeric	milligramPerLiter		NA	not relevant so not collected
+Cage_WaterTemp	Temperature in cage	numeric	celsius		NA	not relevant so not collected
+Cage_DO	DO in cage	numeric	milligramPerLiter		NA	not relevant so not collected
+Notes	Notes	character				

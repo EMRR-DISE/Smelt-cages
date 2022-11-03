@@ -1,0 +1,44 @@
+attributeName	code	definition
+Biofoul_A	1	Cage A biofouling; clean
+Biofoul_A	2	Cage A biofouling; partial blockage
+Biofoul_A	3	Cage A biofouling; significant blockage
+Biofoul_B	1	Cage B biofouling; clean
+Biofoul_B	2	Cage B biofouling; partial blockage
+Biofoul_B	3	Cage B biofouling; significant blockage
+Biofoul_C	1	Cage C biofouling; clean
+Biofoul_C	2	Cage C biofouling; partial blockage
+Biofoul_C	3	Cage C biofouling; significant blockage
+Biofoul_D	1	Cage D biofouling; clean
+Biofoul_D	2	Cage D biofouling; partial blockage
+Biofoul_D	3	Cage D biofouling; significant blockage
+Biofoul_E	1	Cage E biofouling; clean
+Biofoul_E	2	Cage E biofouling; partial blockage
+Biofoul_E	3	Cage E biofouling; significant blockage
+Biofoul_F	1	Cage F biofouling; clean
+Biofoul_F	2	Cage F biofouling; partial blockage
+Biofoul_F	3	Cage F biofouling; significant blockage
+Damage_A	N	No
+Damage_A	Y	Yes
+Damage_B	N	No
+Damage_C	N	No
+Damage_D	N	No
+Damage_D	Y	Yes
+Damage_E	N	No
+Damage_F	N	No
+Damage_F	Y	Yes
+FlowmeterSpeed	REG	Regular speed
+Location	DWSC	Deepwater Shipping Channel
+Location	RV	Rio Vista
+MicrocystisRank	1	No microcystis
+PlatesCollected	N	No
+PlatesCollected	Y	Yes
+Tide	EBB	Ebb tide
+Tide	FLD	Flood tide
+Tide	LOW	Low tide
+Weather	CLD	Cloudy
+Weather	CLR	Clear
+Weather	FOG	Foggy
+Weather	RAN	Rainy
+Weather	WND	Windy
+ZooplanktonCollected	N	No
+ZooplanktonCollected	Y	Yes

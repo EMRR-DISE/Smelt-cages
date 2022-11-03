@@ -1,0 +1,8 @@
+attributeName	code	definition
+Action	Deployment	Deployment period
+Action	Retrieval	Retrieval period
+Location	DWSC	Deepwater Shipping Channel
+Location	RV	Rio Vista
+MeshType	1/8""	Mesh size in mm
+MeshType	5/32""	Mesh size in mm
+MeshType	5/32+WRAP""	Mesh size in mm

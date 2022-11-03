@@ -1,7 +1,7 @@
 attributeName	attributeDefinition	class	unit	dateTimeFormatString	missingValueCode	missingValueCodeExplanation
-Location		categorical				
-Mesh		categorical				
-Cage		character				
-Survived		numeric	!Add units here!			
-n		numeric	!Add units here!			
-rate		numeric	!Add units here!			
+Location	Location of cage deployment	categorical				
+Mesh	Mesh category	categorical				
+Cage	Cage ID	character				
+Survived	Number of fish that survived	numeric	number			
+n	Number of fish in cage	numeric	number			
+rate	Rate of survival	numeric	percent			

@@ -1,15 +1,13 @@
 attributeName	attributeDefinition	class	unit	dateTimeFormatString	missingValueCode	missingValueCodeExplanation
-Experiment		categorical				
-Location		categorical				
-Date		Date		!Add datetime specifier here!		
-Cage.ID		categorical				
-Tag		character				
-Contents.Weight		numeric	!Add units here!			
-Fullness		numeric	!Add units here!			
-Digestion		numeric	!Add units here!			
-Prey.Taxa		categorical				
-LH.Stage		categorical				
-Count		categorical				
-Taxa		categorical				
-Comments		categorical				
-V14		categorical				
+Location	Location of cage deployment	categorical				
+Date	Date	Date		MM/DD/YYYY		
+Cage	Cage ID	character				
+Tag	Fish tag ID	character				
+ContentsWeight	Weight of stomach contents	numeric	gram			
+Fullness	Stomach fullness	categorical				
+Digestion	Degree of digestion	categorical				
+PreyTaxa	Prey taxa	character				
+LHStage	Life stage	categorical				
+Count	Count	character			
+TaxonomicGrouping	Higher taxonomic grouping	character				
+Comments	Comments	character				

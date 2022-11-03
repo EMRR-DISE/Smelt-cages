@@ -1,14 +1,14 @@
 attributeName	attributeDefinition	class	unit	dateTimeFormatString	missingValueCode	missingValueCodeExplanation
-Location		categorical				
-Cage		categorical				
-Enclosure		categorical				
-Mesh		categorical				
-Pre_FL_cm		numeric	!Add units here!			
-Post_FL_cm		numeric	!Add units here!			
-PropChange_FL		numeric	!Add units here!			
-Pre_Weight_g		numeric	!Add units here!			
-Post_Weight_g		numeric	!Add units here!			
-PropChange_Weight		numeric	!Add units here!			
-Pre_CF		numeric	!Add units here!			
-Post_CF		numeric	!Add units here!			
-Delta_CF		numeric	!Add units here!			
+Location	Location of cage deployment	categorical				
+Cage	Cage ID	character				
+Enclosure	Enclosure ID. Same as Mesh but ID matches manuscript notation	categorical				
+Mesh	Mesh type	categorical				
+Pre_FL_cm	Fork length before deployment	numeric	centimeter		NA	missing value
+Post_FL_cm	Fork length after deployment	numeric	centimeter		NA	missing value
+PropChange_FL	Proportional fork length change after deployment	numeric	dimensionless		NA	missing value; may be missing either pre or post value
+Pre_Weight_g	Weight before deployment	numeric	gram		NA	missing value
+Post_Weight_g	Weight after deployment	numeric	gram		NA	missing value
+PropChange_Weight	Proportional weight change after deployment	numeric	number		NA	missing value; may be missing either pre or post value
+Pre_CF	Fulton's condition factor before deployment	numeric	gramsPerCubicCentimeter		NA	missing value; may be missing FL or Weight data
+Post_CF	Fulton's condition factor after deployment	numeric	gramsPerCubicCentimeter		NA	missing value; may be missing FL or Weight data
+Delta_CF	Change in Fulton's condition factor	numeric	gramsPerCubicCentimeter		NA	missing value; may be missing either pre or post value

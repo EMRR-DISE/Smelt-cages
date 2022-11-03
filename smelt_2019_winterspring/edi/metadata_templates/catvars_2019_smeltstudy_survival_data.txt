@@ -1,0 +1,6 @@
+attributeName	code	definition
+Location	DWSC	Deepwater Shipping Channel
+Location	RV	Rio Vista
+Mesh	large	large mesh
+Mesh	small	small mesh
+Mesh	wrap	wrap mesh

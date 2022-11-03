@@ -1,0 +1,9 @@
+attributeName	code	definition
+Enclosure	A	small mesh
+Enclosure	B	large mesh
+Enclosure	C	wrap mesh
+Location	DWSC	Deepwater Shipping Channel
+Location	RV	Rio Vista
+Mesh	large	large mesh
+Mesh	small	small mesh
+Mesh	wrap	wrap mesh

@@ -1,6 +1,6 @@
 givenName	middleInitial	surName	organizationName	electronicMailAddress	userId	role	projectTitle	fundingAgency	fundingNumber
-Catarina		Pien	Bureau of Reclamation and California Department of Water Resources	cpien@usbr.gov	0000-0003-4427-6300	Creator			
-Catarina		Pien	Bureau of Reclamation and California Department of Water Resources	cpien@usbr.gov	0000-0003-4427-6300	Field crew			
+Catarina		Pien	California Department of Water Resources and Bureau of Reclamation	cpien@usbr.gov	0000-0003-4427-6300	Creator			
+Catarina		Pien	California Department of Water Resources and Bureau of Reclamation	cpien@usbr.gov	0000-0003-4427-6300	Field crew			
 Nicole		Kwan	California Department of Water Resources	Nicole.Kwan@water.ca.gov	0000-0003-1178-7788	Creator			
 Nicole		Kwan	California Department of Water Resources	Nicole.Kwan@water.ca.gov	0000-0003-1178-7788	Contact			
 Nicole		Kwan	California Department of Water Resources	Nicole.Kwan@water.ca.gov	0000-0003-1178-7788	Field lead			

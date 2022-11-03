@@ -1,0 +1,3 @@
+geographicDescription	northBoundingCoordinate	southBoundingCoordinate	eastBoundingCoordinate	westBoundingCoordinate
+RV	38.146269	38.146269	-121.692442	-121.692442
+DWSC	38.32583333	38.32583333	-121.65	-121.65

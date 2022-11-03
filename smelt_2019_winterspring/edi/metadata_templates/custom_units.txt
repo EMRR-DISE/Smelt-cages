@@ -1,1 +1,5 @@
 id	unitType	parentSI	multiplierToSI	description
+microgramCarbonPerIndividual	energy			energy in Carbon per individual
+decimalDegree				decimal degree, WGS 1984
+nephelometricTurbidityUnit				nephelometric turbidity unit
+microSeimensPerCentimeter	conductance	siemensPerCentimeter	0.0001	microsiemens per centimeter

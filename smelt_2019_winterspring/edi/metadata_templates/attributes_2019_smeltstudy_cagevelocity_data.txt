@@ -1,23 +1,23 @@
 attributeName	attributeDefinition	class	unit	dateTimeFormatString	missingValueCode	missingValueCodeExplanation
-Location		categorical				
-Date		Date		!Add datetime specifier here!		
-Weather		categorical				
-Tide		categorical				
-Cage		character				
-Vel1		numeric	!Add units here!			
-Vel2		numeric	!Add units here!			
-Vel3		numeric	!Add units here!			
-Avg.Vel_f/s		numeric	!Add units here!			
-Time		Date		!Add datetime specifier here!		
-Water.Temp_C		numeric	!Add units here!			
-DO_mg/L		numeric	!Add units here!			
-SpCond_uS		numeric	!Add units here!			
-EC		numeric	!Add units here!			
-pH		numeric	!Add units here!			
-Turb1		numeric	!Add units here!			
-Turb2		numeric	!Add units here!			
-Turb3		numeric	!Add units here!			
-Avg.Turb_ntu		numeric	!Add units here!			
-Zooplankton?		categorical				
-Plates.Deployed?		categorical				
-Notes		categorical				
+Location	Location of cage deployment	categorical				
+Date	Date	Date		MM/DD/YYYY		
+Weather	Weather code	categorical				
+Tide	Tide stage	categorical				
+Cage	Cage ID	character				
+Vel1	Velocity 1	numeric	footPerSecond			
+Vel2	Velocity 2	numeric	footPerSecond			
+Vel3	Velocity 3	numeric	footPerSecond			
+AvgVel	Average Velocity	numeric	footPerSecond			
+Time	Time	Date		hh:mm		
+WaterTemp	Water temperature	numeric	celsius			
+DO	Dissolved Oxygen	numeric	milligramPerLiter			
+SpCond	Specific Conductance	numeric	microSeimensPerCentimeter			
+EC	Electrical Conductivity	numeric	microSeimensPerCentimeter			
+pH	pH	numeric	dimensionless			
+Turb1	Turbidity 1	numeric	nephelometricTurbidityUnit			
+Turb2	Turbidity 2	numeric	nephelometricTurbidityUnit			
+Turb3	Turbidity 3	numeric	nephelometricTurbidityUnit			
+AvgTurb	Average Turbidity	numeric	nephelometricTurbidityUnit			
+ZooplanktonCollected	Whether or not zooplankton was collected	categorical				
+PlatesDeployed	Whether or not plates were deployed	categorical				
+Notes	Notes	character				
