@@ -13,7 +13,7 @@ library(Polychrome)
 
 # load & prep summer/fall data
 ```{r}
-zoop <- read_csv("hybrid study/ZoopData_SummerFall_2019.csv")
+zoop <- read_csv("smelt_2019_allseasons/data_raw/ZoopData_SummerFall_2019.csv")
 
 zoop$Date <- mdy(zoop$Date)
 zoop$Day <- day(zoop$Date)
@@ -28,8 +28,8 @@ zoop$RingSize_m <- 0.5
 zoop$Count[is.na(zoop$Count)] <- 0
 
 #bring in tow data
-aug <- read_csv("hybrid study/Field_Environmental_Data_Aug_qaqc'ed_11.04.20.csv")
-oct <- read_csv("hybrid study/Field_Environmental_Data_Oct_qaqc'ed_12.11.20.csv")
+aug <- read_csv("smelt_2019_allseasons/data_raw/Field_Environmental_Data_Aug_qaqc'ed_11.04.20.csv")
+oct <- read_csv("smelt_2019_allseasons/data_raw/Field_Environmental_Data_Oct_qaqc'ed_12.11.20.csv")
 aug$Date <- mdy(aug$Date)
 oct$Date <- mdy(oct$Date)
 
@@ -53,7 +53,7 @@ zoop[zoop$Location %in% c("STTD", "STTD-YOLO", "YOLO"),]$Location <- "Yolo"
 all <- merge(zoop, tow2, by = c('Location', 'Date'))
 
 #calculate abundance -----------------------
-all$distance <- (all$Revs)*57560/999999
+all$distance <- (all$Revs)*57560/999999 #57,560 = low speed rotor constant
 all$volumesampled <- ((pi*(all$RingSize_m^2))/4)*all$distance
 all$samplecount <- (all$TotalVolume_ml/all$Subsampled_ml)*all$Count
 
@@ -62,7 +62,24 @@ all$ind_m3 <- all$samplecount/all$volumesampled
 
 #remove 0's
 caught <- all[!(all$ind_m3==0),]
+
+#add taxa
+
+caught[caught$ID %in% c("Rotifers", "Copepod nauplii"),]$Taxa <- "Microzoo"
+
+caught[caught$ID %in% c("Ostracods"),]$Taxa <- "Ostracod"
+
+caught[caught$ID %in% c("Bosmina", "Ceriodaphnia", "Diaphanosoma", "Alona", "Chydorus", "Eurycercus", "Monospilus", "Alonella", "Daphnia", "Ilyocryptus", "Camptocercus", "Simocephalus", "Pleuroxus", "Graptoleberis", "Macrothrix"),]$Taxa <- "Cladocera"
+
+caught[caught$ID %in% c("Cyclopoid copepodid", "Tropocyclops prasinus", "Limnoithona tetraspina", "Diacyclops thomasi", "Eucyclops sp.", "Mesocyclops edax", "Microcyclops rubellus", "Tropocylcops prasinus", "Acanthocyclops vernalis adult", "Eucyclops pectinifer", "Paracyclops spp."),]$Taxa <- "Cyclopoid"
+
+caught[caught$ID %in% c("Calanoid copepodid", "Pseudodiaptomus forbesi adult", "Pseudodiaptomus forbesi copepodid", "Eurytemora affinis adult", "Sinocalanus doerrii adult"),]$Taxa <- "Calanoid"
+
+caught[caught$ID %in% c("Harpacticoids"),]$Taxa <- "Harpacticoid"
+
+caught[caught$ID %in% c("Maeotias marginata (large)"),]$Taxa <- "Other"
 ```
+
 # plot summer/fall data
 ```{r}
 #order factors
@@ -74,7 +91,7 @@ legend_title <- "Species"
 pal36 <- palette36.colors(36)
 pal36 <- as.vector(t(pal36))
 
-ggplot(data = caught, aes(x=MD, y=samplecount)) +
+ggplot() +
   geom_bar(position = "fill", stat = "identity", data=caught, aes (x=MD, y=samplecount, fill=ID), colour="black", width = .5) +
   facet_wrap(~Location, ncol = 1) +
   theme_bw() + 
@@ -88,14 +105,13 @@ ggplot(data = caught, aes(x=MD, y=samplecount)) +
       legend.title = element_text(size = 10),
       axis.text.x = element_text(angle = 90))
 
-ggsave("hybrid study/plots/allzoop.png", dpi=250, height=6, width=10, units="in")
+ggsave("smelt_2019_allseasons/figures/allzoop.png", dpi=250, height=6, width=10, units="in")
 
 #plot with microzoop removed
 macro <- caught[!(caught$ID=="Copepod nauplii"),]
 macro <- macro[!(macro$ID=="Rotifers"),]
-macro <- macro[!(macro$ID=="Ostracods"),]
 
-ggplot(data = macro, aes(x=MD, y=samplecount)) +
+ggplot() +
   geom_bar(position = "fill", stat = "identity", data=macro, aes (x=MD, y=samplecount, fill=ID), colour="black", width = .5) +
   facet_wrap(~Location, ncol = 1) +
   theme_bw() + 
@@ -109,13 +125,14 @@ ggplot(data = macro, aes(x=MD, y=samplecount)) +
       legend.title = element_text(size = 10),
       axis.text.x = element_text(angle = 90))
 
-ggsave("hybrid study/plots/macrozoop.png", dpi=250, height=6, width=10, units="in")
+ggsave("smelt_2019_allseasons/figures/macrozoop.png", dpi=250, height=6, width=10, units="in")
 ```
+
 #bring in winter data
 ```{r}
-#prep of this dataset (code and raw data) can be found here: https://cawater.sharepoint.com/:f:/r/sites/dwrdoc-aes/Shared%20Documents/Delta%20Smelt%20Enclosure%20Study/Analysis/Zooplankton/Zoop%2719?csf=1&web=1&e=YhKzMy
+#prep of this dataset (code and raw data) can be found on GitHub under Smelt Cages > smelt_2019_winterspring
 
-winter <- read_csv("hybrid study/zoop_abundance.csv")
+winter <- read_csv("smelt_2019_allseasons/data_clean/zoop_abundance.csv")
 
 winter$Day <- day(winter$Date)
 winter$Month <- month(winter$Date)
@@ -125,17 +142,16 @@ winter$MD <- paste(winter$Month, winter$Day, sep="-")
 #remove throw samples
 winter <- winter[!(winter$Method=="Throw"),]
 
-#remove DWSC samples
-winter <- winter[!(winter$SiteName=="DWSC"),]
-
 #merge with catch df
-
 #condense to columns of interest
-winter2 <- winter[c(1,2,13,16,32,25,26)]
+winter2 <- winter[c(1,2,13,27,30,22,23)]
 caught2 <- caught[c(1,2,7,10,20,29,30)]
 
 #rename column
-winter2 <- winter2 %>% rename(Location = "SiteName")
+winter2 <- winter2 %>% rename(ID = "Taxon")
+
+#change ostracod taxa
+winter2[winter2$ID %in% c("Ostracods"),]$Taxa <- "Ostracod"
 
 #make locations match
 unique(winter2$Location)
@@ -146,19 +162,35 @@ all2019 <- rbind(winter2, caught2)
 #remove 0's
 caught.19 <- all2019[!(all2019$ind_m3==0),]
 ```
+
 # plot all 2019
 ```{r}
-#order factors
-unique(caught.19$MD)
-caught.19$MD <- factor(caught.19$MD, levels=c("Jan-24", "Jan-29", "Jan-31", "Feb-6", "Feb-8", "Feb-12", "Feb-15", "Feb-22", "Jul-31", "Aug-1", "Aug-2",  "Aug-5", "Aug-6", "Aug-8",  "Aug-12", "Aug-15", "Aug-19", "Aug-22", "Aug-26", "Oct-10", "Oct-11", "Oct-15", "Oct-16", "Oct-18", "Oct-21", "Oct-25", "Oct-28", "Nov-4"))
+#create season column
+caught.19$Season <- as.character(NA)
 
-ggplot(data = caught.19, aes(x=MD, y=samplecount)) +
-  geom_bar(position = "fill", stat = "identity", data=caught.19, aes (x=MD, y=samplecount, fill=ID), colour="black", width = .5) +
-  facet_wrap(~Location, ncol = 1) +
+caught.19[caught.19$MD %in% c("Jan-24", "Jan-29", "Jan-31", "Feb-6", "Feb-8", "Feb-12", "Feb-15", "Feb-22", "Feb-28", "Mar-1", "Mar-4", "Mar-8", "Mar-13", "Mar-19", "Mar-25"),]$Season <- "Winter"
+
+caught.19[caught.19$MD %in% c("Jul-31", "Aug-1", "Aug-2",  "Aug-5", "Aug-6", "Aug-8",  "Aug-12", "Aug-15", "Aug-19", "Aug-22", "Aug-26"),]$Season <- "Summer"
+
+caught.19[caught.19$MD %in% c("Oct-10", "Oct-11", "Oct-15", "Oct-16", "Oct-18", "Oct-21", "Oct-25", "Oct-28", "Nov-4"),]$Season <- "Fall"
+
+caught.sea <- caught.19 %>% 
+  group_by(Season, Location, Taxa) %>% 
+  summarize("sum.count"= sum(samplecount))
+
+#order seasons
+caught.sea$Season <- factor(caught.sea$Season, levels=c("Winter", "Summer", "Fall"))
+
+#order locations
+caught.sea$Location <- factor(caught.sea$Location, levels=c("DWSC", "RV", "Yolo", "SM"))
+
+ggplot() +
+  geom_bar(position = "fill", stat = "identity", data=caught.sea, aes (x=Location, y=sum.count, fill=Taxa), colour="black", width = .5) +
+  facet_wrap(~Season, ncol = 1) +
   theme_bw() + 
-  scale_fill_manual(values=pal36)+
-  labs(x = "Date") +
-  labs(y = "Relative Abundance of all Zoop in Sample")+
+  viridis::scale_fill_viridis(discrete = TRUE, option = "plasma") +
+  labs(x = "Location") +
+  labs(y = "Relative Abundance")+
   theme(legend.position="right")+
       theme(axis.text = element_text(size = 12),
       axis.title = element_text(size = 12),
@@ -166,20 +198,18 @@ ggplot(data = caught.19, aes(x=MD, y=samplecount)) +
       legend.title = element_text(size = 10),
       axis.text.x = element_text(angle = 90))
 
-ggsave("hybrid study/plots/allzoop19.png", dpi=250, height=6, width=10, units="in")
+ggsave("smelt_2019_allseasons/figures/allzoop19.png", dpi=250, height=6, width=6, units="in")
 
 #plot with microzoop removed
-macro2 <- caught.19[!(caught.19$ID=="Copepod nauplii"),]
-macro2 <- macro2[!(macro2$ID=="Rotifers"),]
-macro2 <- macro2[!(macro2$ID=="Ostracods"),]
+caught.sea2 <- caught.sea[!(caught.sea$Taxa=="Microzoo"),]
 
-ggplot(data = macro2, aes(x=MD, y=samplecount)) +
-  geom_bar(position = "fill", stat = "identity", data=macro2, aes (x=MD, y=samplecount, fill=ID), colour="black", width = .5) +
-  facet_wrap(~Location, ncol = 1) +
+ggplot() +
+  geom_bar(position = "fill", stat = "identity", data=caught.sea2, aes (x=Location, y=sum.count, fill=Taxa), colour="black", width = .5) +
+  facet_wrap(~Season, ncol = 1) +
   theme_bw() + 
-  scale_fill_manual(values=pal36)+
-  labs(x = "Date") +
-  labs(y = "Relative Abundance of Macrozoop in Sample")+
+  viridis::scale_fill_viridis(discrete = TRUE, option = "plasma") +
+  labs(x = "Location") +
+  labs(y = "Relative Abundance")+
   theme(legend.position="right")+
       theme(axis.text = element_text(size = 12),
       axis.title = element_text(size = 12),
@@ -187,5 +217,15 @@ ggplot(data = macro2, aes(x=MD, y=samplecount)) +
       legend.title = element_text(size = 10),
       axis.text.x = element_text(angle = 90))
 
-ggsave("hybrid study/plots/macrozoop19.png", dpi=250, height=6, width=10, units="in")
+ggsave("smelt_2019_allseasons/figures/macrozoop19.png", dpi=250, height=6, width=6, units="in")
+```
+
+# repeated measures ANOVA
+```{r}
+#combine taxa 
+for.mod<-caught.19 %>% 
+  group_by(Location, Date, Taxa, Season) %>% 
+  summarize("ind.all"=sum(ind_m3))
+
+shapiro.test(for.mod$ind.all) #very significant, no ANOVA
 ```
