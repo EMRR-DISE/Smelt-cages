@@ -69,7 +69,7 @@ abundance$Taxa<-as.factor(abundance$TaxonomicGrouping)
 abundance$ind_m3<-as.numeric(abundance$ind_m3)
 
 #write file for use in analysis for another project
-write_excel_csv(all, "smelt_2019_allseasons/data_clean/zoop_abundance.csv")
+write_excel_csv(abundance, "smelt_2019_allseasons/data_clean/zoop_abundance.csv")
 
 #put together results for Table 6
 top.sp<-abundance %>% 
