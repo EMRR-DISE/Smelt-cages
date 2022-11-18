@@ -182,7 +182,7 @@ caught.sea$Season <- factor(caught.sea$Season, levels=c("Winter", "Summer", "Fal
 caught.sea$Location <- factor(caught.sea$Location, levels=c("DWSC", "RV", "YB", "SM"))
 
 ggplot() +
-  geom_bar(position = "fill", stat = "identity", data=caught.sea, aes (x=Location, y=sum.count, fill=Taxa), colour="black", width = .5) +
+  geom_bar(position = "fill", stat = "identity", data=caught.sea, aes (x=Location, y=sum.count, fill=Taxa), colour="black", width = .75) +
   facet_wrap(~Season, ncol = 1) +
   theme_bw() + 
   viridis::scale_fill_viridis(discrete = TRUE, option = "plasma") +
@@ -200,7 +200,7 @@ ggsave("smelt_2019_allseasons/figures/allzoop19.png", dpi=250, height=6, width=6
 caught.sea2 <- caught.sea[!(caught.sea$Taxa=="Microzoo"),]
 
 ggplot() +
-  geom_bar(position = "fill", stat = "identity", data=caught.sea2, aes (x=Location, y=sum.count, fill=Taxa), colour="black", width = .5) +
+  geom_bar(position = "fill", stat = "identity", data=caught.sea2, aes (x=Location, y=sum.count, fill=Taxa), colour="black", width = .75) +
   facet_wrap(~Season, ncol = 1) +
   theme_bw() + 
   viridis::scale_fill_viridis(discrete = TRUE, option = "plasma") +
