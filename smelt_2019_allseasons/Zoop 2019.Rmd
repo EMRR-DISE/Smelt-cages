@@ -48,7 +48,8 @@ zoop <- zoop %>% rename(Location = "Station")
 unique(zoop$Location)
 unique(tow2$Location)
 
-zoop[zoop$Location %in% c("STTD", "STTD-YOLO", "YOLO"),]$Location <- "Yolo"
+zoop[zoop$Location %in% c("STTD", "STTD-YOLO", "YOLO"),]$Location <- "YB"
+tow2[tow2$Location %in% c("Yolo"),]$Location <- "YB"
 
 all <- merge(zoop, tow2, by = c('Location', 'Date'))
 
@@ -105,8 +106,6 @@ ggplot() +
       legend.title = element_text(size = 10),
       axis.text.x = element_text(angle = 90))
 
-ggsave("smelt_2019_allseasons/figures/allzoop.png", dpi=250, height=6, width=10, units="in")
-
 #plot with microzoop removed
 macro <- caught[!(caught$ID=="Copepod nauplii"),]
 macro <- macro[!(macro$ID=="Rotifers"),]
@@ -124,8 +123,6 @@ ggplot() +
       legend.text = element_text(size = 8),
       legend.title = element_text(size = 10),
       axis.text.x = element_text(angle = 90))
-
-ggsave("smelt_2019_allseasons/figures/macrozoop.png", dpi=250, height=6, width=10, units="in")
 ```
 
 #bring in winter data
@@ -182,7 +179,7 @@ caught.sea <- caught.19 %>%
 caught.sea$Season <- factor(caught.sea$Season, levels=c("Winter", "Summer", "Fall"))
 
 #order locations
-caught.sea$Location <- factor(caught.sea$Location, levels=c("DWSC", "RV", "Yolo", "SM"))
+caught.sea$Location <- factor(caught.sea$Location, levels=c("DWSC", "RV", "YB", "SM"))
 
 ggplot() +
   geom_bar(position = "fill", stat = "identity", data=caught.sea, aes (x=Location, y=sum.count, fill=Taxa), colour="black", width = .5) +
