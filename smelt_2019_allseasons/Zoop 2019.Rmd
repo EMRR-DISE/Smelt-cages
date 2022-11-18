@@ -195,8 +195,7 @@ ggplot() +
       theme(axis.text = element_text(size = 12),
       axis.title = element_text(size = 12),
       legend.text = element_text(size = 8),
-      legend.title = element_text(size = 10),
-      axis.text.x = element_text(angle = 90))
+      legend.title = element_text(size = 10))
 
 ggsave("smelt_2019_allseasons/figures/allzoop19.png", dpi=250, height=6, width=6, units="in")
 
@@ -214,8 +213,7 @@ ggplot() +
       theme(axis.text = element_text(size = 12),
       axis.title = element_text(size = 12),
       legend.text = element_text(size = 8),
-      legend.title = element_text(size = 10),
-      axis.text.x = element_text(angle = 90))
+      legend.title = element_text(size = 10))
 
 ggsave("smelt_2019_allseasons/figures/macrozoop19.png", dpi=250, height=6, width=6, units="in")
 ```
