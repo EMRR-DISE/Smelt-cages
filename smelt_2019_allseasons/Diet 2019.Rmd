@@ -32,19 +32,19 @@ str(diet2)
 
 diet2[diet2$Prey.Taxa %in% c("Bosmina sp.", "Chydorus sp.", "Daphnia sp.", "Ceriodaphnia sp.", "Chydoridae", "Crangonyx sp.", "Scapholeberis sp.", "Simocephalus sp.", "Eurycercus sp.", "Leydigia sp.", "Cladocera", "Sida sp.", "Alona sp.", "Diaphanosoma sp."),]$Taxa <- "Cladocera"
 
-diet2[diet2$Prey.Taxa %in% c("Americorophium sp.", "Americorophium spinicorne", "Eogammarus confervicolus", "Gammaridea", "Hyallela azteca", "Crangonyx sp.", "Corophiidae", "Amphipoda"),]$Taxa <- "Amphipoda"
+diet2[diet2$Prey.Taxa %in% c("Americorophium sp.", "Americorophium spinicorne", "Eogammarus confervicolus", "Gammaridea", "Hyallela azteca", "Crangonyx sp.", "Corophiidae", "Amphipoda"),]$Taxa <- "Amphipod"
 
-diet2[diet2$Prey.Taxa %in% c("Pseudodiaptomus forbesi", "Calanoida", "Eurytemora affinis", "Diaptomidae", "Sinocalanus doerrii", "Osphranticum labronectum"),]$Taxa <- "Calanoida"
+diet2[diet2$Prey.Taxa %in% c("Pseudodiaptomus forbesi", "Calanoida", "Eurytemora affinis", "Diaptomidae", "Sinocalanus doerrii", "Osphranticum labronectum"),]$Taxa <- "Calanoid"
 
-diet2[diet2$Prey.Taxa %in% c("Acanthocyclops sp.", "Macrocyclops sp.", "Diacyclops thomasi", "Eucyclops sp.", "Cyclopoida", "Halicyclops sp.", "Mesocyclops sp.", "Tropocyclops sp.", "Tropocyclops sp."),]$Taxa <- "Cyclopoida"
+diet2[diet2$Prey.Taxa %in% c("Acanthocyclops sp.", "Macrocyclops sp.", "Diacyclops thomasi", "Eucyclops sp.", "Cyclopoida", "Halicyclops sp.", "Mesocyclops sp.", "Tropocyclops sp.", "Tropocyclops sp."),]$Taxa <- "Cyclopoid"
 
 diet2[diet2$Prey.Taxa %in% c("Chironomidae", "Diptera"),]$Taxa <- "Diptera"
 
 diet2[diet2$Prey.Taxa %in% c("empty", "EMPTY"),]$Taxa <- "empty"
 
-diet2[diet2$Prey.Taxa %in% c("Harpacticoida"),]$Taxa <- "Harpacticoida"
+diet2[diet2$Prey.Taxa %in% c("Harpacticoida"),]$Taxa <- "Harpacticoid"
 
-diet2[diet2$Prey.Taxa %in% c("Ostracoda"),]$Taxa <- "Ostracoda"
+diet2[diet2$Prey.Taxa %in% c("Ostracoda"),]$Taxa <- "Ostracod"
 
 diet2[diet2$Prey.Taxa %in% c("Fish", "Acari", "Insecta", "Bivalvia", "Culicidae", "egg unidentified", "Corixidae", "Hemiptera", "plant seed", "plant matter", "Unidentified", "Mysidacea", "Cumacea"),]$Taxa <- "Other"
 
@@ -70,7 +70,7 @@ Cage_type <- as.data.frame(matrix(0, ncol = 2, nrow = 6))
 colnames(Cage_type) <- c("Cage.ID", "Mesh")
 
 Cage_type$Cage.ID <- c("A", "B", "C", "D", "E", "F")
-Cage_type$Mesh <- c("wrap", "large", "small", "small", "wrap", "large")
+Cage_type$Mesh <- c("small", "large", "wrap", "wrap", "small", "large")
 
 norm.tag2 <- merge(norm.tag, Cage_type, by = "Cage.ID", all.x = TRUE)
 
@@ -81,43 +81,40 @@ weird.tag$Mesh <- NA
 diet <- rbind(weird.tag, norm.tag2)
 
 #change location titles 
-diet$Location[diet$Location =="RIVERS"] <- "RV.Feb"
-diet$Location[diet$Location =="Sac DWSC"] <- "DWSC.Apr"
-diet$Location[diet$Location =="SM"] <- "SM.Nov"
-diet$Location[diet$Location =="YB"] <- "YB.Nov"
+diet$Location[diet$Location =="RIVERS"] <- "RV.Winter"
+diet$Location[diet$Location =="Sac DWSC"] <- "DWSC.Winter"
+diet$Location[diet$Location =="SM"] <- "SM.Fall"
+diet$Location[diet$Location =="YB"] <- "YB.Fall"
 #RV a little trickier with two dates
 diet$ld = paste(diet$Location, diet$Date)
-diet$Location[diet$ld =="RV 2019-08-28"] <- "RV.Aug"
-diet$Location[diet$ld =="RV 2019-11-06"] <- "RV.Nov"
+diet$Location[diet$ld =="RV 2019-08-28"] <- "RV.Summer"
+diet$Location[diet$ld =="RV 2019-11-06"] <- "RV.Fall"
 RV <- filter(diet, Location == "RV")
-diet$Location[diet$ld =="RV 2019-11-07"] <- "RV.Nov"
+diet$Location[diet$ld =="RV 2019-11-07"] <- "RV.Fall"
 
 diet <- subset(diet, select = -16)
 ```
 
 # prep merged data for taxa proportion
 ```{r}
-unique(diet$Location)
-
 #remove FCCL controls
 diet<-diet[diet$Cage.ID != "FCCL Control Tank 1",]
 diet<-diet[diet$Cage.ID != "FCCL Control Tank 2",]
 diet<-diet[diet$Cage.ID != "FCCL Control",]
 
-#remove DWSC
-#diet<-diet[diet$Location != "DWSC.Apr",]
-
 #fix fish that were assigned the wrong cage (came up during summary stats, check against dissected fish data, likely E and F were misread)
 diet[diet$Tag=='RK10', 'Cage.ID'] <- "E"
 diet[diet$Tag=='RN93', 'Cage.ID'] <- "E"
 
-str(diet)
 #change count to numeric
 diet$Count<-as.numeric(diet$Count)
+
 #output says NAs introduced by coercion - check NA's
 newDF <- diet[is.na(diet$Count),]
+
 #one NA next to a gammaridae - comment says that it was too digested and could be more than one individual, to be safe just going to add a count of "1" for this observation; found it on row 413
 diet<-diet %>% replace_na(list(Count=1))
+
 #change count to numeric
 diet$Count<-as.numeric(diet$Count)
 
@@ -151,6 +148,7 @@ full.count<-subset(full.count, select=c("Location", "Mesh", "tlc", "Taxa", "coun
 
 #select columns I want for proportion
 full.prop.3<-subset(full.prop.2, select=c("Location", "Mesh", "tlc", "Taxa", "proportion"))
+
 #replace proportion Nas with zeros
 diet.prop<-full.prop.3 %>% replace_na(list(proportion=0))
 
@@ -165,7 +163,7 @@ diet.prop.mean<- diet.prop %>%
 ```{r}
 #order locations
 stomach_abundance$Location <- stomach_abundance$Location.x
-stomach_abundance$Location <- ordered(stomach_abundance$Location, levels = c("DWSC.Apr", "RV.Feb", "RV.Aug", "SM.Nov", "YB.Nov", "RV.Nov"))
+stomach_abundance$Location <- ordered(stomach_abundance$Location, levels = c("DWSC.Winter", "RV.Winter", "RV.Summer", "SM.Fall", "YB.Fall", "RV.Fall"))
 
 #subset for only empty stomachs
 empty <- filter(stomach_abundance, Taxa == "empty")
@@ -179,17 +177,64 @@ ggplot(empty, aes(Location)) + geom_bar() + scale_x_discrete(drop=FALSE)
 prop<-diet.prop.mean[diet.prop.mean$Taxa != "empty",]
 
 #order locations
-prop$Location <- ordered(prop$Location, levels = c("DWSC.Apr", "RV.Feb", "RV.Aug", "RV.Nov", "YB.Nov", "SM.Nov"))
+prop$Location <- ordered(prop$Location, levels = c("DWSC.Winter", "RV.Winter", "RV.Summer", "RV.Fall", "YB.Fall", "SM.Fall"))
 
-cbPalette <- c("#F0E442", "#E69F00", "#009E73", "#56B4E9", "#CC79A7", "#D55E00", "#0072B2")
-legend_title <- "Taxa"
+#order taxa to match zoop plot
+prop$Taxa <- factor(prop$Taxa, levels=c("Calanoid", "Cladocera", "Cyclopoid", "Harpacticoid", "Ostracod", "Other", "Amphipod", "Diptera"))
 
-ggplot(data=prop, aes(x=Location, y =prop.mean)) +
-    geom_bar(aes(fill=factor(Taxa, levels=c("Amphipoda", "Calanoida", "Cladocera", "Cyclopoida", "Diptera", "Harpacticoda", "Ostracoda", "Other"))),  position="fill", stat="identity") +
-  theme_bw() + 
-  scale_fill_manual(legend_title, values=cbPalette)+
+ggplot(data=prop, aes(x=Location, y =prop.mean, fill=Taxa)) +
+    geom_bar(position="fill", stat="identity", colour="black") +
+  theme_bw() +
+  viridis::scale_fill_viridis(discrete = TRUE, option = "plasma") +
   theme(legend.position="right", axis.title.x = element_blank())+
   labs(y = "Mean Contribution to Diet")
+
+ggsave("smelt_2019_allseasons/figures/diet19_onepanel.png", dpi=250, height=4.5, width=7, units="in")
+
+#facet by season
+
+#create season column
+prop2 <- prop
+prop2$Season <- "NA"
+prop2[prop2$Location %in% c("DWSC.Winter", "RV.Winter"),]$Season <- "Winter"
+prop2[prop2$Location %in% c("RV.Summer"),]$Season <- "Summer"
+prop2[prop2$Location %in% c("RV.Fall", "YB.Fall", "SM.Fall"),]$Season <- "Fall"
+
+#change Location to drop season
+prop2$Location <- as.character(prop2$Location)
+prop2$Location[prop$Location =="DWSC.Winter"] <- "DWSC"
+prop2[prop2$Location %in% c("RV.Winter", "RV.Summer", "RV.Fall"),]$Location <- "RV"
+prop2$Location[prop$Location =="YB.Fall"] <- "YB"
+prop2$Location[prop$Location =="SM.Fall"] <- "SM"
+
+#order seasons
+prop2$Season <- factor(prop2$Season, levels=c("Winter", "Summer", "Fall"))
+
+#order locations
+prop2$Location <- factor(prop2$Location, levels=c("DWSC", "RV", "YB", "SM"))
+
+#order taxa to match zoop plot
+prop2$Taxa <- factor(prop2$Taxa, levels=c("Calanoid", "Cladocera", "Cyclopoid", "Harpacticoid", "Ostracod", "Other", "Amphipod", "Diptera"))
+
+#plot
+ggplot(data=prop2, aes(x=Location, y =prop.mean, fill=Taxa)) +
+  geom_bar(position="fill", stat="identity", colour="black", width=0.75) +
+  facet_wrap(~Season, ncol=1) +
+  theme_bw() +
+  viridis::scale_fill_viridis(discrete = TRUE, option = "plasma") +
+  theme(legend.position="right", axis.title.x = element_blank())+
+  labs(y = "Mean Contribution to Diet") +
+   theme(legend.position="right")+
+      theme(axis.text = element_text(size = 12),
+      axis.title = element_text(size = 12),
+      legend.text = element_text(size = 8),
+      legend.title = element_text(size = 10))
+
+library(scales)
+show_col(viridis_pal(option = "plasma")(8))
+viridis_pal(option = "plasma")(8)
+
+ggsave("smelt_2019_allseasons/figures/diet19_multipanel.png", dpi=250, height=6, width=6, units="in")
 ```
 
 ### Plot methods text (from manuscript): To visualize the relative abundance of different taxa among mesh types, we calculated taxa proportion (taxa abundance/total abundance) for each individual fish’s diet and then averaged these taxa proportions across individuals from each mesh type. These means were then fit to a 100% scale to estimate the mean percent contribution of each taxa to overall mesh type diets. Averaging proportions instead of abundance across fish allowed for the diets of different sizes fish to contribute equally.
