@@ -122,12 +122,12 @@ diet$tlc = paste(diet$Tag, diet$Location, diet$Cage.ID)
 
 #sum for taxa abundance among individual fish
 taxa_tag<- diet %>% 
-  group_by(Location, Mesh, tlc, Taxa) %>% 
+  group_by(Location, tlc, Taxa) %>% 
   summarize("count.sum"= sum(Count))
 
 #sum taxa across stomach
 stomach<- diet %>% 
-  group_by(Location, Mesh, tlc) %>% 
+  group_by(Location, tlc) %>% 
   summarize("stomach.sum"= sum(Count))
 
 stomach_abundance<-merge(taxa_tag, stomach, by = "tlc")
@@ -140,14 +140,8 @@ full.prop<-stomach_abundance %>% complete(tlc, Taxa) %>%
 
 full.prop.2<-merge(full.prop, stomach, by = "tlc")
 
-#replace count.sum Nas with zeros
-full.count<-full.prop.2 %>% replace_na(list(count.sum=0))
-
-#select columns I want for count
-full.count<-subset(full.count, select=c("Location", "Mesh", "tlc", "Taxa", "count.sum"))
-
 #select columns I want for proportion
-full.prop.3<-subset(full.prop.2, select=c("Location", "Mesh", "tlc", "Taxa", "proportion"))
+full.prop.3<-subset(full.prop.2, select=c("Location", "tlc", "Taxa", "proportion"))
 
 #replace proportion Nas with zeros
 diet.prop<-full.prop.3 %>% replace_na(list(proportion=0))
@@ -230,11 +224,9 @@ ggplot(data=prop2, aes(x=Location, y =prop.mean, fill=Taxa)) +
       legend.text = element_text(size = 8),
       legend.title = element_text(size = 10))
 
+ggsave("smelt_2019_allseasons/figures/diet19_multipanel.png", dpi=250, height=6, width=6, units="in")
+
 library(scales)
 show_col(viridis_pal(option = "plasma")(8))
 viridis_pal(option = "plasma")(8)
-
-ggsave("smelt_2019_allseasons/figures/diet19_multipanel.png", dpi=250, height=6, width=6, units="in")
 ```
-
-### Plot methods text (from manuscript): To visualize the relative abundance of different taxa among mesh types, we calculated taxa proportion (taxa abundance/total abundance) for each individual fish’s diet and then averaged these taxa proportions across individuals from each mesh type. These means were then fit to a 100% scale to estimate the mean percent contribution of each taxa to overall mesh type diets. Averaging proportions instead of abundance across fish allowed for the diets of different sizes fish to contribute equally.

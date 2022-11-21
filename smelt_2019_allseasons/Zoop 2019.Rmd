@@ -199,11 +199,14 @@ ggsave("smelt_2019_allseasons/figures/allzoop19.png", dpi=250, height=6, width=6
 #plot with microzoop removed
 caught.sea2 <- caught.sea[!(caught.sea$Taxa=="Microzoo"),]
 
+#create custom palette from viridis to match taxa from diet plot
+zoopPalette <- c("#0D0887FF", "#5402A3FF", "#8B0AA5FF", "#B93289FF", "#DB5C68FF", "#F48849FF")
+
 ggplot() +
   geom_bar(position = "fill", stat = "identity", data=caught.sea2, aes (x=Location, y=sum.count, fill=Taxa), colour="black", width = .75) +
   facet_wrap(~Season, ncol = 1) +
   theme_bw() + 
-  viridis::scale_fill_viridis(discrete = TRUE, option = "plasma") +
+  scale_fill_manual(values=zoopPalette)+
   labs(x = "Location") +
   labs(y = "Relative Abundance")+
   theme(legend.position="right")+
