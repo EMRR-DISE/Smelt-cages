@@ -1,4 +1,4 @@
-Station,Date,MeshSize,RingSize_cm,TotalVolume_ml,Subsampled_ml,ID,Count,#ofSubsample,Taxa,ugC.ind,Total.Biomass,Comments,EnteredBy,Date,QC'ed by,Date
+Station,Date,MeshSize,RingSize_cm,TotalVolume_ml,Subsampled_ml,ID,Count,#ofSubsample,Taxa,ugC.ind,Total.Biomass,Comments,EnteredBy,EnteredDate,QC'ed by,QCDate
 STTD,7/31/2019,50,,73,0.3,Rotifers,39,1,,,,high detritus,NK,8/9/2022,,
 STTD,7/31/2019,50,,73,0.3,Copepod nauplii ,363,1,,,,high detritus,NK,8/9/2022,,
 STTD,7/31/2019,50,,73,0.3,Ostracods,22,1,,,,high detritus,NK,8/9/2022,,

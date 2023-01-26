@@ -9,11 +9,14 @@ editor_options:
 library(tidyverse)
 library(lubridate)
 library(Polychrome)
+library(here)
 ```
 
 # load & prep summer/fall data
 ```{r}
-zoop <- read_csv("smelt_2019_allseasons/data_raw/ZoopData_SummerFall_2019.csv")
+
+#zoop <- read_csv("smelt_2019_allseasons/data_raw/ZoopData_SummerFall_2019.csv")
+zoop <- read_csv("data_raw/ZoopData_SummerFall_2019.csv")
 
 zoop$Date <- mdy(zoop$Date)
 zoop$Day <- day(zoop$Date)
@@ -28,8 +31,11 @@ zoop$RingSize_m <- 0.5
 zoop$Count[is.na(zoop$Count)] <- 0
 
 #bring in tow data
-aug <- read_csv("smelt_2019_allseasons/data_raw/Field_Environmental_Data_Aug_qaqc'ed_11.04.20.csv")
-oct <- read_csv("smelt_2019_allseasons/data_raw/Field_Environmental_Data_Oct_qaqc'ed_12.11.20.csv")
+#aug <- read_csv("smelt_2019_allseasons/data_raw/Field_Environmental_Data_Aug_qaqc'ed_11.04.20.csv")
+#oct <- read_csv("smelt_2019_allseasons/data_raw/Field_Environmental_Data_Oct_qaqc'ed_12.11.20.csv")
+aug <- read_csv("data_raw/Field_Environmental_Data_Aug_qaqc'ed_11.04.20.csv")
+oct <- read_csv("data_raw/Field_Environmental_Data_Oct_qaqc'ed_12.11.20.csv")
+
 aug$Date <- mdy(aug$Date)
 oct$Date <- mdy(oct$Date)
 
@@ -129,7 +135,8 @@ ggplot() +
 ```{r}
 #prep of this dataset (code and raw data) can be found on GitHub under Smelt Cages > smelt_2019_winterspring
 
-winter <- read_csv("smelt_2019_allseasons/data_clean/zoop_abundance.csv")
+#winter <- read_csv("smelt_2019_allseasons/data_clean/zoop_abundance.csv")
+winter <- read_csv("data_clean/zoop_abundance.csv")
 
 winter$Day <- day(winter$Date)
 winter$Month <- month(winter$Date)
@@ -202,6 +209,7 @@ caught.sea2 <- caught.sea[!(caught.sea$Taxa=="Microzoo"),]
 #create custom palette from viridis to match taxa from diet plot
 zoopPalette <- c("#0D0887FF", "#5402A3FF", "#8B0AA5FF", "#B93289FF", "#DB5C68FF", "#F48849FF")
 
+
 ggplot() +
   geom_bar(position = "fill", stat = "identity", data=caught.sea2, aes (x=Location, y=sum.count, fill=Taxa), colour="black", width = .75) +
   facet_wrap(~Season, ncol = 1) +
@@ -227,3 +235,233 @@ for.mod<-caught.19 %>%
 
 shapiro.test(for.mod$ind.all) #very significant, no ANOVA
 ```
+
+
+## Multivariate statistics
+
+```{r}
+
+library(vegan)
+source("../PlotNMDS.R")
+
+zoops = mutate(caught.19, SampleID = paste(Location, Date)) %>%
+  pivot_wider(id_cols = c(SampleID, Location, Date, MD, Season), names_from = Taxa, values_from = ind_m3, values_fn = sum, values_fill = 0) %>%
+  mutate(datatype = "Zoops")
+
+#first let's look at Rio Vista across seasons
+RVzoops = filter(zoops, Location == "RV")
+
+#raw abundance matrix
+RVzoopmat = as.matrix(RVzoops[,6:12])
+
+#relative abundance matrix
+RVzoopmat2 = RVzoopmat/rowSums(RVzoopmat)
+
+RVa = adonis2(RVzoopmat~Season, data = RVzoops)
+RVa
+#
+
+RVb = adonis2(RVzoopmat2~Season, data = RVzoops)
+RVb
+
+```
+pretty big differences between seasons, R2 of 54% on the absolute abundance, 64% on relative abundance
+
+THough I may need to update this with some sort of variable to account for day of year. Not sure. 
+
+Now I'll look for changes by location
+
+```{r}
+Fallzoops = filter(zoops, Season == "Fall")
+
+
+#raw abundance matrix
+Fallzoopmat = as.matrix(Fallzoops[,6:12])
+
+#relative abundance matrix
+Fallzoopmat2 = Fallzoopmat/rowSums(Fallzoopmat)
+
+Falla = adonis2(Fallzoopmat~Location, data = Fallzoops)
+Falla
+#
+
+Fallb = adonis2(Fallzoopmat2~Location, data = Fallzoops)
+Fallb
+#
+
+
+```
+
+Wow! Even larger differences in relative and absolute abundance by region
+
+I'm going to try an NMDS just for funzies
+
+```{r}
+
+#raw abundance matrix
+zoopmat = as.matrix(zoops[,6:12])
+
+#relative abundance matrix
+zoopmat2 = zoopmat/rowSums(zoopmat)
+
+N1 = metaMDS(zoopmat2)
+zoops = mutate(zoops, Season  = as.factor(Season), Location = as.factor(Location))
+PlotNMDS(N1, zoops, group = "Season")
+PlotNMDS(N1, zoops, group = "Location")
+
+RVN1 = metaMDS(RVzoopmat2)
+RVzoops = mutate(RVzoops, Season  = as.factor(Season), Location = as.factor(Location))
+PlotNMDS(RVN1, RVzoops, group = "Season")
+PlotNMDS(RVN1, RVzoops, group = "Location")
+
+```
+
+## Diet data comparison
+
+
+```{r}
+#diet2 <- read_csv("smelt_2019_allseasons/data_raw/DSM Cage Diets 2019-2020.csv") #new data, not edited at all
+diet2 <- read_csv("data_raw/DSM Cage Diets 2019-2020.csv") #new data, not edited at all
+
+diet2$Date <- mdy(diet2$Date)
+
+#format 
+#rename columns
+diet2 <- diet2 %>% rename(Cage.ID = "Cage ID", Contents.Weight = "Total Contents Weight", Prey.Taxa = "Prey Taxa", LH.Stage = "LH Stage")
+
+#add taxa column (choose taxa based on what is present in the dataframe)
+diet2$Taxa <- as.character(NA) 
+
+str(diet2)
+
+diet2[diet2$Prey.Taxa %in% c("Bosmina sp.", "Chydorus sp.", "Daphnia sp.", "Ceriodaphnia sp.", "Chydoridae", "Crangonyx sp.", "Scapholeberis sp.", "Simocephalus sp.", "Eurycercus sp.", "Leydigia sp.", "Cladocera", "Sida sp.", "Alona sp.", "Diaphanosoma sp."),]$Taxa <- "Cladocera"
+
+diet2[diet2$Prey.Taxa %in% c("Americorophium sp.", "Americorophium spinicorne", "Eogammarus confervicolus", "Gammaridea", "Hyallela azteca", "Crangonyx sp.", "Corophiidae", "Amphipoda"),]$Taxa <- "Amphipod"
+
+diet2[diet2$Prey.Taxa %in% c("Pseudodiaptomus forbesi", "Calanoida", "Eurytemora affinis", "Diaptomidae", "Sinocalanus doerrii", "Osphranticum labronectum"),]$Taxa <- "Calanoid"
+
+diet2[diet2$Prey.Taxa %in% c("Acanthocyclops sp.", "Macrocyclops sp.", "Diacyclops thomasi", "Eucyclops sp.", "Cyclopoida", "Halicyclops sp.", "Mesocyclops sp.", "Tropocyclops sp.", "Tropocyclops sp."),]$Taxa <- "Cyclopoid"
+
+diet2[diet2$Prey.Taxa %in% c("Chironomidae", "Diptera"),]$Taxa <- "Diptera"
+
+diet2[diet2$Prey.Taxa %in% c("empty", "EMPTY"),]$Taxa <- "empty"
+
+diet2[diet2$Prey.Taxa %in% c("Harpacticoida"),]$Taxa <- "Harpacticoid"
+
+
+diet2[diet2$Prey.Taxa %in% c("Ostracoda"),]$Taxa <- "Ostracod"
+
+diet2[diet2$Prey.Taxa %in% c("Fish", "Acari", "Insecta", "Bivalvia", "Culicidae", "egg unidentified", "Corixidae", "Hemiptera", "plant seed", "plant matter", "Unidentified", "Mysidacea", "Cumacea"),]$Taxa <- "Other"
+
+new_DF <- diet2[is.na(diet2$Taxa),] #update code above with new prey.taxa that weren't found in previous diets
+#there are two "copepoda" entries with no count or location...don't seem that important so I am going to just go ahead and remove them
+diet2[diet2$Taxa %in% c("empty"),]$Count <- "0"
+diet2 <- diet2[!is.na(diet2$Count),]
+
+#Tag column currently has rows with just the Tag and others with location, date, and tag
+#first break those two kinds of columns apart
+weird.tag <- diet2[is.na(diet2$Location),]
+norm.tag <- diet2[!is.na(diet2$Location),]
+
+#then for break out the Tag ID into Location and tag (remove date)
+weird.tag <- weird.tag %>% separate(Tag, c("Location", "X.date", "Tag"))
+
+#remove new date column
+weird.tag <- subset(weird.tag, select = -6)
+
+#add mesh types for prototype experiment
+#create new column for mesh types
+Cage_type <- as.data.frame(matrix(0, ncol = 2, nrow = 6))
+colnames(Cage_type) <- c("Cage.ID", "Mesh")
+
+Cage_type$Cage.ID <- c("A", "B", "C", "D", "E", "F")
+Cage_type$Mesh <- c("small", "large", "wrap", "wrap", "small", "large")
+
+norm.tag2 <- merge(norm.tag, Cage_type, by = "Cage.ID", all.x = TRUE)
+
+#add mesh types (NA) for summer/fall experiements
+weird.tag$Mesh <- NA 
+
+#merge the two
+diet <- rbind(weird.tag, norm.tag2)
+
+#change location titles 
+diet = mutate(diet, Location2 = case_when(Location %in% c("RV", "RIVERS") ~ "RV", 
+                                       Location == "Sac DWSC" ~ "DWSC",
+                                       Location == "SM" ~ "SM",
+                                       Location == "YB" ~ "YB"),
+              Month = month(Date),
+              Season = case_when(Month %in% c(2,3,5) ~ "Winter",
+                                 Month == 8 ~ "Summer",
+                                 Month == 11 ~ "Fall"),
+              Location = Location2,
+              datatype = "diet")
+
+#OMG DON"T PUT COMMENTS IN THE COUNT COLUMN
+diet$Count[which(diet$Count == "1 maybe 2")] = "1"
+diet$Count = as.numeric(diet$Count)
+
+#pivot_wider
+dietwide = mutate(diet, SampleID = paste(Location, Tag)) %>%
+  pivot_wider(id_cols = c(SampleID, Location, Date, Season, datatype), names_from = Taxa, values_from = Count, values_fn = sum, values_fill = 0)
+
+
+```
+
+Now put the zoop data and diet data together
+
+
+```{r}
+
+zoopdiet = bind_rows(zoops, dietwide) %>%
+  mutate(Amphipod = case_when(is.na(Amphipod) ~0, TRUE ~ Amphipod),
+         Diptera = case_when(is.na(Diptera) ~0, TRUE ~ Diptera)) %>%
+  select(-empty, -Microzoo)
+
+
+rowSums(zoopdiet[,c(6:11, 13, 14)])
+
+#remove empty rows
+zoopdiet = zoopdiet[which(rowSums(zoopdiet[,c(6:11, 13, 14)]) !=0),] %>%
+  mutate(datatype = as.factor(datatype), Season = as.factor(Season), Location = as.factor(Location))
+
+#Convert to reletive abundance
+zoopdietmat = as.matrix(zoopdiet[,c(6:11, 13, 14)])
+zoopdietmat2 = zoopdietmat/rowSums(zoopdietmat)
+
+#look at just Rio Vista
+RVdietzoops = filter(zoopdiet, Location == "RV")
+
+#Convert to reletive abundance
+RVzoopdietmat = as.matrix(RVdietzoops[,c(6:11, 13, 14)])
+RVzoopdietmat2 = RVzoopdietmat/rowSums(RVzoopdietmat)
+
+
+RVda = adonis2(RVzoopdietmat2~ datatype + Season, data = RVdietzoops)
+RVda
+
+zdM = metaMDS(zoopdietmat2)
+
+PlotNMDS(zdM, data = zoopdiet, group = "datatype")
+
+PlotNMDS(zdM, data = zoopdiet, group = "Location")
+
+RVM = metaMDS(RVzoopdietmat2, trymax = 100)
+
+
+PlotNMDS(RVM, data = RVdietzoops, group = "Season")
+```
+
+Basic plot of zoops versus diet
+
+```{r}
+zoopdietlong = pivot_longer(zoopdiet, cols = c(Ostracod, Cyclopoid, Calanoid, Cladocera, Harpacticoid, Other, Amphipod, Diptera),
+                            names_to = "Taxa", values_to= "count")
+
+ggplot(zoopdietlong, aes(x = datatype, y = count, fill = Taxa))+
+  geom_col(position = "fill")+
+  facet_grid(Location~Season)
+
+
+```
+
