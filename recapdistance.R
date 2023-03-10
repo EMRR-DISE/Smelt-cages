@@ -106,10 +106,17 @@ SChard = Waterdist(Water_map = spacetools::Delta, Points = Dwschard, Latitude_co
 
 #I'm not really sure the best way to summarize this.
 
-Cluster = data.frame(Release = c("RV Hard", "RV Hard Trailer", "DWSC hard", "DWSC soft"),
-                     meadist = c(mean(RVhdistx), mean(RVhdist), mean(SCsoft), mean(SChard)),
+Cluster = data.frame(Release = c("RV Hard", "RV Hard Trailer", "DWSC soft", "DWSC hard"),
+                     meadist = c(mean(RVhdistx[lower.tri(RVhdistx)]), 
+                                 mean(RVhdist[lower.tri(RVhdist)]), 
+                                 mean(SCsoft[lower.tri(SCsoft)]), 
+                                 mean(SChard[lower.tri(SChard)])),
                      SD = c(sd(RVhdistx), sd(RVhdist), sd(SCsoft), sd(SChard)))
 Cluster = mutate(Cluster, CV = SD/meadist)
 write.csv(Cluster, "Cluster.csv")                     
 
 save(distances, recaps, recaps2, recaps2x, recapsf, recaps3, release, Cluster, RVhdist, RVhdistx, SCsoft, SChard, file = "Recaps.RData")
+
+mm1 = lm(Distance ~ Type, data = recaps3)
+summary(mm1)
+plot(mm1)

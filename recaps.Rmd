@@ -13,7 +13,7 @@ library(sf)
 library(lubridate)
 library(spacetools)
 library(deltamapr)
-load("Recaps.RData")
+#load("Recaps.RData")
 ```
 
 ## Spatial stats on Delta Smelt releases
@@ -38,9 +38,12 @@ Fist let's calcualte distance from release location to recapture location.
 recaps = read_excel("Recaptured Experimental Release_2022-2023_working draft.xlsx", 
                     sheet = "Adult Recaptures") %>%
   rename(Site = `Release Site`, Type = `Release Type`, Latitude= `Start Latitude`, Longitude = `Start Longitude`)
+
 recaps    =     mutate(recaps, fishID = paste("smelt", 1:nrow(recaps)),
                 Type = case_when(Type == "header" ~ "Soft",
-                                 TRUE ~ Type))
+                                 TRUE ~ Type)) %>%
+  rename(Adclip = `Ad clip`, Mark = `VIE Color/Position`) %>%
+  select(-Type, -Site)
 str(recaps)
 
 
@@ -52,18 +55,18 @@ This just needs a little data manipulation
 ```{r}
 
 
-recapsf = st_as_sf(filter(recaps, !is.na(`Longitude`)), coords = c("Longitude", "Latitude"), crs = 4326)
+
 
 #Now make a data frame of the release locations
-release = data.frame(Site = c("SDWSC", "SDWSC", "Rio Vista", "Rio Vista"), Type = c("Soft", "Hard", "Hard", "Hard (Trailer)"),
-                     Latitude = c(38.237842, 38.275563, 38.124736, 38.139752), 
-                     Longitude = c(-121.673802, -121.661374, -121.699521, -121.694706)) 
-releasesf = st_as_sf(release,  coords = c("Longitude", "Latitude"), crs = 4326)
+release = read_excel("releases.xlsx") %>%
+  rename(LatitudeR = Latitude, LongitudeR = Longitude)
+releasesf = st_as_sf(filter(release, !is.na(LatitudeR)),  coords = c("LongitudeR", "LatitudeR"), crs = 4326)
 
 #merge recap points with release points
 
-recaps2 = left_join(recaps, release)
-
+recaps2 = left_join(recaps, release) %>%
+  mutate(DaysSinceRelease = Date - ReleaseDate)
+recapsf = st_as_sf(filter(recaps2, !is.na(`Longitude`)), coords = c("Longitude", "Latitude"), crs = 4326)
 
 #make a quick plot to make sure I did it right
 ggplot()+
@@ -83,28 +86,33 @@ Now we can calculate the distance between each point and the release location. I
 #one release at a time
 Dwschard = filter(recaps2, Type == "Hard", Site == "SDWSC")
 dwsch = filter(release, Site == "SDWSC", Type == "Hard") %>%
-  select(Latitude, Longitude)
+  select(LatitudeR, LongitudeR) %>%
+  rename(Latitude = LatitudeR, Longitude = LongitudeR)
 tesst = GGdist(Water_map = spacetools::Delta, Points = Dwschard, Latitude_column = `Latitude`,
                Longitude_column = `Longitude`, PointID_column = fishID, EndPoint = dwsch)
 
 #now let's do DWSC soft
 Dwscsoft = filter(recaps2, Type == "Soft", Site == "SDWSC")
 dwscs = filter(release, Site == "SDWSC", Type == "Soft") %>%
-  select(Latitude, Longitude)
+  select(LatitudeR, LongitudeR)%>%
+  rename(Latitude = LatitudeR, Longitude = LongitudeR)
 tesst2 = GGdist(Water_map = spacetools::Delta, Points = Dwscsoft, Latitude_column = `Latitude`,
                Longitude_column = `Longitude`, PointID_column = fishID, EndPoint = dwscs)
 
 #now let's do Rio Vista hard
 RVhard = filter(recaps2, Type == "Hard", Site == "Rio Vista", !is.na(Latitude))
 rvh = filter(release, Site == "Rio Vista", Type == "Hard") %>%
-  select(Latitude, Longitude)
+  select(LatitudeR, LongitudeR)%>%
+  rename(Latitude = LatitudeR, Longitude = LongitudeR) %>%
+  distinct()
 tesst3 = GGdist(Water_map = spacetools::Delta, Points = RVhard, Latitude_column = `Latitude`,
                 Longitude_column = `Longitude`, PointID_column = fishID, EndPoint = rvh)
 
 #now the trailer
 RVhardt = filter(recaps2, Type == "Hard (Trailer)", Site == "Rio Vista")
 rvht = filter(release, Site == "Rio Vista", Type == "Hard (Trailer)") %>%
-  select(Latitude, Longitude)
+  select(LatitudeR, LongitudeR)%>%
+  rename(Latitude = LatitudeR, Longitude = LongitudeR)
 tesst4 = GGdist(Water_map = spacetools::Delta, Points = RVhardt, Latitude_column = `Latitude`,
                 Longitude_column = `Longitude`, PointID_column = fishID, EndPoint = rvht)
 
@@ -121,7 +129,7 @@ recaps3 = left_join(recaps2, distances) %>%
 recaps3
 ```
 
-Plot to visually look at mean and variatoin.
+Plot to visually look at mean and variation.
 
 ```{r}
 ggplot(recaps3, aes(x = SiteType, y = Distance))+ geom_boxplot(aes(fill = Type))+
@@ -176,10 +184,63 @@ I'm not quite sure the best way to summarize this. I'll start by just the mean o
 
 ```{r}
 
-Cluster = data.frame(Release = c("RV Hard", "RV Hard Trailer", "DWSC hard", "DWSC soft"),
-                     meadist = c(mean(RVhdistx), mean(RVhdist), mean(SCsoft), mean(SChard)),
+Cluster = data.frame(Release = c("RV Hard", "RV Hard Trailer", "DWSC soft", "DWSC hard"),
+                     meadist = c(mean(RVhdistx[lower.tri(RVhdistx)]), 
+                                 mean(RVhdist[lower.tri(RVhdist)]), 
+                                 mean(SCsoft[lower.tri(SCsoft)]), 
+                                 mean(SChard[lower.tri(SChard)])),
                      SD = c(sd(RVhdistx), sd(RVhdist), sd(SCsoft), sd(SChard)))
+
 Cluster = mutate(Cluster, CV = SD/meadist)
 Cluster
+```
+
+OK, now how to I put these all together to graph them?
+
+```{r}
+
+RVhdistx[lower.tri(RVhdistx, diag = T)] = NA
+RVhdist[lower.tri(RVhdist, diag = T)] = NA
+SCsoft[lower.tri(SCsoft, diag = T)] = NA
+SChard[lower.tri(SChard, diag = T)] = NA
+RVdtx = as.data.frame(RVhdistx) %>%
+  mutate(Fish1 = row.names(RVhdistx)) %>%
+  pivot_longer(cols = -Fish1, names_to = "Fish2", values_to = "Distance") %>%
+  filter(!is.na(Distance)) %>%
+  mutate(Release = "Rio Vista Hard")
+
+RVdt = as.data.frame(RVhdist) %>%
+  mutate(Fish1 = row.names(RVhdist)) %>%
+  pivot_longer(cols = -Fish1, names_to = "Fish2", values_to = "Distance") %>%
+  filter(!is.na(Distance)) %>%
+  mutate(Release = "Trailer")
+
+SCs = as.data.frame(SCsoft) %>%
+  mutate(Fish1 = row.names(SCsoft)) %>%
+  pivot_longer(cols = -Fish1, names_to = "Fish2", values_to = "Distance") %>%
+  filter(!is.na(Distance)) %>%
+  mutate(Release = "DWSC Soft")
+
+SCh = as.data.frame(SChard) %>%
+  mutate(Fish1 = row.names(SChard)) %>%
+  pivot_longer(cols = -Fish1, names_to = "Fish2", values_to = "Distance") %>%
+  filter(!is.na(Distance)) %>%
+  mutate(Release = "DWSC Hard")
+
+
+nndist = bind_rows(RVdtx, RVdt, SCs, SCh)
+
+
+ggplot(nndist, aes(x = Release, y = Distance, fill = Release)) + geom_boxplot()+
+  ylab("Distance Between Recaptures")
+
+```
+
+Now let's bring in the time aspect
+
+```{r}
+
+recapstime = read_excel("RecapturesSummary_1.xlsx", sheet = "REcapture Distances")
+
 ```
 

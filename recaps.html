@@ -11,7 +11,7 @@
 
 <meta name="author" content="Rosie" />
 
-<meta name="date" content="2023-03-06" />
+<meta name="date" content="2023-03-08" />
 
 <title>Recpature distances</title>
 
@@ -352,7 +352,7 @@ display: none;
 
 <h1 class="title toc-ignore">Recpature distances</h1>
 <h4 class="author">Rosie</h4>
-<h4 class="date">2023-03-06</h4>
+<h4 class="date">2023-03-08</h4>
 
 </div>
 
@@ -530,16 +530,20 @@ SChard</code></pre>
 <p>I’m not quite sure the best way to summarize this. I’ll start by just
 the mean of the distance matrix, but i might want do just half the
 matrix. I’ll look into that later.</p>
-<pre class="r"><code>Cluster = data.frame(Release = c(&quot;RV Hard&quot;, &quot;RV Hard Trailer&quot;, &quot;DWSC hard&quot;, &quot;DWSC soft&quot;),
-                     meadist = c(mean(RVhdistx), mean(RVhdist), mean(SCsoft), mean(SChard)),
+<pre class="r"><code>Cluster = data.frame(Release = c(&quot;RV Hard&quot;, &quot;RV Hard Trailer&quot;, &quot;DWSC soft&quot;, &quot;DWSC hard&quot;),
+                     meadist = c(mean(RVhdistx[lower.tri(RVhdistx)]), 
+                                 mean(RVhdist[lower.tri(RVhdist)]), 
+                                 mean(SCsoft[lower.tri(SCsoft)]), 
+                                 mean(SChard[lower.tri(SChard)])),
                      SD = c(sd(RVhdistx), sd(RVhdist), sd(SCsoft), sd(SChard)))
+
 Cluster = mutate(Cluster, CV = SD/meadist)
 Cluster</code></pre>
 <pre><code>##           Release  meadist       SD        CV
-## 1         RV Hard 29752.63 26343.51 0.8854177
-## 2 RV Hard Trailer 32799.13 37873.17 1.1547005
-## 3       DWSC hard 11236.28 11414.85 1.0158921
-## 4       DWSC soft 29997.83 29532.51 0.9844883</code></pre>
+## 1         RV Hard 32457.42 26343.51 0.8116329
+## 2 RV Hard Trailer 65598.26 37873.17 0.5773503
+## 3       DWSC soft 12484.76 11414.85 0.9143029
+## 4       DWSC hard 32997.61 29532.51 0.8949894</code></pre>
 </div>
 
 
