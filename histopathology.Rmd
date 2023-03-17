@@ -1,0 +1,209 @@
+---
+title: "Smelt Cage Histopathology"
+author: "Rosie"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(lubridate)
+library(readxl)
+library(car)
+library(emmeans)
+library(effects)
+library(ordinal)
+library(sure)
+
+```
+
+## Stats
+
+
+
+```{r cars}
+#start with liver lesions
+livers = read_excel("histopathology data caging study_to share with dwr.xlsx")
+
+#
+ggplot(livers, aes(x = season, y = `liver lesion score`, fill = treatment))+
+  geom_boxplot()
+
+#quick linear model
+goodlivers = filter(livers, !treatment %in% c("Suisun Marsh", "Yolo Bypass", "DWSC")) %>%
+  mutate(treatment = case_when(treatment == "RV" ~ "Rio Vista",
+                               TRUE ~ treatment),
+         lls = log(`liver lesion score`+1))
+
+m1 = lm(`liver lesion score`~ treatment*season, data = goodlivers)
+summary(m1)
+
+```
+
+Interaction not significant, let's drop it.
+
+```{r}
+m2 = lm(`liver lesion score`~ treatment + season, data = goodlivers)
+Anova(m2)
+
+plot(m2)
+hist(residuals(m2))
+
+```
+The QQ plot is a little wonky. Let's try a log transformation
+
+
+```{r}
+m2.1 = lm(lls~ treatment + season, data = goodlivers)
+Anova(m2.1)
+plot(m2.1)
+
+```
+Better, still not great
+
+```{r}
+
+#look at partial effects plot
+plot(allEffects(m2.1))
+
+
+#post hocs
+#look just at the effects of treatment
+treat = emmeans(m2.1, ~treatment)
+treat
+plot(treat)
+
+#Now the effects of season
+seas = emmeans(m2, pairwise ~season)
+seas
+plot(seas)
+
+
+
+```
+
+
+We could also compare each deployment individually if we wanted to.
+
+```{r}
+
+goodlivers = mutate(livers, deploy = paste(treatment, season), lls = log(`liver lesion score`+1))
+
+m3 = lm(`liver lesion score`~deploy, data = goodlivers)
+plot(m3)
+#yuck
+m3 = lm(lls~deploy, data = goodlivers)
+#better. Maybe I should log transform all the liver models
+
+emmeans(m3, pairwise ~ deploy)
+plot(emmeans(m3, pairwise ~ deploy), comparison = T)
+
+```
+
+
+## Now let's look at glycogen
+
+```{r}
+glycogen = read_excel("histopathology data caging study_to share with dwr.xlsx", sheet = "liver GD stats") %>%
+  rename(glyDep = `liver glycogen depletion`)
+
+#just Rio Vista and FCCL
+gly = filter(glycogen, !treatment %in% c("Suisun Marsh", "Yolo Bypass", "DWSC")) %>%
+  mutate(treatment = case_when(treatment == "RV" ~ "Rio Vista",
+                               TRUE ~ treatment))
+
+#a few quick exploritory plots
+ggplot(glycogen, aes(x = treatment, y = glyDep, fill = season)) +
+  geom_boxplot()
+
+ggplot(gly, aes(x = treatment, y = glyDep, fill = season)) +
+  geom_boxplot()
+```
+
+Now the statistics
+
+```{r}
+g1 = lm(glyDep~ season + treatment, data = gly)
+plot(g1)
+```
+
+Not too bad.
+
+```{r}
+summary(g1)
+Anova(g1)
+plot(allEffects(g1))
+emmeans(g1, pairwise ~ season)
+plot(emmeans(g1, pairwise ~ season), comparison = T)
+```
+
+So, winter is definitely lower than fall and summer, FCCL definitely lower than Rio Vista
+
+
+## Gill lesions
+
+```{r}
+
+gills = read_excel("histopathology data caging study_to share with dwr.xlsx", sheet = "gill lesions stats") %>%
+  rename(gill = `gill lesion score`)
+
+goodgills = filter(gills, !treatment %in% c("Suisun Marsh", "Yolo Bypass", "DWSC")) %>%
+  mutate(treatment = case_when(treatment == "RV" ~ "Rio Vista",
+                               TRUE ~ treatment))
+
+#exploritory plots
+ggplot(gills, aes(x = treatment, y = gill, fill = season)) +
+  geom_boxplot()
+
+ggplot(goodgills, aes(x = treatment, y = gill, fill = season)) +
+  geom_boxplot()
+```
+
+Now the statistics
+
+```{r}
+gl1 = lm(gill~ season + treatment, data = goodgills)
+plot(gl1)
+```
+Yuck. need some sort of transformation on that
+
+
+```{r}
+
+#try a log transformation
+goodgills = mutate(goodgills, gls = log(gill+1))
+gl1 = lm(gls~ season + treatment, data = goodgills)
+plot(gl1)
+#still yuck
+
+#square root transformation
+
+goodgills = mutate(goodgills, gls = sqrt(gill))
+gl1 = lm(gls~ season + treatment, data = goodgills)
+plot(gl1)
+#still yuck.
+
+```
+
+Maybe an ordinal regression would be more appropriate since it's integers between zero and 4?
+
+```{r}
+
+library(ordinal)
+
+
+goodgills = mutate(goodgills, Fgill = factor(gill, ordered = T))
+c1 = clm(Fgill ~ treatment + season, data = goodgills)
+summary(c1)
+
+convergence(c1)
+library(sure)
+autoplot.clm(c1)
+#beautiful!
+
+#so, no real difference in gill leasions between treatments or seasons
+
+
+```
+

@@ -9,14 +9,14 @@ editor_options:
 library(tidyverse)
 library(lubridate)
 library(Polychrome)
-library(here)
+library(zooper)
 ```
 
 # load & prep summer/fall data
 ```{r}
 
-#zoop <- read_csv("smelt_2019_allseasons/data_raw/ZoopData_SummerFall_2019.csv")
-zoop <- read_csv("data_raw/ZoopData_SummerFall_2019.csv")
+zoop <- read_csv("smelt_2019_allseasons/data_raw/ZoopData_SummerFall_2019.csv")
+#zoop <- read_csv("data_raw/ZoopData_SummerFall_2019.csv")
 
 zoop$Date <- mdy(zoop$Date)
 zoop$Day <- day(zoop$Date)
@@ -31,8 +31,8 @@ zoop$RingSize_m <- 0.5
 zoop$Count[is.na(zoop$Count)] <- 0
 
 #bring in tow data
-#aug <- read_csv("smelt_2019_allseasons/data_raw/Field_Environmental_Data_Aug_qaqc'ed_11.04.20.csv")
-#oct <- read_csv("smelt_2019_allseasons/data_raw/Field_Environmental_Data_Oct_qaqc'ed_12.11.20.csv")
+aug <- read_csv("smelt_2019_allseasons/data_raw/Field_Environmental_Data_Aug_qaqc'ed_11.04.20.csv")
+oct <- read_csv("smelt_2019_allseasons/data_raw/Field_Environmental_Data_Oct_qaqc'ed_12.11.20.csv")
 aug <- read_csv("data_raw/Field_Environmental_Data_Aug_qaqc'ed_11.04.20.csv")
 oct <- read_csv("data_raw/Field_Environmental_Data_Oct_qaqc'ed_12.11.20.csv")
 
@@ -69,6 +69,9 @@ all$ind_m3 <- all$samplecount/all$volumesampled
 
 #remove 0's
 caught <- all[!(all$ind_m3==0),]
+biomass = read_csv("zooptaxa.csv")
+caught = left_join(caught, biomass) %>%
+  mutate(bio_m3 = Mass*ind_m3)
 
 #add taxa
 
@@ -98,8 +101,9 @@ legend_title <- "Species"
 pal36 <- palette36.colors(36)
 pal36 <- as.vector(t(pal36))
 
+#First to CPUE
 ggplot() +
-  geom_bar(position = "fill", stat = "identity", data=caught, aes (x=MD, y=samplecount, fill=ID), colour="black", width = .5) +
+  geom_bar(position = "fill", stat = "identity", data=caught, aes (x=MD, y=ind_m3, fill=ID), colour="black", width = .5) +
   facet_wrap(~Location, ncol = 1) +
   theme_bw() + 
   scale_fill_manual(values=pal36)+
@@ -111,6 +115,22 @@ ggplot() +
       legend.text = element_text(size = 8),
       legend.title = element_text(size = 10),
       axis.text.x = element_text(angle = 90))
+
+#now try BPUE
+ggplot() +
+  geom_bar(position = "fill", stat = "identity", data=caught, aes (x=MD, y=bio_m3, fill=ID), colour="black", width = .5) +
+  facet_wrap(~Location, ncol = 1) +
+  theme_bw() + 
+  scale_fill_manual(values=pal36)+
+  labs(x = "Date") +
+  labs(y = "Relative Biomass of all Zoop in Sample")+
+  theme(legend.position="right")+
+      theme(axis.text = element_text(size = 12),
+      axis.title = element_text(size = 12),
+      legend.text = element_text(size = 8),
+      legend.title = element_text(size = 10),
+      axis.text.x = element_text(angle = 90))
+
 
 #plot with microzoop removed
 macro <- caught[!(caught$ID=="Copepod nauplii"),]
@@ -135,7 +155,7 @@ ggplot() +
 ```{r}
 #prep of this dataset (code and raw data) can be found on GitHub under Smelt Cages > smelt_2019_winterspring
 
-#winter <- read_csv("smelt_2019_allseasons/data_clean/zoop_abundance.csv")
+winter <- read_csv("smelt_2019_allseasons/data_clean/zoop_abundance.csv")
 winter <- read_csv("data_clean/zoop_abundance.csv")
 
 winter$Day <- day(winter$Date)
@@ -145,17 +165,25 @@ winter$MD <- paste(winter$Month, winter$Day, sep="-")
 
 #remove throw samples
 winter <- winter[!(winter$Method=="Throw"),]
-
+#change ostracod taxa
+winter[winter$Taxon %in% c("Ostracods"),]$Taxa <- "Ostracod"
 #merge with catch df
 #condense to columns of interest
-winter2 <- winter[c(1,2,13,27,30,22,23)]
-caught2 <- caught[c(1,2,7,10,20,29,30)]
+winter2 <- winter %>%
+  rename(ID = Taxon) %>%
+  select(Location, Date, Taxa, samplecount, ind_m3, bio_m3, Day, Month, MD) %>%
+  group_by(Location, Date, Taxa, Day, Month, MD) %>%
+  summarize(ind_m3 = sum(ind_m3), bio_m3 = sum(bio_m3))
+
+caught2 <- caught %>%
+  select(Location, Date, Taxa, samplecount, ind_m3, bio_m3, Day, Month, MD) %>%
+  group_by(Location, Date, Taxa, Day, Month, MD) %>%
+  summarize(ind_m3 = sum(ind_m3), bio_m3 = sum(bio_m3))
 
 #rename column
-winter2 <- winter2 %>% rename(ID = "Taxon")
+#winter2 <- winter2 %>% rename(ID = "Taxon")
 
-#change ostracod taxa
-winter2[winter2$ID %in% c("Ostracods"),]$Taxa <- "Ostracod"
+
 
 #make locations match
 unique(winter2$Location)
@@ -180,7 +208,7 @@ caught.19[caught.19$MD %in% c("Oct-10", "Oct-11", "Oct-15", "Oct-16", "Oct-18", 
 
 caught.sea <- caught.19 %>% 
   group_by(Season, Location, Taxa) %>% 
-  summarize("sum.count"= sum(samplecount))
+  summarize(sum.count= sum(ind_m3))
 
 #order seasons
 caught.sea$Season <- factor(caught.sea$Season, levels=c("Winter", "Summer", "Fall"))
@@ -242,7 +270,7 @@ shapiro.test(for.mod$ind.all) #very significant, no ANOVA
 ```{r}
 
 library(vegan)
-source("../PlotNMDS.R")
+source("PlotNMDS.R")
 
 zoops = mutate(caught.19, SampleID = paste(Location, Date)) %>%
   pivot_wider(id_cols = c(SampleID, Location, Date, MD, Season), names_from = Taxa, values_from = ind_m3, values_fn = sum, values_fill = 0) %>%
@@ -259,6 +287,29 @@ RVzoopmat2 = RVzoopmat/rowSums(RVzoopmat)
 
 RVa = adonis2(RVzoopmat~Season, data = RVzoops)
 RVa
+#
+
+RVb = adonis2(RVzoopmat2~Season, data = RVzoops)
+RVb
+
+#Britt and Bruce wanted biomass instead of abundance
+
+zoopsBM = mutate(caught.19, SampleID = paste(Location, Date)) %>%
+  filter(Taxa != "Microzoo") %>%
+  pivot_wider(id_cols = c(SampleID, Location, Date, MD, Season), names_from = Taxa, values_from = bio_m3, values_fn = sum, values_fill = 0) %>%
+  mutate(datatype = "Zoops")
+
+#first let's look at Rio Vista across seasons
+RVzoopsBM = filter(zoopsBM, Location == "RV")
+
+#raw abundance matrix
+RVzoopmatBM = as.matrix(RVzoopsBM[,6:11])
+
+#relative abundance matrix
+RVzoopmat2BM = RVzoopmatBM/rowSums(RVzoopmatBM)
+
+RVa2 = adonis2(RVzoopmatBM~Season, data = RVzoopsBM)
+RVa2
 #
 
 RVb = adonis2(RVzoopmat2~Season, data = RVzoops)
@@ -320,7 +371,7 @@ PlotNMDS(RVN1, RVzoops, group = "Location")
 
 
 ```{r}
-#diet2 <- read_csv("smelt_2019_allseasons/data_raw/DSM Cage Diets 2019-2020.csv") #new data, not edited at all
+diet2 <- read_csv("smelt_2019_allseasons/data_raw/DSM Cage Diets 2019-2020.csv") #new data, not edited at all
 diet2 <- read_csv("data_raw/DSM Cage Diets 2019-2020.csv") #new data, not edited at all
 
 diet2$Date <- mdy(diet2$Date)
@@ -461,6 +512,27 @@ zoopdietlong = pivot_longer(zoopdiet, cols = c(Ostracod, Cyclopoid, Calanoid, Cl
 ggplot(zoopdietlong, aes(x = datatype, y = count, fill = Taxa))+
   geom_col(position = "fill")+
   facet_grid(Location~Season)
+
+
+```
+
+Can I do a permanova that takes date and location into accoutn?
+
+```{r}
+
+zda = adonis2(zoopdietmat2 ~ datatype*Season + Location, strata = zoopdiet$Location, data = zoopdiet)
+zda
+
+zda1 = adonis2(zoopdietmat2 ~ datatype*Season + Location,data = zoopdiet)
+zda1
+
+with(zoopdiet, adonis2(zoopdietmat2 ~ datatype+ Season , strata = Location, data = zoopdiet, permutations = 199))
+
+
+with(zoopdiet, adonis2(zoopdietmat2 ~ datatype+ Season +Location, strata = Season, data = zoopdiet, permutations = 199))
+
+
+
 
 
 ```
