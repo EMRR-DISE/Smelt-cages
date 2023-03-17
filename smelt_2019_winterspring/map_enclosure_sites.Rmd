@@ -1,0 +1,93 @@
+---
+title: "map_enclosure_sites"
+author: "Catarina Pien"
+date: '2023-03-16'
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(viridis)
+library(sf)
+library(dplyr)
+library(ggplot2)
+library(spData)
+library(here)
+library(readr)
+library(janitor)
+library(deltamapr)
+library(cowplot)
+library(ggspatial)
+
+library(here)
+library(readxl)
+```
+
+```{r}
+latlon <- read_excel(here::here("smelt_2019_winterspring", "data_raw", "cage_locations_winterspring.xls"))
+
+stations_sf <- st_as_sf(latlon, coords = c("Longitude", "Latitude"), crs = 4326)
+data("us_states", package = "spData")
+California = dplyr::filter(us_states, NAME == "California")
+stations_sf_4269 <- st_transform(stations_sf, crs = st_crs(California))
+WW_Watershed_4269 <- st_transform(WW_Watershed, crs = st_crs(California))
+```
+
+```{r}
+(smelt_map <- ggplot() +
+    geom_sf(data = WW_Watershed_4269, fill = "gray80", colour = "gray80", alpha = 0.8, inherit.aes = FALSE) +
+    geom_sf(data = stations_sf_4269, inherit.aes = FALSE, size = 4, color = "black")+
+   geom_sf_label(data = stations_sf_4269, aes(label = factor(Location)), inherit.aes = FALSE, size = 4, color = "black",
+                 nudge_x = c(-0.08, -0.05),
+                 nudge_y = c(0.01, -0.03))+
+    annotate(geom = "text", x = -121.75, y = 38.10, size = 3.2, label = "Sacramento River", fontface = "italic",angle = 36) +
+    annotate(geom = "text", x = -121.62, y = 38.09, size = 3.2, label = "San Joaquin River", fontface = "italic", angle = 10) +
+    annotate(geom = "text", x = -121.96, y = 38.07, size = 3.2, label = "Suisun Bay", fontface = "italic") +
+    annotate(geom = "text", x = -121.68, y = 38.26, size =3.2 , label = "Liberty Island", fontface = "italic") +
+    scale_x_continuous(limits = c(-122.2, -121.45)) +
+  scale_y_continuous(limits = c(37.95, 38.4))+
+    annotation_north_arrow(location = "tr", which_north = "true",
+                           pad_x = unit(.005, "in"), pad_y = unit(0.15, "in"),
+                           style = north_arrow_fancy_orienteering) +
+    annotation_scale(location = "bl", bar_cols = c("darkgray", "white", "darkgray", "white"), text_cex = 1.1)+
+  theme_bw() +
+    theme(axis.title = element_blank(),
+        axis.text = element_text(size = 13) ,
+        panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.text.x = element_text(angle = 60, hjust = 0.5, vjust = 0.5)))
+```
+
+```{r}
+insetbbox = st_bbox(c(xmin = -122.2, xmax = -121.45, ymax = 37.95, ymin = 38.4), crs = st_crs(4326))
+box_sf <- st_as_sfc(insetbbox)
+
+(inset <- ggplot() +
+    geom_sf(data = California, fill = "white") +
+    geom_sf(data = WW_Delta, colour = "steelblue4", size = 0.3) +
+    geom_sf(data = box_sf, fill = NA, color = "red", size = 0.5) +
+
+    theme_bw() +
+    theme(axis.text = element_blank(),
+          axis.title = element_blank(),
+          axis.ticks = element_blank(),
+          panel.grid.major = element_blank(),
+          panel.grid.minor = element_blank()))
+```
+
+```{r}
+(gg_inset_map = ggdraw() +
+   draw_plot(smelt_map) +
+   draw_plot(inset, x = 0.1, y = 0.63, width = 0.26, height = 0.31))
+```
+
+```{r}
+tiff(filename = here::here("smelt_2019_winterspring",  "figures", "map_sites.tiff"), width = 8, height = 7, units = "in", pointsize = 12, family = "sans", res = 300, compress = "lzw")
+gg_inset_map
+dev.off()
+```
