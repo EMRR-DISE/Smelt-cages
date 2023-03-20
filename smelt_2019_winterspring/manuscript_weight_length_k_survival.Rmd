@@ -117,17 +117,20 @@ Cage_only_RVR %>%
             meandeltaWt = mean(deltaWt),
             n = n(),
             sddeltaWt = sd(deltaWt),
-            sedeltaWt = sddeltaWt/n,
+            sedeltaWt = sddeltaWt/sqrt(n),
             meanchangeWt = mean(changeWt*100),
             sdchangeWt = sd(changeWt),
-            sechangeWt = sdchangeWt/n,
+            sechangeWt = sdchangeWt/sqrt(n),
+            meandeltaFL = mean(deltaFL),
+            sddeltaFL = sd(deltaFL),
+            sedeltaFL = sddeltaFL/sqrt(n),
             meanchangeFL =mean(changeFL*100),
-            sechangeFL = sd(changeFL)/n,
+            sechangeFL = sd(changeFL)/sqrt(n),
             meanCFPre = mean(Pre_CF),
             meanCFPost = mean(Post_CF),
-            seCF = sd(Pre_CF)/n,
+            seCF = sd(Pre_CF)/sqrt(n),
             meandeltaCF = mean(Delta_CF),
-            sedeltaCF = sd(Delta_CF)/n)
+            sedeltaCF = sd(Delta_CF)/sqrt(n))
 ```
 
 Does weight change in RVR? Yes
@@ -166,22 +169,25 @@ Cage_only_DWSC <- Cagetype_CF %>%
 Summary Stats
 ```{r}
 Cage_only_DWSC %>%
-  summarize(meanWtPre = mean(Pre_Weight_g),
+ summarize(meanWtPre = mean(Pre_Weight_g),
             meanWtPost = mean(Post_Weight_g),
             meandeltaWt = mean(deltaWt),
             n = n(),
             sddeltaWt = sd(deltaWt),
-            sedeltaWt = sddeltaWt/n,
+            sedeltaWt = sddeltaWt/sqrt(n),
             meanchangeWt = mean(changeWt*100),
             sdchangeWt = sd(changeWt),
-            sechangeWt = sdchangeWt/n,
+            sechangeWt = sdchangeWt/sqrt(n),
+            meandeltaFL = mean(deltaFL),
+            sddeltaFL = sd(deltaFL),
+            sedeltaFL = sddeltaFL/sqrt(n),
             meanchangeFL =mean(changeFL*100),
-            sechangeFL = sd(changeFL)/n,
+            sechangeFL = sd(changeFL)/sqrt(n),
             meanCFPre = mean(Pre_CF),
             meanCFPost = mean(Post_CF),
-            seCF = sd(Pre_CF)/n,
+            seCF = sd(Pre_CF)/sqrt(n),
             meandeltaCF = mean(Delta_CF),
-            sedeltaCF = sd(Delta_CF)/n)
+            sedeltaCF = sd(Delta_CF)/sqrt(n))
 ```
 
 T-test: Does weight change in DWSC? Yes
@@ -339,19 +345,27 @@ windowsFonts(Times = windowsFont("Times New Roman"))
 
 Make length plot
 ```{r}
-CagePrePost <- gather(Cageonly2, PrePost,Length1,Pre_FL_cm, Post_FL_cm)
+CageClean <- Cageonly2 %>% select(Site, Enclosure, Pre_FL_cm, Post_FL_cm, changeFL) %>%
+  filter(!is.na(Pre_FL_cm)) %>%
+  filter(!is.na(Post_FL_cm)) %>%
+  filter(changeFL>-0.05)
+
+CagePrePost <- gather(CageClean, PrePost,FL,Pre_FL_cm, Post_FL_cm)
 CagePrePost$Site <- factor(CagePrePost$Site, levels = c("RV", "DWSC"))
+CagePrePost$PrePost <- factor(CagePrePost$PrePost,
+                              levels = c('Pre_FL_cm','Post_FL_cm'),ordered = TRUE)
 
 MeanLengthplot<- ggplot(data=CagePrePost) +
-  geom_boxplot(outlier.size=-1,aes(x=Enclosure, y=Length1,  fill = PrePost)) +
+  geom_boxplot(outlier.size=-1,aes(x=Enclosure, y=FL,  fill = PrePost)) +
   facet_wrap(~Site) +
   labs(y = "Length (cm)") +
   #geom_text(aes(label = Group, x = Mesh, y = -0.32), family = "Times", size = 6) +
   #geom_hline(data = FCCL, aes(yintercept=delta.weight), size = 1) +
   #geom_text(data = ann_text, mapping = aes(x = x, y = y, label = label), family = "Times", size = 5.5)++
   scale_fill_manual(values=c("#E7298A", "#66A61E"), name = "", labels = c("Pre-Deployment", "Post-Deployment")) +
-  labs(y = "Length (cm)", x = "Enclosure Type") + scale_x_discrete(labels=c("control" = "FCCL")) +
-  theme_minimal() + theme(axis.title.x = element_blank()) +
+  labs(y = "Fork Length (cm)", x = "Enclosure Type") + scale_x_discrete(labels=c("control" = "FCCL")) +
+    scale_y_continuous(breaks = seq(4,8,0.5)) + 
+  theme_bw() + theme(axis.title.x = element_blank()) +
   annotate("segment", x=-Inf, xend=Inf, y=-Inf, yend=-Inf)+
   annotate("segment", x=-Inf, xend=-Inf, y=-Inf, yend=Inf) +
   #scale_fill_discrete(name = "", labels = c("Pre-Deployment", "Post-Deployment")) +
@@ -390,7 +404,8 @@ MeanWeightplot<- ggplot(data=CagePrePostW) +
   scale_fill_manual(values=c("#E7298A", "#66A61E"), name = "Deployment", labels = c("Pre-Deployment", "Post-Deployment"))+
   #palette="Dark2" 
    labs(y = "Weight (g)", x = "Enclosure Type") + scale_x_discrete(labels=c("control" = "FCCL")) +
-  theme_minimal() + theme(strip.text.x = element_blank()) +
+  scale_y_continuous(breaks = seq(0,3,0.5)) + 
+  theme_bw() + theme(strip.text.x = element_blank()) +
   annotate("segment", x=-Inf, xend=Inf, y=-Inf, yend=-Inf)+
   annotate("segment", x=-Inf, xend=-Inf, y=-Inf, yend=Inf) + 
   #scale_fill_discrete(name = "Deployment", labels = c("Pre-Deployment", "Post-Deployment")) +
@@ -431,7 +446,7 @@ MeanKplot<- ggplot(data=CagePrePostK) +
   scale_fill_manual(values=c("#E7298A", "#66A61E"), name = "Deployment", labels = c("Pre-Deployment", "Post-Deployment"))+
   #palette="Dark2" 
    labs(y = expression(K~(g~cm^-3)), x = "Enclosure Type") + scale_x_discrete(labels=c("control" = "FCCL")) +
-  theme_minimal() + theme(strip.text.x = element_blank()) +
+  theme_bw() + theme(strip.text.x = element_blank()) +
   annotate("segment", x=-Inf, xend=Inf, y=-Inf, yend=-Inf)+
   annotate("segment", x=-Inf, xend=-Inf, y=-Inf, yend=Inf) + 
   #scale_fill_discrete(name = "Deployment", labels = c("Pre-Deployment", "Post-Deployment")) +
@@ -460,7 +475,7 @@ lwkplot <- MeanLengthplot+MeanWeightplot+MeanKplot + plot_layout(nrow = 3, guide
 
 Export
 ```{r}
-tiff(filename=file.path("smelt_2019_winterspring/figures/WeightLengthKPlot.tiff"), units="in",type="cairo", bg="white", height=7, 
+tiff(filename=file.path("smelt_2019_winterspring/figures/WeightLengthKPlot.tiff"), units="in",type="cairo", bg="white", height=7.5, 
      width=7, res=300, pointsize=12,compression="lzw")
 lwkplot
 dev.off()
