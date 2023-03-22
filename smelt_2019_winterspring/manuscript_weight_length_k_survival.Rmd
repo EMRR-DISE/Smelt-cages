@@ -314,6 +314,8 @@ Cagedata <- Cagetype_CF %>%
     PreL_median = median(Pre_FL_cm),
     PoL_Mean = mean(Post_FL_cm),
     PoL_sd = sd(Post_FL_cm),
+    PreL_Min = min(Pre_FL_cm), 
+    PreL_Max = max(Pre_FL_cm),
     PoL_median = median(Post_FL_cm), 
     PreW_Mean = mean(Pre_Weight_g),
     PreW_sd = sd(Pre_Weight_g),
@@ -509,6 +511,15 @@ Cage_survival_RV$Survived <- c(rep("1", 60), rep("0", 4),
                                rep("1", 62), rep("0", 2),
                                rep("1", 56), rep("0", 8))
 
+# Calculate sample sizes for alive and dead
+surv_RV <- Cagetype_s %>%
+  filter(Site == "RV") %>%
+  group_by(Site, Cage, Mesh)%>%
+  summarize(
+    Alive = n(),
+    Dead = 64-n()
+  )
+
 Cagetype_survival_RV <- left_join(Cage_survival_RV, surv_RV, by = "Cage")
 
 survival_RV <- Cagetype_survival_RV %>%
@@ -525,12 +536,12 @@ survival_RV <- Cagetype_survival_RV %>%
 
 Survival rate
 ```{r}
-surv_RV %>%
+survival_RV %>%
   ungroup() %>%
-  filter(Cage != "FCCL1") %>%
+  group_by(Mesh) %>%
   summarize(meanRate = mean(rate),
             n = n(),
-            seRate = sd(rate)/n)
+            seRate = sd(rate)/sqrt(n))
 ```
 
 
@@ -564,6 +575,14 @@ Cage_survival_DWSC$Survived <- c(rep("1", 59), rep("0", 1),
                                  rep("1", 60), rep("0", 0),
                                  rep("1", 58), rep("0", 2))
 
+surv_DWSC <- Cagetype_s %>%
+  filter(Site == "DWSC") %>%
+  group_by(Site, Cage, Mesh)%>%
+  summarize(
+    Alive = n(),
+    Dead = 60-n()
+  )
+
 Cagetype_survival_DWSC <- left_join(Cage_survival_DWSC, surv_DWSC, by = "Cage")
 
 survival_DWSC <- Cagetype_survival_DWSC %>%
@@ -576,7 +595,21 @@ survival_DWSC <- Cagetype_survival_DWSC %>%
   summarize(Survived = sum(Survived),
             n= n()) %>%
   mutate(rate = Survived/n*100)
+
+
 ```
+
+Survival rate
+```{r}
+survival_DWSC %>%
+  ungroup() %>%
+  group_by(Mesh) %>%
+  summarize(meanRate = mean(rate),
+            n = n(),
+            seRate = sd(rate)/sqrt(n))
+```
+
+
 
 EDI table for survival
 ```{r}
