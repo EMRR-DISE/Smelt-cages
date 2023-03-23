@@ -27,8 +27,7 @@
 
 1. Zooplankton were collected during each site visit using a 53 μm mesh conical 0.5 m x 2 m plankton net (SEA-GEAR) with a General Oceanics flowmeter (Model 2030R) suspended from the center of the net mouth 
 2. Tows were collected just below the surface for 2 minutes
-3. When high winds precluded boat-based sampling, a plankton net was hand towed along a nearby dock 5.0 – 6.5 m (dimensions: 0.3 m x 1 m, 53 μm mesh)
-4. All samples were stored in 1 L wide-mouth Nalgene bottles and preserved with 5% formalin dyed with Rose Bengal
+3. All samples were stored in 1 L wide-mouth Nalgene bottles and preserved with 5% formalin dyed with Rose Bengal
 
 ## Lab Sample Processing and Tracking
 
@@ -66,8 +65,7 @@
 
 ## Notes on Data Quality: 
 
-1. For Delta Smelt measurements, tags were occasionally shed, mis-read, or fish died in enclosures, leading to pre-deployment measurements that didn’t have a post-deployment match, and vice versa. This meant we were unable to calculate condition factorand changes in fork length, weight for these fish.
-2. The method of zooplankton collection (boat tows vs. hand-tow) may affect the data quality in ways that are not fully understood.
+* For Delta Smelt measurements, tags were occasionally shed, mis-read, or fish died in enclosures, leading to pre-deployment measurements that didn’t have a post-deployment match, and vice versa. This meant we were unable to calculate condition factorand changes in fork length, weight for these fish.
 
 ### Calculations and Analysis
 

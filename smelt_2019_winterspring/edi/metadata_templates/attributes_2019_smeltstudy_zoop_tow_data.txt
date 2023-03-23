@@ -1,12 +1,10 @@
 attributeName	attributeDefinition	class	unit	dateTimeFormatString	missingValueCode	missingValueCodeExplanation
 Location	Location of cage deployment	categorical				
-Date	Date date	Date		MM/DD/YYYY		
-Method	Tow method	categorical				
-TowDistance	Zooplankton tow distance in meters	numeric	meter		NA	not relevant to sampling method
-SetTime	Zooplankton set time in minutess	numeric	minute		NA	not relevant to sampling method
-FlowMeterStart	Zooplankton flowmeter start number	numeric	number		NA	not relevant to sampling method
-FlowMeterEnd	Zooplankton flowmeter end number	numeric	number		NA	not relevant to sampling method
-Rotations	Number of flowmeter rotations	numeric	number		NA	not relevant to sampling method
+Date	Date date	Date		MM/DD/YYYY				
+SetTime	Zooplankton set time in minutes	numeric	minute
+FlowMeterStart	Zooplankton flowmeter start number	numeric	number
+FlowMeterEnd	Zooplankton flowmeter end number	numeric	number
+Rotations	Number of flowmeter rotations	numeric	number
 MeshSize	Mesh size of net	numeric	micrometer			
 RingSize	Ring size of net	numeric	centimeter			
 TotalVolume	Total volume sampled	numeric	milliliter			
