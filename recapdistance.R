@@ -10,12 +10,15 @@ library(deltamapr)
 # install.packages("devtools")
 #devtools::install_github("sbashevkin/spacetools")
 
-recaps = read_excel("Recaptured Experimental Release_2022-2023_working draft.xlsx", 
-                    sheet = "Adult Recaptures") %>%
+recaps = read_excel("Recaptured Experimental Release_2022-2023_working draft (2).xlsx", 
+                    sheet = "Full DSM Data") %>%
   rename(Site = `Release Site`, Type = `Release Type`, Latitude= `Start Latitude`, Longitude = `Start Longitude`)
 recaps    =     mutate(recaps, fishID = paste("smelt", 1:nrow(recaps)),
                 Type = case_when(Type == "header" ~ "Soft",
-                                 TRUE ~ Type))
+                                 is.na(Type) ~ "Wild",
+                                 TRUE ~ Type),
+                Site = case_when(is.na(Site) ~ "Wild",
+                                 TRUE ~ Site))
 str(recaps)
 
 recapsf = st_as_sf(filter(recaps, !is.na(`Longitude`)), coords = c("Longitude", "Latitude"), crs = 4326)
