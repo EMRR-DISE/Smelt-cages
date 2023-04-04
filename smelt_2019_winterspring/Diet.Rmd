@@ -18,9 +18,10 @@ library(Rcpp)
 ```{r}
 diet <- read_csv("smelt_2019_winterspring/data_raw/2019_smeltstudy_diet_data.csv")
 diet$Location <- ordered(diet$Location, levels = c("RVR", "DWSC"))
-diet<-diet[diet$Cage.ID != "FCCL Control Tank 1",]
-diet<-diet[diet$Cage.ID != "FCCL Control Tank 2",]
-diet<-diet[diet$Cage.ID != "FCCL Control",]
+diet<-diet[diet$Cage != "FCCL Control Tank 1",]
+diet<-diet[diet$Cage != "FCCL Control Tank 2",]
+diet<-diet[diet$Cage != "FCCL Control",]
+diet <- diet %>% rename(Cage.ID = Cage) # Cat: I added this because there was no Cage.ID before
 
 #fix fish that were assigned the wrong cage (came up during summary stats, check against dissected fish data, likely E and F were misread)
 diet[diet$Tag=='RK10', 'Cage.ID'] <- "E"
@@ -43,10 +44,11 @@ RVR$Site <- "RVR"
 Cage <- rbind(DWSC, RVR)
 
 #bind fish measurements with stomach contents (note- some lost due to missing letters in ID's-update for final)
-total <- merge(diet_type, Cage, by=c("Tag"))
+total <- merge(diet_type, Cage, by=c("Tag")) %>%
+  filter(!is.na(Delta_CF))
 
 #create instantaneous ration column
-total$IR <- (total$Contents.Weight/total$Post_Weight_g)*100
+total$IR <- (total$ContentsWeight/total$Post_Weight_g)*100
 
 #average for IR & fullness
 mean.IR<- total %>% 
@@ -139,7 +141,7 @@ diet_type$Count<-as.numeric(diet_type$Count)
 
 #sum for taxa abundance among individual fish
 taxa_tag<- diet_type %>% 
-  group_by(Location, Mesh, Cage.ID, Tag, Taxa, LH.Stage) %>% 
+  group_by(Location, Mesh, Cage.ID, Tag, TaxonomicGrouping, LHStage) %>% 
   summarize("count.sum"= sum(Count))
 
 #mean for stomach mass
@@ -152,7 +154,7 @@ stomach_abundance<-merge(taxa_tag, taxa, by = "Tag")
 stomach_abundance$proportion<-(stomach_abundance$count.sum/stomach_abundance$stomach.sum)*100
 
 #add rows for all taxa for all fish
-full.prop<-stomach_abundance %>% complete(Tag, Taxa) %>%
+full.prop<-stomach_abundance %>% complete(Tag, TaxonomicGrouping) %>%
   as.data.frame()
 
 full.prop.2<-merge(full.prop, taxa, by = "Tag")
@@ -161,16 +163,16 @@ full.prop.2<-merge(full.prop, taxa, by = "Tag")
 full.count<-full.prop.2 %>% replace_na(list(count.sum=0))
 
 #select columns I want for count
-full.count<-subset(full.count, select=c("Location", "Mesh", "Tag", "Taxa", "LH.Stage", "count.sum"))
+full.count<-subset(full.count, select=c("Location", "Mesh", "Tag", "TaxonomicGrouping", "LHStage", "count.sum"))
 
 #select columns I want for proportion
-full.prop.3<-subset(full.prop.2, select=c("Tag", "Taxa", "proportion", "Location", "Mesh"))
+full.prop.3<-subset(full.prop.2, select=c("Tag", "TaxonomicGrouping", "proportion", "Location", "Mesh"))
 #replace proportion Nas with zeros
 diet.prop<-full.prop.3 %>% replace_na(list(proportion=0))
 
 #average across fish
 diet.prop.mean<- diet.prop %>% 
-  group_by(Taxa, Location, Mesh) %>% 
+  group_by(TaxonomicGrouping, Location, Mesh) %>% 
   summarize("prop.mean"= mean(proportion))
 ```
 
@@ -223,7 +225,7 @@ diet_type$Count[which(diet_type$Count == "1 maybe 2")] <- 2
 diet_type$Count <- as.numeric(diet_type$Count)
 
 taxa.perct<- diet_type %>% 
-  group_by(Location, Taxa, Prey.Taxa) %>% 
+  group_by(Location, TaxonomicGrouping, PreyTaxa) %>% 
   summarize("count.sum"= sum(Count, na.rm=TRUE))
 
 taxa.tot<- diet_type %>% 
@@ -233,5 +235,21 @@ taxa.tot<- diet_type %>%
 taxa.perct$Total <- ifelse(taxa.perct$Location=="RVR", 1548,
         ifelse(taxa.perct$Location=="DWSC", 5831, NA))
 
-taxa.perct$percent <- (taxa.perct$count.sum/taxa.perct$Total)*100
+taxa.perct$percent <- round((taxa.perct$count.sum/taxa.perct$Total)*100,2) 
+
+
 ```
+
+Write table for supplementary. 
+```{r}
+taxa_percent_table <- taxa.perct %>%
+  dplyr::select(Site = Location,
+         `Taxonomic Grouping` = TaxonomicGrouping,
+         Taxa = PreyTaxa,
+         `Sum Count` = count.sum,
+         `Percent Count` = percent) %>%
+  arrange(Site, desc(`Percent Count`))
+
+write_csv(taxa_percent_table, "smelt_2019_winterspring/data_clean/diet_supp_table.csv")
+```
+

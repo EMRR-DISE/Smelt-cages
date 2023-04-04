@@ -95,7 +95,7 @@ EMLassemblyline::make_eml(
   data.table = c("2019_smeltstudy_diet_data.csv",
                  "2019_smeltstudy_growth-cf_data.csv",
                  "2019_smeltstudy_survival_data.csv",
-                 "2019_smeltstudy_zoop_data.csv",
+                 "2019_smeltstudy_zoop_tow_data.csv",
                  "2019_smeltstudy_cagevelocity_data.csv",
                  "2019_smeltstudy_deploy_retrieve_data.csv",
                  "2019_smeltstudy_dailycheck_data.csv",
@@ -105,9 +105,9 @@ EMLassemblyline::make_eml(
   data.table.description = c("Delta Smelt Diet Composition", "Delta Smelt Growth and Condition Factor", "Delta Smelt Survival", "Zooplankton Data",
                              "Velocity Data", "Information associated with deployment and retrieval of fish", "Field data associated with daily checks", "Station locations"),
   data.table.quote.character = c('"', '"','"','"', '"','"','"', '"'), # If you have columns that have commas in the text, you will need to use "quote = TRUE" when you write your R file (write.csv), and then use this to tell make_eml what is going around your character cells. c(apostrophe, quote, apostrophe, comma, etc...)
-  other.entity = c("metadata_2019_smeltstudy_winterspring.pdf"),
+  other.entity = c("metadata_2019_smeltstudy_winterspring_v2.0.pdf"),
   other.entity.name = c("Metadata for Smelt"),
   other.entity.description = c("Metadata for Smelt Study"),
   user.id = "aquaticecology",
   user.domain = "EDI",
-  package.id = "edi.1248.2")
+  package.id = "edi.1248.3")
