@@ -24,7 +24,7 @@ glimpse(smeltdata)
 ```
 
 ```{r}
-smeltdata2 <- filter(smeltdata, Site !="DWSC")%>%
+smeltdata2 <- smeltdata %>%
   filter(!is.na(K)) 
 ```
 

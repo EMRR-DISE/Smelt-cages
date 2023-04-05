@@ -34,7 +34,8 @@ data <- read_csv(here(root,"data_clean","clean_smelt_cf_2019.csv")) %>%
   filter(!(grepl("FCCL", Cage) & Season == "Winter"),
          !(Cage %in% c("A", "E","F") & Season == "Winter")) %>%
   filter(!(Site == "RV" & is.na(Cage))) %>%
-mutate(Season = factor(Season))
+mutate(Season = factor(Season)) %>%
+  mutate(CageRep = paste0(Season, "_", Site, "_", Cage))
 
 # Note there are a few fish in the summer that are cage-less. They may need to be identified as to which cage they should belong to??
 
@@ -46,12 +47,14 @@ DWSC = filter(data, Site == "DWSC")
 
 Weight pre-posts by season
 ```{r}
-Summer <- data %>% filter(Season == "Summer")
+Summer <- data %>% filter(Season == "Summer") %>%
+  mutate(Period = factor(Period, levels = c("Pre", "Post")))
 Summer_wide <- Summer %>%
   pivot_wider(names_from = "Period",
               values_from = c("FL_cm", "Weight_g", "K"))
   
-Fall <- data %>% filter(Season == "Fall")
+Fall <- data %>% filter(Season == "Fall")%>%
+  mutate(Period = factor(Period, levels = c("Pre", "Post")))
 
 Fall_wide <- Fall %>%
   pivot_wider(names_from = "Period",
@@ -63,10 +66,6 @@ hist(Summer$FL_cm_Pre)
 hist(filter(Summer, Site=="RV")$FL_cm_Post)
 hist(Summer$Weight_g_Pre)
 hist(filter(Summer, Site=="RV")$Weight_g_Post)
-
-hist(filter(data, Site == "RV")$FL_cm)
-hist(filter(data, Site == "RV")$Weight_g)
-hist(filter(data, Site == "RV")$K)
 
 hist(filter(data, Site == "RV")$FL_cm)
 hist(filter(data, Site == "RV")$Weight_g)
@@ -111,19 +110,224 @@ leveneTest(Fall$Weight_g~Fall$Period)
 leveneTest(Fall$K~Fall$Period)
 ```
 
+## Plots
+```{r}
+Summer$Period = factor(Summer$Period, levels = c("Pre", "Post"))
+ggplot(Summer) + geom_boxplot(aes(Site, FL_cm, fill = Period)) 
+ggplot(Summer) + geom_boxplot(aes(Site, Weight_g, fill = Period)) 
+ggplot(Summer) + geom_boxplot(aes(Site, K, fill = Period)) 
+
+
+Fall$Period = factor(Fall$Period, levels = c("Pre", "Post"))
+ggplot(Fall) + geom_boxplot(aes(Site, FL_cm, fill = Period))
+ggplot(Fall) + geom_boxplot(aes(Site, Weight_g, fill = Period))
+ggplot(Fall) + geom_boxplot(aes(Site, K, fill = Period)) 
+```
+
+# T-tests
 
 ## Summer
+Pre-post model (t-test)
 ```{r}
-t_sRV <- t.test(Summer$FL_cm_Pre, filter(Summer, Site=="RV")$FL_cm_Post) #no
-t_sFC <- t.test(Summer$FL_cm_Pre, filter(Summer, Site=="FCCL")$FL_cm_Post) #yes
+data_sFCCL <- Summer %>%
+  filter(Site == "FCCL")
+data_sRV <- Summer %>%
+  filter(Site == "RV" | (Site == "FCCL" & Period == "Pre"))
+
+# t-tests ---------------------------------------
+t.test(filter(data_sFCCL,Period=="Pre")$Weight_g, filter(data_sFCCL,Period=="Post")$Weight_g)
+t.test(filter(data_sFCCL,Period=="Pre")$FL_cm, filter(data_sFCCL,Period=="Post")$FL_cm) 
+t.test(filter(data_sFCCL,Period=="Pre")$K, filter(data_sFCCL,Period=="Post")$K) 
+
+t.test(filter(data_sRV,Period=="Pre")$Weight_g, filter(data_sRV,Period=="Post")$Weight_g)
+t.test(filter(data_sRV,Period=="Pre")$FL_cm, filter(data_sRV,Period=="Post")$FL_cm) 
+t.test(filter(data_sRV,Period=="Pre")$K, filter(data_sRV,Period=="Post")$K) 
+
+
+# Linear models: resids look good
+# FL -------------------------------------------------
+(m_fccl_summer1 <- lm(FL_cm~Period, data = data_sFCCL))
+summary(m_fccl_summer1)
+anova(m_fccl_summer)
+par(mfrow = c(2,3))
+plot(m_fccl_summer1)
+hist(resid(m_fccl_summer1))
+boxplot(FL_cm~Period, data_sFCCL)
+
+(m_rv_summer1 <- lm(FL_cm~Period, data = data_sRV))
+par(mfrow = c(2,3))
+plot(m_rv_summer1)
+hist(resid(m_rv_summer1))
+boxplot(FL_cm~Period, data_sRV)
+
+
+# Weight ----------------------------------------------
+(m_fccl_summer2 <- lm(Weight_g~Period, data = data_sFCCL))
+summary(m_fccl_summer2)
+anova(m_fccl_summer2)
+par(mfrow = c(2,3))
+plot(m_fccl_summer2)
+hist(resid(m_fccl_summer2))
+boxplot(Weight_g~Period, data_sFCCL)
+
+(m_rv_summer2 <- lm(Weight_g~Period, data = data_sRV))
+summary(m_rv_summer2)
+par(mfrow = c(2,3))
+plot(m_rv_summer2)
+hist(resid(m_rv_summer2))
+boxplot(Weight_g~Period, data_sRV)
+
+# K ------------------------------------------------
+(m_fccl_summerK <- lm(K~Period, data = data_sFCCL))
+summary(m_fccl_summerK)
+anova(m_fccl_summerK)
+par(mfrow = c(2,3))
+plot(m_fccl_summerK)
+hist(resid(m_fccl_summerK))
+boxplot(K~Period, data_sFCCL)
+
+(m_rv_summerK <- lm(K~Period, data = data_sRV))
+summary(m_rv_summerK)
+par(mfrow = c(2,3))
+plot(m_rv_summerK)
+hist(resid(m_rv_summerK))
+boxplot(K~Period, data_sRV)
+
+```
+
+
+## Fall
+```{r}
+data_fFCCL <- Fall %>%
+  filter(Site == "FCCL")
+data_fRV <- Fall %>%
+  filter(Site == "RV" | (Site == "FCCL" & Period == "Pre"))
+data_fSM <- Fall %>%
+  filter(Site == "SM" | (Site == "FCCL" & Period == "Pre"))
+data_fYolo <- Fall %>%
+  filter(Site == "Yolo" | (Site == "FCCL" & Period == "Pre"))
+
+# t-tests ---------------------------------------
+t.test(filter(data_fFCCL,Period=="Pre")$Weight_g, filter(data_fFCCL,Period=="Post")$Weight_g)
+t.test(filter(data_fFCCL,Period=="Pre")$FL_cm, filter(data_fFCCL,Period=="Post")$FL_cm) 
+t.test(filter(data_fFCCL,Period=="Pre")$K, filter(data_fFCCL,Period=="Post")$K) 
+
+t.test(filter(data_fRV,Period=="Pre")$Weight_g, filter(data_fRV,Period=="Post")$Weight_g)
+t.test(filter(data_fRV,Period=="Pre")$FL_cm, filter(data_fRV,Period=="Post")$FL_cm) 
+t.test(filter(data_fRV,Period=="Pre")$K, filter(data_fRV,Period=="Post")$K) 
+
+t.test(filter(data_fSM,Period=="Pre")$Weight_g, filter(data_fSM,Period=="Post")$Weight_g)
+t.test(filter(data_fSM,Period=="Pre")$FL_cm, filter(data_fSM,Period=="Post")$FL_cm) 
+t.test(filter(data_fSM,Period=="Pre")$K, filter(data_fSM,Period=="Post")$K) 
+
+t.test(filter(data_fYolo,Period=="Pre")$Weight_g, filter(data_fYolo,Period=="Post")$Weight_g)
+t.test(filter(data_fYolo,Period=="Pre")$FL_cm, filter(data_fYolo,Period=="Post")$FL_cm) 
+t.test(filter(data_fYolo,Period=="Pre")$K, filter(data_fYolo,Period=="Post")$K) 
 
 
 
-t.test(Summer$Weight_g_Pre, filter(Summer, Site=="RV")$Weight_g_Post) #on the border
-t.test(Summer$Weight_g_Pre, filter(Summer, Site=="FCCL")$Weight_g_Post) #on the border
+# Linear models: resids look good
+# FL -------------------------------------------------
+(m_fccl_fall1 <- lm(FL_cm~Period, data = data_fFCCL))
+summary(m_fccl_fall1)
+anova(m_fccl_fall)
+par(mfrow = c(2,3))
+plot(m_fccl_fall1)
+hist(resid(m_fccl_fall1))
+boxplot(FL_cm~Period, data_fFCCL)
 
-t.test(Summer$K_Pre, filter(Summer, Site=="RV")$K_Post) #yes
-t.test(Summer$K_Pre, filter(Summer, Site=="FCCL")$K_Post) #yes
+(m_rv_fall1 <- lm(FL_cm~Period, data = data_fRV))
+par(mfrow = c(2,3))
+plot(m_rv_fall1)
+hist(resid(m_rv_fall1))
+boxplot(FL_cm~Period, data_fRV)
+
+(m_sm_fall1 <- lm(FL_cm~Period, data = data_fSM))
+par(mfrow = c(2,3))
+plot(m_sm_fall1)
+hist(resid(m_sm_fall1))
+boxplot(FL_cm~Period, data_fSM)
+
+(m_Yolo_fall1 <- lm(FL_cm~Period, data = data_fYolo))
+par(mfrow = c(2,3))
+plot(m_Yolo_fall1)
+hist(resid(m_Yolo_fall1))
+boxplot(FL_cm~Period, data_fYolo)
+
+
+# Weight ----------------------------------------------
+(m_fccl_fall2 <- lm(Weight_g~Period, data = data_fFCCL))
+summary(m_fccl_fall2)
+anova(m_fccl_fall2)
+par(mfrow = c(2,3))
+plot(m_fccl_fall2)
+hist(resid(m_fccl_fall2))
+boxplot(Weight_g~Period, data_fFCCL)
+
+(m_rv_fall2 <- lm(Weight_g~Period, data = data_fRV))
+summary(m_rv_fall2)
+par(mfrow = c(2,3))
+plot(m_rv_fall2)
+hist(resid(m_rv_fall2))
+boxplot(Weight_g~Period, data_fRV)
+
+(m_sm_fall2 <- lm(Weight_g~Period, data = data_fSM))
+summary(m_sm_fall2)
+par(mfrow = c(2,3))
+plot(m_sm_fall2)
+hist(resid(m_sm_fall2))
+boxplot(Weight_g~Period, data_fSM)
+
+(m_yolo_fall2 <- lm(Weight_g~Period, data = data_fYolo))
+summary(m_yolo_fall2)
+par(mfrow = c(2,3))
+plot(m_yolo_fall2)
+hist(resid(m_yolo_fall2))
+boxplot(Weight_g~Period, data_fYolo)
+
+# K ------------------------------------------------
+(m_fccl_fallK <- lm(K~Period, data = data_fFCCL))
+summary(m_fccl_fallK)
+anova(m_fccl_fallK)
+par(mfrow = c(2,3))
+plot(m_fccl_fallK)
+hist(resid(m_fccl_fallK))
+boxplot(K~Period, data_fFCCL)
+
+(m_rv_fallK <- lm(K~Period, data = data_fRV))
+summary(m_rv_fallK)
+par(mfrow = c(2,3))
+plot(m_rv_fallK)
+hist(resid(m_rv_fallK))
+boxplot(K~Period, data_fRV)
+
+(m_sm_fallK <- lm(K~Period, data = data_fSM))
+summary(m_sm_fallK)
+par(mfrow = c(2,3))
+plot(m_sm_fallK)
+hist(resid(m_sm_fallK))
+boxplot(K~Period, data_fRV)
+
+(m_yolo_fallK <- lm(K~Period, data = data_fYolo))
+summary(m_yolo_fallK)
+par(mfrow = c(2,3))
+plot(m_yolo_fallK)
+hist(resid(m_yolo_fallK))
+boxplot(K~Period, data_fRV)
+```
+
+
+
+## Old code
+```{r}
+t_sRV <- t.test(Summer_wide$FL_cm_Pre, filter(Summer_wide, Site=="RV")$FL_cm_Post) #no
+t_sFC <- t.test(Summer_wide$FL_cm_Pre, filter(Summer_wide, Site=="FCCL")$FL_cm_Post) #yes
+
+t.test(Summer_wide$Weight_g_Pre, filter(Summer_wide, Site=="RV")$Weight_g_Post) #on the border
+t.test(Summer_wide$Weight_g_Pre, filter(Summer_wide, Site=="FCCL")$Weight_g_Post) #on the border
+
+t.test(Summer_wide$K_Pre, filter(Summer_wide, Site=="RV")$K_Post) #yes
+t.test(Summer_wide$K_Pre, filter(Summer_wide, Site=="FCCL")$K_Post) #yes
 
 
 
@@ -138,18 +342,7 @@ wilcox.test(Summer_wide$K_Pre, filter(Summer_wide, Site=="RV")$K_Post) #yes
 wilcox.test(Summer_wide$K_Pre, filter(Summer_wide, Site=="FCCL")$K_Post) #yes
 ```
 
-```{r}
-Summer$Period = factor(Summer$Period, levels = c("Pre", "Post"))
-ggplot(Summer) + geom_boxplot(aes(Site, FL_cm, fill = Period)) 
-ggplot(Summer) + geom_boxplot(aes(Site, K, fill = Period)) 
 
-Fall$Period = factor(Fall$Period, levels = c("Pre", "Post"))
-ggplot(Fall) + geom_boxplot(aes(Site, FL_cm, fill = Period))
-ggplot(Fall) + geom_boxplot(aes(Site, Weight_g, fill = Period))
-ggplot(Fall) + geom_boxplot(aes(Site, K, fill = Period)) 
-```
-
-# Fall
 ```{r}
 wilcox.test(Fall_wide$FL_cm_Pre, filter(Fall_wide, Site=="RV")$FL_cm_Post) #no
 wilcox.test(Fall_wide$FL_cm_Pre, filter(Fall_wide, Site=="Yolo")$FL_cm_Post) #yes
@@ -167,10 +360,10 @@ wilcox.test(Fall_wide$K_Pre, filter(Fall_wide, Site=="SM")$K_Post) #yes
 wilcox.test(Fall_wide$K_Pre, filter(Fall_wide, Site=="FCCL")$K_Post) #yes
 ```
 
-## Models
+# Models
 ```{r}
 RV_analysis <- data %>%
-  group_by(Season, Site, Period, Cage) %>%
+  group_by(Season, Site, Period, CageRep) %>%
   summarize(meanK = mean(K, na.rm = TRUE),
             meanWt = mean(Weight_g, na.rm = TRUE)) %>%
   ungroup() %>%
@@ -194,53 +387,227 @@ RV_allfish <- data %>%
          Weight_g_Pre = case_when(Season == "Fall" ~ 1.7213333,
                                 Season == "Summer" ~ 0.8206667,
                                 Season == "Winter" ~ Weight_g_Pre)) %>%
-  mutate(deltaK = K_Post - K_Pre,
-         deltaWt = Weight_g_Post - Weight_g_Pre) %>%
-  filter(Site != "FCCL")
+  mutate(deltaK = (K_Post - K_Pre)/K_Pre,
+         deltaWt = (Weight_g_Post - Weight_g_Pre)/Weight_g_Pre) %>%
+  filter(Site != "FCCL") %>%
+  mutate(Season = factor(Season, levels = c("Winter", "Summer", "Fall"))) %>%
+  filter(!is.na(deltaK))
 
-RV_sumfall <- filter(RV_allfish, Season != "Winter")
+RV_sumfall <- filter(RV_allfish, Season != "Winter") 
+RV_sumfall$Season = factor(RV_sumfall$Season, levels = c("Summer", "Fall"))
 ```
+
+Are the scale of fish weights comparable?
+```{r}
+ggplot(RV_allfish) + geom_boxplot(aes(Season, Weight_g_Post))
+ggplot(RV_allfish) + geom_boxplot(aes(Season, Weight_g_Pre))
+```
+
+
 
 ### Effect of Season at RV
 ```{r}
 library(lmerTest)
 
 # CF
-m1 <- lmer(deltaK ~ Season + (1|Cage), data = RV_allfish)
+m1 <- lmer(deltaK ~ Season + (1|CageRep), data = RV_allfish)
 summary(m1)
-plot(m1)
+anova(m1,type =2)
 
-m1b <- lmer(deltaK ~ Season + (1|Cage), data = RV_sumfall)
+m1b <- lmer(deltaK ~ Season + (1|CageRep), data = RV_sumfall)
 summary(m1b)
 plot(m1b)
 
 # Weight
-m2 <- lmer(deltaWt~ Season + (1|Cage), data = RV_allfish)
+m2 <- lmer(deltaWt~ Season + (1|CageRep), data = RV_allfish)
 summary(m2)
 plot(m2)
 
-m2b <- lmer(deltaWt ~ Season + (1|Cage), data = RV_sumfall)
+
+m2b <- lmer(deltaWt ~ Season + (1|CageRep), data = RV_sumfall)
 summary(m2b)
 plot(m2b) 
+```
 
+#### Run post-hoc tests
+```{r}
 library(emmeans)
 m1.emm <- emmeans(m1, "Season", data=RV_allfish)
-pairs(m1.emm, adjust = "sidak")
+pairs(m1.emm, adjust = "tukey")
 plot(m1.emm, comparisons = TRUE) + theme_bw()
 
+
+
+
 m2.emm <- emmeans(m2, "Season", data=RV_allfish)
-pairs(m2.emm, adjust = "sidak")
+pairs(m2.emm, adjust = "tukey")
 plot(m2.emm, comparisons = TRUE) + theme_bw()
 ```
+
+#### Model validation
+```{r}
+resid.m1 <- resid(m1, type = "pearson")
+par(mfrow = c(2,2))
+plot(m1)
+plot(resid.m1)
+hist(resid.m1)
+qqnorm(resid.m1)
+plot(RV_allfish$Season, resid.m1)
+
+
+plot(m2)
+resid.m2 <- resid(m2, type = "pearson")
+par(mfrow = c(2,2))
+plot(resid.m2)
+hist(resid.m2)
+qqnorm(resid.m2)
+plot(RV_allfish$Season, resid.m2)
+
+```
+
+#### Plot CI and RE
+##### m1
+```{r}
+library(multcomp)
+m1.emm <- emmeans(m1, "Season")
+plotm1 = plot(m1.emm, comparisons = TRUE, plotit = F, adjust = "bonferroni")
+letter_m1 = cld(m1.emm, Letters = LETTERS,  p.adj.methods = "bonferroni") %>%
+  left_join(plotm1) %>%
+  mutate(.group = gsub(" ", "", .group))
+
+(plot_season_k <- ggplot(data = letter_m1,) + 
+   geom_errorbar(aes(x = Season, ymin = lower.CL, ymax = upper.CL), size = 0.5,  width = 0.1) +
+  
+  geom_segment(aes(x = Season, y = emmean, xend = Season, yend = rcmpl, color = .group), size = 6, color = "cadetblue3", lineend = "butt") +
+    geom_segment(aes(x = Season, y = emmean, xend = Season, yend = lcmpl, color = .group), size = 6, color = "cadetblue3", lineend = "butt") +
+     geom_text( aes(label = .group, x = Season, y = upper.CL + 0.01), position = position_dodge2(width = 0.3)) + 
+    geom_hline(yintercept = 0, linetype = "dashed") + 
+  geom_point( aes(x=Season, y=emmean), size = 2.5, shape = 18) +     
+  viridis::scale_color_viridis(discrete = TRUE, option = "turbo") +
+  labs(y = "Proportional Change in K (g cm^-2) with 95% Confidence Intervals") +
+  theme_bw() +
+  theme(axis.text.x = element_text(size = 11),
+        axis.text.y = element_text(size = 11),
+        legend.position = "top",
+        axis.title.x = element_blank()) )
+```
+
+##### m2
+```{r}
+library(multcomp)
+m2.emm <- emmeans(m2, "Season")
+plotm2 = plot(m2.emm, comparisons = TRUE, plotit = F, adjust = "bonferroni")
+letter_m2 = cld(m2.emm, Letters = LETTERS,  p.adj.methods = "bonferroni") %>%
+  left_join(plotm2) %>%
+  mutate(.group = gsub(" ", "", .group))
+
+(plot_season_wt <- ggplot(data = letter_m2,) + 
+   geom_errorbar(aes(x = Season, ymin = lower.CL, ymax = upper.CL), size = 0.5,  width = 0.1) +
+    
+  
+  geom_segment(aes(x = Season, y = emmean, xend = Season, yend = rcmpl, color = .group), size = 6, color = "cadetblue3", lineend = "butt") +
+    geom_segment(aes(x = Season, y = emmean, xend = Season, yend = lcmpl, color = .group), size = 6, color = "cadetblue3", lineend = "butt") +
+  geom_point( aes(x=Season, y=emmean), size = 2.5, shape = 18) +     
+   geom_text( aes(label = .group, x = Season, y = upper.CL + 0.02), position = position_dodge2(width = 0.3)) + 
+    geom_hline(yintercept = 0, linetype = "dashed") + 
+    viridis::scale_color_viridis(discrete = TRUE, option = "turbo") +
+  labs(y = "Proportional Change in Weight (g) with 95% Confidence Intervals") +
+  theme_bw() +
+  theme(axis.text = element_text(size = 11),
+        legend.position = "top",
+        axis.title.x = element_blank()) )
+```
+
+#### Export data and figures
+```{r}
+# emmeans results -------
+write_csv(letter_m1, "smelt_2019_allseasons/data_clean/emmeans_RV_m1.csv")
+write_csv(letter_m2, "smelt_2019_allseasons/data_clean/emmeans_RV_m2.csv")
+
+# plots ----------
+library(patchwork)
+png(filename = "smelt_2019_allseasons/figures/RV_weight_k_season.png", height = 5, width = 9,units = "in", 
+    res = 300, pointsize = 12, family = "sans")
+plot_season_wt & plot_season_k
+dev.off()
+```
+
+
+
+```{r}
+t_ci_m1 <- as.data.frame(confint(m1))[3:5,]
+est_winter = 0.034457
+ci25 = t_ci_m1[1,1]
+ci975 = t_ci_m1[1,2]
+ci_m1 <- data.frame(estimate = c(est_winter, est_winter-0.0768, est_winter-0.1844),
+                    ci_2_5 = c(ci25, ci25+t_ci_m1[2,1], ci25+t_ci_m1[3,1]),
+                    ci_97_5 = c(ci975, ci975+t_ci_m1[2,2], ci975 + t_ci_m1[3,2]))%>%
+  mutate(season = c("Winter", "Summer", "Fall"),
+         season = factor(season, levels = c("Winter", "Summer", "Fall")))
+  
+summary(m1)
+
+ggplot(ci_m1) + 
+   geom_errorbar(aes(y = season, xmin = ci_2_5, xmax = ci_97_5), size = 2, color = "aquamarine3", width = 0.1) + 
+  geom_point(aes(estimate, season), size = 2.5) + 
+ 
+  labs(x = "Delta K with 95% Confididence Intervals") +
+  theme_bw() +
+  theme(axis.title.y = element_blank())
+
+re_m1 <- as.data.frame(ranef(m1))
+
+ggplot(re_m1) + 
+  geom_point(aes(grp, condval)) +
+  geom_errorbar(aes(x = grp, ymin = condval-condsd, ymax = condval+condsd), width = 0.3) +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 0.95),
+        axis.title = element_blank())
+```
+
+##### m2
+```{r}
+t_ci_m2 <- as.data.frame(confint(m2))[3:5,]
+est_winter = 0.20763
+ci25 = t_ci_m2[1,1]
+ci975 = t_ci_m2[1,2]
+ci_m2 <- data.frame(estimate = c(est_winter, est_winter-0.27075, est_winter-0.60332),
+                    ci_2_5 = c(ci25, ci25+t_ci_m2[2,1], ci25+t_ci_m2[3,1]),
+                    ci_97_5 = c(ci975, ci975+t_ci_m2[2,2], ci975 + t_ci_m2[3,2]))%>%
+  mutate(season = c("Winter", "Summer", "Fall"),
+         season = factor(season, levels = c("Winter", "Summer", "Fall")))
+  
+summary(m2)
+
+ggplot(ci_m2) + 
+   geom_errorbar(aes(y = season, xmin = ci_2_5, xmax = ci_97_5), size = 2, color = "aquamarine3", width = 0.1) + 
+  geom_point(aes(estimate, season), size = 2.5) + 
+ 
+  labs(x = "Delta Weight with 95% Confididence Intervals") +
+  theme_bw() +
+  theme(axis.title.y = element_blank())
+
+re_m2 <- as.data.frame(ranef(m2))
+
+ggplot(re_m2) + 
+  geom_point(aes(grp, condval)) +
+  geom_errorbar(aes(x = grp, ymin = condval-condsd, ymax = condval+condsd), width = 0.3) +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 0.95),
+        axis.title = element_blank())
+```
+
+
+
 
 ### Effect of Site in the Fall 
 ```{r}
 Fallfish_avg <- data %>%
-  group_by(Season, Site, Period, Cage) %>%
+  group_by(Season, Site, Period, CageRep) %>%
   summarize(meanK = mean(K, na.rm = TRUE),
             meanWt = mean(Weight_g, na.rm = TRUE)) %>%
   ungroup() %>%
-  filter(Season == "Fall")
+  filter(Season == "Fall") 
 
 # Now bring those values in here
 Fallfish <- data %>%
@@ -251,50 +618,52 @@ Fallfish <- data %>%
          Weight_g_Pre = 1.721333,
          deltaK = K_Post - K_Pre,
          deltaWt = Weight_g_Post - Weight_g_Pre) %>%
-  filter(!is.na(K_Post))
+  filter(!is.na(K_Post))%>%
+  mutate(Site = factor(Site))
 
 ```
 
-### Effect of Site in the Fall
+
 ```{r}
 library(lmerTest)
 
 # CF ------
 m3a <- lm(deltaK ~ Site, data = Fallfish)
 summary(m3a)
-plot(m3)
 
 
-m3 <- lmer(deltaK ~ Site + (1|Cage), data = Fallfish, REML = TRUE)
+m3 <- lmer(deltaK ~ Site + (1|CageRep), data = Fallfish, REML = TRUE)
 summary(m3)
-plot(m3)
 
 # Not much difference in residual error by including cage effect. (0.09875 to 0.09787)
-
-
 
 
 # Weight -----
 m4a <- lm(deltaWt~ Site, data = Fallfish)
 summary(m4a)
-plot(m4a)
 
-m4 <- lmer(deltaWt~ Site + (1|Cage), data = Fallfish)
+m4 <- lmer(deltaWt~ Site + (1|CageRep), data = Fallfish)
 summary(m4)
-plot(m4)
 
 # Not much difference in residual error by including cage effect. (0.471 to 0.466)
 
+
+```
+
+
+#### Run post-hoc tests
+```{r}
 library(emmeans)
 m3.emm <- emmeans(m3, "Site", data=Fallfish)
-pairs(m3.emm, adjust = "sidak")
+pairs(m3.emm, adjust = "bonferroni")
 plot(m3.emm, comparisons = TRUE, type = "response") + theme_bw()
 
 m4.emm <- emmeans(m4, "Site", data=Fallfish)
-pairs(m4.emm, adjust = "sidak")
+pairs(m4.emm, adjust = "bonferroni")
 plot(m4.emm, comparisons = TRUE) + theme_bw()
 ```
 
+#### Model validation
 ```{r}
 Fallfish <- Fallfish %>%
   mutate(res3 = resid(m3, type = "pearson"),
@@ -302,13 +671,176 @@ Fallfish <- Fallfish %>%
 ggplot(Fallfish) + geom_histogram(aes(res3))
 ggplot(Fallfish) + geom_boxplot(aes(Site, res3))
 
-#hello
 
+resid.m3 <- as.numeric(resid(m3, type = "pearson"))
+plot(m3)
+par(mfrow = c(2,2))
+plot(resid.m3)
+hist(resid.m3)
+qqnorm(resid.m3)
+boxplot(resid.m3~Fallfish$Site)
+summary(resid.m3)
+
+str(Fallfish)
+
+
+plot(m4)
+resid.m4 <- resid(m4, type = "pearson")
+par(mfrow = c(2,2))
+plot(resid.m4)
+hist(resid.m4)
+qqnorm(resid.m4)
+plot(RV_allfish$Season, resid.m4)
+boxplot(resid.m4~Fallfish$Site)
+
+ggplot(Fallfish, aes(factor(Site), res4)) + geom_boxplot() + theme_bw()
 
 ```
 
+#### Plot CI and RE
+
+##### m3
 ```{r}
-m3
+library(multcomp)
+m3.emm <- emmeans(m3, "Site")
+plotm3 = plot(m3.emm, comparisons = TRUE, plotit = F, adjust = "bonferroni")
+letter_m3 = cld(m3.emm, Letters = LETTERS,  p.adj.methods = "bonferroni") %>%
+  left_join(plotm3) %>%
+  mutate(.group = gsub(" ", "", .group))
+
+(plot_Site_k <- ggplot(data = letter_m3,) + 
+  
+  
+  geom_segment(aes(x = Site, y = emmean, xend = Site, yend = rcmpl, color = .group), size = 6, color = "cadetblue3", lineend = "butt") +
+    geom_segment(aes(x = Site, y = emmean, xend = Site, yend = lcmpl, color = .group), size = 6, color = "cadetblue3", lineend = "butt") +
+      geom_errorbar(aes(x = Site, ymin = lower.CL, ymax = upper.CL), size = 0.5,  width = 0.1) +
+    geom_text( aes(label = .group, x = Site, y = upper.CL + 0.01), position = position_dodge2(width = 0.3)) + 
+    geom_hline(yintercept = 0, linetype = "dashed") + 
+  geom_point( aes(x=Site, y=emmean), size = 2.5, shape = 18) +     
+  viridis::scale_color_viridis(discrete = TRUE, option = "turbo") +
+  labs(y = "Change in K (g cm^-2) with 95% Confidence Intervals") +
+  theme_bw() +
+  theme(axis.text.x = element_text(size = 11),
+        axis.text.y = element_text(size = 11),
+        legend.position = "top",
+        axis.title.x = element_blank()) )
+```
+
+##### m4
+```{r}
+m4.emm <- emmeans(m4, "Site")
+plotm4 = plot(m4.emm, comparisons = TRUE, plotit = F, adjust = "bonferroni")
+letter_m4 = cld(m4.emm, Letters = LETTERS,  p.adj.methods = "bonferroni") %>%
+  left_join(plotm4) %>%
+  mutate(.group = gsub(" ", "", .group))
+
+(plot_Site_wt <- ggplot(data = letter_m4,) + 
+  
+  
+  geom_segment(aes(x = Site, y = emmean, xend = Site, yend = rcmpl, color = .group), size = 6, color = "cadetblue3", lineend = "butt") +
+    geom_segment(aes(x = Site, y = emmean, xend = Site, yend = lcmpl, color = .group), size = 6, color = "cadetblue3", lineend = "butt") +
+   geom_errorbar(aes(x = Site, ymin = lower.CL, ymax = upper.CL), size = 0.5,  width = 0.1) +
+    geom_point( aes(x=Site, y=emmean), size = 2.5, shape = 18) +     
+   geom_text( aes(label = .group, x = Site, y = upper.CL + 0.03), position = position_dodge2(width = 0.3)) + 
+    geom_hline(yintercept = 0, linetype = "dashed") + 
+    viridis::scale_color_viridis(discrete = TRUE, option = "turbo") +
+  labs(y = "Change in Weight (g) with 95% Confidence Intervals") +
+  theme_bw() +
+  theme(axis.text = element_text(size = 11),
+        legend.position = "top",
+        axis.title.x = element_blank()) )
+```
+
+#### Export data and figures
+```{r}
+# emmeans results -------
+write_csv(letter_m3, "smelt_2019_allseasons/data_clean/emmeans_fall_m3.csv")
+write_csv(letter_m4, "smelt_2019_allseasons/data_clean/emmeans_fall_m4.csv")
+
+# plots ----------
+library(patchwork)
+png(filename = "smelt_2019_allseasons/figures/model_fall_site.png", height = 5, width = 9,units = "in", 
+    res = 300, pointsize = 12, family = "sans")
+plot_Site_wt & plot_Site_k
+dev.off()
+```
+
+
+```{r}
+t_ci_m3b <- as.data.frame(confint(m3))[3:6,]
+est_fccl = -0.06439
+ci25 = t_ci_m3[1,1]
+ci975 = t_ci_m3[1,2]
+ci_m3 <- data.frame(estimate = c(est_fccl, est_fccl-0.08557, est_fccl-0.10488, est_fccl-0.06496),
+                    ci_2_5 = c(ci25, ci25+t_ci_m3[2,1], ci25+t_ci_m3[3,1], ci25 + t_ci_m3[4,1]),
+                    ci_97_5 = c(ci975, ci975+t_ci_m3[2,2], ci975 + t_ci_m3[3,2],  ci975+t_ci_m3[4,2]))%>%
+  mutate(site = c("FCCL", "RV", "SM", "Yolo"),
+         site = factor(site, levels = c("FCCL", "RV", "SM", "Yolo")))
+  
+summary(m3)
+
+ggplot(ci_m3) + 
+   geom_errorbar(aes(y = site, xmin = ci_2_5, xmax = ci_97_5), size = 2, color = "aquamarine3", width = 0.1) + 
+  geom_point(aes(estimate, site), size = 2.5) + 
+ 
+  labs(x = "Delta K with 95% Confididence Intervals") +
+  theme_bw() +
+  theme(axis.title.y = element_blank())
+
+re_m3 <- as.data.frame(ranef(m3))
+
+ggplot(re_m3) + 
+  geom_point(aes(grp, condval)) +
+  geom_errorbar(aes(x = grp, ymin = condval-condsd, ymax = condval+condsd), width = 0.3) +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 0.95),
+        axis.title = element_blank())
+```
+
+
+```{r}
+t_ci_m4 <- as.data.frame(confint(m4))[3:6,]
+est_fccl = -0.35144
+ci25 = t_ci_m4[1,1]
+ci975 = t_ci_m4[1,2]
+ci_m4 <- data.frame(estimate = c(est_fccl, est_fccl-0.04438, est_fccl-0.19573, est_fccl-0.12013),
+                    ci_2_5 = c(ci25, ci25+t_ci_m4[2,1], ci25+t_ci_m4[3,1], ci25 + t_ci_m4[4,1]),
+                    ci_97_5 = c(ci975, ci975+t_ci_m4[2,2], ci975 + t_ci_m4[3,2],  ci975+t_ci_m4[4,2]))%>%
+  mutate(site = c("FCCL", "RV", "SM", "Yolo"),
+         site = factor(site, levels = c("FCCL", "RV", "SM", "Yolo")))
+  
+summary(m4)
+
+ggplot(ci_m4) + 
+   geom_errorbar(aes(y = site, xmin = ci_2_5, xmax = ci_97_5), size = 2, color = "aquamarine3", width = 0.1) + 
+  geom_point(aes(estimate, site), size = 2.5) + 
+ 
+  labs(x = "Delta Weight with 95% Confididence Intervals") +
+  theme_bw() +
+  theme(axis.title.y = element_blank())
+
+re_m4 <- as.data.frame(ranef(m4))
+
+ggplot(re_m4) + 
+  geom_point(aes(grp, condval)) +
+  geom_errorbar(aes(x = grp, ymin = condval-condsd, ymax = condval+condsd), width = 0.3) +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 0.95),
+        axis.title = element_blank())
+```
+
+
+
+
+
+
+
+
+Attempted some code from Jereme Gaeta's lesson but didn't get this to work.
+
+
+```{r}
+m4
 fixef(m3)
 coef(summary(m3))
 confint(m3, method = "Wald")
