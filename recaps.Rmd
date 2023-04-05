@@ -13,7 +13,8 @@ library(sf)
 library(lubridate)
 library(spacetools)
 library(deltamapr)
-#load("Recaps.RData")
+load("Recaps.RData")
+#save(nndist, distances, recaps, recaps2, recaps3, RVhdist, SCsoft, SChard, RVhdistx, Dwschard, Dwscsoft, file = "Recaps.RData")
 ```
 
 ## Spatial stats on Delta Smelt releases
@@ -35,15 +36,16 @@ Fist let's calcualte distance from release location to recapture location.
 #Bring in the data and check it out
 
 
-recaps = read_excel("Recaptured Experimental Release_2022-2023_working draft.xlsx", 
-                    sheet = "Adult Recaptures") %>%
-  rename(Site = `Release Site`, Type = `Release Type`, Latitude= `Start Latitude`, Longitude = `Start Longitude`)
-
+recaps = read_excel("Recaptured Experimental Release_2022-2023_working draft (2).xlsx", 
+                    sheet = "Full DSM Data") %>%
+  rename(Site = `Release Site`, Type = `Release Type`, Latitude= `Start Latitude`, Longitude = `Start Longitude`,
+         Mark = `VIE Color/Position`)
 recaps    =     mutate(recaps, fishID = paste("smelt", 1:nrow(recaps)),
                 Type = case_when(Type == "header" ~ "Soft",
-                                 TRUE ~ Type)) %>%
-  rename(Adclip = `Ad clip`, Mark = `VIE Color/Position`) %>%
-  select(-Type, -Site)
+                                 is.na(Type) ~ "Wild",
+                                 TRUE ~ Type),
+                Site = case_when(is.na(Site) ~ "Wild",
+                                 TRUE ~ Site))
 str(recaps)
 
 
@@ -127,13 +129,17 @@ recaps3 = left_join(recaps2, distances) %>%
   mutate(SiteType = paste(Type, Site))
 
 recaps3
+
+write.csv(recaps, "Recapturedistances.csv")
 ```
 
 Plot to visually look at mean and variation.
 
 ```{r}
-ggplot(recaps3, aes(x = SiteType, y = Distance))+ geom_boxplot(aes(fill = Type))+
+ggplot(filter(recaps3, Type != "Hard (Trailer)", Type != "Wild"), aes(x = SiteType, y = Distance))+ 
+  geom_boxplot(aes(fill = SiteType))+
   ylab("Distance from Release Site (m)")+
+  scale_fill_discrete(guide = NULL)+
   theme_bw()
 ```
 
@@ -154,6 +160,53 @@ recapsum = group_by(recaps3, Site, Type, SiteType) %>%
   summarize(Nsmelt = n(), MeanDist = mean(Distance, na.rm = T), sdDist = sd(Distance, na.rm =T))
 
 recapsum
+```
+
+```{r}
+
+#ANOVA of differences in distance by release group
+library(emmeans)
+m1 = lm(Distance ~ SiteType, data = recaps3)
+summary(m1)
+anova(m1)
+emmeans(m1, pairwise ~ SiteType)
+plot(emmeans(m1, pairwise ~ SiteType), comparisons = T)
+
+#so hard releases at RIo Vista traveled further from hard releases at SDWSC, but no other significant differences
+
+```
+```{r}
+
+#ANOVA of differences in distance by release event
+m1.1 = lm(Distance ~ ReleaseEvent, data = recaps3)
+summary(m1.1)
+anova(m1.1)
+emmeans(m1.1, pairwise ~ ReleaseEvent)
+plot(emmeans(m1.1, pairwise ~ ReleaseEvent), comparisons = T)
+
+#It's a bit of a mess.
+
+```
+
+
+Plot of distance to recapture over time by release type
+
+```{r}
+
+ggplot(recaps3, aes(x = as.numeric(DaysSinceRelease), y = Distance, color = Type))+
+  geom_point()+ geom_smooth(method = "lm")+ ylab("Distance from Release Site (m)")+
+  xlab("Days since release")
+
+```
+
+
+Plot of distance to recapture over time by release site
+
+```{r}
+
+ggplot(filter(recaps3, Type == "Hard"), aes(x = as.numeric(DaysSinceRelease), y = Distance, color = Site))+
+  geom_point()+ geom_smooth(method = "lm")+ ylab("Distance from Release Site (m)")+
+  xlab("Days since release")
 
 ```
 
@@ -180,7 +233,7 @@ SChard
 
 ```
 
-I'm not quite sure the best way to summarize this. I'll start by just the mean of the distance matrix, but i might want do just half the matrix. I'll look into that later.
+Let's look at the mean of the lower triagle of each of these.
 
 ```{r}
 
@@ -228,19 +281,47 @@ SCh = as.data.frame(SChard) %>%
   mutate(Release = "DWSC Hard")
 
 
-nndist = bind_rows(RVdtx, RVdt, SCs, SCh)
+nndist = bind_rows(RVdtx, RVdt, SCs, SCh) %>%
+  mutate(Release = factor(Release, levels = c("Rio Vista Hard", "DWSC Hard", "DWSC Soft", "Trailer"),
+                          labels = c("Hard Rio Vista", "Hard SDWSC", "Soft SWDSC", "Trailer")))
 
 
-ggplot(nndist, aes(x = Release, y = Distance, fill = Release)) + geom_boxplot()+
-  ylab("Distance Between Recaptures")
+ggplot(filter(nndist, Release != "Trailer"), aes(x = Release, y = Distance, fill = Release)) + geom_boxplot()+
+  ylab("Distance Between Recaptures")+ theme_bw()+ scale_fill_discrete(guide = NULL)
 
 ```
 
-Now let's bring in the time aspect
+now let's look at it statistically
 
 ```{r}
 
-recapstime = read_excel("RecapturesSummary_1.xlsx", sheet = "REcapture Distances")
+m2 = lm(Distance ~ Release, data = nndist)
+summary(m2)
+plot(m2)
+#QQ plot is a bit of a mess I tried log-transforming and sqrt transforming and its still a mess. 
 
+emmeans(m2, pairwise ~ Release)
+plot(emmeans(m2, pairwise ~ Release), comparisons = T)
+
+```
+
+So DWSC soft were closer together than rio vista hard, but no difference between DWSC hard and DWSC soft
+
+I could also do this by release rather than release type
+
+```{r}
+smeltIDS = select(recaps2, fishID, ReleaseEvent)
+
+nndist2 = left_join(nndist, smeltIDS, by = c("Fish1" = "fishID"))
+
+m3 = lm(Distance ~ ReleaseEvent, data = nndist2)
+summary(m3)
+plot(m3)
+#QQ plot is a bit of a mess I tried log-transforming and sqrt transforming and its still a mess. 
+
+emmeans(m3, pairwise ~ ReleaseEvent)
+plot(emmeans(m3, pairwise ~ ReleaseEvent), comparisons = T)
+
+write.csv(nndist2, "DistanceMatrix.csv")
 ```
 
