@@ -1,0 +1,11 @@
+model,term,df,SumOfSqs,R2,statistic,p.value
+Rio Vista Zooplankton,Season,2,4.044939682,0.950578311,192.340313,0.001
+Rio Vista Zooplankton,Residual,20,0.210301191,0.049421689,,
+Rio Vista Zooplankton,Total,22,4.255240873,1,,
+Fall Zooplankton,Location,2,0.598385574,0.915720091,76.05656793,0.001
+Fall Zooplankton,Residual,14,0.055073469,0.084279909,,
+Fall Zooplankton,Total,16,0.653459043,1,,
+Diet versus zooplankton,Diet/Zoops,1,2.118470077,0.063554631,15.79482155,0.001
+Diet versus zooplankton,Season,2,13.64429686,0.409332312,50.8643564,0.001
+Diet versus zooplankton,Residual,131,17.57028905,0.527113057,,
+Diet versus zooplankton,Total,134,33.33305598,1,,

@@ -1,0 +1,6 @@
+,term,df,SumOfSqs,R2,statistic,p.value
+1,Location,2,14.795,0.576,98.286,0.001
+2,datatype,1,1.760,0.069,23.388,0.001
+3,Location:datatype,2,2.282,0.089,15.160,0.001
+4,Residual,91,6.849,0.267,,
+5,Total,96,25.686,1.000,,

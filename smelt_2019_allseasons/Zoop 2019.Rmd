@@ -10,6 +10,8 @@ library(tidyverse)
 library(lubridate)
 library(Polychrome)
 library(zooper)
+library(broom)
+library(vegan)
 ```
 
 # load & prep summer/fall data
@@ -33,8 +35,8 @@ zoop$Count[is.na(zoop$Count)] <- 0
 #bring in tow data
 aug <- read_csv("smelt_2019_allseasons/data_raw/Field_Environmental_Data_Aug_qaqc'ed_11.04.20.csv")
 oct <- read_csv("smelt_2019_allseasons/data_raw/Field_Environmental_Data_Oct_qaqc'ed_12.11.20.csv")
-aug <- read_csv("data_raw/Field_Environmental_Data_Aug_qaqc'ed_11.04.20.csv")
-oct <- read_csv("data_raw/Field_Environmental_Data_Oct_qaqc'ed_12.11.20.csv")
+#aug <- read_csv("data_raw/Field_Environmental_Data_Aug_qaqc'ed_11.04.20.csv")
+#oct <- read_csv("data_raw/Field_Environmental_Data_Oct_qaqc'ed_12.11.20.csv")
 
 aug$Date <- mdy(aug$Date)
 oct$Date <- mdy(oct$Date)
@@ -62,6 +64,7 @@ all <- merge(zoop, tow2, by = c('Location', 'Date'))
 #calculate abundance -----------------------
 all$distance <- (all$Revs)*57560/999999 #57,560 = low speed rotor constant
 all$volumesampled <- ((pi*(all$RingSize_m^2))/4)*all$distance
+
 all$samplecount <- (all$TotalVolume_ml/all$Subsampled_ml)*all$Count
 
 #calculate ind/m3
@@ -84,6 +87,7 @@ caught[caught$ID %in% c("Bosmina", "Ceriodaphnia", "Diaphanosoma", "Alona", "Chy
 caught[caught$ID %in% c("Cyclopoid copepodid", "Tropocyclops prasinus", "Limnoithona tetraspina", "Diacyclops thomasi", "Eucyclops sp.", "Mesocyclops edax", "Microcyclops rubellus", "Tropocylcops prasinus", "Acanthocyclops vernalis adult", "Eucyclops pectinifer", "Paracyclops spp."),]$Taxa <- "Cyclopoid"
 
 caught[caught$ID %in% c("Calanoid copepodid", "Pseudodiaptomus forbesi adult", "Pseudodiaptomus forbesi copepodid", "Eurytemora affinis adult", "Sinocalanus doerrii adult"),]$Taxa <- "Calanoid"
+
 
 caught[caught$ID %in% c("Harpacticoids"),]$Taxa <- "Harpacticoid"
 
@@ -156,7 +160,7 @@ ggplot() +
 #prep of this dataset (code and raw data) can be found on GitHub under Smelt Cages > smelt_2019_winterspring
 
 winter <- read_csv("smelt_2019_allseasons/data_clean/zoop_abundance.csv")
-winter <- read_csv("data_clean/zoop_abundance.csv")
+#winter <- read_csv("data_clean/zoop_abundance.csv")
 
 winter$Day <- day(winter$Date)
 winter$Month <- month(winter$Date)
@@ -269,7 +273,7 @@ shapiro.test(for.mod$ind.all) #very significant, no ANOVA
 
 ```{r}
 
-library(vegan)
+
 source("PlotNMDS.R")
 
 zoops = mutate(caught.19, SampleID = paste(Location, Date)) %>%
@@ -278,19 +282,25 @@ zoops = mutate(caught.19, SampleID = paste(Location, Date)) %>%
 
 #first let's look at Rio Vista across seasons
 RVzoops = filter(zoops, Location == "RV")
-
+fallzoops = filter(zoops, Season == "Fall")
 #raw abundance matrix
 RVzoopmat = as.matrix(RVzoops[,6:12])
-
+fallzoopmat = as.matrix(fallzoops[,6:12])
 #relative abundance matrix
 RVzoopmat2 = RVzoopmat/rowSums(RVzoopmat)
+fallzoopmat2 = fallzoopmat/rowSums(fallzoopmat)
 
 RVa = adonis2(RVzoopmat~Season, data = RVzoops)
 RVa
 #
 
+falla = adonis2(fallzoopmat2~Location*datatype, data = fallzoops)
+
+##################################This is the one for the paper
 RVb = adonis2(RVzoopmat2~Season, data = RVzoops)
 RVb
+RVresults = tidy(RVb)
+write.csv(RVresults, file = "outputs/RVresults.csv")
 
 #Britt and Bruce wanted biomass instead of abundance
 
@@ -312,12 +322,12 @@ RVa2 = adonis2(RVzoopmatBM~Season, data = RVzoopsBM)
 RVa2
 #
 
-RVb = adonis2(RVzoopmat2~Season, data = RVzoops)
+RVb = adonis2(RVzoopmat2BM~Season, data = RVzoops)
 RVb
 
 ```
 pretty big differences between seasons, R2 of 54% on the absolute abundance, 64% on relative abundance
-
+pretty big differences between seasons, R2 of 65% on the absolute biomass, 95% on relative biomass
 THough I may need to update this with some sort of variable to account for day of year. Not sure. 
 
 Now I'll look for changes by location
@@ -336,8 +346,12 @@ Falla = adonis2(Fallzoopmat~Location, data = Fallzoops)
 Falla
 #
 
+######################################################
+#this is the second permanova for the paper
 Fallb = adonis2(Fallzoopmat2~Location, data = Fallzoops)
 Fallb
+write.csv(tidy(Fallb), "outputs/FallZoops.csv", row.names = F)
+
 #
 
 
@@ -355,7 +369,7 @@ zoopmat = as.matrix(zoops[,6:12])
 #relative abundance matrix
 zoopmat2 = zoopmat/rowSums(zoopmat)
 
-N1 = metaMDS(zoopmat2)
+N1 = metaMDS(zoopmat2, trymax = 50, try = 20)
 zoops = mutate(zoops, Season  = as.factor(Season), Location = as.factor(Location))
 PlotNMDS(N1, zoops, group = "Season")
 PlotNMDS(N1, zoops, group = "Location")
@@ -363,7 +377,7 @@ PlotNMDS(N1, zoops, group = "Location")
 RVN1 = metaMDS(RVzoopmat2)
 RVzoops = mutate(RVzoops, Season  = as.factor(Season), Location = as.factor(Location))
 PlotNMDS(RVN1, RVzoops, group = "Season")
-PlotNMDS(RVN1, RVzoops, group = "Location")
+
 
 ```
 
@@ -418,7 +432,7 @@ norm.tag <- diet2[!is.na(diet2$Location),]
 weird.tag <- weird.tag %>% separate(Tag, c("Location", "X.date", "Tag"))
 
 #remove new date column
-weird.tag <- subset(weird.tag, select = -6)
+weird.tag <- subset(weird.tag, select = -X.date)
 
 #add mesh types for prototype experiment
 #create new column for mesh types
@@ -452,6 +466,8 @@ diet = mutate(diet, Location2 = case_when(Location %in% c("RV", "RIVERS") ~ "RV"
 diet$Count[which(diet$Count == "1 maybe 2")] = "1"
 diet$Count = as.numeric(diet$Count)
 
+save(diet, file = "Dietdata.Rdata")
+
 #pivot_wider
 dietwide = mutate(diet, SampleID = paste(Location, Tag)) %>%
   pivot_wider(id_cols = c(SampleID, Location, Date, Season, datatype), names_from = Taxa, values_from = Count, values_fn = sum, values_fill = 0)
@@ -463,7 +479,6 @@ Now put the zoop data and diet data together
 
 
 ```{r}
-
 zoopdiet = bind_rows(zoops, dietwide) %>%
   mutate(Amphipod = case_when(is.na(Amphipod) ~0, TRUE ~ Amphipod),
          Diptera = case_when(is.na(Diptera) ~0, TRUE ~ Diptera)) %>%
@@ -483,13 +498,50 @@ zoopdietmat2 = zoopdietmat/rowSums(zoopdietmat)
 #look at just Rio Vista
 RVdietzoops = filter(zoopdiet, Location == "RV")
 
+#Now fall
+Falldietzoops = filter(zoopdiet, Season == "Fall")
+
 #Convert to reletive abundance
 RVzoopdietmat = as.matrix(RVdietzoops[,c(6:11, 13, 14)])
 RVzoopdietmat2 = RVzoopdietmat/rowSums(RVzoopdietmat)
 
+Fallzoopdietmat = as.matrix(Falldietzoops[,c(6:11, 13, 14)])
+Fallzoopdietmat2 = Fallzoopdietmat/rowSums(Fallzoopdietmat)
 
-RVda = adonis2(RVzoopdietmat2~ datatype + Season, data = RVdietzoops)
+##########################This is the analysis for the paper!!!!
+RVda = adonis2(RVzoopdietmat2~ datatype*Season, data = RVdietzoops)
 RVda
+write.csv(tidy(RVda), "outputs/DietZooppermanova.csv")
+
+Fallda = adonis2(Fallzoopdietmat2~ Location*datatype, data = Falldietzoops)
+
+Fallda
+write.csv(tidy(Fallda), "outputs/DietZooppermanovaFall.csv")
+
+```
+
+
+Let's look at this a little more closely,s ee if we see any patterns. 
+
+```{r}
+#It's really odd that data type isn't that important given some critters that show up in diet and not zooplankton at all.
+
+ggplot(zoopdietlong, aes(x = SampleID, y = count, fill = Taxa)) + geom_col()+
+  facet_wrap(~datatype, scales = "free")
+
+ggplot(filter(zoopdietlong, Location == "RV"), aes(x = SampleID, y = count, fill = Taxa)) + geom_col()+
+  facet_wrap(Season~datatype, scales = "free")
+
+ggplot(filter(zoopdietlong, Location == "RV"), aes(x = SampleID, y = count, fill = Taxa)) + geom_col(position = "fill")+
+  facet_wrap(Season~datatype, scales = "free")
+
+
+```
+
+I tested for an interaction between datatype and season, but nothing. I think it's just too variable to say much. 
+
+```{r}
+#NMDS's that we probably won't include
 
 zdM = metaMDS(zoopdietmat2)
 
@@ -509,10 +561,19 @@ Basic plot of zoops versus diet
 zoopdietlong = pivot_longer(zoopdiet, cols = c(Ostracod, Cyclopoid, Calanoid, Cladocera, Harpacticoid, Other, Amphipod, Diptera),
                             names_to = "Taxa", values_to= "count")
 
+zoopnos = group_by(zoopdiet, datatype, Season, Location) %>%
+  summarize(N = length(unique(SampleID)))
+
 ggplot(zoopdietlong, aes(x = datatype, y = count, fill = Taxa))+
   geom_col(position = "fill")+
-  facet_grid(Location~Season)
+  facet_grid(Location~Season)+
+  scale_fill_brewer(palette = "Dark2", name = "Taxon")+
+  theme_bw()+
+  ylab("Relative Abundance")+
+  geom_label(data = zoopnos, aes(x = datatype, y = 1, label = N), inherit.aes = FALSE)+
+  scale_x_discrete(labels = c("Zooplankton", "Diets"), name = NULL)
 
+ggsave("outputs/zoopdiet.tiff", device = "tiff", width = 8, height = 6.5)
 
 ```
 

@@ -62,7 +62,7 @@ norm.tag <- diet2[!is.na(diet2$Location),]
 weird.tag <- weird.tag %>% separate(Tag, c("Location", "X.date", "Tag"))
 
 #remove new date column
-weird.tag <- subset(weird.tag, select = -6)
+weird.tag <- select(weird.tag, -X.date)
 
 #add mesh types for prototype experiment
 #create new column for mesh types
@@ -230,3 +230,4 @@ library(scales)
 show_col(viridis_pal(option = "plasma")(8))
 viridis_pal(option = "plasma")(8)
 ```
+
