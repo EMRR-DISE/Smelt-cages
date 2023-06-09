@@ -15,6 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(lubridate)
 library(readr)
+library(here)
 root <- "smelt_2019_allseasons"
 ```
 
@@ -27,49 +28,49 @@ Tasks:
 # Condition Factor, Length, Weight
 1. Read data
 ```{r}
-summerdata <- read_csv("smelt_2019_allseasons/Raw_Smelt-Length-Weight_Summer2019.csv", col_types = cols(Deployment = "f", Period = "f", Site = "f", ID = "c", FL_mm = "c", Weight_g= "d", Cage = "f", K =  "d", Comments =  "c")) %>%
-  rename(K0 = K) 
-falldata <- read_csv("smelt_2019_allseasons/Raw_Smelt-Length-Weight_Fall2019.csv", col_types = cols(Deployment = "f", Period = "f", Site = "f", ID = "c", FL_mm = "c", Weight_g= "d", Cage = "f", K =  "d", Comments =  "c")) %>%
-  rename(K0 = K)
+summerdata <- read_csv(here(root,"data_raw","Raw_Smelt-Length-Weight_Summer2019.csv"), col_types = cols(Deployment = "f", Period = "f", Site = "f", ID = "c", FL_mm = "c", Weight_g= "d", Cage = "f", K =  "d", Comments =  "c")) %>%
+  rename(K0 = K) %>%
+  mutate(Season = "Summer")
 
-winterspringdata <- read_csv("smelt_2019_allseasons/Cagetype_data.csv") %>%
+falldata <- read_csv(here::here(root,"data_raw", "Raw_Smelt-Length-Weight_Fall2019.csv"), col_types = cols(Deployment = "f", Period = "f", Site = "f", ID = "c", FL_mm = "c", Weight_g= "d", Cage = "f", K =  "d", Comments =  "c")) %>%
+  rename(K0 = K) %>%
+  mutate(Season = "Fall")
+
+winterspringdata <- read_csv(here(root, "data_raw", "Cagetype_data.csv")) %>%
   rename(Pre_FL=Pre_FL_cm,
          Post_FL=Post_FL_cm,
          Pre_Weight=Pre_Weight_g,
-         Post_Weight=Post_Weight_g)
+         Post_Weight=Post_Weight_g) %>%
+  mutate(Season = "Winter",
+         ID = paste0("Winter_",`...1`))
 ```
 
 2. Reformat
 ```{r}
 winspring_long <- winterspringdata %>% 
-  select(-Delta_CF, -X1) %>%
+  select(-Delta_CF, -`...1`) %>%
   pivot_longer(cols = c(Pre_FL:Post_CF),
                names_to = c("Period", ".value"),
                names_sep = "_") 
   
 # Filter to only large mesh and RV
 winspring_clean <- winspring_long %>%
-  filter(Site != "DWSC",
-         Mesh == "large") %>%
   rename(FL_cm = FL,
          Weight_g = Weight,
          K0 = CF) %>%
-  mutate(Deployment = ifelse(Site =="DWSC", "Spring",
-                             ifelse(Site == "RV", "Winter", NA )),
-         ID = NA,
-         ID = as.character(ID),
+  mutate(Deployment = "Winter",
          Deployment = as.factor(Deployment),
          Period = as.factor(Period),
          Site = as.factor(Site),
          Cage = as.factor(Cage))%>%
-  select(Deployment, Period, Site, ID, FL_cm, Weight_g, Cage)
+  select(Deployment, Period, Site, ID, FL_cm, Weight_g, Cage, Season)
 
 summerfall_clean <- rbind(summerdata, falldata) %>%
   mutate(FL_mm = replace(FL_mm, FL_mm == "-", NA),
          FL_mm = as.numeric(FL_mm),
          FL_mm = FL_mm/10, na.rm = TRUE) %>%
   rename(FL_cm = FL_mm) %>%
-  select(Deployment, Period, Site, ID, FL_cm, Weight_g, Cage)
+  select(Deployment, Period, Site, ID, FL_cm, Weight_g, Cage, Season)
 
 ```
 
