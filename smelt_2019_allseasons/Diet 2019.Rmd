@@ -229,5 +229,7 @@ ggsave("smelt_2019_allseasons/figures/diet19_multipanel.png", dpi=250, height=6,
 library(scales)
 show_col(viridis_pal(option = "plasma")(8))
 viridis_pal(option = "plasma")(8)
+
+write.csv(prop2, "smelt_2019_allseasons/data_clean/Diet.proportions.csv", row.names=FALSE)
 ```
 

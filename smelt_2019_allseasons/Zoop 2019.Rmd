@@ -256,6 +256,8 @@ ggplot() +
       legend.title = element_text(size = 10))
 
 ggsave("smelt_2019_allseasons/figures/macrozoop19.png", dpi=250, height=6, width=6, units="in")
+
+write.csv(caught.19, "smelt_2019_allseasons/data_clean/Zoop.catch.csv", row.names=FALSE)
 ```
 
 # repeated measures ANOVA
