@@ -3,28 +3,60 @@ title: "Biofouling"
 author: "Nicole Kwan"
 date: "2023-06-09"
 output: html_document
+editor_options: 
+  chunk_output_type: console
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+# load packages
+```{r message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
+library(tidyverse)
 ```
 
-## R Markdown
+# bring in & prep data
+```{r}
+biofoul <- read_csv("smelt_2019_allseasons/data_raw/Invert.data.csv")
+diet <- read_csv("smelt_2019_allseasons/data_clean/Diet.proportions.csv")
+zoop <- read_csv("smelt_2019_allseasons/data_clean/Zoop.catch.csv")
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+#unique(prop2$Taxa)
+#unique(caught.19$Taxa)
+#unique(biofoul$Taxa)
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+#filter diet dataset to just fall fish
+diet.fall <- filter(diet, Season == "Fall")
 
-```{r cars}
-summary(cars)
+#filter zoop dataset to final day of sampling 
+zoop.fall <- filter(zoop, Date == "2019-11-04")
+
+#match up taxa names to work with biofoul data
+zoop.fall$Taxa2 <- zoop.fall$Taxa
+zoop.fall[zoop.fall$Taxa %in% c("Cyclopoid", "Calanoid"),]$Taxa2 <- "Copepod"
+zoop.fall[zoop.fall$Taxa %in% c("Microzoo", "Ostracod", "Cladocera"),]$Taxa2 <- "Other"
+
+diet.fall$Taxa2 <- diet.fall$Taxa
+diet.fall[diet.fall$Taxa %in% c("Cyclopoid", "Calanoid"),]$Taxa2 <- "Copepod"
+diet.fall[diet.fall$Taxa %in% c("Ostracod", "Cladocera"),]$Taxa2 <- "Other"
+
+biofoul$Taxa2 <- biofoul$Taxa
+biofoul[biofoul$Taxa %in% c("Corphiidae", "Gammaridae"),]$Taxa2 <- "Amphipod"
+
+#condense
+zoop.fall2 <- zoop.fall[c(1,10,7)]
+diet.fall2 <- diet.fall[c(2,5,3)]
+biofoul2 <- biofoul[c(1,4,3)]
+
+#rename columns
+zoop.fall2 <- zoop.fall2 %>% rename(zoop = "ind_m3")
+diet.fall2 <- diet.fall2 %>% rename(diet = "prop.mean")
+biofoul2 <- biofoul2 %>% rename(biofoul = "Count")
+
+#combine
+all <- merge(zoop.fall2, diet.fall2, by="Location")
 ```
 
-## Including Plots
+# plot
+```{r}
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
