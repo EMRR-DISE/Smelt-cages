@@ -172,6 +172,8 @@ winter <- winter[!(winter$Method=="Throw"),]
 #change ostracod taxa
 winter[winter$Taxon %in% c("Ostracods"),]$Taxa <- "Ostracod"
 #merge with catch df
+
+
 #condense to columns of interest
 winter2 <- winter %>%
   rename(ID = Taxon) %>%
@@ -197,6 +199,9 @@ all2019 <- rbind(winter2, caught2)
 
 #remove 0's
 caught.19 <- all2019[!(all2019$ind_m3==0),]
+
+#write file for biofouling comparison
+write.csv(caught.19, "smelt_2019_allseasons/data_clean/Zoop.catch.csv", row.names=FALSE)
 ```
 
 # plot all 2019
@@ -256,8 +261,6 @@ ggplot() +
       legend.title = element_text(size = 10))
 
 ggsave("smelt_2019_allseasons/figures/macrozoop19.png", dpi=250, height=6, width=6, units="in")
-
-write.csv(caught.19, "smelt_2019_allseasons/data_clean/Zoop.catch.csv", row.names=FALSE)
 ```
 
 # repeated measures ANOVA
