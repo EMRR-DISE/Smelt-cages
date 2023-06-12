@@ -11,52 +11,133 @@ editor_options:
 ```{r message=FALSE, warning=FALSE}
 knitr::opts_chunk$set(message = FALSE, warning = FALSE)
 library(tidyverse)
+library(ggpubr)
 ```
 
-# bring in & prep data
+# bring in & prep biofouling data
 ```{r}
 biofoul <- read_csv("smelt_2019_allseasons/data_raw/Invert.data.csv")
-diet <- read_csv("smelt_2019_allseasons/data_clean/Diet.proportions.csv")
-zoop <- read_csv("smelt_2019_allseasons/data_clean/Zoop.catch.csv")
+unique(biofoul$Taxa)
 
-#unique(prop2$Taxa)
-#unique(caught.19$Taxa)
-#unique(biofoul$Taxa)
-
-#filter diet dataset to just fall fish
-diet.fall <- filter(diet, Season == "Fall")
-
-#filter zoop dataset to final day of sampling 
-zoop.fall <- filter(zoop, Date == "2019-11-04")
-
-#match up taxa names to work with biofoul data
-zoop.fall$Taxa2 <- zoop.fall$Taxa
-zoop.fall[zoop.fall$Taxa %in% c("Cyclopoid", "Calanoid"),]$Taxa2 <- "Copepod"
-zoop.fall[zoop.fall$Taxa %in% c("Microzoo", "Ostracod", "Cladocera"),]$Taxa2 <- "Other"
-
-diet.fall$Taxa2 <- diet.fall$Taxa
-diet.fall[diet.fall$Taxa %in% c("Cyclopoid", "Calanoid"),]$Taxa2 <- "Copepod"
-diet.fall[diet.fall$Taxa %in% c("Ostracod", "Cladocera"),]$Taxa2 <- "Other"
-
+#match ID level to diet data
 biofoul$Taxa2 <- biofoul$Taxa
 biofoul[biofoul$Taxa %in% c("Corphiidae", "Gammaridae"),]$Taxa2 <- "Amphipod"
 
-#condense
-zoop.fall2 <- zoop.fall[c(1,10,7)]
-diet.fall2 <- diet.fall[c(2,5,3)]
-biofoul2 <- biofoul[c(1,4,3)]
+#sum across location
+biofoul2<- biofoul %>% 
+  group_by(Taxa2, Location) %>% 
+  summarize("Count.sum"= sum(Count))
 
 #rename columns
-zoop.fall2 <- zoop.fall2 %>% rename(zoop = "ind_m3")
-diet.fall2 <- diet.fall2 %>% rename(diet = "prop.mean")
-biofoul2 <- biofoul2 %>% rename(biofoul = "Count")
+biofoul3 <- biofoul2 %>% rename(biofoul = "Count.sum")
+```
+
+# bring in & prep diet data
+```{r}
+diet <- read_csv("smelt_2019_allseasons/data_clean/Diet.proportions.csv")
+unique(diet$Taxa)
+
+#match up taxa names to work with biofoul data
+diet$Taxa2 <- diet$Taxa
+diet[diet$Taxa %in% c("Cyclopoid", "Calanoid"),]$Taxa2 <- "Copepod"
+diet[diet$Taxa %in% c("Ostracod", "Cladocera"),]$Taxa2 <- "Other"
+
+#sum across location
+diet2<- diet %>% 
+  group_by(Taxa2, Location) %>% 
+  summarize("Count.sum"= sum(Count))
+
+unique(diet2$Location)
+
+#filter to just fall at core sites
+diet3 <- diet2 %>% filter(Location == "RV.Fall" | Location == "SM.Fall" | Location == "YB.Fall")
+
+#remove empty
+diet4<-diet3[diet3$Taxa2 != "empty",]
+
+#change Location to drop season
+diet4$Location[diet4$Location=="RV.Fall"] <- "RV"
+diet4$Location[diet4$Location =="YB.Fall"] <- "YB"
+diet4$Location[diet4$Location =="SM.Fall"] <- "SM"
+
+#rename columns
+diet4 <- diet4 %>% rename(diet = "Count.sum")
+```
+
+# bring in & prep zooplankton data & merge all datasets
+```{r}
+zoop <- read_csv("smelt_2019_allseasons/data_clean/Zoop.catch.csv")
+unique(zoop$Taxa)
+
+#filter zoop dataset to final day of sampling 
+zoop2 <- filter(zoop, Date == "2019-11-04")
+
+#remove microzoop
+zoop2 <- zoop2[!(zoop2$Taxa=="Microzoo"),]
+
+#match up taxa names to work with biofoul data
+zoop2$Taxa2 <- zoop2$Taxa
+zoop2[zoop2$Taxa %in% c("Cyclopoid", "Calanoid"),]$Taxa2 <- "Copepod"
+zoop2[zoop2$Taxa %in% c("Ostracod", "Cladocera"),]$Taxa2 <- "Other"
+
+#sum across new taxa
+zoop3<- zoop2 %>% 
+  group_by(Taxa2, Location) %>% 
+  summarize("sum.indm3"= sum(ind_m3))
+
+#rename columns
+zoop4 <- zoop3 %>% rename(zoop = "sum.indm3")
 
 #combine
-all <- merge(zoop.fall2, diet.fall2, by="Location")
+all <- merge(x=diet4,y=zoop4,
+        by=c("Location","Taxa2"), all=TRUE)
+
+all2 <- merge(x=all,y=biofoul3,
+        by=c("Location","Taxa2"), all=TRUE)
+
+#swap NAs with 0
+all2[is.na(all2)] <- 0
 ```
 
 # plot
 ```{r}
+b<-ggplot(data=all2, aes(x=Location, y =biofoul, fill=Taxa2)) +
+    geom_bar(position="fill", stat="identity", colour="black") +
+  theme_bw() +
+  viridis::scale_fill_viridis(discrete = TRUE, option = "plasma") +
+  theme(legend.position="right", axis.title.x = element_blank())+
+  labs(y = "Biofoul samples")
 
+z<-ggplot(data=all2, aes(x=Location, y =zoop, fill=Taxa2)) +
+    geom_bar(position="fill", stat="identity", colour="black") +
+  theme_bw() +
+  viridis::scale_fill_viridis(discrete = TRUE, option = "plasma") +
+  theme(legend.position="right", axis.title.x = element_blank())+
+  labs(y = "Zooplankton samples") #final day, no microzoop
+
+d<-ggplot(data=all2, aes(x=Location, y =diet, fill=Taxa2)) +
+    geom_bar(position="fill", stat="identity", colour="black") +
+  theme_bw() +
+  viridis::scale_fill_viridis(discrete = TRUE, option = "plasma") +
+  theme(legend.position="right", axis.title.x = element_blank())+
+  labs(y = "Stomach contents")
+
+multiplot <- ggarrange(b,z,d, nrow=3, ncol=1)
+multiplot
+```
+
+# cross-ref what that big chunk of "other" is in the zoop data
+```{r}
+#sum across new taxa
+zoop.only<- zoop2 %>% 
+  group_by(Taxa, Location) %>% 
+  summarize("sum.indm3"= sum(ind_m3))
+
+ggplot(data=zoop.only, aes(x=Location, y =sum.indm3, fill=Taxa)) +
+  geom_bar(position="fill", stat="identity", colour="black") +
+  theme_bw() +
+  viridis::scale_fill_viridis(discrete = TRUE, option = "plasma") +
+  theme(legend.position="right", axis.title.x = element_blank())+
+  labs(y = "Zooplankton samples - final day")
 ```
 
