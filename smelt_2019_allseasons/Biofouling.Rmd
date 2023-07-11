@@ -1,0 +1,143 @@
+---
+title: "Biofouling"
+author: "Nicole Kwan"
+date: "2023-06-09"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# load packages
+```{r message=FALSE, warning=FALSE}
+knitr::opts_chunk$set(message = FALSE, warning = FALSE)
+library(tidyverse)
+library(ggpubr)
+```
+
+# bring in & prep biofouling data
+```{r}
+biofoul <- read_csv("smelt_2019_allseasons/data_raw/Invert.data.csv")
+unique(biofoul$Taxa)
+
+#match ID level to diet data
+biofoul$Taxa2 <- biofoul$Taxa
+biofoul[biofoul$Taxa %in% c("Corphiidae", "Gammaridae"),]$Taxa2 <- "Amphipod"
+
+#sum across location
+biofoul2<- biofoul %>% 
+  group_by(Taxa2, Location) %>% 
+  summarize("Count.sum"= sum(Count))
+
+#rename columns
+biofoul3 <- biofoul2 %>% rename(biofoul = "Count.sum")
+```
+
+# bring in & prep diet data
+```{r}
+diet <- read_csv("smelt_2019_allseasons/data_clean/Diet.proportions.csv")
+unique(diet$Taxa)
+
+#match up taxa names to work with biofoul data
+diet$Taxa2 <- diet$Taxa
+diet[diet$Taxa %in% c("Cyclopoid", "Calanoid"),]$Taxa2 <- "Copepod"
+diet[diet$Taxa %in% c("Ostracod", "Cladocera"),]$Taxa2 <- "Other"
+
+#sum across location
+diet2<- diet %>% 
+  group_by(Taxa2, Location) %>% 
+  summarize("Count.sum"= sum(Count))
+
+unique(diet2$Location)
+
+#filter to just fall at core sites
+diet3 <- diet2 %>% filter(Location == "RV.Fall" | Location == "SM.Fall" | Location == "YB.Fall")
+
+#remove empty
+diet4<-diet3[diet3$Taxa2 != "empty",]
+
+#change Location to drop season
+diet4$Location[diet4$Location=="RV.Fall"] <- "RV"
+diet4$Location[diet4$Location =="YB.Fall"] <- "YB"
+diet4$Location[diet4$Location =="SM.Fall"] <- "SM"
+
+#rename columns
+diet4 <- diet4 %>% rename(diet = "Count.sum")
+```
+
+# bring in & prep zooplankton data & merge all datasets
+```{r}
+zoop <- read_csv("smelt_2019_allseasons/data_clean/Zoop.catch.csv")
+unique(zoop$Taxa)
+
+#filter zoop dataset to final day of sampling 
+zoop2 <- filter(zoop, Date == "2019-11-04")
+
+#remove microzoop
+zoop2 <- zoop2[!(zoop2$Taxa=="Microzoo"),]
+
+#match up taxa names to work with biofoul data
+zoop2$Taxa2 <- zoop2$Taxa
+zoop2[zoop2$Taxa %in% c("Cyclopoid", "Calanoid"),]$Taxa2 <- "Copepod"
+zoop2[zoop2$Taxa %in% c("Ostracod", "Cladocera"),]$Taxa2 <- "Other"
+
+#sum across new taxa
+zoop3<- zoop2 %>% 
+  group_by(Taxa2, Location) %>% 
+  summarize("sum.indm3"= sum(ind_m3))
+
+#rename columns
+zoop4 <- zoop3 %>% rename(zoop = "sum.indm3")
+
+#combine
+all <- merge(x=diet4,y=zoop4,
+        by=c("Location","Taxa2"), all=TRUE)
+
+all2 <- merge(x=all,y=biofoul3,
+        by=c("Location","Taxa2"), all=TRUE)
+
+#swap NAs with 0
+all2[is.na(all2)] <- 0
+```
+
+# plot
+```{r}
+b<-ggplot(data=all2, aes(x=Location, y =biofoul, fill=Taxa2)) +
+    geom_bar(position="fill", stat="identity", colour="black") +
+  theme_bw() +
+  viridis::scale_fill_viridis(discrete = TRUE, option = "plasma") +
+  theme(legend.position="right", axis.title.x = element_blank())+
+  labs(y = "Biofoul samples")
+
+z<-ggplot(data=all2, aes(x=Location, y =zoop, fill=Taxa2)) +
+    geom_bar(position="fill", stat="identity", colour="black") +
+  theme_bw() +
+  viridis::scale_fill_viridis(discrete = TRUE, option = "plasma") +
+  theme(legend.position="right", axis.title.x = element_blank())+
+  labs(y = "Zooplankton samples") #final day, no microzoop
+
+d<-ggplot(data=all2, aes(x=Location, y =diet, fill=Taxa2)) +
+    geom_bar(position="fill", stat="identity", colour="black") +
+  theme_bw() +
+  viridis::scale_fill_viridis(discrete = TRUE, option = "plasma") +
+  theme(legend.position="right", axis.title.x = element_blank())+
+  labs(y = "Stomach contents")
+
+multiplot <- ggarrange(b,z,d, nrow=3, ncol=1)
+multiplot
+```
+
+# cross-ref what that big chunk of "other" is in the zoop data
+```{r}
+#sum across new taxa
+zoop.only<- zoop2 %>% 
+  group_by(Taxa, Location) %>% 
+  summarize("sum.indm3"= sum(ind_m3))
+
+ggplot(data=zoop.only, aes(x=Location, y =sum.indm3, fill=Taxa)) +
+  geom_bar(position="fill", stat="identity", colour="black") +
+  theme_bw() +
+  viridis::scale_fill_viridis(discrete = TRUE, option = "plasma") +
+  theme(legend.position="right", axis.title.x = element_blank())+
+  labs(y = "Zooplankton samples - final day")
+```
+

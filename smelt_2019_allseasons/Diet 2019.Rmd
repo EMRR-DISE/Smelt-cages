@@ -120,6 +120,9 @@ diet$Count<-as.numeric(diet$Count)
 
 diet$tlc = paste(diet$Tag, diet$Location, diet$Cage.ID)
 
+#write csv for use in biofouling comparison
+write.csv(diet, "smelt_2019_allseasons/data_clean/Diet.proportions.csv", row.names=FALSE)
+
 #sum for taxa abundance among individual fish
 taxa_tag<- diet %>% 
   group_by(Location, tlc, Taxa) %>% 
