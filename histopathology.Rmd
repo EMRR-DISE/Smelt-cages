@@ -158,6 +158,8 @@ ggplot(gills, aes(x = treatment, y = gill, fill = season)) +
 
 ggplot(goodgills, aes(x = treatment, y = gill, fill = season)) +
   geom_boxplot()
+
+
 ```
 
 Now the statistics
@@ -204,6 +206,28 @@ autoplot.clm(c1)
 
 #so, no real difference in gill leasions between treatments or seasons
 
+
+```
+
+Now compare rio vista in fall versus suisun marsh in fall
+
+```{r}
+
+library(ordinal)
+
+
+fallgills = mutate(gills, Fgill = factor(gill, ordered = T)) %>%
+  filter(season == "Fall")
+c1f = clm(Fgill ~ treatment, data = fallgills)
+summary(c1f)
+
+convergence(c1f)
+autoplot.clm(c1f)
+#beautiful!
+
+#can I do a post hoc?
+library(emmeans)
+emmeans(c1f, pairwise ~ treatment)
 
 ```
 
