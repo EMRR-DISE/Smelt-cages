@@ -1,0 +1,229 @@
+---
+title: "Diet power analysis"
+author: "Rosie"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = F)
+library(tidyverse)
+library(lubridate)
+library(lme4)
+library(lmerTest)
+library(simr)
+```
+
+## R Markdown
+
+Let's look at stomach fullness and diet weight variability to see if we can use it in 2023
+
+```{r}
+load("Dietdata.Rdata")
+
+dietsmelt = select(diet, Date, Cage.ID, Location, Tag, Fullness, Digestion, Contents.Weight, Season) %>%
+  distinct() %>%
+  mutate(smeltID = paste(Location, Date, Tag), Month = month(Date), CageID2 = paste(Location, Cage.ID)) 
+  
+
+ggplot(dietsmelt, aes(x = Fullness))+ geom_density()+
+  facet_wrap(~Location)
+
+```
+
+Some exploritory plots
+
+
+```{r}
+ggplot(dietsmelt, aes(x = smeltID, y = Contents.Weight))+ geom_col()+
+  facet_wrap(~Location, scales = "free_x")
+
+ggplot(dietsmelt, aes(x = smeltID, y = Contents.Weight))+ geom_col()+
+  facet_wrap(Season~Location, scales = "free_x")
+
+ggplot(dietsmelt, aes(x = Location, y = Contents.Weight))+ geom_boxplot()+
+  facet_wrap(~Season, scales = "free_x")
+
+ggplot(dietsmelt, aes(x = Location, y = Fullness))+ geom_boxplot()+
+  facet_wrap(~Season, scales = "free_x")
+
+ggplot(dietsmelt, aes(x = CageID2, y = Contents.Weight))+ geom_boxplot()+
+  facet_wrap(Location~Season, scales = "free_x")
+
+
+```
+
+Can I statistically compare stomach fullness or weights between cage deployments?
+
+Differences between locations in the fall will be the most useful, potentially.
+
+
+```{r}
+falldiet = filter(dietsmelt, Season == "Fall")
+sf1 = lmer(Fullness ~ Location + (1|CageID2), data = falldiet)
+summary(sf1)
+plot(sf1)
+
+library(emmeans)
+plot(emmeans(sf1, pairwise ~ Location), comparison = T)
+```
+
+Nope. 
+
+```{r}
+
+fixef(sf1)["LocationSM"] = 0.1
+fixef(sf1)["LocationYB"] = 0.1
+#p1=powerSim(sf1, fixed("Location", "lr"))
+
+#i'm getting nasty erros for all of teh power analyses with random effec tof cage and i on't know why
+
+
+sf2 = lm(Fullness ~ Location, data = falldiet)
+summary(sf2)
+
+plot(sf2)
+
+sf2$effects["LocationSM"] = 2
+
+powerSim(sf2, progress = F)
+#so, very, very low power
+
+#how much power do we need?
+
+
+model4 <- extend(sf2, within="Location", n=200)
+
+#this takes forever to run, i'll do it tonight
+pc4 <- powerCurve(model4,within="Location", breaks=c(50,100,150,200,250), progress =F)
+print(pc4)
+
+plot(pc4)
+#so, no.
+
+```
+
+Now let's try diet contents weight
+
+```{r}
+
+hist(log(falldiet$Contents.Weight))
+
+#convert weight to mg and log-transform
+falldiet = mutate(falldiet, Weight = Contents.Weight*1000, logweight = log(Weight+1))
+
+dw2 = lmer(logweight ~ Location + (1|CageID2), data = falldiet)
+summary(dw2)
+plot(emmeans(dw2, pairwise ~ Location), comparison = T)
+plot(dw2)
+
+fixef(dw2)["LocationYB"] = 0.2
+#I don't know why i'm getting a bunch of 'is singular' errors, but we're still getting the power data
+powerSim(dw2, fixed("LocationYB", "z"), progress = F)
+
+#I'll try a simpler model without the random effect 
+dw1 = lm(logweight ~ Location, data = falldiet)
+summary(dw1)
+plot(emmeans(dw1, pairwise ~ Location), comparison = T)
+plot(dw1)
+
+dw1$effects["LocationSM"] = .2
+
+powerSim(dw1, progress =F)
+#OK, that's better
+
+#how much power do we need?
+
+
+moddw <- extend(dw1, within="Location", n=200)
+
+#power curve
+pc5 <- powerCurve(moddw,within="Location", breaks=c(10, 20,30,40,50,100), progress =F)
+print(pc5)
+
+plot(pc5)
+#so, we may be able to say something there.
+
+```
+
+Now let's look at growth data
+
+```{r}
+#source("smelt_2019_allseasons.Rmd")
+#smeltdata2
+load("Smeltdata.RData")
+box_FL
+box_K
+box_Wt
+```
+
+Compare post-deployment weights in the fall
+
+```{r}
+fallsmelt = filter(smeltdata2, Deployment == "Fall", Period == "Post")
+
+hist(fallsmelt$FL_cm)
+
+#were lengths significantly different?
+sml1 = lmer(FL_cm ~ Site  + (1|Cage), data = fallsmelt)
+summary(sml1)
+emmeans(sml1, pairwise~Site)
+
+
+fixef(sml1)["SiteSM"] = 0.1
+fixef(sml1)["SiteYolo"] = 0.1
+fixef(sml1)["SiteFCCL"] = 0.1
+
+powerSim(sml1, progress = F)
+
+
+#check various sample sizes
+#how much power do we need?
+
+
+modfl <- extend(sml1, within="Site", n=200)
+
+#power curve
+pc6 <- powerCurve(modfl,within="Site", breaks=c(10, 20,30,40,50,100), progress =F)
+print(pc6)
+
+plot(pc6)
+#so, we may be able to say something there.
+```
+
+
+```{r}
+#what about condition factor?
+hist(fallsmelt$K)
+
+sml2 = lmer(K ~ Site  + (1|Cage), data = fallsmelt)
+summary(sml2)
+emmeans(sml2, pairwise~Site)
+
+#Meh
+
+fixef(sml2)["SiteSM"] = 0.02
+fixef(sml2)["SiteYolo"] = 0.02
+fixef(sml2)["SiteFCCL"] = 0.02
+
+powerSim(sml2, progress = F)
+
+
+#check various sample sizes
+#how much power do we need?
+
+
+modk <- extend(sml2, within="Site", n=200)
+
+#power curve
+pc6 <- powerCurve(modk,within="Site", breaks=c(10, 20,30,40,50,100), progress =F)
+print(pc6)
+
+plot(pc6)
+#so, we may be able to say something there.
+
+
+```
+
+
+
