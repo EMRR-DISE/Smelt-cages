@@ -142,9 +142,24 @@ ggplot(WQmean, aes(x = Date, y = MeanValue,
   ylab("Turbidity (FNU)          Temperature (C)             Salinity (PSU)         Dissolved Oxygen (mg/L)")+
   xlab("Date")+
   theme_bw()+
+  theme(axis.text.x = element_text(angle = 45, hjust =1))+
   scale_color_brewer(palette = "Dark2", labels = c("Suisun Marsh", "SDWSC", "Yolo", "Rio Vista"), name = "Location")+
   scale_fill_brewer(palette = "Dark2", labels = c("Suisun Marsh", "SDWSC", "Yolo", "Rio Vista"), name = "Location")+
   geom_hline(data = cuttoffs, aes(yintercept = cuttoff, linetype = Type), 
              color = "red")
 
 ggsave("plots/ContWaterQuality.tiff", device = "tiff", width =8, height =7)
+
+#Summary statistics
+
+cagechecks2019 <- read_csv("smelt_2019_winterspring/data_raw/2019_smeltstudy_dailycheck_data.csv")
+
+sumstast = group_by(cagechecks2019, Location) %>%
+  summarize(SpConda = mean(SpCond), maxSC = max(SpCond), minSC = min(SpCond),
+            DOa = mean(DO), minDO = min(DO), maxDO = max(DO),
+            pHa = median(pH), minnpH = min(pH), maxpH = max(pH),
+            minSecchi = min(Secchi, na.rm =T), maxSecchi = max(Secchi, na.rm =T),
+            MinTemp = min(WaterTemp), MaxTemp = max(WaterTemp),
+            WaterTemp = mean(WaterTemp), 
+            Secchia = mean(Secchi, na.rm =T),
+            Turbiditya = mean(AvgTurb), MaxTurb = max(AvgTurb), MinTurb = min(AvgTurb))

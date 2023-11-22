@@ -72,7 +72,7 @@ all$ind_m3 <- all$samplecount/all$volumesampled
 
 #remove 0's
 caught <- all[!(all$ind_m3==0),]
-biomass = read_csv("zooptaxa.csv")
+biomass = read_csv("data/zooptaxa.csv")
 caught = left_join(caught, biomass) %>%
   mutate(bio_m3 = Mass*ind_m3)
 
@@ -107,7 +107,7 @@ pal36 <- as.vector(t(pal36))
 
 #First to CPUE
 ggplot() +
-  geom_bar(position = "fill", stat = "identity", data=caught, aes (x=MD, y=ind_m3, fill=ID), colour="black", width = .5) +
+  geom_bar(stat = "identity", data=caught, aes (x=MD, y=ind_m3, fill=ID), colour="black", width = .5) +
   facet_wrap(~Location, ncol = 1) +
   theme_bw() + 
   scale_fill_manual(values=pal36)+
@@ -122,12 +122,12 @@ ggplot() +
 
 #now try BPUE
 ggplot() +
-  geom_bar(position = "fill", stat = "identity", data=caught, aes (x=MD, y=bio_m3, fill=ID), colour="black", width = .5) +
+  geom_bar(stat = "identity", data=caught, aes (x=MD, y=bio_m3, fill=ID), colour="black", width = .5) +
   facet_wrap(~Location, ncol = 1) +
   theme_bw() + 
   scale_fill_manual(values=pal36)+
   labs(x = "Date") +
-  labs(y = "Relative Biomass of all Zoop in Sample")+
+  labs(y = "Biomass of all Zoop in Sample")+
   theme(legend.position="right")+
       theme(axis.text = element_text(size = 12),
       axis.title = element_text(size = 12),
@@ -141,7 +141,7 @@ macro <- caught[!(caught$ID=="Copepod nauplii"),]
 macro <- macro[!(macro$ID=="Rotifers"),]
 
 ggplot() +
-  geom_bar(position = "fill", stat = "identity", data=macro, aes (x=MD, y=samplecount, fill=ID), colour="black", width = .5) +
+  geom_bar( stat = "identity", data=macro, aes (x=MD, y=samplecount, fill=ID), colour="black", width = .5) +
   facet_wrap(~Location, ncol = 1) +
   theme_bw() + 
   scale_fill_manual(values=pal36)+
@@ -153,6 +153,26 @@ ggplot() +
       legend.text = element_text(size = 8),
       legend.title = element_text(size = 10),
       axis.text.x = element_text(angle = 90))
+
+
+
+
+ggplot() +
+  geom_bar( stat = "identity", data=filter(macro, ID != "Cyclopoid copepodid"), aes(x=MD, y=bio_m3, fill=ID), colour="black", width = .5) +
+  facet_wrap(~Location, ncol = 1) +
+  theme_bw() + 
+  scale_fill_manual(values=pal36)+
+  labs(x = "Date") +
+  labs(y = "Relative Abundance of Macrozoop in Sample")+
+  theme(legend.position="right")+
+      theme(axis.text = element_text(size = 12),
+      axis.title = element_text(size = 12),
+      legend.text = element_text(size = 8),
+      legend.title = element_text(size = 10),
+      axis.text.x = element_text(angle = 90))
+
+
+
 ```
 
 #bring in winter data

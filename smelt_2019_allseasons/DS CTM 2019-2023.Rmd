@@ -1,0 +1,371 @@
+---
+title: "2019 DS CTM"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+
+```{r load packages & data}
+library(ggplot2)
+library(tidyverse)
+library(ggpubr)
+
+# setwd("C:/Users/bedavis/OneDrive - California Department of Water Resources/My Documents/Special Studies/Internal/Delta Smelt Cages/Cage Synthesis")
+
+```
+
+Summer Fall CTMs in 2019
+
+```{r T 2019  stats}
+#test of SM and RVB in fall
+field.ctm <- read.csv("DS CTM 2019.csv")
+
+field.ctm.2 <- field.ctm %>% 
+  filter(!Season == "Summer")
+t.test(CTM ~ Location, data = field.ctm.2)
+# t = -1.9141
+# df = 15.33
+# p-value = 0.074
+
+
+#test of RV in summer v fall
+field.ctm.3 <- field.ctm %>% 
+  filter(!Location == "SM")
+t.test(CTM ~ Season, data = field.ctm.3)
+
+
+#plot
+
+ggplot(data=field.ctm,aes(x=Loc.Seas, y=CTM, fill=Location)) +
+    geom_boxplot() +
+    scale_fill_viridis(discrete = TRUE, alpha=0.3) +
+    geom_jitter(color="black", size=1, alpha=0.5,height=0,width=0.1) +
+    theme_bw() +
+    theme(
+      legend.position="none",
+      plot.title = element_text(size=11)
+    ) +
+  scale_y_continuous(breaks = round(seq(min(23), max(30), by = 1.0),1), name="Critical Thermal Maximum (°C)")+
+    xlab("")+
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.line = element_line(colour = "black"),
+        axis.text.x = element_text(size = 12, colour = "black"),
+        axis.text.y = element_text(size = 12,colour = "black"),
+        axis.title.x = element_text(size = 14,colour = "black"),
+        axis.title.y = element_text(size = 14,colour = "black"))
+```
+
+CTM acclimation regression
+
+```{r test for normality}
+
+data <- read.csv("data/CTM Regression 2019.csv")
+#density plot
+ggdensity(data$mean.ctm)
+
+#QQ plot
+ggqqplot(data$mean.ctm)
+
+#shapiro test
+shapiro.test(data$mean.ctm)
+```
+
+```{r separate data and create models}
+
+#removed the lab outlier from the dataset
+data.2 <- data %>% 
+  filter(!ID == "f")
+
+#separate data and create separate models
+
+field <- data.2 %>% 
+  filter(loc == "Field")
+
+lab <- data.2 %>% 
+  filter(loc == "Lab")
+
+#model for field CTM data
+field.mod <- lm(mean.ctm ~ acc.temp, field)
+anova(field.mod)
+summary(field.mod) 
+#y = 0.247x + 22.057
+#abline(a = 22.057, b = 0.247) 
+#rsquared = 0.884
+#adjusted rsquared = 0.7681 = 0.77
+#p = 0.22
+
+#model for lab CTM data
+lab.mod <- lm(mean.ctm ~ acc.temp, lab)
+anova(lab.mod)
+summary(lab.mod) 
+#y = 0.276x + 23.771 
+#abline(a = 23.771, b = 0.276)
+#rsquared = 0.9289
+#adjusted rsquared = 0.9051 = 0.91
+#p = 0.008
+
+#estimated CTM of fish deployed at YB during fall
+#22.1 + (0.25*16.5) 
+# = 26.225
+
+#estimated CTM of fish deployed at SM during summer
+#22.1 + (0.25*23.4)
+# = 27.95
+
+
+
+```
+
+```{r plot regression 2019}
+
+  ggplot(data.2, aes(x = acc.temp, y = mean.ctm, color = loc))+
+  geom_smooth(method = "lm", se = F,fullrange=F)+
+  geom_point(size = 2)+
+  geom_errorbar(aes(ymin = mean.ctm - temp.sd, ymax = mean.ctm + temp.sd), width = 0.2)+
+    scale_color_manual("Study Location",
+                    breaks = c("Field", "Lab"),
+                    labels = c("Field", "Lab"),
+                    values = c("cyan3", "tomato"))+
+  geom_point(x = 17, y = 25.4, size = 2, color = "tomato")+
+  geom_errorbar(aes(x = 17, ymin = 25.4 - 1.7, ymax = 25.4 + 1.7), color = "tomato", width = 0.2)+
+  scale_y_continuous(breaks = round(seq(min(23), max(30), by = 1.0),1), name="Critical Thermal Maximum (°C)")+
+  scale_x_continuous(breaks = round(seq(min(12), max(26), by = 2.0),1), name="Acclimation Temperature (°C)")+
+  annotate("text", x = 14, y = 28.5, label = "y = 0.28x + 23.8")+
+  annotate("text", x = 13.5, y = 28.15, label = "R^2 == 0.91", parse = T)+
+  annotate("text", x = 19, y = 26, label = "y = 0.25x + 22.1")+
+  annotate("text", x = 18.45, y = 25.65, label = "R^2 == 0.77", parse = T)+
+ theme_bw() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.line = element_line(colour = "black"),
+        axis.text.x = element_text(size = 12, colour = "black"),
+        axis.text.y = element_text(size = 12,colour = "black"),
+        axis.title.x = element_text(size = 14,colour = "black"),
+        axis.title.y = element_text(size = 14,colour = "black"))+ theme(legend.position="bottom")
+
+```
+
+
+```{r singe linear model 2019}
+##New single linear model with location as factor.
+
+full.mod <- lm(mean.ctm ~ acc.temp+loc, data.2)
+summary(full.mod)
+#intercept of field fish 21.74
+#slope is 0.26, significant effect of acclimation temperature on CTM (p<0.001), with effect of study location (p<0.001).
+#lab intercept is 2.22 higher than field which is 23.96
+#Adj R2=0.94
+anova(full.mod)
+
+modsum = summary(full.mod)
+summary(full.mod)
+
+#plot
+ ggplot(data.2, aes(x = acc.temp, y = mean.ctm, color = loc))+
+ # geom_smooth(method = "lm", se = F,fullrange=F, size=.5)+
+   geom_abline(slope = modsum$coefficients[2,1], intercept = modsum$coefficients[1,1], color = "dodgerblue")+
+   geom_abline(slope = modsum$coefficients[2,1], intercept = modsum$coefficients[1,1]+modsum$coefficients[3,1], color = "tomato")+
+  geom_point(size = 2)+
+  geom_errorbar(aes(ymin = mean.ctm - temp.sd, ymax = mean.ctm + temp.sd), width = 0.2)+
+    scale_color_manual("Study Location",
+                    breaks = c("Field", "Lab"),
+                    labels = c("Field", "Lab"),
+                    values = c("dodgerblue", "tomato"))+
+  geom_point(x = 17, y = 25.4, size = 2.5, shape=1,color = "tomato")+
+  geom_errorbar(aes(x = 17, ymin = 25.4 - 1.7, ymax = 25.4 + 1.7), color = "tomato", width = 0.2)+
+  geom_point(x = 16.5, y = 26.5, size = 2.2,shape= 15,color = "dodgerblue")+
+  geom_errorbar(aes(x = 16.5, ymin = 26.5 - 0.86, ymax = 26.5 + 0.86), color = "dodgerblue", width = 0.2)+
+  scale_y_continuous(breaks = round(seq(min(23), max(30), by = 1.0),1), name="Critical Thermal Maximum (°C)")+
+  scale_x_continuous(breaks = round(seq(min(12), max(26), by = 2.0),1), name="Acclimation Temperature (°C)")+
+  annotate("text", x = 21.5, y = 24, label = "R^2 == 0.94", parse = T)+
+   annotate("text", x = 20, y = 27.2, label = "CTmax = 0.26x + 21.73", angle =18)+
+   annotate("text", x = 14, y = 27.9, label = "CTmax = 0.26x + 23.95", angle =18)+
+  annotate("text", x = 21.5, y = 23.5, label = " P < 0.001", parse=T)+
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.line = element_line(colour = "black"),
+        axis.text.x = element_text(size = 12, colour = "black"),
+        axis.text.y = element_text(size = 12,colour = "black"),
+        axis.title.x = element_text(size = 14,colour = "black"),
+        axis.title.y = element_text(size = 14,colour = "black"), legend.position=c(0.15,0.85))
+ 
+ ggsave("plots/CTMs.tiff", device = "tiff", width =6, height =5)
+
+```
+
+
+Fall 2023 CTMs
+
+```{T  2023}
+#call in all CTMs
+ctm <- read.csv("ALL CTM.csv")
+#filter to just 2023
+c1 <- ctm %>% 
+  filter(!Season == "2019 Summer")
+c2 <- c1 %>% 
+  filter(!Season == "2019 Fall")
+
+
+#plot size of those recovered or not
+ggplot(c2, aes(x=FL, y=Mass, color=Recovered, shape=Treatment))+
+  geom_point()
+ggplot(c2, aes(x=FL, y=CTM, color=Recovered))+
+  geom_point()
+ggplot(c2, aes(x=Mass, y=CTM, color=Recovered))+
+  geom_point()
+ggplot(c2, aes(x=Mass, y=CTM, color=Cage))+
+  geom_point()
+
+#remove those that didnt survive
+c3 <- c2 %>% 
+  filter(Recovered == "y")
+
+#plot 2023 CTM data
+ggplot(c3, aes(x=Site, y=CTM, color=Season))+
+  geom_boxplot()
+ggplot(c3, aes(x=Treatment, y=CTM, color=Site))+
+  geom_boxplot()
+ggplot(c3, aes(x=as.factor(Cage), y=CTM, color=Site))+
+  geom_boxplot()
+#remove 20C outlier in marsh
+c3 <- c3 %>% 
+  filter(!Chamber == "P")
+
+
+#remake fig
+ggplot(c3, aes(x=as.factor(Cage), y=CTM, color=Site))+
+  geom_boxplot()+ylim(20,30)
+
+ggplot(data=c3,aes(x=Treatment, y=CTM, fill=Site)) +
+    geom_boxplot(outlier.shape=NA) +
+    scale_fill_viridis(discrete = TRUE, alpha=0.3) +
+    scale_color_viridis(discrete = TRUE, alpha=0.3) +
+  
+    geom_jitter( position=position_jitterdodge(jitter.width =.1), size=1, alpha=0.5,
+                shape = 21) +
+    theme_bw() +
+  scale_y_continuous(breaks = round(seq(min(23), max(30), by = 1.0),1), name="Critical Thermal Maximum (°C)")+
+    xlab("")+
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.line = element_line(colour = "black"),
+        axis.text.x = element_text(size = 12, colour = "black"),
+        axis.text.y = element_text(size = 12,colour = "black"),
+        axis.title.x = element_text(size = 14,colour = "black"),
+        axis.title.y = element_text(size = 14,colour = "black"))
+
+
+#add 2019 data to figure and only scrub data
+
+c1a <- c1 %>% 
+  filter(Recovered == "y")
+c1b <- c1a %>% 
+  filter(!Treatment == "flip")
+ggplot(data=c1b,aes(x=Season, y=CTM, fill=Site)) +
+    geom_boxplot(outlier.shape=NA) +
+    scale_fill_viridis(discrete = TRUE, alpha=0.5,direction=1,option="E") +
+    geom_point(position=position_jitter(width = 0.1), color="black",size=1, alpha=0.5, aes(group = Season)) +
+  facet_wrap(~Site)+
+    xlab("")+
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.line = element_line(colour = "black"),
+        axis.text.x = element_text(size = 12, colour = "black"),
+        axis.text.y = element_text(size = 12,colour = "black"),
+        axis.title.x = element_text(size = 14,colour = "black"),
+        axis.title.y = element_text(size = 14,colour = "black"))+
+  scale_y_continuous(breaks = round(seq(min(20), max(30), by = 2.0),1), name="Critical Thermal Maximum (°C)")
+
+
+#run model of 2023 without control
+c3a <- c3 %>% 
+  filter(!Treatment == "control")
+
+#normality test
+model1=lm(CTM ~ Site*Treatment+(1|Cage), data=c3a)
+Anova(model1)
+
+library(emmeans)
+pairs(emmeans(model1, ~Site:Treatment))
+
+
+model2=lm(CTM ~ Site+Treatment, data=c3a)
+Anova(model2)
+plot(model2)
+hist(c3a$CTM)
+
+
+#get 2023 mean values for later regression table
+ctm2 <- ctm %>% 
+  filter(Recovered == "y")
+ctm2 <- ctm %>% 
+  filter(!Chamber == "P")
+
+ctm.sum <- ctm2 %>% 
+  group_by(Site) %>% 
+  summarize(mean.CTM = mean(CTM, na.rm = T),
+            sd.CTM = sd(CTM, na.rm = T))
+
+ctm.sum
+
+```
+
+
+New regression with 2019 and 2023 data
+
+```{T  2023}
+#call in all CTMs
+reg<- read.csv("CTM Regression 2023.csv")
+
+
+#plot
+ ggplot(reg, aes(x = acc.temp, y = mean.ctm, color = loc))+
+  geom_smooth(method = "lm", se = F,fullrange=F, size=.5)+
+  geom_point(size = 2)+
+  geom_errorbar(aes(ymin = mean.ctm - temp.sd, ymax = mean.ctm + temp.sd), width = 0.2)+
+    scale_color_manual("Study Location",
+                    breaks = c("Field", "Lab"),
+                    labels = c("Field", "Lab"),
+                    values = c("dodgerblue", "tomato"))+
+  geom_point(x = 17, y = 25.4, size = 2.5, shape=1,color = "tomato")+
+  geom_errorbar(aes(x = 17, ymin = 25.4 - 1.7, ymax = 25.4 + 1.7), color = "tomato", width = 0.2)+
+  geom_point(x = 16.5, y = 26.5, size = 2.2,shape= 15,color = "dodgerblue")+
+  geom_errorbar(aes(x = 16.5, ymin = 26.5 - 0.86, ymax = 26.5 + 0.86), color = "dodgerblue", width = 0.2)+
+  scale_y_continuous(breaks = round(seq(min(23), max(30), by = 1.0),1), name="Critical Thermal Maximum (°C)")+
+  scale_x_continuous(breaks = round(seq(min(12), max(26), by = 2.0),1), name="Acclimation Temperature (°C)")+
+  annotate("text", x = 21.5, y = 24, label = "R^2", parse = T)+
+  annotate("text", x = 21.5, y = 23.5, label = " P", parse=T)+
+  theme_bw() +
+  theme(panel.grid.major = element_blank(),
+        panel.grid.minor = element_blank(),
+        axis.line = element_line(colour = "black"),
+        axis.text.x = element_text(size = 12, colour = "black"),
+        axis.text.y = element_text(size = 12,colour = "black"),
+        axis.title.x = element_text(size = 14,colour = "black"),
+        axis.title.y = element_text(size = 14,colour = "black"), legend.position=c(0.15,0.85))
+
+ #single regression model by temp and study
+modr <- lm(mean.ctm ~ acc.temp*loc, data=reg)
+summary(modr)
+anova(modr)
+
+#separate regression models
+field23 <- reg %>% 
+  filter(loc == "Field")
+
+lab23 <- reg %>% 
+  filter(loc == "Lab")
+
+field.mod23 <- lm(mean.ctm ~ acc.temp, field23)
+anova(field.mod23)
+summary(field.mod23) 
+
+lab.mod23 <- lm(mean.ctm ~ acc.temp, lab23)
+anova(lab.mod23)
+summary(lab.mod23) 
+ 
+```

@@ -122,7 +122,69 @@ diet$tlc = paste(diet$Tag, diet$Location, diet$Cage.ID)
 
 #write csv for use in biofouling comparison
 write.csv(diet, "smelt_2019_allseasons/data_clean/Diet.proportions.csv", row.names=FALSE)
+```
 
+```{r}
+
+#plot at the higher taxonomic level
+
+ggplot(diet, aes(x = Tag, y = Count, fill = Prey.Taxa)) +
+  geom_col(position = "fill")+
+  facet_wrap(~Location, scales = "free")
+
+ggplot(diet, aes(x = Location, y = Count, fill = Prey.Taxa)) +
+  geom_col(position = "fill")
+
+preytaxa = group_by(diet, Prey.Taxa) %>%
+  summarize(Count = sum(Count))
+rare = filter(preytaxa, Count <=2)
+
+
+#clean it up a little
+library(Polychrome)
+pal36 <- palette36.colors(36)
+pal36 <- as.vector(t(pal36))
+
+diet = filter(diet, !Prey.Taxa %in% c('empty', "EMPTY", 'plant matter')) %>%
+  mutate(Prey.Taxa = case_match(Prey.Taxa, c("Culicidae", "Hemiptera") ~ "Insecta",
+                                c("Leydigia sp.", "Alona sp.", "Diaphanosoma sp.", "Eurycercus sp.") ~ "Cladocera",
+                                c("Tropocyclops sp.", "Macrocyclops sp.") ~ "Cyclopoida",
+                                .default = Prey.Taxa))%>%
+  
+  mutate(Preytax = factor(Prey.Taxa, levels = c( "Cyclopoida","Acanthocyclops sp.", "Diacyclops thomasi", "Eucyclops sp.", "Halicyclops sp.",  "Mesocyclops sp.", "Calanoida", "Diaptomidae",
+                                                "Eurytemora affinis", "Osphranticum labronectum", "Pseudodiaptomus forbesi", 
+                                                "Harpacticoida", "Sinocalanus doerrii","Cladocera",  "Bosmina sp.", 
+                                                "Ceriodaphnia sp.", "Chydoridae", "Chydorus sp.",
+                                                "Daphnia sp.",  
+                                                 "Scapholeberis sp.", "Sida sp.", "Simocephalus sp.",
+                                                "Americorophium sp.", "Crangonyx sp.", "Eogammarus confervicolus",
+                                                "Gammaridea", "Hyallela azteca", "Mysidacea","Insecta",
+                                                 "Chironomidae", "Ostracoda",
+                                                "Cumacea", "Fish","Acari", "Bivalvia")))
+
+
+ggplot(diet, aes(x = Location, y = Count, fill = Preytax)) +
+  geom_col(position = "fill")+
+  scale_fill_manual(values = pal36, name = "taxa")+
+  theme_bw()+
+  ylab("Relative Diet Proportion")
+
+
+ggsave("smelt_2019_allseasons/figures/fishdiet.tiff", device = "tiff", width = 10, height =6)
+# 
+# To allow for diets of different sized fish to contribute equally, proportion was calculated by taking the abundance of each taxa divided by the total abundance of all taxa per diet and then averaging across individuals from each enclosure.
+
+dietsummary = group_by(diet, Cage.ID, Location, Tag, tlc) %>%
+  mutate(stomachsum = sum(Count), proportion = Count/stomachsum)
+  
+#huh, it doesn't look like anyone added teh zeros in for the other verson... maybe I won't bother. 
+
+```
+
+
+
+
+```{r}
 #sum for taxa abundance among individual fish
 taxa_tag<- diet %>% 
   group_by(Location, tlc, Taxa) %>% 
