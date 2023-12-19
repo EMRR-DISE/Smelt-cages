@@ -62,10 +62,22 @@ Fall_wide <- Fall %>%
 ```
 
 ```{r}
-hist(Summer$FL_cm_Pre)
-hist(filter(Summer, Site=="RV")$FL_cm_Post)
-hist(Summer$Weight_g_Pre)
-hist(filter(Summer, Site=="RV")$Weight_g_Post)
+ggplot(filter(Summer, Site == "FCCL")) + 
+  geom_histogram(aes(FL_cm, color = Period, alpha = 0.5, fill = Period), binwidth = 0.2) +
+  facet_wrap(~Period, nrow = 2)
+ggplot(filter(Summer, Site == "FCCL")) + 
+  geom_histogram(aes(Weight_g, fill = Period, alpha = 0.5, color = Period)) +
+  facet_wrap(~Period, nrow = 2)
+ggplot(filter(Summer, Site == "FCCL")) + 
+  geom_histogram(aes(K, fill = Period, alpha = 0.5, color = Period)) +
+  facet_wrap(~Period, nrow = 2)
+
+ggplot(filter(Summer, Site == "RV")) + 
+  geom_histogram(aes(FL_cm))
+ggplot(filter(Summer, Site == "RV")) + 
+  geom_histogram(aes(Weight_g))
+
+
 
 hist(filter(data, Site == "RV")$FL_cm)
 hist(filter(data, Site == "RV")$Weight_g)
@@ -80,9 +92,12 @@ hist(Summer$Weight_g)
 hist(sqrt(Summer$Weight_g))
 hist(Summer$K)
 
-hist(Fall$FL_cm)
-hist(Fall$Weight_g)
-hist(Fall$K)
+ggplot(filter(Fall, Site == "FCCL")) + 
+  geom_histogram(aes(FL_cm, color = Period, alpha = 0.5, fill = Period), binwidth = 0.2) +
+  facet_wrap(~Period, nrow = 2)
+ggplot(filter(Fall, Site == "FCCL")) + 
+  geom_histogram(aes(Weight_g, fill = Period, alpha = 0.5, color = Period)) +
+  facet_wrap(~Period, nrow = 2)
 
 shapiro.test(filter(data, Site == "DWSC")$FL_cm)
 shapiro.test(filter(data, Site == "DWSC")$Weight_g)
@@ -482,9 +497,10 @@ letter_m1 = cld(m1.emm, Letters = LETTERS,  p.adj.methods = "bonferroni") %>%
     geom_segment(aes(x = Season, y = emmean, xend = Season, yend = lcmpl, color = .group), size = 6, color = "cadetblue3", lineend = "butt") +
      geom_text( aes(label = .group, x = Season, y = upper.CL + 0.01), position = position_dodge2(width = 0.3)) + 
     geom_hline(yintercept = 0, linetype = "dashed") + 
+     annotate(geom = "text", x = 3.2, y = 0.1, label = "B", size = 8) +
   geom_point( aes(x=Season, y=emmean), size = 2.5, shape = 18) +     
   viridis::scale_color_viridis(discrete = TRUE, option = "turbo") +
-  labs(y = "Proportional Change in K (g cm^-2) with 95% Confidence Intervals") +
+  labs(y = "Proportional Change in K \nwith 95% Confidence Intervals") +
   theme_bw() +
   theme(axis.text.x = element_text(size = 11),
         axis.text.y = element_text(size = 11),
@@ -501,7 +517,7 @@ letter_m2 = cld(m2.emm, Letters = LETTERS,  p.adj.methods = "bonferroni") %>%
   left_join(plotm2) %>%
   mutate(.group = gsub(" ", "", .group))
 
-(plot_season_wt <- ggplot(data = letter_m2,) + 
+(plot_season_wt <- ggplot(data = letter_m2) + 
    geom_errorbar(aes(x = Season, ymin = lower.CL, ymax = upper.CL), size = 0.5,  width = 0.1) +
     
   
@@ -510,8 +526,9 @@ letter_m2 = cld(m2.emm, Letters = LETTERS,  p.adj.methods = "bonferroni") %>%
   geom_point( aes(x=Season, y=emmean), size = 2.5, shape = 18) +     
    geom_text( aes(label = .group, x = Season, y = upper.CL + 0.02), position = position_dodge2(width = 0.3)) + 
     geom_hline(yintercept = 0, linetype = "dashed") + 
+     annotate(geom = "text", x = 3.2, y = 0.24, label = "A", size = 8) +
     viridis::scale_color_viridis(discrete = TRUE, option = "turbo") +
-  labs(y = "Proportional Change in Weight (g) with 95% Confidence Intervals") +
+  labs(y = "Proportional Change in Weight \nwith 95% Confidence Intervals") +
   theme_bw() +
   theme(axis.text = element_text(size = 11),
         legend.position = "top",
@@ -716,9 +733,10 @@ letter_m3 = cld(m3.emm, Letters = LETTERS,  p.adj.methods = "bonferroni") %>%
       geom_errorbar(aes(x = Site, ymin = lower.CL, ymax = upper.CL), size = 0.5,  width = 0.1) +
     geom_text( aes(label = .group, x = Site, y = upper.CL + 0.01), position = position_dodge2(width = 0.3)) + 
     geom_hline(yintercept = 0, linetype = "dashed") + 
+        annotate(geom = "text", x = 4.1, y = -0.005, label = "D", size =8) +
   geom_point( aes(x=Site, y=emmean), size = 2.5, shape = 18) +     
   viridis::scale_color_viridis(discrete = TRUE, option = "turbo") +
-  labs(y = "Change in K (g cm^-2) with 95% Confidence Intervals") +
+  labs(y = "Proportional Change in K \nwith 95% Confidence Intervals") +
   theme_bw() +
   theme(axis.text.x = element_text(size = 11),
         axis.text.y = element_text(size = 11),
@@ -743,8 +761,9 @@ letter_m4 = cld(m4.emm, Letters = LETTERS,  p.adj.methods = "bonferroni") %>%
     geom_point( aes(x=Site, y=emmean), size = 2.5, shape = 18) +     
    geom_text( aes(label = .group, x = Site, y = upper.CL + 0.03), position = position_dodge2(width = 0.3)) + 
     geom_hline(yintercept = 0, linetype = "dashed") + 
+    annotate(geom = "text", x = 4.1, y = -0.02, label = "C", size = 8) +
     viridis::scale_color_viridis(discrete = TRUE, option = "turbo") +
-  labs(y = "Change in Weight (g) with 95% Confidence Intervals") +
+  labs(y = "Proportional Change in Weight \nwith 95% Confidence Intervals") +
   theme_bw() +
   theme(axis.text = element_text(size = 11),
         legend.position = "top",
@@ -765,6 +784,14 @@ plot_Site_wt & plot_Site_k
 dev.off()
 ```
 
+##### Both season and site
+```{r}
+library(patchwork)
+png(filename = "smelt_2019_allseasons/figures/model_season_site.png", height = 8, width = 8,units = "in", 
+    res = 300, pointsize = 12, family = "sans")
+(plot_season_wt & plot_season_k) / (plot_Site_wt & plot_Site_k)
+dev.off()
+```
 
 ```{r}
 t_ci_m3b <- as.data.frame(confint(m3))[3:6,]
