@@ -87,7 +87,8 @@ ggplot(WQmean, aes(x = Date, y = MeanValue,
   scale_color_brewer(palette = "Dark2")+
   scale_fill_brewer(palette = "Dark2")+
   geom_hline(data = cuttoffs, aes(yintercept = cuttoff, linetype = Type), 
-             color = "red")
+             color = "red")+
+  scale_linetype_manual(values = c(1,3,5))
 
 ###################################################################
 #Try again with all stations on all dates
@@ -146,7 +147,9 @@ ggplot(WQmean, aes(x = Date, y = MeanValue,
   scale_color_brewer(palette = "Dark2", labels = c("Suisun Marsh", "SDWSC", "Yolo", "Rio Vista"), name = "Location")+
   scale_fill_brewer(palette = "Dark2", labels = c("Suisun Marsh", "SDWSC", "Yolo", "Rio Vista"), name = "Location")+
   geom_hline(data = cuttoffs, aes(yintercept = cuttoff, linetype = Type), 
-             color = "red")
+             color = "red")+
+  scale_linetype_manual(values = c(1,3,5))
+
 
 ggsave("plots/ContWaterQuality.tiff", device = "tiff", width =8, height =7)
 

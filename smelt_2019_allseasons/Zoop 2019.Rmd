@@ -584,10 +584,18 @@ Basic plot of zoops versus diet
 
 ```{r}
 zoopdietlong = pivot_longer(zoopdiet, cols = c(Ostracod, Cyclopoid, Calanoid, Cladocera, Harpacticoid, Other, Amphipod, Diptera),
-                            names_to = "Taxa", values_to= "count")
+                            names_to = "Taxa", values_to= "count") %>%
+  mutate(Location = case_when(Location == "DWSC" ~ "SDWSC",
+                              Location == "RV" ~ "Rio Vista",
+                              Location == "SM" ~ "Suisun Marsh",
+                              Location == "YB" ~ "Yolo Bypass"))
 
 zoopnos = group_by(zoopdiet, datatype, Season, Location) %>%
-  summarize(N = length(unique(SampleID)))
+  summarize(N = length(unique(SampleID))) %>%
+  mutate(Location = case_when(Location == "DWSC" ~ "SDWSC",
+                              Location == "RV" ~ "Rio Vista",
+                              Location == "SM" ~ "Suisun Marsh",
+                              Location == "YB" ~ "Yolo Bypass"))
 
 ggplot(zoopdietlong, aes(x = datatype, y = count, fill = Taxa))+
   geom_col(position = "fill")+

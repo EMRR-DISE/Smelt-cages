@@ -33,7 +33,9 @@ latlon <- read_excel(here::here("smelt_2019_allseasons", "data_raw", "cage_locat
 
 
 
-stations_sf <- st_as_sf(latlon, coords = c("Longitude", "Latitude"), crs = 4326)
+stations_sf <- st_as_sf(latlon, coords = c("Longitude", "Latitude"), crs = 4326) %>%
+  mutate(Location = case_when(Location == "SRDWSC" ~ "SDWSC",
+                              TRUE ~ Location))
 data("us_states", package = "spData")
 California = dplyr::filter(us_states, NAME == "California")
 stations_sf_4269 <- st_transform(stations_sf, crs = st_crs(California))
