@@ -43,7 +43,7 @@ ggsave("plots/clodcards.tiff", device = "tiff", width =6, height =5)
 clodlm = lm(DiffPerDay ~ Site+treatment2, data = clods2)
 summary(clodlm)
 pairs(emmeans(clodlm, ~treatment2))
-
+summary(aov(clodlm))
 ggplot(clods2, aes(x = Site, y = percentdiff, fill = treatment2))+ geom_boxplot()
 
 clodlm = lm(percentdiff ~ Site+treatment2, data = clods2)

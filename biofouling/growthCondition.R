@@ -87,6 +87,8 @@ ggplot(labgrowth, aes(x = Treatment, fill = Site, y = Condition))+ geom_boxplot(
   ylab("Condition Factor")
 
 
+ggsave("plots/ConditionFactor.tiff", device = "tiff", width =6, height =5)
+
 g1 = lm(LabWeight_g ~ Location + Treatment, data = filter(labgrowth, Location != "FCCL"))
 summary(g1)
 plot(g1)
