@@ -13,7 +13,7 @@ library(sf)
 library(lubridate)
 library(spacetools)
 library(deltamapr)
-load("Recaps.RData")
+#load("Recaps.RData")
 #save(nndist, distances, recaps, recaps2, recaps3, RVhdist, SCsoft, SChard, RVhdistx, Dwschard, Dwscsoft, file = "Recaps.RData")
 ```
 
@@ -30,22 +30,30 @@ Sam Bashevkin has written some nifty functions for calculating in=water distance
 
 https://github.com/sbashevkin/spacetools
 
-Fist let's calcualte distance from release location to recapture location.
+Fist let's calculate distance from release location to recapture location.
 
 ```{r}
 #Bring in the data and check it out
 
 
-recaps = read_excel("Recaptured Experimental Release_2022-2023_working draft (2).xlsx", 
-                    sheet = "Full DSM Data") %>%
-  rename(Site = `Release Site`, Type = `Release Type`, Latitude= `Start Latitude`, Longitude = `Start Longitude`,
-         Mark = `VIE Color/Position`)
-recaps    =     mutate(recaps, fishID = paste("smelt", 1:nrow(recaps)),
-                Type = case_when(Type == "header" ~ "Soft",
-                                 is.na(Type) ~ "Wild",
-                                 TRUE ~ Type),
-                Site = case_when(is.na(Site) ~ "Wild",
-                                 TRUE ~ Site))
+recaps = read_excel("data/Running Delta Smelt Catch.xlsx", 
+                    sheet = "Delta Smelt Catch Data") %>%
+  rename( Latitude= `LatitudeStart`, Longitude = `LongitudeStart`) %>%
+  mutate(FishID = paste("Fish", 1:nrow(recaps))) %>%
+  select(-ReleaseDate, -Preservation, -Disposition, -SpecialStudyID, -MarkCode, -Dateknown)
+
+
+#bring in standaridized release location/mark info
+release = read_excel("data/releases_v2.xlsx") %>%
+  rename(LatitudeR = Latitude, LongitudeR = Longitude) 
+
+
+recaps2 = left_join(recaps, select(release, -TotalReleased), by = "ReleaseEvent") %>%
+  mutate(DaysSinceRelease = SampleDate - ReleaseDate,
+         Type = case_when(ReleaseMethod == "Unknown" ~ "Unknown",
+                          ReleaseMethod == "NA" ~ "Wild/unmarked",
+                          TRUE ~ Type))
+
 str(recaps)
 
 
@@ -55,19 +63,10 @@ str(recaps)
 This just needs a little data manipulation
 
 ```{r}
-
-
-
-
-#Now make a data frame of the release locations
-release = read_excel("releases.xlsx") %>%
-  rename(LatitudeR = Latitude, LongitudeR = Longitude)
 releasesf = st_as_sf(filter(release, !is.na(LatitudeR)),  coords = c("LongitudeR", "LatitudeR"), crs = 4326)
 
-#merge recap points with release points
+#make a spatial data frame of recaptures
 
-recaps2 = left_join(recaps, release) %>%
-  mutate(DaysSinceRelease = Date - ReleaseDate)
 recapsf = st_as_sf(filter(recaps2, !is.na(`Longitude`)), coords = c("Longitude", "Latitude"), crs = 4326)
 
 #make a quick plot to make sure I did it right
@@ -86,39 +85,39 @@ Now we can calculate the distance between each point and the release location. I
 
 ```{r, eval=FALSE}
 #one release at a time
-Dwschard = filter(recaps2, Type == "Hard", Site == "SDWSC")
-dwsch = filter(release, Site == "SDWSC", Type == "Hard") %>%
+Dwschard = filter(recaps2, Type == "Hard (carboy)", Site == "SDWSC")
+dwsch = filter(release, Site == "SDWSC", Type == "Hard (carboy)") %>%
   select(LatitudeR, LongitudeR) %>%
   rename(Latitude = LatitudeR, Longitude = LongitudeR)
 tesst = GGdist(Water_map = spacetools::Delta, Points = Dwschard, Latitude_column = `Latitude`,
-               Longitude_column = `Longitude`, PointID_column = fishID, EndPoint = dwsch)
+               Longitude_column = `Longitude`, PointID_column = FishID, EndPoint = dwsch)
 
 #now let's do DWSC soft
-Dwscsoft = filter(recaps2, Type == "Soft", Site == "SDWSC")
-dwscs = filter(release, Site == "SDWSC", Type == "Soft") %>%
+Dwscsoft = filter(recaps2, Type == "Soft (carboy)", Site == "SDWSC")
+dwscs = filter(release, Site == "SDWSC", Type == "Soft (carboy)") %>%
   select(LatitudeR, LongitudeR)%>%
   rename(Latitude = LatitudeR, Longitude = LongitudeR)
 tesst2 = GGdist(Water_map = spacetools::Delta, Points = Dwscsoft, Latitude_column = `Latitude`,
-               Longitude_column = `Longitude`, PointID_column = fishID, EndPoint = dwscs)
+               Longitude_column = `Longitude`, PointID_column = FishID, EndPoint = dwscs)
 
 #now let's do Rio Vista hard
-RVhard = filter(recaps2, Type == "Hard", Site == "Rio Vista", !is.na(Latitude))
-rvh = filter(release, Site == "Rio Vista", Type == "Hard") %>%
+RVhard = filter(recaps2,  Site == "Rio Vista", !is.na(Latitude))
+rvh = filter(release, Site == "Rio Vista", Type == "Hard (trailer)") %>%
   select(LatitudeR, LongitudeR)%>%
   rename(Latitude = LatitudeR, Longitude = LongitudeR) %>%
   distinct()
 tesst3 = GGdist(Water_map = spacetools::Delta, Points = RVhard, Latitude_column = `Latitude`,
-                Longitude_column = `Longitude`, PointID_column = fishID, EndPoint = rvh)
+                Longitude_column = `Longitude`, PointID_column = FishID, EndPoint = rvh)
 
-#now the trailer
-RVhardt = filter(recaps2, Type == "Hard (Trailer)", Site == "Rio Vista")
-rvht = filter(release, Site == "Rio Vista", Type == "Hard (Trailer)") %>%
-  select(LatitudeR, LongitudeR)%>%
-  rename(Latitude = LatitudeR, Longitude = LongitudeR)
-tesst4 = GGdist(Water_map = spacetools::Delta, Points = RVhardt, Latitude_column = `Latitude`,
-                Longitude_column = `Longitude`, PointID_column = fishID, EndPoint = rvht)
+# #now the trailer
+# RVhardt = filter(recaps2, Type == "Hard (Trailer)", Site == "Rio Vista")
+# rvht = filter(release, Site == "Rio Vista", Type == "Hard (Trailer)") %>%
+#   select(LatitudeR, LongitudeR)%>%
+#   rename(Latitude = LatitudeR, Longitude = LongitudeR)
+# tesst4 = GGdist(Water_map = spacetools::Delta, Points = RVhardt, Latitude_column = `Latitude`,
+#                 Longitude_column = `Longitude`, PointID_column = fishID, EndPoint = rvht)
 
-distances = bind_rows(tesst, tesst2, tesst3, tesst4)
+distances = bind_rows(tesst, tesst2, tesst3)
 ```
 
 OK, now let's bind all the distances together and join them back to the origional dataset
@@ -126,22 +125,132 @@ OK, now let's bind all the distances together and join them back to the origiona
 ```{r}
 
 recaps3 = left_join(recaps2, distances) %>%
+  mutate(Type2 = case_when(Type %in% c("Hard (large scale)","Hard (trailer)") ~ "Hard (Large Scale)",
+                           TRUE ~ Type)) %>%
   mutate(SiteType = paste(Type, Site))
 
 recaps3
 
-write.csv(recaps, "Recapturedistances.csv")
+#load first flush info
+ff = read_excel("data/releases_v2.xlsx", sheet = "firstflush")
+
+recaps3 = recaps3 %>%
+  mutate(Year = year(SampleDate),
+                                BroodYear = case_when(LifeStage %in% c("Adult", "Adult*") & yday(SampleDate) <200 ~ Year-1,
+                                     LifeStage == "Juvenile" & yday(SampleDate) <90 ~ Year-1,
+                                     TRUE ~ Year)) %>%
+         left_join(ff)%>%
+         mutate(FFyn = case_when(ReleaseDate > FirstFlush ~ "Yes",
+                          TRUE ~ "No"))
+
+write.csv(recaps, "recaptureanalysis/Recapturedistances.csv")
 ```
 
 Plot to visually look at mean and variation.
 
 ```{r}
-ggplot(filter(recaps3, Type != "Hard (Trailer)", Type != "Wild"), aes(x = SiteType, y = Distance))+ 
+ggplot(filter(recaps3, Type != "Wild/unmarked", Type != "Unknown"), aes(x = SiteType, y = Distance))+ 
   geom_boxplot(aes(fill = SiteType))+
   ylab("Distance from Release Site (m)")+
   scale_fill_discrete(guide = NULL)+
-  theme_bw()
+  theme_bw()+
+  theme(axis.text.x = element_text(angle = 45, hjust =1, vjust =1))
 ```
+now by first flush
+
+```{r}
+
+ggplot(filter(recaps3, Type != "Wild/unmarked", Type != "Unknown"), aes(x = Type, y = Distance))+ 
+  geom_boxplot(aes(fill = SiteType))+
+  ylab("Distance from Release Site (m)")+
+  scale_fill_discrete(guide = NULL)+
+  theme_bw()+
+  facet_wrap(~FFyn)+
+  theme(axis.text.x = element_text(angle = 45, hjust =1, vjust =1))
+
+```
+
+
+Let's consolidate some of the release types...
+
+```{r}
+
+tots = group_by(recaps3, Type2) %>%
+  summarize(N = n())
+
+ggplot(filter(recaps3, Type != "Wild/unmarked", Type != "Unknown"), aes(x = Type2, y = Distance/1000))+ 
+  geom_boxplot(aes(fill = Type2))+
+  ylab("Distance from Release Site (km)")+
+  scale_fill_discrete(guide = NULL)+
+  geom_text(data = filter(tots, Type2 != "Wild/unmarked", Type2 != "Unknown"), aes(x = Type2, label = N), y=2, inherit.aes = FALSE)+ xlab(NULL)+
+    stat_summary(fun.y=mean, geom="point", shape = 23, fill = "white", size =4) +
+  theme_bw()
+
+ggsave("plots/hardvsoft_distance.tiff", device = "tiff", width =6, height =4)
+
+totsby = group_by(recaps3, Type2, BroodYear) %>%
+  summarize(N = n())
+
+
+ggplot(filter(recaps3, Type != "Wild/unmarked", Type != "Unknown"), aes(x = Type2, y = Distance/1000))+ 
+  geom_boxplot(aes(fill = Type2))+
+  ylab("Distance from Release Site (km)")+
+  scale_fill_discrete(guide = NULL)+
+  geom_label(data = filter(totsby, Type2 != "Wild/unmarked", Type2 != "Unknown"), 
+             aes(x = Type2, label = paste("N=", N)), y=2, inherit.aes = FALSE)+ xlab(NULL)+
+    stat_summary(fun.y=mean, geom="point", shape = 23, fill = "white", size =4) +
+  facet_wrap(~BroodYear)+
+  theme_bw()
+
+
+ggsave("plots/hardvsoft_distance_BY.tiff", device = "tiff", width =6, height =4)
+
+
+```
+
+
+```{r}
+library(ggbeeswarm)
+
+ggplot(filter(recaps3, Type != "Wild/unmarked"), aes(x = Type2, y = Distance))+ 
+  geom_quasirandom(aes(color = as.factor(BroodYear), shape = Site))+
+  ylab("Distance from Release Site (m)")+
+  facet_wrap(~FFyn)+
+  scale_fill_discrete(guide = NULL)+
+  theme_bw()
+
+```
+```{r}
+
+ggplot(filter(recaps3, Type != "Wild", BroodYear != 2024), aes(x = Type2, y = Distance))+ 
+  geom_quasirandom(aes(color = Type, shape = Site))+
+  ylab("Distance from Release Site (m)")+
+  scale_fill_discrete(guide = NULL)+
+  facet_wrap(~BroodYear)+
+  
+  theme_bw()
+
+```
+```{r}
+
+tots2023 = filter(recaps3, Type != "Wild/unmarked", BroodYear == 2023) %>%
+  group_by(Type) %>%
+  summarize(N = n()) %>%
+  droplevels()
+
+test23 = filter(recaps3, Type != "Wild/unmarked", BroodYear == 2023, !is.na(Distance)) %>%
+  droplevels()
+
+ggplot(test23, aes(x = Type, y = Distance))+ 
+  geom_boxplot(aes(fill = Type))+
+  ylab("Distance from Release Site (m)")+
+  scale_fill_discrete(guide = NULL)+
+  geom_label(data = tots2023, aes(x = Type, label = paste("N=", N)), y=5000, inherit.aes = FALSE)+
+  theme_bw()
+
+```
+
+
 
 Map with color variation by distance, to make sure I got it right.
 
@@ -166,15 +275,34 @@ recapsum
 
 #ANOVA of differences in distance by release group
 library(emmeans)
-m1 = lm(Distance ~ SiteType, data = recaps3)
+m1 = lm(Distance ~ Type, data = recaps3)
 summary(m1)
 anova(m1)
-emmeans(m1, pairwise ~ SiteType)
-plot(emmeans(m1, pairwise ~ SiteType), comparisons = T)
+emmeans(m1, pairwise ~ Type)
+plot(emmeans(m1, pairwise ~ Type), comparisons = T)
 
-#so hard releases at RIo Vista traveled further from hard releases at SDWSC, but no other significant differences
+#meh
 
 ```
+
+Can cobine Trailer and Large-Scale
+Keep carboys seperate
+ONly one soft release type
+
+Keep the years togetehr or seperate?
+
+Look at the timing of releases versus number of recaptures. Nov-Dec versus Jan-feb
+- Is this all just turbidity? Just at release? or long-term? Pre versus post 'first flush'. We have  a regulatory trigger for when first flush begins. 
+- Not all fish are exactly the same age, but they try and realease them all at about the same age, so ones released in November were spawned earlier. 
+- Still, check days post hatch
+
+Compare CPUE from EDSM and Salvage
+
+Get data on number released at each event
+
+Soft release in Rio vista in 2022? Check release numbers and timing. 
+
+
 ```{r}
 
 #ANOVA of differences in distance by release event
@@ -208,28 +336,84 @@ ggplot(filter(recaps3, Type == "Hard"), aes(x = as.numeric(DaysSinceRelease), y 
   geom_point()+ geom_smooth(method = "lm")+ ylab("Distance from Release Site (m)")+
   xlab("Days since release")
 
+
+
 ```
+
+Do we see more recaptures per released fish during different types of releases?
+
+```{r}
+
+
+recaps4 = group_by(recaps3, ReleaseEvent, ReleaseDate, Site, Type, Type2, BroodYear) %>%
+  summarize(N = n())
+
+releasestat = left_join(release, recaps4) %>%
+  filter(Type != "Unknown") %>%
+  mutate(BroodYear = as.numeric(str_sub(ReleaseEvent, 3L, end = 6L))) %>%
+  left_join(ff) %>%
+  mutate(recapsN = case_when(is.na(N) ~0,
+                             TRUE ~N),
+         RecapRate = recapsN/TotalReleased,
+         FFyn = case_when(ReleaseDate > FirstFlush ~ "After First Flush",
+                          TRUE ~ "Before First Flush"),
+         Type2 = case_when(Type == "Hard (trailer)" ~ "Hard (large scale)",
+                           TRUE ~ Type))
+
+totsr = group_by(releasestat, Type2, FFyn) %>%
+  summarize(N = n())
+
+ggplot(releasestat, aes(x = Type2, y = RecapRate*100, fill = Type2))+
+  geom_boxplot()+
+  facet_wrap(~FFyn)+
+  ylab("Percentage Recaptured")+
+  theme_bw()+
+  theme(axis.text.x = element_text(angle = 45, hjust =1, vjust =1),
+        legend.position = "none")+
+  xlab(NULL)+
+  geom_label(data = totsr, aes(x = Type2, label = paste("N=",N)), y = 0, inherit.aes = FALSE)
+
+ggsave("plots/firstflush.tiff", device = "tiff", width =8, height =5)
+
+ggplot(releasestat, aes(x = Type, y = RecapRate*100, color = Type))+
+  geom_quasirandom()+
+  ylab("Percentage Recaptured")
+
+```
+
+
 
 NOw we move on to distance bewteen recaptured fish. I'm doing it oen release at a tiem again. 
 
 ```{r, eval=FALSE}
 
-RVhdist = Waterdist(Water_map = spacetools::Delta, Points = RVhardt, Latitude_column = `Latitude`,
-                    Longitude_column = `Longitude`, PointID_column = fishID)
+distances = list(NA)
 
-RVhdistx = Waterdist(Water_map = spacetools::Delta, Points = RVhard, Latitude_column = `Latitude`,
-                    Longitude_column = `Longitude`, PointID_column = fishID)
+releasex = filter(release, ReleaseEvent %in% unique(recaps3$ReleaseEvent))
+for(i in 1:nrow(releasex)) {
+  points = filter(recaps3, ReleaseEvent == releasex$ReleaseEvent[i])
+  distances[[i]] = Waterdist(Water_map = spacetools::Delta, Points = points, Latitude_column = `Latitude`,
+                    Longitude_column = `Longitude`, PointID_column = FishID)
+  names(distances[[i]]) = releasex$ReleaseEvent[i]
+    
+}
 
-SCsoft  = Waterdist(Water_map = spacetools::Delta, Points = Dwscsoft, Latitude_column = `Latitude`,
-                       Longitude_column = `Longitude`, PointID_column = fishID)
+# RVhdist = Waterdist(Water_map = spacetools::Delta, Points = RVhardt, Latitude_column = `Latitude`,
+#                     Longitude_column = `Longitude`, PointID_column = fishID)
+# 
+# RVhdistx = Waterdist(Water_map = spacetools::Delta, Points = RVhard, Latitude_column = `Latitude`,
+#                     Longitude_column = `Longitude`, PointID_column = fishID)
+# 
+# SCsoft  = Waterdist(Water_map = spacetools::Delta, Points = Dwscsoft, Latitude_column = `Latitude`,
+#                        Longitude_column = `Longitude`, PointID_column = fishID)
+# 
+# SChard = Waterdist(Water_map = spacetools::Delta, Points = Dwschard, Latitude_column = `Latitude`,
+#                    Longitude_column = `Longitude`, PointID_column = fishID)
 
-SChard = Waterdist(Water_map = spacetools::Delta, Points = Dwschard, Latitude_column = `Latitude`,
-                   Longitude_column = `Longitude`, PointID_column = fishID)
-
-RVhdist
-RVhdistx
-SCsoft
-SChard
+# RVhdist
+# RVhdistx
+# SCsoft
+# SChard
 
 ```
 
@@ -237,59 +421,78 @@ Let's look at the mean of the lower triagle of each of these.
 
 ```{r}
 
-Cluster = data.frame(Release = c("RV Hard", "RV Hard Trailer", "DWSC soft", "DWSC hard"),
-                     meadist = c(mean(RVhdistx[lower.tri(RVhdistx)]), 
-                                 mean(RVhdist[lower.tri(RVhdist)]), 
-                                 mean(SCsoft[lower.tri(SCsoft)]), 
-                                 mean(SChard[lower.tri(SChard)])),
-                     SD = c(sd(RVhdistx), sd(RVhdist), sd(SCsoft), sd(SChard)))
+clustest = lapply(distances, function(x){df = data.frame(Mean = mean(x[lower.tri(x)], na.rm =T), SD = sd(x, na.rm =T))} )%>%
+  bind_rows() %>%
+  mutate(Release = releasex$ReleaseEvent)
 
-Cluster = mutate(Cluster, CV = SD/meadist)
-Cluster
+
+clustest
 ```
 
 OK, now how to I put these all together to graph them?
 
 ```{r}
 
-RVhdistx[lower.tri(RVhdistx, diag = T)] = NA
-RVhdist[lower.tri(RVhdist, diag = T)] = NA
-SCsoft[lower.tri(SCsoft, diag = T)] = NA
-SChard[lower.tri(SChard, diag = T)] = NA
-RVdtx = as.data.frame(RVhdistx) %>%
-  mutate(Fish1 = row.names(RVhdistx)) %>%
-  pivot_longer(cols = -Fish1, names_to = "Fish2", values_to = "Distance") %>%
-  filter(!is.na(Distance)) %>%
-  mutate(Release = "Rio Vista Hard")
+alldist = lapply(distances, function(x){
+  x[lower.tri(x, diag = T)] = NA
+  X = as.data.frame(x) %>%
+    mutate(Fish1 = row.names(x)) %>%
+    pivot_longer(cols = -Fish1, names_to = "Fish2", values_to = "Distance") %>%
+  filter(!is.na(Distance))
+  return(X)
+})
 
-RVdt = as.data.frame(RVhdist) %>%
-  mutate(Fish1 = row.names(RVhdist)) %>%
-  pivot_longer(cols = -Fish1, names_to = "Fish2", values_to = "Distance") %>%
-  filter(!is.na(Distance)) %>%
-  mutate(Release = "Trailer")
+names(alldist) = releasex$ReleaseEvent 
 
-SCs = as.data.frame(SCsoft) %>%
-  mutate(Fish1 = row.names(SCsoft)) %>%
-  pivot_longer(cols = -Fish1, names_to = "Fish2", values_to = "Distance") %>%
-  filter(!is.na(Distance)) %>%
-  mutate(Release = "DWSC Soft")
+for(i in 1:14) {
+  alldist[[i]] = mutate(alldist[[i]], ReleaseEvent = releasex$ReleaseEvent[i])
+}
 
-SCh = as.data.frame(SChard) %>%
-  mutate(Fish1 = row.names(SChard)) %>%
-  pivot_longer(cols = -Fish1, names_to = "Fish2", values_to = "Distance") %>%
-  filter(!is.na(Distance)) %>%
-  mutate(Release = "DWSC Hard")
+alldist2 = bind_rows(alldist) %>%
+  filter(ReleaseEvent != "NA") %>%
+  left_join(release)
 
-
-nndist = bind_rows(RVdtx, RVdt, SCs, SCh) %>%
-  mutate(Release = factor(Release, levels = c("Rio Vista Hard", "DWSC Hard", "DWSC Soft", "Trailer"),
-                          labels = c("Hard Rio Vista", "Hard SDWSC", "Soft SWDSC", "Trailer")))
-
-
-ggplot(filter(nndist, Release != "Trailer"), aes(x = Release, y = Distance, fill = Release)) + geom_boxplot()+
-  ylab("Distance Between Recaptures")+ theme_bw()+ scale_fill_discrete(guide = NULL)
+totsX = group_by(recaps3, ReleaseEvent) %>%
+  summarize(N = n())%>%
+  filter(ReleaseEvent != "NA")
+ggplot(alldist2, aes(x = ReleaseEvent, y = Distance, fill = ReleaseEvent)) + geom_boxplot()+
+  ylab("Distance Between Recaptures")+ theme_bw()+ scale_fill_discrete(guide = NULL)+
+  theme(axis.text.x = element_text(angle = 45, hjust =1, vjust =1))+
+  geom_label(data = totsX, aes(x = ReleaseEvent, y =1, label = paste("N=", N)), fill= "white")
 
 ```
+
+```{r}
+alldist2.1 = filter(alldist2, Type != "Unknown") %>%
+  mutate(BroodYear = case_when(ReleaseDate < ymd("2023-09-01") ~ 2022,
+                               TRUE ~ 2023),
+         Type2 = case_when(Type == "Hard (trailer)" ~ "Hard (large scale)",
+                           TRUE ~ Type))
+
+ggplot(alldist2.1, aes(x = Type2, y = Distance, fill = Type2)) + geom_boxplot()+
+  ylab("Distance Between Recaptures (m)")+
+  xlab("Release Type")+
+   stat_summary(fun.y=mean, geom="point", shape = 23, fill = "white", size =4) +
+  theme_bw() +
+  theme_bw()+
+  theme(axis.text.x = element_text(angle = 45, hjust =1, vjust =1),
+        legend.position = "none")
+
+ggsave("plots/DistanceBetweenRecaps.tiff", device = "tiff", width =5, height =4)
+
+ggplot(alldist2.1, aes(x = Type2, y = Distance, fill = Type2)) + geom_boxplot()+
+  ylab("Distance Between Recaptures (m)")+
+  xlab("Release Type")+
+  facet_wrap(~BroodYear)+
+   stat_summary(fun.y=mean, geom="point", shape = 23, fill = "white", size =4) +
+  theme_bw()+
+  theme(axis.text.x = element_text(angle = 45, hjust =1, vjust =1),
+        legend.position = "none")
+
+ggsave("plots/DistanceBetweenRecaps_byyear.tiff", device = "tiff", width =8, height =5)
+
+```
+
 
 now let's look at it statistically
 
@@ -323,5 +526,98 @@ emmeans(m3, pairwise ~ ReleaseEvent)
 plot(emmeans(m3, pairwise ~ ReleaseEvent), comparisons = T)
 
 write.csv(nndist2, "DistanceMatrix.csv")
+```
+
+
+The before/after first flush thing was interesting, something with turbidity for the week after the release?
+
+
+So, first i need to pull turbidity data from that area for the week after each realease.
+
+```{r}
+library(cder)
+library(zoo)
+
+turbdat = cdec_query("RVB", sensors = 27, start.date = as.Date("2021-01-01"), end.date = today())
+
+turbdat = mutate(turbdat, Month = month(DateTime), Date = date(DateTime), Year = year(DateTime))
+
+turbdat_ave = group_by(turbdat, Date, Month, Year) %>%
+  summarize(Turbidity = mean(Value, na.rm =T))
+
+test = rollmean(turbdat_ave$Turbidity, 7, align = "right", na.pad = TRUE)
+
+turbdat_ave$weekturb = test
+
+releasestat = left_join(releasestat, turbdat_ave, by = c("ReleaseDate" = "Date"))
+  
+ggplot(filter(releasestat, BroodYear != 2021, Type2 != "NA"), aes(x = weekturb, y = RecapRate )) + geom_point(aes(color = as.factor(BroodYear), shape = Type2), size =3)+ geom_smooth(method = "lm")+ylab("Percentage Recaptured") + 
+  xlab("Mean turbidity for 7 days post release (NTU)")+
+  theme_bw()+
+  scale_color_brewer(palette = "Set2", name = "Brood Year")+
+  scale_shape(name = "Release Type")
+
+ggsave("plots/turbidityrecaps.tiff", device = "tiff", width =5, height =4)
+
+```
+
+## Pretty map of recaputres for presentations
+
+```{r}
+
+
+library(tidyverse)
+library(lubridate)
+library(sf)
+library(ggmap)
+library(readxl)
+library(deltamapr)
+library(ggspatial)
+
+smelt = read_excel("Data/smeltcatch_2023.xlsx")
+
+smeltsf = st_as_sf(smelt, coords = c("LongitudeStart", "LatitudeStart"), crs = 4326) %>%
+  mutate(Date = str_sub(as.character(SampleDate), 6, 10))
+
+ggplot()+
+  geom_sf(data = WW_Delta, fill = "grey90")+
+  geom_sf(data = smeltsf, aes(shape = Survey, fill = LifeStage, color = LifeStage), size =5)+
+  scale_shape_manual(values = c(23, 24, 25))+
+  geom_sf_label(data = smeltsf, aes(label = Date), hjust =0, nudge_x = 0.01)+
+  coord_sf(ylim = c(38.0, 38.45), xlim = c(-122.1, -121.55))+
+  theme_bw()+
+  ylab(NULL)+
+  xlab(NULL)+
+  annotation_scale()+
+  annotation_north_arrow(aes(location = "tl"))
+
+ggsave("Plots/smeltmap2023.tiff", device = "tiff", width =8, height =8)
+ggsave("Plots/smeltmap2023.png", device = "png", width =8, height =8)
+
+###########################################################
+#map for Katie
+smelt2 = read_excel("Data/Running Delta Smelt Catch_2023-09-05.xlsx", sheet = "Delta Smelt Catch Data")
+
+smeltsf = st_as_sf(smelt2, coords = c("LongitudeStart", "LatitudeStart"), crs = 4326) %>%
+  mutate(Date = str_sub(as.character(SampleDate), 6, 10)) %>%
+  filter(SampleDate > ymd("2023-09-30"))
+
+ggplot()+
+  geom_sf(data = WW_Delta, fill = "grey90")+
+  geom_sf(data = smeltsf, aes(shape = ReleaseMethod,  fill = ReleaseMethod), size =3)+
+  scale_fill_brewer(palette = "Set2", labels = c("Hard (carboy)", "Hard (large scale)", "Hard (trailer)",
+                                                  "NA - unmarked fish", "Soft (carboy)"))+
+  scale_shape_manual(values = c(21,22,23,24,25), labels = c("Hard (carboy)", "Hard (large scale)", "Hard (trailer)",
+                                                  "NA - unmarked fish", "Soft (carboy)"))+
+  #geom_sf_label(data = smeltsf, aes(label = Date), hjust =0, nudge_x = 0.01)+
+  coord_sf(ylim = c(37.8, 38.35), xlim = c(-122.2, -121.45))+
+  theme_bw()+
+  ylab(NULL)+
+  xlab(NULL)+
+  annotation_scale()+
+  annotation_north_arrow(aes(location = "tl"))
+
+ggsave("plots/Releasemap.png", device = "png", width =8, height =6)
+
 ```
 
