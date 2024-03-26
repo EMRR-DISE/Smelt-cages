@@ -7,6 +7,10 @@ library(readxl)
 #look at the survival data
 survival = read_excel("data/BiofoulingStudy_Survival.xlsx", sheet = "Data")
 
+FCCl = data.frame(Treatment = "Control", Site = "FCCL", Cage = "FCCL", Survival = 21/24)
+
+survival = bind_rows(survival, FCCl)
+
 ggplot(survival, aes(x = Treatment, y = Survival))+ geom_boxplot()
 
 ggplot(survival, aes(x = Site, y = Survival)) + geom_boxplot()
@@ -14,9 +18,9 @@ ggplot(survival, aes(x = Site, y = Survival)) + geom_boxplot()
 ggplot(survival, aes(x = Treatment, y = Survival, fill = Site)) + geom_boxplot()
 
 #make a prettier version of the plot for the summer-fall habitat report
-survival = mutate(survival, Treatment = factor(Treatment, levels = c("Flip", "Scrub"), 
-                                               labels = c("Exchanged", "Scrubbed")),
-                  Site = factor(Site, levels = c("RV", "SM"), labels = c("Rio Vista", "Belden's Landing")))
+survival = mutate(survival, Treatment = factor(Treatment, levels = c("Control", "Flip", "Scrub"), 
+                                               labels = c("Control", "Exchanged", "Scrubbed")),
+                  Site = factor(Site, levels = c("SM","FCCL","RV"), labels = c("Belden's Landing","FCCL","Rio Vista")))
 
 
 ggplot(survival, aes(x = Treatment, y = Survival, fill = Site)) + geom_boxplot()+
@@ -27,7 +31,8 @@ ggplot(survival, aes(x = Cage, y = Survival, fill = Site)) + geom_col()+
   theme_bw()+
   facet_wrap(~Treatment, scales = "free_x")+
   scale_fill_brewer(palette = "Dark2")+
-  theme(legend.position = "bottom")
+  theme(legend.position = "bottom")+
+  coord_cartesian(ylim = c(0,1))
 
 
 #Test for statistically significant differences
@@ -66,9 +71,15 @@ ggplot(env, aes(x = as.factor(Date), y = Turb, color = InsideOutside))+
   facet_wrap(~Location)
 
 
-BDL = cdec_query("BDL", c(25, 27, 100, 62, 221), start.date = ymd("2023-08-30"),
-                 end.date = ymd("2023-09-01"))
+BDL = cdec_query(c("BDL","RVB"), c(25, 27, 100,61, 62, 221), start.date = ymd("2023-08-30"),
+                 end.date = ymd("2023-10-17"))
+library(wql)
 BDL2 = BDL %>%
-  filter(date(DateTime) == ymd("2023-08-31"), Duration == "E") %>%
   mutate(Value2 = case_when(SensorType == "TEMP W" ~ (Value-32)*5/9,
-                            TRUE ~ Value))
+                            SensorType == "EL COND" ~ ec2pss(Value/1000, 25),
+                            TRUE ~ Value),
+         Analyte = factor(SensorNumber, labels = c("Temperature (C)", "Turbidity (NTU)",
+                                                   "")))
+
+ggplot(BDL2, aes(x = DateTime, y = Value2, color = StationID))+ geom_line()+
+  facet_wrap(~SensorType, scales = "free")
