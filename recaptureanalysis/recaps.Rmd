@@ -38,7 +38,9 @@ Fist let's calculate distance from release location to recapture location.
 
 recaps = read_excel("data/Running Delta Smelt Catch.xlsx", 
                     sheet = "Delta Smelt Catch Data") %>%
-  rename( Latitude= `LatitudeStart`, Longitude = `LongitudeStart`) %>%
+  rename( Latitude= `LatitudeStart`, Longitude = `LongitudeStart`)
+
+recaps = recaps %>%
   mutate(FishID = paste("Fish", 1:nrow(recaps))) %>%
   select(-ReleaseDate, -Preservation, -Disposition, -SpecialStudyID, -MarkCode, -Dateknown)
 
@@ -498,35 +500,19 @@ now let's look at it statistically
 
 ```{r}
 
-m2 = lm(Distance ~ Release, data = nndist)
+m2 = lm(Distance ~ Type, data = alldist2)
 summary(m2)
 plot(m2)
 #QQ plot is a bit of a mess I tried log-transforming and sqrt transforming and its still a mess. 
 
-emmeans(m2, pairwise ~ Release)
-plot(emmeans(m2, pairwise ~ Release), comparisons = T)
+emmeans(m2, pairwise ~ Type)
+plot(emmeans(m2, pairwise ~ Type), comparisons = T)
 
 ```
 
-So DWSC soft were closer together than rio vista hard, but no difference between DWSC hard and DWSC soft
+So soft were closer together than hard
 
 I could also do this by release rather than release type
-
-```{r}
-smeltIDS = select(recaps2, fishID, ReleaseEvent)
-
-nndist2 = left_join(nndist, smeltIDS, by = c("Fish1" = "fishID"))
-
-m3 = lm(Distance ~ ReleaseEvent, data = nndist2)
-summary(m3)
-plot(m3)
-#QQ plot is a bit of a mess I tried log-transforming and sqrt transforming and its still a mess. 
-
-emmeans(m3, pairwise ~ ReleaseEvent)
-plot(emmeans(m3, pairwise ~ ReleaseEvent), comparisons = T)
-
-write.csv(nndist2, "DistanceMatrix.csv")
-```
 
 
 The before/after first flush thing was interesting, something with turbidity for the week after the release?
@@ -574,33 +560,14 @@ library(readxl)
 library(deltamapr)
 library(ggspatial)
 
-smelt = read_excel("Data/smeltcatch_2023.xlsx")
-
-smeltsf = st_as_sf(smelt, coords = c("LongitudeStart", "LatitudeStart"), crs = 4326) %>%
-  mutate(Date = str_sub(as.character(SampleDate), 6, 10))
-
-ggplot()+
-  geom_sf(data = WW_Delta, fill = "grey90")+
-  geom_sf(data = smeltsf, aes(shape = Survey, fill = LifeStage, color = LifeStage), size =5)+
-  scale_shape_manual(values = c(23, 24, 25))+
-  geom_sf_label(data = smeltsf, aes(label = Date), hjust =0, nudge_x = 0.01)+
-  coord_sf(ylim = c(38.0, 38.45), xlim = c(-122.1, -121.55))+
-  theme_bw()+
-  ylab(NULL)+
-  xlab(NULL)+
-  annotation_scale()+
-  annotation_north_arrow(aes(location = "tl"))
-
-ggsave("Plots/smeltmap2023.tiff", device = "tiff", width =8, height =8)
-ggsave("Plots/smeltmap2023.png", device = "png", width =8, height =8)
-
 ###########################################################
 #map for Katie
-smelt2 = read_excel("Data/Running Delta Smelt Catch_2023-09-05.xlsx", sheet = "Delta Smelt Catch Data")
+smelt2 = read_excel("data/Running Delta Smelt Catch.xlsx", 
+                    sheet = "Delta Smelt Catch Data") 
 
 smeltsf = st_as_sf(smelt2, coords = c("LongitudeStart", "LatitudeStart"), crs = 4326) %>%
   mutate(Date = str_sub(as.character(SampleDate), 6, 10)) %>%
-  filter(SampleDate > ymd("2023-09-30"))
+  filter(SampleDate > ymd("2023-09-30"), !is.na(ReleaseMethod))
 
 ggplot()+
   geom_sf(data = WW_Delta, fill = "grey90")+
@@ -618,6 +585,5 @@ ggplot()+
   annotation_north_arrow(aes(location = "tl"))
 
 ggsave("plots/Releasemap.png", device = "png", width =8, height =6)
-
 ```
 

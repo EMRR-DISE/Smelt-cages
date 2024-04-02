@@ -187,6 +187,12 @@ diets2.1 = group_by(diets2, Analy, Site, Treatment, `Cage ID`, Tag) %>%
   mutate(CageNum = paste("Cage", `Cage ID`), SampleID = Tag) %>%
   mutate(Type = "Diet")
 
+ggplot(diets2.1, aes(x = CageNum, y = Count, fill = Analy)) + geom_col(position = "fill")+
+  facet_wrap(Site~Treatment, scales = "free_x")+
+  scale_fill_manual(values = mypal)
+
+  
+
 zoops2 = left_join(zoops,select(crosswalk, Zooplankton, Analy), by = c("Species Name" = "Zooplankton") )
 
 zoops2.1 = group_by(zoops2, Analy, Site, CageNum, Treatment, SampleID) %>%
@@ -239,3 +245,107 @@ ggplot(filter(AllbugsRA2, Treatment != "Outside", Species != "Rotifer", Species 
        aes(x = Type, y = RelativeAbundance, fill = Species)) + geom_col(position = "fill") +
   facet_wrap(Site~Treatment)+
   scale_fill_manual(values = mypal)
+
+ggplot(filter(AllbugsRA2, Treatment != "Outside", Species != "Rotifer", Species != "Copepod nauplii"), 
+       aes(x = CageNum, y = RelativeAbundance, fill = Species)) + geom_col(position = "fill") +
+  facet_wrap(Site~Type, scales = "free_x")+
+  scale_fill_manual(values = mypal)
+##############################################################################
+library(vegan)
+#permanova comparing the three data type, two  sites, and two treatments
+datamat = filter(AllbugsRA2, Treatment != "Outside", Species != "Rotifer", Species != "Copepod nauplii") %>%
+  pivot_wider(names_from = Species, values_from = RelativeAbundance) 
+
+datamat = datamat[which(rowSums(datamat[,6:22]) !=0),]
+
+foo = as.matrix(datamat[,6:22])
+adonis2(foo ~ Treatment + Site + Type, data = datamat, na.rm = TRUE)
+
+
+
+
+bugsMDS = metaMDS(foo)
+
+bdata.scores <- as_tibble(scores(bugsMDS, display = "sites"))
+bdata.sps <- bugsMDS$species
+bdata.sps2 =  mutate(as.data.frame(bdata.sps), Species = row.names(bdata.sps))
+# Combine metadata with NMDS data scores to plot in ggplot
+bmeta <- cbind(datamat[,1:5], bdata.scores)
+# Read in years as a character otherwise it shows up as a number and gets displayed as a gradient
+
+ggplot(bmeta,
+       aes(x = NMDS1, y = NMDS2, fill = Type)) +
+  geom_point(size = 3,
+             pch = 21,
+             color = "black") +
+  stat_ellipse(aes(color = Site)) +
+  labs(color = "Site",
+       x = NULL,
+       y = NULL)
+
+ggplot(bmeta,
+       aes(x = NMDS1, y = NMDS2, fill = Type, shape = Site)) +
+  geom_point(size = 3,
+             pch = 21,
+             color = "black") +
+
+  stat_ellipse(aes(linetype = Site, color = Type)) +
+  geom_text(data = bdata.sps2, aes(x = MDS1, y = MDS2, label = Species), inherit.aes = FALSE)+
+   scale_color_manual(values = c("tomato", "steelblue", "yellow3"))+
+  scale_fill_manual(values = c("tomato", "steelblue", "yellow3"))+ 
+  theme_bw()+
+  labs(color = "Site",
+       x = NULL,
+       y = NULL)
+
+
+############################################################
+
+
+
+
+
+#now just the diets
+datamatdiet = filter(AllbugsRA2, 
+                     Type == "Diet") %>%
+  pivot_wider(names_from = Species, values_from = RelativeAbundance) 
+
+datamatdiet = datamat[which(rowSums(datamatdiet[,6:22]) !=0),]
+colSums(datamatdiet[,6:22])
+
+
+foodiet = as.matrix(datamatdiet[,6:22])
+adonis2(foodiet ~ Treatment + Site, data = datamatdiet, na.rm = TRUE)
+
+dietMDS = metaMDS(foodiet)
+
+data.scores <- as_tibble(scores(dietMDS, display = "sites"))
+data.sps <- dietMDS$species
+ data.sps2 =  mutate(as.data.frame(data.sps), Species = row.names(data.sps))
+# Combine metadata with NMDS data scores to plot in ggplot
+meta <- cbind(datamatdiet[,1:5], data.scores)
+# Read in years as a character otherwise it shows up as a number and gets displayed as a gradient
+
+ggplot(meta,
+       aes(x = NMDS1, y = NMDS2, fill = Site)) +
+  geom_point(size = 3,
+             pch = 21,
+             color = "black") +
+  stat_ellipse(aes(color = Site)) +
+  labs(color = "Site",
+       x = NULL,
+       y = NULL)
+
+ggplot(meta,
+       aes(x = NMDS1, y = NMDS2, fill = Treatment, shape = Site)) +
+  geom_point(size = 3,
+             pch = 21,
+             color = "black") +
+  scale_color_manual(values = c("tomato", "steelblue"))+
+  scale_fill_manual(values = c("tomato", "steelblue"))+
+  stat_ellipse(aes(linetype = Site, color = Treatment)) +
+  geom_text(data = data.sps2, aes(x = MDS1, y = MDS2, label = Species), inherit.aes = FALSE)+
+  theme_bw()+
+  labs(color = "Site",
+       x = NULL,
+       y = NULL)
