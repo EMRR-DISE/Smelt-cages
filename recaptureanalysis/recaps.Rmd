@@ -381,6 +381,26 @@ ggplot(releasestat, aes(x = Type, y = RecapRate*100, color = Type))+
   geom_quasirandom()+
   ylab("Percentage Recaptured")
 
+#put brood year on the x-axis?
+ggplot(releasestat, aes(x = as.factor(BroodYear), y = RecapRate*100, fill = as.factor(BroodYear)))+
+  geom_boxplot()+
+  facet_wrap(~FFyn)+
+  ylab("Percentage Recaptured")+
+  theme_bw()+
+  theme(axis.text.x = element_text(angle = 45, hjust =1, vjust =1),
+        legend.position = "none")+
+  xlab(NULL)
+
+#facet by brood year
+ggplot(releasestat, aes(x = Type2, y = RecapRate*100, fill = Type2))+
+  geom_boxplot()+
+  facet_grid(BroodYear~FFyn)+
+  ylab("Percentage Recaptured")+
+  theme_bw()+
+  theme(axis.text.x = element_text(angle = 45, hjust =1, vjust =1),
+        legend.position = "none")+
+  xlab(NULL)
+
 ```
 
 

@@ -29,6 +29,8 @@ amphwide = pivot_wider(amphipods, id_cols = c(Location, Date, Site), names_from 
 zoops = read_excel("data/DWR_CageZoop2023_Complete_TEC_1.22.2024.xlsx",
                        sheet = "Zoop Data") 
 
+zoops = mutate(zoops, uniqueID = paste(Date, Location))
+
 zoops = mutate(zoops, InOut = case_when(str_detect(Location, "Outside") ~ "Outside",
                                         str_detect(Location, "Inside") ~ "Inside"),
                CageNum = str_sub(Location, 1, 6)) %>%
@@ -36,15 +38,16 @@ zoops = mutate(zoops, InOut = case_when(str_detect(Location, "Outside") ~ "Outsi
   mutate(Treatment = case_when(InOut == "Outside" ~ "Outside",
                                TRUE ~ Treatment),
          Week = week(Date),
-         SampleID = paste(CageNum, Date, InOut))
+         SampleID = paste(CageNum, Date, InOut),
+         totalCount = Count*`Sample Volume (mL)`/`# of Subsamples`)
 
 #this is misleading....
-ggplot(zoops, aes(x = CageNum, y = Count, fill = `Species Name`)) + geom_col()+
+ggplot(zoops, aes(x = CageNum, y = totalCount, fill = `Species Name`)) + geom_col()+
   facet_wrap(Site~Treatment, scales = "free_x")
 
 #calculate average CPUE of each taxa
 zoopavetaxa = pivot_wider(zoops, id_cols = c(SampleID, CageNum, Treatment, Date, InOut, Site),
-                          names_from = `Species Name`, values_from = Count, values_fill = 0)
+                          names_from = `Species Name`, values_from =totalCount, values_fill = 0)
 
 zoopwzeros = pivot_longer(zoopavetaxa, cols = `Copepodid UNID nauplii`:last_col(), 
                           names_to = "Taxa", values_to = "Count")
@@ -248,6 +251,11 @@ ggplot(filter(AllbugsRA2, Treatment != "Outside", Species != "Rotifer", Species 
 
 ggplot(filter(AllbugsRA2, Treatment != "Outside", Species != "Rotifer", Species != "Copepod nauplii"), 
        aes(x = CageNum, y = RelativeAbundance, fill = Species)) + geom_col(position = "fill") +
+  facet_wrap(Site~Type, scales = "free_x")+
+  scale_fill_manual(values = mypal)
+
+ggplot(filter(AllbugsRA2, Treatment != "Outside", Species != "Rotifer", Species != "Copepod nauplii"), 
+       aes(x = SampleID, y = RelativeAbundance, fill = Species)) + geom_col(position = "fill") +
   facet_wrap(Site~Type, scales = "free_x")+
   scale_fill_manual(values = mypal)
 ##############################################################################

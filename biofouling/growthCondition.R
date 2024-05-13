@@ -4,6 +4,7 @@
 library(tidyverse)
 library(lubridate)
 library(readxl)
+library(RColorBrewer)
 growth = read_xlsx("data/BiofoulingStudyCageRemovals.xlsx")
 
 
@@ -35,6 +36,16 @@ ggplot(growth, aes(x = Treatment, fill = Site, y = Weight))+ geom_boxplot()+
   scale_fill_brewer(palette = "Dark2")+
   theme(legend.position = "bottom")+
   ylab("Weight (g)")
+
+growth = mutate(growth, Site = factor(Site, levels = c("FCCL", "Belden's Landing", "Rio Vista")))
+brewer.pal(3, "Dark2")
+
+ggplot(growth, aes(x = Treatment, fill = Site, y = Weight))+ geom_boxplot()+
+  theme_bw()+
+  scale_fill_manual(values = c( "#D95F02","#1B9E77", "#7570B3"))+
+  theme(legend.position = "bottom")+
+  ylab("Weight (g)")
+
 
 ggplot(growth, aes(x = Treatment, fill = Site, y = Condition))+ geom_boxplot()+
   theme_bw()+
