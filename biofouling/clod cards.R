@@ -23,10 +23,10 @@ clods2 = read_excel("data/clod cards.xlsx", sheet = "finalcards") %>%
 
 clods2 = mutate(clods2, treatment2 = factor(treatment2, levels = c("outside", "flip", "scrub"),
                                             labels = c("External", "Exchanged", "Scrubbed")),
-                                            Site = factor(Site, levels = c( "SM", "RV"),
-                                                                labels = c( "Belden's Landing","Rio Vista")),
-                days = case_when(Site == "Rio Vista" ~ 7,
-                                 Site == "Belden's Landing" ~ 6),
+                                            Site = factor(Site, levels = c( "RV","SM"),
+                                                                labels = c( "RV","BDL")),
+                days = case_when(Site == "RV" ~ 7,
+                                 Site == "BDL" ~ 6),
                 DiffPerDay = difference/days)
 
 
@@ -35,8 +35,9 @@ ggplot(clods2, aes(x = Site, y = DiffPerDay, fill = treatment2))+ geom_boxplot()
 
 ggplot(clods2, aes(x = treatment2, y = DiffPerDay, fill = Site)) +
   geom_boxplot()+
-  scale_fill_manual(values = c("#1B9E77" , "#7570B3"))+ 
+  scale_fill_manual(values = c("#1B9E77","#D95F02"))+ 
   ylab("Loss of Weight per Day (g)")+xlab(NULL)+
+  theme_bw()+
   theme(legend.position = "bottom")
 
 ggsave("plots/clodcards.tiff", device = "tiff", width =4, height =5)

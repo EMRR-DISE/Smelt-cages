@@ -1,30 +1,38 @@
-"","x"
-"1","Simocephalus sp."
-"2","Aphididae (winged)"
-"3","Pseudodiaptomus forbesi"
-"4","Gammaridea"
-"5","Amphipoda"
-"6","Eucyclops sp."
-"7","Hyalella azteca"
-"8","Chironomidae"
-"9","Calanoida"
-"10","Macrocyclops sp."
-"11","Amphipoda parts"
-"12","Plant matter"
-"13","Acanthocyclops sp."
-"14","Limnoithona tetraspina"
-"15","Tanaidacea"
-"16","Cyclopoida"
-"17","Plant/Algae matter"
-"18","Eurytemora affinis"
-"19","Cumella vulgaris"
-"20","Egg"
-"21","Harpaticoida"
-"22","Nippoleucon hinumensis"
-"23","Animal parts"
-"24","Americorophium spinicorne"
-"25","Corophiidae"
-"26","Cumacean"
-"27","ilyocryptus sp."
-"28","Copepod"
-"29","EMPTY"
+"","Prey Taxa","LH Stage"
+"1","Simocephalus sp.",NA
+"2","Aphididae (winged)","adult"
+"3","Pseudodiaptomus forbesi","adult"
+"4","Pseudodiaptomus forbesi","copepodid"
+"5","Gammaridea",NA
+"6","Amphipoda",NA
+"7","Eucyclops sp.","adult"
+"8","Hyalella azteca",NA
+"9","Chironomidae","larva"
+"10","Calanoida","copepodid"
+"11","Macrocyclops sp.","adult"
+"12","Amphipoda parts",NA
+"13","Plant matter",NA
+"14","Acanthocyclops sp.","adult"
+"15","Acanthocyclops sp.","copepodid"
+"16","Limnoithona tetraspina","adult"
+"17","Tanaidacea",NA
+"18","Pseudodiaptomus forbesi","nauplius"
+"19","Calanoida","nauplius"
+"20","Cyclopoida","nauplius"
+"21","Plant/Algae matter",NA
+"22","Eurytemora affinis","adult"
+"23","Cumella vulgaris",NA
+"24","Egg",NA
+"25","Harpaticoida",NA
+"26","Nippoleucon hinumensis",NA
+"27","Cyclopoida",NA
+"28","Animal parts",NA
+"29","Americorophium spinicorne",NA
+"30","Corophiidae","juvenile"
+"31","Eurytemora affinis","copepodid"
+"32","Cumacean",NA
+"33","Macrocyclops sp.","copepodid"
+"34","ilyocryptus sp.",NA
+"35","Copepod","nauplius"
+"36","EMPTY",NA
+"37","Pseudodiaptomus forbesi",NA

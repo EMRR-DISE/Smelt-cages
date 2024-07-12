@@ -14,14 +14,37 @@ treatments = data.frame(Location = c("Cage 1", "Cage 2", "Cage 3", "Cage 4",
                                       "Flip", "Scrub", "Flip", "Scrub"))
 amphipods = left_join(amphipods, treatments)
 
-ggplot(amphipods, aes(x = Location, y = count, fill = Species)) + geom_col()+
+ggplot(amphipods, aes(x = Location, y = count, fill = Species)) + geom_col( position = "fill")+
   facet_wrap(Site~Treatment, scales = "free_x")
 
+
+insects = filter(amphipods, Species %in% c("Chironomidae larvae", "Chironomidae pupae",
+                                           "Elmidae", "Hydroptilidae larvae",
+                                           "Hydroptilidae pupae", "Leptoceridae larvae",
+                                           "Trichoptera adult UNID"))
+
+
+
+ggplot(insects, aes(x = Location, y = count, fill = Species)) + geom_col( )+
+  facet_wrap(Site~Treatment, scales = "free_x")
+
+
+isopods = filter(amphipods, Species %in% c( "Gnorimosphaeroma spp", "Munnidae"))
+
+ggplot(isopods, aes(x = Location, y = count, fill = Species)) + geom_col( )+
+  facet_wrap(Site~Treatment, scales = "free_x")
 
 #amphipod community matrix
 
 amphwide = pivot_wider(amphipods, id_cols = c(Location, Date, Site), names_from = Species, values_from = total_count,
                        values_fn = sum, values_fill =0)
+
+
+#calculate average lengths
+
+amplong = pivot_longer(amphipods, cols = c(m_1:m_50), names_to = "orgnum", values_to = "length") %>%
+  group_by(Location, Date, Time, Site, Species, a_nr_g, pc_frag_mut, count, total_count, multiplier) %>%
+  summarize(meanlength = mean(length, na.rm =T)) 
 
 ###################################################################
 
@@ -77,8 +100,8 @@ zoopavetaxa2b = zoopwzeros %>%
   summarize(Count = mean(Count))
 
 library(RColorBrewer)
-mypal = c(brewer.pal(8, "Dark2"), brewer.pal(8, "Set2"), "yellow", "orange", "purple", "grey", "brown",
-          "red", "lightgreen", "white")
+mypal = c(brewer.pal(8, "Dark2"), brewer.pal(8, "Set2"), brewer.pal(8, "Set3"), "yellow", "orange", "purple", "grey", "brown",
+          "red", "lightgreen", "white", "orangered", "black")
 
 ggplot(zoopavetaxa2b, aes(x = Treatment, y = Count, fill = Tax2)) + geom_col()+
   facet_wrap(Site~., scales = "free_x")+
@@ -87,7 +110,7 @@ ggplot(zoopavetaxa2b, aes(x = Treatment, y = Count, fill = Tax2)) + geom_col()+
 
 #take out rotifers and copepod nauplii
 
-zoopavetaxa2bx = filter(zoopwzeros, !str_detect(Taxa, "nauplii"), !str_detect(Taxa, "Rotifer"),
+zoopavetaxa2bx = filter(zoopwzeros, !str_detect(Taxa, "Rotifer"),
                         !str_detect(Taxa, "Euchlanis"), !str_detect(Taxa, "Keratella"), !str_detect(Taxa, "Lecane"))
 
 
@@ -171,7 +194,9 @@ summary(dietw)
 
 #########################################################################
 #to integrate the datasets, I first exported a csv of all the unique taxon names and built a crosswalk table
-dietbugs = unique(diets$`Prey Taxa`)
+dietbugs = diets %>%
+  select(`Prey Taxa`, `LH Stage`) %>%
+  distinct()
 write.csv(dietbugs, "data/dietbugs_2023.csv")
 amphbugs = unique(amphipods$Species)
 write.csv(amphbugs, "data/amphipodtaxa.csv")
@@ -183,18 +208,34 @@ crosswalk = read_csv("data/crosswalk.csv")
 #now let's integrate diet and zooplankton data
 
 #Once I built the crosswalk, I joined the common names to each dataset
-diets2 = left_join(diets, select(crosswalk, Diet, Analy), by = c("Prey Taxa" = "Diet"))
+diets2 = diets %>%
+  mutate(Taxlifestage = paste(`Prey Taxa`, `LH Stage`),
+         Taxlifestage = str_remove(Taxlifestage, " NA")) %>%
+  left_join(select(crosswalk, Diet, Analy), by = c("Taxlifestage" = "Diet"))
 
 diets2.1 = group_by(diets2, Analy, Site, Treatment, `Cage ID`, Tag) %>%
   summarize(Count = sum(Count, na.rm = T)) %>%
   mutate(CageNum = paste("Cage", `Cage ID`), SampleID = Tag) %>%
   mutate(Type = "Diet")
 
+diets2.1zeros = pivot_wider(diets2.1,  
+                            names_from = Analy, values_from = Count, values_fill = 0) %>%
+  pivot_longer(cols = c(Amphipoda:last_col()), names_to = "Analy", values_to = "Count")
+
 ggplot(diets2.1, aes(x = CageNum, y = Count, fill = Analy)) + geom_col(position = "fill")+
   facet_wrap(Site~Treatment, scales = "free_x")+
   scale_fill_manual(values = mypal)
 
-  
+#were there more amphipods?
+ampdiets = filter(diets2.1zeros, Analy %in% c("Amphipoda", "Corophiidae", "Gammaridea"))
+
+ggplot(ampdiets, aes(x = Tag, y = Count, fill = Analy)) + geom_col()+
+  facet_wrap(Site~Treatment, scales = "free_x")+
+  scale_fill_manual(values = mypal)  
+
+ggplot(ampdiets, aes(x = Site, y = Count)) + geom_boxplot()+
+  facet_wrap(.~Treatment, scales = "free_x")+
+  scale_fill_manual(values = mypal)  
 
 zoops2 = left_join(zoops,select(crosswalk, Zooplankton, Analy), by = c("Species Name" = "Zooplankton") )
 
@@ -214,7 +255,11 @@ amps2.1 = group_by(amps2, Analy, Site, CageNum, Treatment, SampleID) %>%
 
 Allbugs = bind_rows(amps2.1, zoops2.1, diets2.1) %>%
   select(-Tag, -`Cage ID`)
+save(Allbugs, file = "biofouling/Allbugs.Rdata")
 
+#########################################################################################3
+#analysis
+load("biofouling/Allbugs.Rdata")
 library(RColorBrewer)
 
 #quick graph of the raw data
@@ -236,7 +281,8 @@ AllbugsRA1 = bind_cols( Allbugs_wide[,1:5], AllbugsRA)
 AllbugsRA2 = pivot_longer(AllbugsRA1, cols = c(Amphipoda:last_col()), names_to = "Species", values_to = "RelativeAbundance") %>%
   filter(Species != "NA")
 
-ggplot(filter(AllbugsRA2, Treatment != "Outside"), aes(x = Type, y = RelativeAbundance, fill = Species)) + geom_col(position = "fill") +
+ggplot(filter(AllbugsRA2, Treatment != "Outside"), aes(x = Type, y = RelativeAbundance, fill = Species)) + 
+  geom_col(position = "fill") +
   facet_wrap(Site~Treatment)+
   scale_fill_manual(values = mypal)
 
@@ -244,10 +290,45 @@ ggplot(filter(AllbugsRA2, Treatment != "Outside"), aes(x = Type, y = RelativeAbu
 
 #take out rotifers and nauplii, since htey aren't really eaten
 
-ggplot(filter(AllbugsRA2, Treatment != "Outside", Species != "Rotifer", Species != "Copepod nauplii"), 
+#also relable some things
+AllbugsRA2.1 = mutate(AllbugsRA2, Species = case_match(Species, "Calanoid_other" ~ "Other Calanoid",
+                                                     "Cyclopoid_other" ~ "Other Cyclopoid",
+                                                     "Amphipoda" ~ "Other Amphipod",
+                                                     "Isopoda" ~ "Isopod",
+                                                     "Eurytemora affinis" ~ "Eurytemora caroleeae",
+                                                     .default = Species),
+                      Species = factor(Species, levels = c( "Corophiidae", "Gammaridea", "Hyalella","Other Amphipod",
+                                                            "Eurytemora caroleeae","Pseudodiaptomus forbesi", "Other Calanoid",
+                                                            "Limnoithona", "Other Cyclopoid","Copepod nauplii", "Annelida", "Cladocera",
+                                                            "Cumacean", "Gastropod", "Insect", "Isopod", "Ostracod", "Rotifer","Other")),
+                    Treatment = case_match(Treatment, "Flip" ~ "Exchanged",
+                                           .default = Treatment),
+                    Type = case_match(Type, "Amphipods" ~ "Biofouling\nMacroinvertebrates",
+                                      "Diet" ~ "Delta Smelt\nDiets",
+                                      .default = Type),
+                    Site = case_match(Site, "Montezuma"~ "BDL",
+                                      "Rio Vista" ~ "RV"))
+
+ggplot(filter(AllbugsRA2.1, Treatment != "Outside", Species != "Rotifer", Species != "Copepod nauplii"), 
        aes(x = Type, y = RelativeAbundance, fill = Species)) + geom_col(position = "fill") +
   facet_wrap(Site~Treatment)+
-  scale_fill_manual(values = mypal)
+  scale_fill_manual(values = mypal)+
+  ylab("Relative Abundance")+ xlab(NULL)+
+  theme_bw()
+
+ggsave("biofouling/dietbugs.tiff", device = "tiff", width =8, height =8)
+
+#christina said they did eat some nauplii
+ggplot(filter(AllbugsRA2.1, Treatment != "Outside",  Species != "Rotifer"), 
+       aes(x = Type, y = RelativeAbundance, fill = Species)) + geom_col(position = "fill") +
+  facet_wrap(Site~Treatment)+
+  scale_fill_manual(values = mypal)+
+  ylab("Relative Abundance")+ xlab(NULL)+
+  theme_bw()
+
+
+ggsave("biofouling/dietbugs_wnauplii.tiff", device = "tiff", width =8, height =8)
+
 
 ggplot(filter(AllbugsRA2, Treatment != "Outside", Species != "Rotifer", Species != "Copepod nauplii"), 
        aes(x = CageNum, y = RelativeAbundance, fill = Species)) + geom_col(position = "fill") +
@@ -261,14 +342,15 @@ ggplot(filter(AllbugsRA2, Treatment != "Outside", Species != "Rotifer", Species 
 ##############################################################################
 library(vegan)
 #permanova comparing the three data type, two  sites, and two treatments
-datamat = filter(AllbugsRA2, Treatment != "Outside", Species != "Rotifer", Species != "Copepod nauplii") %>%
+datamat = filter(AllbugsRA2, Treatment != "Outside", Species != "Rotifer") %>%
   pivot_wider(names_from = Species, values_from = RelativeAbundance) 
 
-datamat = datamat[which(rowSums(datamat[,6:22]) !=0),]
+datamat = datamat[which(rowSums(datamat[,6:23]) !=0),]
 
-foo = as.matrix(datamat[,6:22])
-adonis2(foo ~ Treatment + Site + Type, data = datamat, na.rm = TRUE)
-
+foo = as.matrix(datamat[,6:23])
+a2 = adonis2(foo ~ Treatment + Site + Type, data = datamat, na.rm = TRUE)
+a2
+write.csv(a2, "biofouling/dietzoop_permanova.csv")
 
 
 
@@ -305,6 +387,11 @@ ggplot(bmeta,
   labs(color = "Site",
        x = NULL,
        y = NULL)
+
+#questions for christina
+#do i seperate nauplii by specie where possible?
+#do i include rotifers at all?
+#relative abundance or relative bioooooooomass
 
 
 ############################################################

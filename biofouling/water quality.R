@@ -3,6 +3,7 @@
 library(tidyverse)
 library(lubridate)
 library(readxl)
+library(cder)
 
 #look at the survival data
 survival = read_excel("data/BiofoulingStudy_Survival.xlsx", sheet = "Data")
@@ -71,15 +72,25 @@ ggplot(env, aes(x = as.factor(Date), y = Turb, color = InsideOutside))+
   facet_wrap(~Location)
 
 
-BDL = cdec_query(c("BDL","RVB"), c(25, 27, 100,61, 62, 221), start.date = ymd("2023-08-30"),
+BDL = cdec_query(c("BDL","RVB"), c(25, 27,28, 62, 100, 221), start.date = ymd("2023-08-30"),
                  end.date = ymd("2023-10-17"))
 library(wql)
 BDL2 = BDL %>%
   mutate(Value2 = case_when(SensorType == "TEMP W" ~ (Value-32)*5/9,
                             SensorType == "EL COND" ~ ec2pss(Value/1000, 25),
                             TRUE ~ Value),
-         Analyte = factor(SensorNumber, labels = c("Temperature (C)", "Turbidity (NTU)",
-                                                   "")))
+         Analyte = factor(SensorType, levels = c("CHLORPH", "EL COND", "PH VAL",
+                                                 "TEMP W", "TURB W"),
+                          labels = c("Chlorophyll (ug/L)", "Salinity (PSU)",
+                                     "pH", "Temperature (C)", "Turbidity (FNU)"))) %>%
+  filter(Value2 <200, !(SensorType == "CHLORPH" & Value > 10)) %>%
+  mutate(Site = factor(StationID, levels = c("RVB", "BDL")))
 
-ggplot(BDL2, aes(x = DateTime, y = Value2, color = StationID))+ geom_line()+
-  facet_wrap(~SensorType, scales = "free")
+ggplot(BDL2, aes(x = DateTime, y = Value2, color = Site))+ geom_line()+
+  facet_wrap(~Analyte, scales = "free", nrow =3)+
+  scale_color_manual(values = c("#1B9E77","#D95F02"), name = "Site")+
+  theme_bw()+ ylab(NULL)+
+  xlab("Date - 2024")+
+  theme(legend.position = "bottom")
+
+ggsave("plots/continuousWQ_biofouling.tiff", device = "tiff", width =8, height =8)

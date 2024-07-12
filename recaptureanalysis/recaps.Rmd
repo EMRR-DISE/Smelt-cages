@@ -13,8 +13,9 @@ library(sf)
 library(lubridate)
 library(spacetools)
 library(deltamapr)
-#load("Recaps.RData")
-#save(nndist, distances, recaps, recaps2, recaps3, RVhdist, SCsoft, SChard, RVhdistx, Dwschard, Dwscsoft, file = "Recaps.RData")
+load("Recaps2.RData")
+save( distances, recaps, recaps2, recaps3,  distances2, alldist, alldist2, alldist2.1, releasestat,
+      turbdat_ave, file = "Recaps2.RData")
 ```
 
 ## Spatial stats on Delta Smelt releases
@@ -126,7 +127,7 @@ OK, now let's bind all the distances together and join them back to the origiona
 
 ```{r}
 
-recaps3 = left_join(recaps2, distances) %>%
+recaps3 = left_join(recaps2, distances, by = c("FishID" = "FishID")) %>%
   mutate(Type2 = case_when(Type %in% c("Hard (large scale)","Hard (trailer)") ~ "Hard (Large Scale)",
                            TRUE ~ Type)) %>%
   mutate(SiteType = paste(Type, Site))
@@ -145,7 +146,7 @@ recaps3 = recaps3 %>%
          mutate(FFyn = case_when(ReleaseDate > FirstFlush ~ "Yes",
                           TRUE ~ "No"))
 
-write.csv(recaps, "recaptureanalysis/Recapturedistances.csv")
+write.csv(recaps3, "recaptureanalysis/Recapturedistances.csv")
 ```
 
 Plot to visually look at mean and variation.
@@ -409,14 +410,14 @@ NOw we move on to distance bewteen recaptured fish. I'm doing it oen release at 
 
 ```{r, eval=FALSE}
 
-distances = list(NA)
+distances2 = list(NA)
 
 releasex = filter(release, ReleaseEvent %in% unique(recaps3$ReleaseEvent))
 for(i in 1:nrow(releasex)) {
   points = filter(recaps3, ReleaseEvent == releasex$ReleaseEvent[i])
-  distances[[i]] = Waterdist(Water_map = spacetools::Delta, Points = points, Latitude_column = `Latitude`,
+  distances2[[i]] = Waterdist(Water_map = spacetools::Delta, Points = points, Latitude_column = `Latitude`,
                     Longitude_column = `Longitude`, PointID_column = FishID)
-  names(distances[[i]]) = releasex$ReleaseEvent[i]
+  names(distances2[[i]]) = releasex$ReleaseEvent[i]
     
 }
 
@@ -443,7 +444,7 @@ Let's look at the mean of the lower triagle of each of these.
 
 ```{r}
 
-clustest = lapply(distances, function(x){df = data.frame(Mean = mean(x[lower.tri(x)], na.rm =T), SD = sd(x, na.rm =T))} )%>%
+clustest = lapply(distances2, function(x){df = data.frame(Mean = mean(x[lower.tri(x)], na.rm =T), SD = sd(x, na.rm =T))} )%>%
   bind_rows() %>%
   mutate(Release = releasex$ReleaseEvent)
 
@@ -455,7 +456,7 @@ OK, now how to I put these all together to graph them?
 
 ```{r}
 
-alldist = lapply(distances, function(x){
+alldist = lapply(distances2, function(x){
   x[lower.tri(x, diag = T)] = NA
   X = as.data.frame(x) %>%
     mutate(Fish1 = row.names(x)) %>%
@@ -528,11 +529,41 @@ plot(m2)
 emmeans(m2, pairwise ~ Type)
 plot(emmeans(m2, pairwise ~ Type), comparisons = T)
 
+alldist2 = mutate(alldist2, Type2 = case_when(str_detect(Type, "Hard") ~ "Hard",
+                                              str_detect(Type, "Soft") ~ "Soft",
+                                               TRUE ~ "Unknown"))
+m22 = lm(Distance ~ Type2, data = filter(alldist2, Type != "Unknown"))
+summary(m22)
+plot(m22)
+
+
+emmeans(m22, pairwise ~ Type2)
+plot(emmeans(m22, pairwise ~ Type2), comparisons = T)
+
+
 ```
 
 So soft were closer together than hard
 
 I could also do this by release rather than release type
+
+But let's start with looking at just the paired releases with the carboys
+
+```{r}
+alldist3 = filter(alldist2, Type != "Unknown") %>%
+  mutate(Pair = str_sub(ReleaseEvent, 1,8))
+library(lme4)
+library(lmerTest)
+
+m3 = lmer(Distance ~ Type2 + (1|Pair), data = alldist3)
+summary(m3)
+plot(m22)
+
+
+emmeans(m3, pairwise ~ Type2)
+plot(emmeans(m3, pairwise ~ Type2), comparisons = T)
+
+```
 
 
 The before/after first flush thing was interesting, something with turbidity for the week after the release?
@@ -556,7 +587,21 @@ test = rollmean(turbdat_ave$Turbidity, 7, align = "right", na.pad = TRUE)
 turbdat_ave$weekturb = test
 
 releasestat = left_join(releasestat, turbdat_ave, by = c("ReleaseDate" = "Date"))
-  
+
+turbm = lm(RecapRate ~ weekturb + Type2, data = releasestat)
+summary(turbm)
+#Huh, so percentage recaptures is correlated to turbidity (marginal), but not release type. Distance is correlated to release type, but not turbidity.
+
+#what if i just use the paired hard/soft releases?
+#oh, but some of the pairs are trailer and some are carboy 
+
+#Ugh, I need to talk throught this with Brian. 
+write.csv(releasestat, "outputs/ReleasesRecapRate.csv")
+
+```
+
+
+```{r}
 ggplot(filter(releasestat, BroodYear != 2021, Type2 != "NA"), aes(x = weekturb, y = RecapRate )) + geom_point(aes(color = as.factor(BroodYear), shape = Type2), size =3)+ geom_smooth(method = "lm")+ylab("Percentage Recaptured") + 
   xlab("Mean turbidity for 7 days post release (NTU)")+
   theme_bw()+
@@ -566,6 +611,34 @@ ggplot(filter(releasestat, BroodYear != 2021, Type2 != "NA"), aes(x = weekturb, 
 ggsave("plots/turbidityrecaps.tiff", device = "tiff", width =5, height =4)
 
 ```
+
+
+OK, now let's try adding turbidity to the model with the paired releases
+
+```{r}
+
+
+alldist3 = left_join(alldist3, turbdat_ave, by = c("ReleaseDate" = "Date"))
+
+m3.3 = lmer(Distance ~ Type2 +weekturb+ (1|Pair), data = alldist3)
+summary(m3.3)
+
+#hm. Turbidity isn't significant, but probably becaues i've already blocked by date of release
+
+m3.4 = lm(Distance ~ Type2 +weekturb, data = alldist3)
+summary(m3.4)
+#turbidity is only marginal there. 
+
+alldist2 = left_join(alldist2, turbdat_ave, by = c("ReleaseDate" = "Date"))
+
+
+m2.4 = lm(Distance ~ Type +weekturb, data = alldist2)
+summary(m2.4)
+#huh, turbidity not at all significant there. 
+
+```
+
+
 
 ## Pretty map of recaputres for presentations
 

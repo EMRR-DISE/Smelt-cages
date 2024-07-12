@@ -1,0 +1,307 @@
+---
+title: "Smelt recapture analysis - clean version"
+author: "Rosie"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE)
+library(tidyverse)
+library(readxl)
+library(sf)
+library(lubridate)
+library(spacetools)
+library(deltamapr)
+library(lme4)
+library(lmerTest)
+library(effects)
+library(MuMIn)
+library(DT)
+load("recaptureanalysis/Recaps2.RData")
+
+```
+
+## Questions we can ask about Delta Smelt realeases
+
+-   What influences how far they travel from release site?
+
+    -   Release type (Hard, soft)
+
+    -   Turbidity
+
+    -   First flush
+
+    -   Brood Year
+
+-   What influences how close together the fish are when they are recaptured?
+
+    -   Release type (Hard, soft)
+
+    -   Turbidity
+
+    -   First Flush
+
+    -   Brood Year
+
+-   What influences how many fish are recaptured?
+
+    -   Release type (Hard, soft)
+
+    -   Turbidity
+
+    -   First Flush
+
+    -   Brood Year
+
+### Data
+
+We have tw0 years of release data (brood years 2022, and 2023) where we have release-specific markings that we can use for this analysis. Most were released at Rio VIsta, but a few were released in the Ship Channel durign the first year. Releases in 2021 did not have release-specific markings, so we can't really use that to analyze release types.
+
+```{r, echo=FALSE}
+releasestat2 = select(releasestat, -Mark, -Type2, -N, -FirstFlush, -Month, -Year, -Turbidity,
+                      -LatitudeR, -LongitudeR) %>%
+  rename(WeeklyAve_Turbidity = weekturb)
+
+datatable(releasestat2)
+```
+
+## Distance traveled
+
+For the first question, distance traveled from release site, let's start with a few exploratory plots.
+
+Is distance from release site explained by release type or brood year?
+
+2021 looks a bit closer than the other two years. Soft might be closer than hard, but difficult to tell.
+
+```{r}
+ggplot(filter(recaps3, Type != "Wild/unmarked"), aes(x = Type2, y = Distance)) + geom_boxplot()+
+  facet_wrap(~BroodYear)+ ylab("Distance from release site)")+
+  theme_bw()+
+  theme(axis.text.x = element_text(angle = 45, hjust =1, vjust =1))
+```
+
+OK, now let's test it statistically.
+
+We want to account for the fact that some of these were in paried releases, and the fact that brood years might be different. But our primary goal is hard versus soft.
+
+I'm going to start with the two differen ttypes of hard realeases, then pool all hard releases. I'll aslo take out 2021 since we can't trace that one.
+
+Wait - do I need a random effect of release event? I think I do. Maybe that's my random effect instead of pari? Or does pair cover it?
+
+```{r}
+recaps3.1 = filter(recaps3,  Type != "Wild/unmarked", Type != "Unknown") %>%
+  mutate(Pair = str_sub(ReleaseEvent, 1,8), BroodYear = as.factor(BroodYear))
+
+recapmod = lmer(Distance ~ Type2 + BroodYear + (1|Pair), data = recaps3.1)
+summary(recapmod)
+  plot(allEffects(recapmod))
+```
+
+No significant differences what so ever.
+
+Let's try taking out brood year.
+
+```{r}
+recapmod2 = lmer(Distance ~ Type2 + (1|Pair), data = recaps3.1)
+summary(recapmod2)
+  plot(allEffects(recapmod2))
+
+```
+
+Nope. Now let's try pooling all the hard realeasees.
+
+```{r}
+recaps3.1 = mutate(recaps3.1, Type3 = case_when(str_detect(Type2, "Hard") ~ "Hard",
+                                                str_detect(Type2, "Soft") ~ "Soft"))
+
+recapmod3 = lmer(Distance ~ Type3 + (1|Pair), data = recaps3.1)
+summary(recapmod3)
+  plot(allEffects(recapmod3))
+
+
+```
+
+Nope, still not significant.
+
+OK, now what about turbidity?
+
+```{r}
+recaps3.2 = left_join(recaps3.1, turbdat_ave, by = c("ReleaseDate" = "Date"))
+
+recapmod4 = lmer(Distance ~ weekturb + (1|Pair), data = recaps3.2)
+summary(recapmod4)
+  plot(allEffects(recapmod4))
+
+```
+
+How about before versus after first flush?
+
+```{r}
+recapmod5 = lm(Distance ~ FFyn, data = recaps3.2)
+summary(recapmod5)
+  plot(allEffects(recapmod5))
+
+```
+
+There's a difference, but it's not significant.
+
+Just to be thorough, let's put all the possible predictors in a model and see which AIC says is best.
+
+```{r}
+recapmodGlobal = lmer(Distance ~ FFyn + BroodYear + Type3 + weekturb + (1|Pair), data = recaps3.2,
+                      na.action = "na.fail", REML = FALSE)
+
+dredge(recapmodGlobal)
+
+```
+
+It says that the null model with no predictors is best, followed closely by just the release type.
+
+Overall, we didn't see much influence on distance traveled from any of our predictors.
+
+## Distance between recaptures
+
+Now let's move on to distance between recaptures. Personally, I don't love this metric, because unless they are caught in the same trawl, we can't really say they are schooling or derriving any benifit from being close together, but we'll do it anyway.
+
+Is distance between recaptures explained by release type or brood year?
+
+Exploritoary plots
+
+```{r}
+ggplot(filter(alldist2.1), aes(x = Type2, y = Distance)) + geom_boxplot()+
+  facet_wrap(~BroodYear)+ ylab("Distance between recaptures")+
+  theme_bw()+
+  theme(axis.text.x = element_text(angle = 45, hjust =1, vjust =1))
+```
+
+It doesn't look like there was a big difference bwteen brood years, but maybe somthing with release type.
+
+We want to account for the fact that some of these were in paried releases, and the fact that brood years might be different. But our primary goal is hard versus soft.
+
+I'm going to start with the two differen ttypes of hard realeases, then pool all hard releases.
+
+```{r}
+alldist2.1 = mutate(alldist2.1, Pair = str_sub(ReleaseEvent, 1, 8), BroodYear = as.factor(BroodYear))
+school1 = lmer(Distance ~ Type2 + BroodYear + (1|Pair), data = alldist2.1)
+summary(school1)
+  plot(allEffects(school1))
+```
+
+So, soft realeases were closer together than hard releases, no difference between the carboy hard releases and large-scale releases, and no difference between brood years.
+
+OK, now what about turbidity?
+
+```{r}
+#join turbidity and first flush info
+FF = select(recaps3.1, ReleaseEvent, FFyn) %>%
+  distinct()
+alldist3 = left_join(alldist2.1, turbdat_ave, by = c("ReleaseDate" = "Date")) %>%
+  left_join(FF)
+
+school2a = lm(Distance ~ weekturb, data = alldist3)
+summary(school2a)
+  plot(allEffects(school2a))
+
+  school2 = lmer(Distance ~ weekturb + (1|Pair), data = alldist3)
+summary(school2)
+  plot(allEffects(school2))
+  
+```
+
+No significant difference when I include the random effect of pair. I think i have to because smelt from a particular release event are not independent replicates.
+
+I'm going to skip the first flush model and jump right to dredging the global model
+
+```{r}
+schoolmodGlobal = lmer(Distance ~ FFyn + BroodYear + Type2 + weekturb + (1|Pair), data = alldist3,
+                      na.action = "na.fail", REML = FALSE)
+
+dredge(schoolmodGlobal)
+```
+
+Huh. Almost everything is within a delta-AIC of 3, meaning they are pretty much the same. Interesting.
+
+I don't think I"d want turbidity and first flush in the same model, so we'd have to choose. Neither are significant, so maybe just don't use either of them. Brood year didn't come out as significant, so I'm tempted to leave that out too.
+
+```{r}
+bestschool = lmer(Distance ~  Type2 + (1|Pair), data = alldist3)
+
+summary(bestschool)
+
+```
+
+This leaves us with the conclusion that soft release fish stayed closer together.
+
+## Number of recaptures
+
+The percentage of fish recaptured gives us some idea whether there are differences in survival rates between the release types, which I think is one of hte more interesting things.
+
+Is percentage of fish recaptured explained by release type or brood year?
+
+```{r}
+ggplot(releasestat, aes(x = Type2, y = RecapRate, color = as.factor(BroodYear))) + 
+  geom_point()+ ylab("Percentage of fish recaptured")+
+  theme_bw()+
+  theme(axis.text.x = element_text(angle = 45, hjust =1, vjust =1))
+```
+
+There aren't a lot of data, it's pretty hard to tell anything.
+
+```{r}
+releasestat = mutate(releasestat, BroodYear = as.factor(BroodYear),
+                     Type3 = case_when(str_detect(Type2, "Hard") ~ "Hard",
+                                       str_detect(Type2, "Soft") ~ "Soft"))
+rates1 = lm(RecapRate ~ Type2 + BroodYear, data = releasestat)
+summary(rates1)
+  plot(allEffects(rates1))
+```
+
+Meh.
+
+```{r}
+
+rates2 = lm(RecapRate ~ Type3, data = releasestat)
+summary(rates2)
+  plot(allEffects(rates2))
+```
+
+Nope. You definitely don't get more recaptures by release type.
+
+OK, now what about turbidity?
+
+```{r}
+
+rates3 = lm(RecapRate ~ weekturb, data = releasestat)
+summary(rates3)
+  plot(allEffects(rates3))
+  
+```
+
+So you do get a significant impact of nuber of recaptures based on turbiidty the week after release!
+
+```{r}
+ratesglobal = lm(RecapRate ~ FFyn + BroodYear + Type3 + weekturb , data = releasestat,
+                      na.action = "na.fail")
+
+dredge(ratesglobal)
+```
+
+So, the best model by AIC is with first flush, but the weekly turbidity and brood year are also within a delta AIC of 3, so could be included.
+
+Again, I wouldn't want the first flush and weeekly turbidity in the same model, so we'd want to choose our favorite.
+
+Brood year isn't significant, and doesn't improve the model, so I'll leave that off.
+
+```{r}
+ratesbest = lm(RecapRate ~ weekturb , data = releasestat)
+summary(ratesbest)
+
+ratesbest2 = lm(RecapRate ~ FFyn , data = releasestat)
+summary(ratesbest2)
+
+plot(allEffects(ratesbest))
+plot(allEffects(ratesbest2))
+
+
+```
