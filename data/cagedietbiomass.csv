@@ -1,0 +1,122 @@
+"Location","Treatment","Cage ID","FishID","LabForkLength_mm","LabWeight_g","Fullness","Digestion","Empty","Total Contents Weight","Taxa Group","CageCode","Count","Carbon_weight_ug","Biomass"
+"Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,"Amphipod","Gammarus daiberi",2,5.7926225,11.585245
+"Rio Vista","Exchanged",1,"C1N37",50,0.7995,3,5,"N",4e-04,"Amphipod","Hyalella",1,15.920186,15.920186
+"Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,"Amphipod","Gammarus daiberi",2,5.7926225,11.585245
+"Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,"Amphipod","Amphipod",2,13.19296767,26.38593534
+"Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,"Amphipod","Gammarus daiberi",2,5.7926225,11.585245
+"Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,"Amphipod","Hyalella",1,15.920186,15.920186
+"Rio Vista","Exchanged",3,"C3N18",54,0.7778,4,5,"N",3e-04,"Amphipod","Gammarus daiberi",1,5.7926225,5.7926225
+"Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,"Amphipod","Gammarus daiberi",3,5.7926225,17.3778675
+"Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,"Amphipod","Amphipod",2,13.19296767,26.38593534
+"Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,"Amphipod","Hyalella",1,15.920186,15.920186
+"Rio Vista","Exchanged",3,"C3N27",42,0.6139,3,3,"N",8e-04,"Amphipod","Gammarus daiberi",1,5.7926225,5.7926225
+"Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,"Amphipod","Gammarus daiberi",1,5.7926225,5.7926225
+"Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,"Other","Tanaid",1,10.93771267,10.93771267
+"Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,"Amphipod","Americorophium spinicorne",1,10.93771267,10.93771267
+"Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,"Amphipod","Americorophium spinicorne",2,10.93771267,21.87542534
+"Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,"Other","Tanaid",1,10.93771267,10.93771267
+"Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,"Amphipod","Gammarus daiberi",1,5.7926225,5.7926225
+"Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,"Amphipod","Americorophium spinicorne",2,10.93771267,21.87542534
+"Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,"Amphipod","Hyalella",4,15.920186,63.680744
+"Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,"Amphipod","Gammarus daiberi",3,5.7926225,17.3778675
+"Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,"Amphipod","Hyalella",1,15.920186,15.920186
+"Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,"Amphipod","Gammarus daiberi",2,5.7926225,11.585245
+"Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,"Amphipod","Amphipod",1,13.19296767,13.19296767
+"Rio Vista","Scrubbed",2,"C2N24",53,0.9017,3,3,"N",7e-04,"Amphipod","Amphipod",1,13.19296767,13.19296767
+"Rio Vista","Scrubbed",2,"C2N24",53,0.9017,3,3,"N",7e-04,"Amphipod","Gammarus daiberi",1,5.7926225,5.7926225
+"Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,"Amphipod","Amphipod",1,13.19296767,13.19296767
+"Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,"Amphipod","Amphipod",2,13.19296767,26.38593534
+"Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,"Amphipod","Hyalella",3,15.920186,47.760558
+"Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,"Amphipod","Gammarus daiberi",9,5.7926225,52.1336025
+"Rio Vista","Scrubbed",4,"C4N41",54,0.9521,2,5,"N",9e-04,"Amphipod","Gammarus daiberi",2,5.7926225,11.585245
+"Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,"Amphipod","Gammarus daiberi",4,5.7926225,23.17049
+"Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,"Amphipod","Americorophium spinicorne",2,10.93771267,21.87542534
+"Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,"Amphipod","Americorophium spinicorne",1,10.93771267,10.93771267
+"Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,"Amphipod","Gammarus daiberi",1,5.7926225,5.7926225
+"Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,"Amphipod","Americorophium spinicorne",1,10.93771267,10.93771267
+"Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,"Amphipod","Gammarus daiberi",1,5.7926225,5.7926225
+"Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,"Amphipod","Gammarus daiberi",2,5.7926225,11.585245
+"Belden's Landing","Scrubbed",8,"C8N25",58,0.7454,6,4,"N",0.0086,"Amphipod","Gammarus daiberi",4,5.7926225,23.17049
+"Belden's Landing","Scrubbed",8,"C8N25",58,0.7454,6,4,"N",0.0086,"Amphipod","Americorophium spinicorne",1,10.93771267,10.93771267
+"Belden's Landing","Scrubbed",8,"C8N26",58,1.0693,4,5,"N",0.0042,"Amphipod","Gammarus daiberi",4,5.7926225,23.17049
+"Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,"Amphipod","Gammarus daiberi",4,5.7926225,23.17049
+"Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,"Amphipod","Gammarus daiberi",2,5.7926225,11.585245
+"Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,"Pseudodiaptomus Juvenile","Pseudodiaptomus forbesi copepodid",2,1.15,2.3
+"Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",3,2.66,7.98
+"Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,"Cladoceran","Simocephalus sp.",1,1,1
+"Rio Vista","Exchanged",1,"C1N37",50,0.7995,3,5,"N",4e-04,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",2,2.66,5.32
+"Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,"Cyclopoid Copepod","Eucyclops sp. adult",1,3.3,3.3
+"Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",4,2.66,10.64
+"Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,"Pseudodiaptomus Juvenile","Pseudodiaptomus forbesi copepodid",1,1.15,1.15
+"Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",7,2.66,18.62
+"Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,"Cladoceran","Simocephalus sp.",1,1,1
+"Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,"Pseudodiaptomus Juvenile","Pseudodiaptomus forbesi copepodid",1,1.15,1.15
+"Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",9,2.66,23.94
+"Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,"Pseudodiaptomus Juvenile","Pseudodiaptomus forbesi copepodid",3,1.15,3.45
+"Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",4,2.66,10.64
+"Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",1,2.66,2.66
+"Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,"Pseudodiaptomus Juvenile","Pseudodiaptomus forbesi copepodid",2,1.15,2.3
+"Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,"Cladoceran","Simocephalus sp.",1,1,1
+"Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,"Cyclopoid Copepod","Macrocyclops sp. adult",1,3.3,3.3
+"Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",4,2.66,10.64
+"Belden's Landing","Exchanged",5,"C5N2",55,0.7444,6,3,"N",0.0021,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",1,2.66,2.66
+"Belden's Landing","Exchanged",5,"C5N4",51,0.5367,2,6,"N",0,"Limnoithona","Limnoithona tetraspina adult",2,0.13,0.26
+"Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,"Cumacean","Cumella vulgaris",2,13.2,26.4
+"Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",2,2.66,5.32
+"Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,"Harpaticoida","Harpaticoida",1,1,1
+"Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,"Limnoithona","Limnoithona tetraspina adult",82,0.13,10.66
+"Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,"Calanoid Copepod","Eurytemora affinis adult",1,3,3
+"Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,"Cyclopoid Copepod","Cyclopoida nauplius",2,0.1,0.2
+"Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,"Calanoid Copepod","Calanoida nauplius",2,0.1,0.2
+"Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",1,2.66,2.66
+"Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,"Pseudodiaptomus","Pseudodiaptomus forbesi nauplius",1,0.1,0.1
+"Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,"Limnoithona","Limnoithona tetraspina adult",1,0.13,0.13
+"Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,"Cumacean","Cumella vulgaris",1,13.2,13.2
+"Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,"Calanoid Copepod","Eurytemora affinis adult",1,3,3
+"Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,"Harpaticoida","Harpaticoida",1,1,1
+"Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,"Limnoithona","Limnoithona tetraspina adult",6,0.13,0.78
+"Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,"Cyclopoid Copepod","Macrocyclops sp. adult",1,3.3,3.3
+"Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,"Cyclopoid Copepod","Macrocyclops sp. copepodid",1,1.6,1.6
+"Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,"Cumacean","Cumella vulgaris",3,13.2,39.6
+"Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,"Cladoceran","ilyocryptus sp.",1,1,1
+"Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,"Harpaticoida","Harpaticoida",1,1,1
+"Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,"Other","Copepod nauplius",1,0.1,0.1
+"Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,"Other","Chironomidae larva",1,17.6,17.6
+"Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",2,2.66,5.32
+"Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,"Cyclopoid Copepod","Macrocyclops sp. adult",1,3.3,3.3
+"Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,"Calanoid Copepod","Calanoida copepodid",1,1.5,1.5
+"Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",1,2.66,2.66
+"Rio Vista","Scrubbed",2,"C2N4",42,0.5668,2,6,"N",0,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",2,2.66,5.32
+"Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,"Cyclopoid Copepod","Acanthocyclops sp. adult",1,3.36,3.36
+"Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,"Cyclopoid Copepod","Acanthocyclops sp. copepodid",1,1.68,1.68
+"Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",6,2.66,15.96
+"Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",16,2.66,42.56
+"Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,"Cyclopoid Copepod","Acanthocyclops sp. adult",2,3.36,6.72
+"Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",3,2.66,7.98
+"Rio Vista","Scrubbed",4,"C4N40",50,0.7258,2,6,"N",0,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",2,2.66,5.32
+"Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,"Harpaticoida","Harpaticoida",2,1,2
+"Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,"Limnoithona","Limnoithona tetraspina adult",38,0.13,4.94
+"Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,"Cyclopoid Copepod","Macrocyclops sp. copepodid",1,1.6,1.6
+"Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,"Cumacean","Cumacean",1,13.2,13.2
+"Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,"Cyclopoid Copepod","Cyclopoida",9,3.3,29.7
+"Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,"Harpaticoida","Harpaticoida",1,1,1
+"Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,"Limnoithona","Limnoithona tetraspina adult",37,0.13,4.81
+"Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,"Harpaticoida","Harpaticoida",2,1,2
+"Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,"Limnoithona","Limnoithona tetraspina adult",96,0.13,12.48
+"Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,"Limnoithona","Limnoithona tetraspina adult",1,0.13,0.13
+"Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,"Cumacean","Nippoleucon hinumensis",1,13.2,13.2
+"Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,"Cumacean","Cumella vulgaris",1,13.2,13.2
+"Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,"Harpaticoida","Harpaticoida",1,1,1
+"Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,"Limnoithona","Limnoithona tetraspina adult",100,0.13,13
+"Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",1,2.66,2.66
+"Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,"Calanoid Copepod","Eurytemora affinis adult",1,3,3
+"Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,"Calanoid Copepod","Eurytemora affinis copepodid",1,1.4,1.4
+"Belden's Landing","Scrubbed",8,"C8N20",56,0.8552,3,3,"N",0,"Cyclopoid Copepod","Cyclopoida nauplius",2,0.1,0.2
+"Belden's Landing","Scrubbed",8,"C8N26",58,1.0693,4,5,"N",0.0042,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",1,2.66,2.66
+"Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,"Harpaticoida","Harpaticoida",2,1,2
+"Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,"Cumacean","Nippoleucon hinumensis",4,13.2,52.8
+"Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,"Limnoithona","Limnoithona tetraspina adult",2,0.13,0.26
+"Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,"Limnoithona","Limnoithona tetraspina adult",10,0.13,1.3
+"Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,"Harpaticoida","Harpaticoida",1,1,1
+"Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,"Pseudodiaptomus Juvenile","Pseudodiaptomus forbesi copepodid",1,1.15,1.15
+"Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",1,2.66,2.66

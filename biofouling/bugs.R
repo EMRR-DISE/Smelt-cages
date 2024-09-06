@@ -160,6 +160,13 @@ ggplot(zoopave2, aes(x = Treatment, y = CPUEm)) + geom_col()+
 
 diets = read_excel("data/DSM Cage Diets 2019-2023.xlsx", sheet = "2023")
 
+empties = filter(diets, `Prey Taxa`=="EMPTY") %>%
+  rename(Location = Site, FishID = Tag, CageCode = `Prey Taxa`) %>%
+  select(Location, Treatment, `Cage ID`, FishID, Fullness, Digestion, `Total Contents Weight`,
+         CageCode) %>%
+  mutate(Biomass =0, Count =0, Empty = "Y", Treatment = "Exchanged", Location = "Belden's Landing",
+         LabWeight_g = 0.684, `Taxa Group` = "Empty")
+
 ggplot(diets, aes(x = Tag, y = Count, fill = `Prey Taxa`)) + geom_col()+
   facet_wrap(Treatment~Site, scales = "free_x")
 
@@ -192,7 +199,65 @@ plot(dietw)
 summary(dietw)
 #no significant difference, OK.
 
-#########################################################################
+#Diet biomass
+dietmass = read_csv("data/cagedietbiomass.csv") %>%
+  bind_rows(empties)
+
+ggplot(dietmass, aes(x = FishID, y = Biomass, fill = `Taxa Group`)) + geom_col() +
+  facet_wrap(Location ~ Treatment, scales = "free_x")
+
+
+
+
+#did they have a higher total stomach contents?
+
+diemasssum = group_by(dietmass, FishID, Treatment, Location, Fullness, LabWeight_g) %>%
+  summarize(Totmass = sum(Biomass)) %>%
+  mutate(Propmass = (Totmass/1000)/LabWeight_g)
+
+dietmod = lm(Totmass ~ Treatment + Location, data = diemasssum)
+summary(dietmod)
+plot(dietmod)
+
+dietmod2 = lm(Propmass ~ Treatment + Location, data = diemasssum)
+summary(dietmod2)
+plot(dietmod2)
+
+#lets try and take out that outlier
+diemasssum2 = filter(diemasssum, FishID != "C2N16")
+
+dietmod2.1 = lm(Propmass ~ Treatment + Location, data = diemasssum2)
+summary(dietmod2.1)
+plot(dietmod2.1)
+#fits better, still not significant
+
+dietmod = lm(Fullness ~ Treatment + Location, data = diemasssum)
+summary(dietmod)
+plot(dietmod)
+
+#also not significant
+
+
+#did they eat more amphipods by weigth?
+
+#add in zeros
+
+dietmasszeros = pivot_wider(dietmass, id_cols = c(FishID, Treatment, LabWeight_g, Location),
+                            names_from = `Taxa Group`, values_from = "Biomass", values_fn = sum, 
+                            values_fill = 0) %>%
+  pivot_longer(cols = c(Amphipod:Empty), names_to = "Taxa", values_to = "Biomass")
+
+amps = filter(dietmasszeros, Taxa == "Amphipod")
+
+ampmod = lm(Biomass ~ Treatment+Location, data = amps)
+summary(ampmod)
+plot(ampmod)
+plot(allEffects(ampmod))
+
+ggplot(amps, aes(x = Location, y = Biomass, fill = Treatment))+ geom_boxplot()+
+  ylab("biomass of amphipods in diets")
+
+###################################location()#########################################################################
 #to integrate the datasets, I first exported a csv of all the unique taxon names and built a crosswalk table
 dietbugs = diets %>%
   select(`Prey Taxa`, `LH Stage`) %>%

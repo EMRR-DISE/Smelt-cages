@@ -86,11 +86,11 @@ BDL2 = BDL %>%
   filter(Value2 <200, !(SensorType == "CHLORPH" & Value > 10)) %>%
   mutate(Site = factor(StationID, levels = c("RVB", "BDL")))
 
-ggplot(BDL2, aes(x = DateTime, y = Value2, color = Site))+ geom_line()+
+ggplot(filter(BDL2, SensorType != "PH VAL"), aes(x = DateTime, y = Value2, color = Site))+ geom_line()+
   facet_wrap(~Analyte, scales = "free", nrow =3)+
   scale_color_manual(values = c("#1B9E77","#D95F02"), name = "Site")+
   theme_bw()+ ylab(NULL)+
   xlab("Date - 2024")+
   theme(legend.position = "bottom")
 
-ggsave("plots/continuousWQ_biofouling.tiff", device = "tiff", width =8, height =8)
+ggsave("plots/continuousWQ_biofouling.tiff", device = "tiff", width =8, height =6)

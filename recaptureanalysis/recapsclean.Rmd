@@ -18,6 +18,7 @@ library(lmerTest)
 library(effects)
 library(MuMIn)
 library(DT)
+library(deltamapr)
 load("recaptureanalysis/Recaps2.RData")
 
 ```
@@ -305,3 +306,67 @@ plot(allEffects(ratesbest2))
 
 
 ```
+
+## Recaptures in the North Delta Arc
+
+Katie was wondering if we could say whether release type impacted number of fish caught in the North Delta Arc.
+
+First we have to figure out what counts as the "north delta arc"
+
+I'm going to say it is the EDSM "Cache/liberty", "Lower Sacramento" and "Sac DWSC",
+Suisun Bayk/Marsh" and "Western Delta" strata
+
+```{r}
+ggplot()+
+  geom_sf(data = R_EDSM_Strata_17P3, aes(fill = Stratum))+
+  geom_sf(data = WW_Delta)+
+  coord_sf(ylim = c(37.8, 38.5), xlim = c(-122.2, -121.4), crs = 4326)
+
+```
+```{r}
+#filter out the north delta arc and attach it to the recap data
+NorthDeltaArc = filter(R_EDSM_Strata_17P3, Stratum %in% c("Cache Slough/Liberty Island",
+                                                         "Lower Sacramento",
+                                                         "Suisun Bay/Marsh",
+                                                         "Western Delta",
+                                                         "Sac Deep Water Shipping Channel")) %>%
+  mutate(NorthDeltaArc = TRUE) %>%
+  select(Stratum, NorthDeltaArc)
+
+
+recapND = st_as_sf(recaps3, coords = c("Longitude", "Latitude"), crs = 4326) %>%
+  st_transform(crs = st_crs(NorthDeltaArc)) %>%
+  st_join(NorthDeltaArc) %>%
+  st_drop_geometry() %>%
+  mutate(NorthDeltaArc = case_when(NorthDeltaArc ~ 1,
+                                   TRUE ~ 0))
+
+NDtest = glm(NorthDeltaArc ~ Type2 + BroodYear, data = recapND, family = "binomial")
+
+summary(NDtest)
+```
+
+Huh, not useful.
+
+```{r}
+ggplot(recapND, aes(x = Type2, fill = as.factor(NorthDeltaArc)))+ geom_bar()
+
+ggplot(filter(recapND, Type2 != "Unknown", Type2 != "Wild/unmarked"),
+              aes(x = Type2, fill = as.factor(NorthDeltaArc)))+ geom_bar(position = "fill")
+
+```
+now try without the wild fish
+
+```{r}
+
+recapND2 = filter(recapND, Type2 != "Unknown", Type2 != "Wild/unmarked") %>%
+  mutate(Type3 = case_when(str_detect(Type2, "Hard") ~ "Hard",
+                           TRUE ~ "Soft"))
+
+NDtest2 = glm(NorthDeltaArc ~ Type3 + BroodYear, 
+              data = recapND2, family = "binomial")
+
+summary(NDtest2)
+
+```
+

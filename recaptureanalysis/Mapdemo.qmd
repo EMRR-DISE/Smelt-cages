@@ -1,0 +1,166 @@
+---
+title: "Maps and spatial stats demo"
+author: "Rosie"
+format: html
+editor: visual
+---
+
+## Making Maps in R
+
+You can do pretty much anything in R that you can in ArcGIS, but it is best for spatial statistics and calculations because you can save your code and make minor updates without having to remember all the point-and-click bits. It is maybe less good for just making pretty maps because it's a bit harder to tweak the labels, captions, annotations etc. Sometimes I make the base map in R and edit it a bit in illustrator to make it perfect if I can't figure it all out in R.
+
+### Packages
+
+The package I use most frequently for making vector-based maps in R is `sf` (which stands for "simple features"). There are many other options, but this one works well if you are used to using the `tidyverse` packages for data manipulation. If you want to deal with raster data or interactive maps you'll need some other packages, but this is good to start with.
+
+<https://r-spatial.github.io/sf/>
+
+I also frequently use the `deltamapr` package (build by Sam Bashevkin and contributed to by me) for many of the base datasets you will want to map. It's available on GitHub.
+
+<https://github.com/InteragencyEcologicalProgram/deltamapr>
+
+```{r}
+#load your librarys
+library(sf)
+library(tidyverse)
+library(deltamapr)
+```
+
+### Spatial Data
+
+In order to make a map, you need to start with spatial data. Spatial data is just like regular data frame, but it has a `geometry` column that has the coordinates for points, lines, or polygons. We can see what that looks like by checking out one of the datasets in the `deltamapr` package.
+
+```{r}
+
+#THe P_Stations dataset has locations of major monitoring surveys.
+#it is a spatial point datasets.
+View(deltamapr::P_Stations)
+#notice that the geometry column starts with "POINT" then the UTM coordinates.
+
+#The WW_Delta dataset is a spatial polygon datset
+View(deltamapr::WW_Delta)
+#The geometry column starts with "Polygon" and then has latitudes and longitudes
+```
+
+The other important component of a spatial dataset is it's coordinate reference system. We can get and set the coordinate reference system of a spatial dataset using `st_crs.`
+
+```{r}
+
+st_crs(P_Stations)
+st_crs(WW_Delta)
+```
+
+The full specification of a coordinate reference system is long and very difficult to type in if you have to set it yourself, but you can always reference it with the ESPG identification number (at the end of the output, above).
+
+If you are performing any calculations, like spatial joins or distances, you need to be in the same CRS. You can change it using `st_transform`
+
+```{r}
+
+newDelta = st_transform(WW_Delta, crs = 4326)
+st_crs(newDelta)
+```
+
+So, how do you take point data and turn it into spatial data? It's easy. We just use `st_as_sf` and tell it the columns containing the coordinates and the CRS.
+
+```{r}
+#set up some point data
+testdata = data.frame(FishID = c(1,2,3), Latitude = c(38.23456, 37.8245, 38.09823),
+                      Longitude = c(-121.60678, -121.59789, -121.88888))
+str(testdata)
+
+#convert it to a spatial dataframe
+
+testdataSF = st_as_sf(testdata, 
+                      coords = c("Longitude", "Latitude"), #identify coordinate columns, note that longitude must come first
+                      crs = 4326,#I am using the ESPG number 4326, which is WGS 84, and what we usually deal with
+                      remove = FALSE) #keep the latitude and longitude columns
+
+str(testdataSF)
+```
+
+### Making Maps
+
+I usually use ggplot for making maps. It works very well with `sf`, you just have to tell it you are making a map by using `geom_sf` instead of `geom_point` or whatever. It is nice in that it will automatically transform data layers with different coordinate reference systems for you when it maps so you don't have to worry about it.
+
+Geom_sf will automatically display points for point features and outlines for polygon features, so you don't have to worry about telling it to draw points or lines. You can use the `aes` argument to specify colors, labels, or other mapping information.
+
+```{r}
+
+ggplot()+
+  geom_sf(data = WW_Delta)+ #add waterways
+  geom_sf(data = testdataSF) #add fish points
+```
+
+You can get fancier with labeling your points, and you can zoom in using `coord_sf`
+
+```{r}
+
+ggplot()+
+  geom_sf(data = WW_Delta)+ #add waterways
+  geom_sf(data = testdataSF, aes(color = FishID))+#color the points by ID
+  geom_sf_label(data = testdataSF, aes(label = as.factor(FishID)), #add labels
+                nudge_x = 0.05, nudge_y = 0.05)+ #nudge labels so they don't overlap points
+  coord_sf(xlim = c(-121.4, -122), ylim = c(37.8, 38.5))
+```
+
+If you want to add scale bars and north arrows, the best way to do that is with the `ggspatial` package.
+
+```{r}
+library(ggspatial)
+
+ggplot()+
+  geom_sf(data = WW_Delta, fill = "lightskyblue")+
+  geom_sf(data = testdataSF, aes(color = as.factor(FishID)))+
+  scale_color_manual(values = c("blue", "orange", "red"), labels = c("onefish", "twofish", "redfish"), name = "Fish ID")+
+  geom_sf_label(data = testdataSF, aes(label = FishID), 
+                nudge_x = 0.05, nudge_y = 0.05)+ #nudge labels so they don't overlap points
+  coord_sf(xlim = c(-121.4, -122), ylim = c(37.8, 38.5))+
+    annotation_scale()+
+    annotation_north_arrow(location = "tl")+
+  ylab(NULL)+
+  xlab(NULL)+
+  theme_bw()
+```
+
+## Calculating distances
+
+The distance calculations I did for experimental realease were based on some functions that Sam and I put together. Calculating the straight-line distance or great-circle distance (distance along the curvature of the earth) is pretty straightfoward, but calculating the distance along a waterway is more difficult. The basic steps are as follows:
+
+1.  Create a grid (raster) of your landscape. The waterways are coded as "easy to move through" and the land is coded as "hard to move through".
+2.  Make sure all your points are starting in the water (sometimes GPS coordinates might be a little off and a fish ends up on lang).
+3.  Have R calculate the easiest path from point A to point B. Because the land is harder to move through than water (by a LOT), it will automatically move through the water.
+
+Fortunatley, all these steps have already been coded for you in this package:
+
+<https://github.com/sbashevkin/spacetools>
+
+We use the `Waterdist` function to calculate in-water distances between two points and the GGdist to calculate the distance between all points and the Golden Gate (or another single point of your choice).
+
+```{r}
+# install.packages("devtools")
+#devtools::install_github("sbashevkin/spacetools")
+library(spacetools)
+
+#Distances between the three fish in our test dataset
+
+# The funtion requires a rasterized map that has everythign coded as easy or hard.
+#It comes with a built-in map of the Delta, but you'll have to build one if you are trying to do this somewhere else
+
+?Waterdist
+
+fishdistances = Waterdist(Water_map = Delta, 
+                        Points = testdata,
+                        Latitude_column = Latitude,
+                        Longitude_column = Longitude,
+                        PointID_column = FishID)
+
+#Note that it had to move some of the points so they are in teh waterways since my random fish points were made up.
+```
+
+It takes a while to run because it's some pretty complicated stuff, so be sure to save your output to avoid rerunning it.
+
+The output is a matrix with distance between each of the points in meters.
+
+```{r}
+print(fishdistances)
+```

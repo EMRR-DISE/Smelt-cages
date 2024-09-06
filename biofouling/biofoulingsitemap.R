@@ -79,3 +79,19 @@ gg_inset_map
 
 dev.off()
 
+smelt_map + geom_sf_text(data = deltamapr::P_RKI, aes(label = RKI))+
+  coord_sf(xlim = c(-121.8, -121.6), ylim = c(38.10, 38.17))
+
+#Now plot Erik's sites
+
+library(readxl)
+NDFS = read_excel("data/EricSites.xlsx")
+NDFSsf = st_as_sf(NDFS, coords = c("Long", "Lat"), crs = 4326)
+
+ggplot() +
+  geom_sf(data = WW_Watershed_4269, fill = "slategray1", colour = "gray80", alpha = 0.8, inherit.aes = FALSE) +
+  geom_sf(data = NDFSsf, inherit.aes = FALSE, size = 4, color = "black")+
+  geom_sf_text(data = deltamapr::P_RKI, aes(label = RKI))+
+  coord_sf(xlim = c(-121.8, -121.59), ylim = c(38.15, 38.5))+
+  geom_sf_label(data = NDFSsf, inherit.aes = FALSE, aes(label = SiteCode), nudge_x = -0.01, hjust =1)
+ 
