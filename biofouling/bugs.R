@@ -46,6 +46,13 @@ amplong = pivot_longer(amphipods, cols = c(m_1:m_50), names_to = "orgnum", value
   group_by(Location, Date, Time, Site, Species, a_nr_g, pc_frag_mut, count, total_count, multiplier) %>%
   summarize(meanlength = mean(length, na.rm =T)) 
 
+#scott's mysid biomass data
+
+load("data/amph_sum_counts.RData")
+
+amphwidebm = pivot_wider(amph_sum_counts, id_cols = c("Location", "Treatment", "Date", "Site"),
+                         names_from = "NewName", values_from = "Biomass_median")
+
 ###################################################################
 
 
@@ -200,13 +207,6 @@ summary(dietw)
 #no significant difference, OK.
 
 #Diet biomass
-dietmass = read_csv("data/cagedietbiomass.csv") %>%
-  bind_rows(empties)
-
-ggplot(dietmass, aes(x = FishID, y = Biomass, fill = `Taxa Group`)) + geom_col() +
-  facet_wrap(Location ~ Treatment, scales = "free_x")
-
-
 
 
 #did they have a higher total stomach contents?
@@ -268,7 +268,7 @@ write.csv(amphbugs, "data/amphipodtaxa.csv")
 zoopbugs = unique(zoops$`Species Name`)
 write.csv(zoopbugs, "data/zooptaxa.csv")
 
-crosswalk = read_csv("data/crosswalk.csv")
+crosswalk = read_csv("data/crosswalk 1.csv")
 
 #now let's integrate diet and zooplankton data
 
@@ -320,7 +320,7 @@ amps2.1 = group_by(amps2, Analy, Site, CageNum, Treatment, SampleID) %>%
 
 Allbugs = bind_rows(amps2.1, zoops2.1, diets2.1) %>%
   select(-Tag, -`Cage ID`)
-save(Allbugs, file = "biofouling/Allbugs.Rdata")
+save(Allbugs,amps2.1, zoops2.1, diets2.1, file = "biofouling/Allbugs.Rdata")
 
 #########################################################################################3
 #analysis

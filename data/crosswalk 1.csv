@@ -1,0 +1,94 @@
+Prey Taxa,LH Stage,Diet,Zooplankton,Amphipod,Analy,Taxa Group
+,,,Acartiella sinensis adult,,Calanoid_other,Calanoid Copepod
+,,,Alona spp,,Cladocera,Cladoceran
+Corophiidae,juvenile,Corophiidae juvenile,Americorophium spp,Americorophium spp,Corophiidae,Amphipod
+,,,Annelida,,Annelida,Other
+,,,Asplanchna spp,,Rotifer,Rotifer
+,,,Barnacle nauplii,,other,Other
+,,,Bivalve,,other,Other
+,,,Bivalve veliger,,other,Other
+,,,Bosmina spp,,Cladocera,Cladoceran
+,,,Brachionus spp,,Rotifer,Rotifer
+,,,Ceriodaphnia spp,,Cladocera,Cladoceran
+Chironomidae,larva,Chironomidae larva,Chironomidae larvae,Chironomidae larvae,Insect,Chironomid
+,,,Chydorus spp,,Cladocera,Cladoceran
+,,,Cladocera nauplii,,Cladocera,Cladoceran
+,,,Copepodid UNID nauplii,,Copepod nauplii,Copepod nauplii
+,,,Crab zoea,Crab Zoea,other,Other
+Cyclopoida, ,Cyclopoida  ,Cyclopoid UNID copepodite,,Cyclopoid_other,Cyclopoid Copepod
+,,,Diaphanosoma spp,,Cladocera,Cladoceran
+,,,Diaptomidae copepodite,,Calanoid_other,Calanoid Copepod
+,,,Euchlanis spp,,Rotifer,Rotifer
+,,,Eucyclops spp adult,,Cyclopoid_other,Cyclopoid Copepod
+,,,Eurycercus spp,,Rotifer,Rotifer
+,,,Eurytemora spp nauplii,,Copepod nauplii,Copepod nauplii
+Gammaridea, ,Gammaridea  ,Gammarus daiberi,Gammarus daiberi,Gammaridea,Amphipod
+,,,Gastropod,Gastropod,Gastropod,Other
+,,,Gastropod veliger,,Gastropod,Other
+Harpaticoida, ,Harpaticoida  ,Harpaticoid,,other,Harpacticoid
+Hyalella azteca, ,Hyalella azteca  ,Hyalella spp,Hyalella spp,Hyalella,Amphipod
+,,,Hydrachnidae,Hydrachnidae,other,Other
+ilyocryptus sp., ,ilyocryptus sp.  ,Ilyocryptus spp,,Cladocera,Cladoceran
+,,,Insect larvae,,Insect,Insect
+,,,Keratella spp,,Rotifer,Rotifer
+,,,Lecane spp,,Rotifer,Rotifer
+,,,Leydigia spp,,Rotifer,Rotifer
+,,,Limnoithona sinensis adult,,Limnoithona,Limnoithona
+,,,Limnoithona spp copepodite,,Limnoithona,Limnoithona
+Limnoithona tetraspina,adult,Limnoithona tetraspina adult,Limnoithona tetraspina adult,,Limnoithona,Limnoithona
+,,,Microcyclops spp adult,,Cyclopoid_other,Cyclopoid Copepod
+,,,Monospilus spp,,Rotifer,Rotifer
+,,,Nematoda,,other,Other
+,,,Notholca spp,,Rotifer,Rotifer
+,,,Ostracod,Ostracod,Ostracod,Other
+,,,Plationus spp,,Rotifer,Rotifer
+,,,Platyias spp,,Rotifer,Rotifer
+,,,Polyarthra spp,,Rotifer,Rotifer
+,,,Polychaete larvae,,Annelida,Other
+Pseudodiaptomus forbesi,adult,Pseudodiaptomus forbesi adult,Pseudodiaptomus forbesi adult,,Pseudodiaptomus forbesi,Pseudodiaptomus
+Pseudodiaptomus forbesi,copepodid,Pseudodiaptomus forbesi copepodid,Pseudodiaptomus forbesi copepodite,,Pseudodiaptomus forbesi,Pseudodiaptomus Juvenile
+Pseudodiaptomus forbesi,nauplius,Pseudodiaptomus forbesi nauplius,Pseudodiaptomus spp nauplii,,Copepod nauplii,Copepod nauplii
+,,,Rotifer UNID,,Rotifer,Rotifer
+,,,Simocephalus spp,,Cladocera,Cladoceran
+,,,Sinocalanus spp nauplii,,Cladocera,Cladoceran
+,,,Tanaidacea,,other,Other
+,,,Tardigrada,,other,Other
+,,,Testudinella spp,,Rotifer,Rotifer
+,,,Trichocerca spp,,Rotifer,Rotifer
+,,,Trichotria spp,,Rotifer,Rotifer
+,,,Turbellaria,Turbellaria,other,Other
+,,,UNID Insect adult,Trichoptera adult UNID,Insect,Insect
+Amphipoda, ,Amphipoda  ,,,Amphipoda,Amphipod
+,,,,Naididae,Annelida,Other
+Calanoida,copepodid,Calanoida copepodid,,,Calanoid_other,Calanoid Copepod
+Simocephalus sp., ,Simocephalus sp.  ,,,Cladocera,Cladoceran
+Calanoida,nauplius,Calanoida nauplius,,,Copepod nauplii,Copepod nauplii
+Copepod,nauplius,Copepod nauplius,,,Copepod nauplii,Copepod nauplii
+Cyclopoida,nauplius,Cyclopoida nauplius,,,Copepod nauplii,Copepod nauplii
+Americorophium spinicorne, ,Americorophium spinicorne  ,,Americorophium spinicorne,Corophiidae,Amphipod
+Cumacean, ,Cumacean  ,,,Cumacean,Cumacean
+Cumella vulgaris, ,Cumella vulgaris  ,,,Cumacean,Cumacean
+Nippoleucon hinumensis, ,Nippoleucon hinumensis  ,,,Cumacean,Cumacean
+Acanthocyclops sp.,adult,Acanthocyclops sp. adult,,,Cyclopoid_other,Cyclopoid Copepod
+Acanthocyclops sp.,copepodid,Acanthocyclops sp. copepodid,,,Cyclopoid_other,Cyclopoid Copepod
+Eucyclops sp.,adult,Eucyclops sp. adult,,,Cyclopoid_other,Cyclopoid Copepod
+Macrocyclops sp.,adult,Macrocyclops sp. adult,,,Cyclopoid_other,Cyclopoid Copepod
+Macrocyclops sp.,copepodid,Macrocyclops sp. copepodid,,,Cyclopoid_other,Cyclopoid Copepod
+Eurytemora affinis,adult,Eurytemora affinis adult,,,Eurytemora caroleeae,Calanoid Copepod
+Eurytemora affinis,copepodid,Eurytemora affinis copepodid,,,Eurytemora caroleeae,Calanoid Copepod
+Aphididae (winged),adult,Aphididae (winged) adult,,,Insect,Insect
+,,,,Hydroptilidae larvae,Insect,Insect
+,,,,Leptoceridae larvae,Insect,Insect
+,,,,Chironomidae pupae,Insect,Insect
+,,,,Elmidae,Insect,Insect
+,,,,Hydroptilidae pupae,Insect,Insect
+,,,,Polycentropodidae larvae,Insect,Insect
+,,,,Gnorimosphaeroma spp,Isopoda,Isopod
+,,,,Munnidae,Isopoda,Isopod
+Amphipoda parts, ,Amphipoda parts  ,,,other,Other
+Animal parts, ,Animal parts  ,,,other,Other
+Egg, ,Egg  ,,,other,Other
+Plant matter, ,Plant matter  ,,,other,Other
+Plant/Algae matter, ,Plant/Algae matter  ,,,other,Other
+Tanaidacea, ,Tanaidacea  ,,Tanaidacea,other,Other
+Pseudodiaptomus forbesi, ,Pseudodiaptomus forbesi  ,,,Pseudodiaptomus forbesi,Pseudodiaptomus

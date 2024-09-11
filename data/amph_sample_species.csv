@@ -1,0 +1,21 @@
+Species,Mesosheet,NewName,Note
+Americorophium spinicorne,Americorophium spinicorne,Amphipod,
+Gammarus daiberi,Gammarus daiberi,Amphipod,
+Gnorimosphaeroma spp,Gnorisphaeroma,Isopod,
+Munnidae,Isopoda,Isopod,
+Tanaidacea,Amphipoda,Tanaidacea,Using amphipod weight
+No amphipod or insects,None,Ignore,
+Americorophium spp,Americorophium spinicorne,Amphipod,
+Crab Zoea,None,Ignore,Only one individual in whole dataset
+Hyalella spp,Hyalella,Amphipod,
+Hydrachnidae,None,Ignore,
+Trichoptera adult UNID,None,Ignore,Only one individual in whole dataset
+Chironomidae larvae,,Chironimidae,
+Hydroptilidae larvae,None,Ignore,"Only six individuals across two samples, is six enough to keep?"
+Naididae,None,Ignore,
+Leptoceridae larvae,None,Ignore,Only one individual in whole dataset
+Gastropod,None,Ignore,
+Hydroptilidae pupae,None,Ignore,Only three indididuals in one sample
+Ostracod,None,Ignore,Only three individuals in one sample
+Polycentropodidae larvae,None,Ignore,Only two indiduals in one sample
+Turbellaria,None,Ignore,
