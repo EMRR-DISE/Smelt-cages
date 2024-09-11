@@ -34,7 +34,7 @@ group_by(WQt, Analyte) %>%
   summarize(mean = mean(Value2), min = min(Value2), max = max(Value2))
 
 dates = read_excel("data/2019 Cage Deployment Dates.xlsx") %>%
-  mutate(Deployment = paste(StationID, Season))
+  mutate(Deployment = paste(StationID, Season)) 
 
 #Attach the deployment dates and filter to just periods with deployments
 WQ3 = left_join(WQt, dates) %>%
@@ -133,7 +133,12 @@ ggplot(WQ3, aes(x = ObsDate, y = Value2,
 WQmean = mutate(WQ3, Date = date(ObsDate)) %>%
   group_by( StationID, Season, Analyte, Date)%>%
   summarize(MeanValue = mean(Value2, na.rm =T), MaxValue = max(Value2, na.rm =T),
-            MinValue = min(Value2, na.rm =T))
+            MinValue = min(Value2, na.rm =T)) %>%
+  mutate(Location = case_when(StationID == "BDL" ~ "SM",
+                              StationID == "LIS" ~ "Yolo", 
+                              StationID == "RVB" ~ "RV", 
+                              StationID == "DWS" ~ "DWSC"),
+         Location = factor(Location, levels = c("SM", "DWSC", "Yolo", "RV")))
 
 ggplot(WQmean, aes(x = Date, y = MeanValue,
                    color = StationID))+ 
@@ -154,15 +159,46 @@ ggplot(WQmean, aes(x = Date, y = MeanValue,
 ggsave("plots/ContWaterQuality.tiff", device = "tiff", width =8, height =7)
 
 #Summary statistics
+library(wql)
+cagechecks2019 <- read_csv("smelt_2019_allseasons/data_raw/Field_Environmental_Data_Oct_qaqc'ed_12.11.20.csv")%>%
+  mutate(Salinity = ec2pss(SpCond_uS/1000, t = 25), Date = mdy(Date), Season = "Fall") %>%
+  rename(`Dissolved Oxygen` = DO_mg_L, Temperature = Water.Temp_C, Turbidity = Avg.Turb_ntu) %>%
+  select(Location, Date, Season, `Dissolved Oxygen`, Salinity, Temperature, Turbidity)
+cagechecks20192 <- read_csv("smelt_2019_allseasons/data_raw/Field_Environmental_Data_Aug_qaqc'ed_11.04.20.csv")%>%
+  mutate(Salinity = ec2pss(SpCond_uS/1000, t = 25), Date = mdy(Date), Season = "Summer") %>%
+  rename(`Dissolved Oxygen` = DO_mg_L, Temperature = Water.Temp_C, Turbidity = Avg.Turb_ntu)%>%
+  select(Location, Date, Season, `Dissolved Oxygen`, Salinity, Temperature, Turbidity)
+cagechecks20193 <- read_csv("smelt_2019_winterspring/data_raw/2019_smeltstudy_dailycheck_data.csv")%>%
+  mutate(Salinity = ec2pss(SpCond/1000, t = 25), Date = mdy(Date), Season = "Winter") %>%
+  rename(`Dissolved Oxygen` = DO, Temperature = WaterTemp, Turbidity = AvgTurb)%>%
+  select(Location, Date, Season, `Dissolved Oxygen`, Salinity, Temperature, Turbidity)
 
-cagechecks2019 <- read_csv("smelt_2019_winterspring/data_raw/2019_smeltstudy_dailycheck_data.csv")
+checks = bind_rows(cagechecks2019, cagechecks20192, cagechecks20193)
 
-sumstast = group_by(cagechecks2019, Location) %>%
-  summarize(SpConda = mean(SpCond), maxSC = max(SpCond), minSC = min(SpCond),
-            DOa = mean(DO), minDO = min(DO), maxDO = max(DO),
-            pHa = median(pH), minnpH = min(pH), maxpH = max(pH),
-            minSecchi = min(Secchi, na.rm =T), maxSecchi = max(Secchi, na.rm =T),
-            MinTemp = min(WaterTemp), MaxTemp = max(WaterTemp),
-            WaterTemp = mean(WaterTemp), 
-            Secchia = mean(Secchi, na.rm =T),
-            Turbiditya = mean(AvgTurb), MaxTurb = max(AvgTurb), MinTurb = min(AvgTurb))
+
+checkslong = checks%>%
+  pivot_longer(cols = c(Salinity, Temperature, Turbidity, `Dissolved Oxygen`),
+                        names_to = "Analyte", values_to = "Value")
+
+wq_wdiscrete = left_join(WQmean, checkslong)    %>%
+  mutate(Season = factor(Season, levels = c("Winter", "Summer", "Fall"))) %>%
+  mutate( Location = factor(Location, levels = c("SM", "DWSC", "Yolo", "RV")))
+
+ggplot(wq_wdiscrete, aes(x = Date, y = MeanValue,
+                   color = Location))+ 
+  facet_grid(Analyte~Season, scales = "free")+
+  geom_line()+
+  geom_ribbon(aes(ymin = MinValue, ymax = MaxValue, fill = Location, color = NULL), alpha = 0.4)+
+  geom_point(aes(y = Value))+
+  ylab("Turbidity (FNU)          Temperature (C)             Salinity (PSU)         Dissolved Oxygen (mg/L)")+
+  xlab("Date")+
+  theme_bw()+
+  theme(axis.text.x = element_text(angle = 45, hjust =1))+
+  scale_color_brewer(palette = "Dark2", labels = c("Suisun Marsh", "SDWSC", "Yolo", "Rio Vista"), name = "Location")+
+  scale_fill_brewer(palette = "Dark2", labels = c("Suisun Marsh", "SDWSC", "Yolo", "Rio Vista"), name = "Location")+
+  geom_hline(data = cuttoffs, aes(yintercept = cuttoff, linetype = Type), 
+             color = "black")+
+  scale_linetype_manual(values = c(1,3,5), name ="Smelt Tolerance")
+
+
+ggsave("plots/ContWaterQuality_wdiscrete.tiff", device = "tiff", width =8, height =7)

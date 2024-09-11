@@ -23,6 +23,7 @@ library(janitor)
 library(deltamapr)
 library(cowplot)
 library(ggspatial)
+library(basemaps)
 
 library(here)
 library(readxl)
@@ -31,26 +32,31 @@ library(readxl)
 ```{r}
 latlon <- read_excel(here::here("smelt_2019_winterspring", "data_raw", "cage_locations_winterspring.xls"))
 
-stations_sf <- st_as_sf(latlon, coords = c("Longitude", "Latitude"), crs = 4326)
+stations_sf <- st_as_sf(latlon, coords = c("Longitude", "Latitude"), crs = 4326) 
 data("us_states", package = "spData")
 California = dplyr::filter(us_states, NAME == "California")
-stations_sf_4269 <- st_transform(stations_sf, crs = st_crs(California))
-WW_Watershed_4269 <- st_transform(WW_Watershed, crs = st_crs(California))
+stations_sf_4269 <- st_transform(stations_sf, crs = 4269) %>%
+  arrange(Location) %>%
+  mutate(Location = factor(Location))
+WW_Watershed_4269 <- st_transform(WW_Watershed, crs = 4269)
 ```
 
 ```{r}
-(smelt_map <- ggplot() +
-    geom_sf(data = WW_Watershed_4269, fill = "gray80", colour = "gray80", alpha = 0.8, inherit.aes = FALSE) +
-    geom_sf(data = stations_sf_4269, inherit.aes = FALSE, size = 4, color = "black")+
-   geom_sf_label(data = stations_sf_4269, aes(label = factor(Location)), inherit.aes = FALSE, size = 4, color = "black",
-                 nudge_x = c(-0.08, -0.05),
-                 nudge_y = c(0.01, -0.03))+
-    annotate(geom = "text", x = -121.75, y = 38.10, size = 3.2, label = "Sacramento River", fontface = "italic",angle = 36) +
+
+smelt_map <- ggplot() +
+    geom_sf(data = WW_Watershed_4269, fill = "azure2", colour = "gray60", alpha = 0.8, inherit.aes = FALSE) +
+      annotate(geom = "text", x = -121.75, y = 38.10, size = 3.2, label = "Sacramento River", fontface = "italic",angle = 36) +
     annotate(geom = "text", x = -121.62, y = 38.09, size = 3.2, label = "San Joaquin River", fontface = "italic", angle = 10) +
     annotate(geom = "text", x = -121.96, y = 38.07, size = 3.2, label = "Suisun Bay", fontface = "italic") +
-    annotate(geom = "text", x = -121.68, y = 38.26, size =3.2 , label = "Liberty Island", fontface = "italic") +
+    annotate(geom = "text", x = -121.68, y = 38.26, size =3.2 , label = "Liberty \nIsland", fontface = "italic") +  geom_sf(data = stations_sf_4269, inherit.aes = FALSE, size =4, aes(shape = Type, fill = Type, size = Type))+
+  scale_shape_manual(values = c(21,22))+
+  scale_fill_manual(values = c("darkblue","wheat"))+
+   geom_sf_label(data = stations_sf_4269, aes(label = Location), inherit.aes = FALSE, size = 4, color = "black",
+                 nudge_x = c(0.03, 0.04, 0.03, 0.03, 0.05, -0.04, -0.03, -0.04),
+                 nudge_y = c(0.025, 0.03,0.02, 0.025, 0.02, -0.02, -0.03, -0.01))+
+
     scale_x_continuous(limits = c(-122.2, -121.45)) +
-  scale_y_continuous(limits = c(37.95, 38.4))+
+  scale_y_continuous(limits = c(37.8, 38.5))+
     annotation_north_arrow(location = "tr", which_north = "true",
                            pad_x = unit(.005, "in"), pad_y = unit(0.15, "in"),
                            style = north_arrow_fancy_orienteering) +
@@ -60,30 +66,64 @@ WW_Watershed_4269 <- st_transform(WW_Watershed, crs = st_crs(California))
         axis.text = element_text(size = 13) ,
         panel.grid.major = element_blank(),
         panel.grid.minor = element_blank(),
-        axis.text.x = element_text(angle = 60, hjust = 0.5, vjust = 0.5)))
+        axis.text.x = element_text(angle = 60, hjust = 0.5, vjust = 0.5),
+        legend.position = "none")
+smelt_map
 ```
 
-```{r}
-insetbbox = st_bbox(c(xmin = -122.2, xmax = -121.45, ymax = 37.95, ymin = 38.4), crs = st_crs(4326))
-box_sf <- st_as_sfc(insetbbox)
 
-(inset <- ggplot() +
-    geom_sf(data = California, fill = "white") +
-    geom_sf(data = WW_Delta, colour = "steelblue4", size = 0.3) +
-    geom_sf(data = box_sf, fill = NA, color = "red", size = 0.5) +
+
+
+
+```{r}
+Cali = st_transform(California, crs = 3857)
+
+extbb = st_bbox(Cali)
+
+basem = basemap_gglayer(
+  ext = extbb,
+  map_service = "osm",
+  map_type = "topographic",
+  alpha = 0.5
+)
+
+ggplot() + basem+
+  theme(legend.position = "none")+
+  scale_fill_manual(values = sort(unique(basem$data$fill)))
+
+insetbbox = st_bbox(c(xmin = -122.2, xmax = -121.45, ymax = 37.95, ymin = 38.4), crs = st_crs(4326)) 
+box_sf <- st_as_sfc(insetbbox) %>%
+  st_transform(crs = 3857)
+
+inset <- ggplot() +
+    basem+
+    geom_sf(data = Cali, fill = "white", alpha = 0.1, linewidth =.7) +
+   geom_sf(data = WW_Delta, colour = "grey60", linewidth = 0.3) +
+    geom_sf(data = box_sf, fill = NA, color = "black", linewidth = .7) +
 
     theme_bw() +
     theme(axis.text = element_blank(),
           axis.title = element_blank(),
           axis.ticks = element_blank(),
           panel.grid.major = element_blank(),
-          panel.grid.minor = element_blank()))
+          panel.grid.minor = element_blank(),
+          legend.position = "none")+
+  scale_fill_manual(values = sort(unique(basem$data$fill)))+
+  annotation_scale()+
+  annotation_north_arrow(location = "tr")+
+  annotate("text", label = "California", x = -13600000, y = 5000000, size = 5, fontface = "italic")+
+  annotate("text", label = "United States\n of America", x = -13000000, y = 4800000, size = 6, fontface = "italic")+
+  annotate("text", label = "Study Area",x = -13600000, y = 4700000, size = 3, fontface = "bold" )
+
+inset
 ```
 
 ```{r}
 (gg_inset_map = ggdraw() +
    draw_plot(smelt_map) +
    draw_plot(inset, x = 0.1, y = 0.63, width = 0.26, height = 0.31))
+
+gg_inset_map
 ```
 
 ```{r}
@@ -91,3 +131,26 @@ tiff(filename = here::here("smelt_2019_winterspring",  "figures", "map_sites.tif
 gg_inset_map
 dev.off()
 ```
+
+
+Or we can plot them one next to the other to satisfy the pesky reviewer
+
+```{r}
+
+library(patchwork)
+
+inset+ smelt_map+ plot_layout(ncol =2, widths = c(1,2))
+
+
+tiff(filename = here::here("smelt_2019_allseasons",  "figures", "map_sites.tiff"), width = 10, height = 7, units = "in", pointsize = 12, family = "sans", res = 300, compress = "lzw")
+
+inset+ smelt_map+ plot_layout(ncol =2, widths = c(1,2))
+dev.off()
+
+pdf(file = here::here("smelt_2019_allseasons",  "figures", "map_sites.pdf"), width = 10, height = 7,  pointsize = 12,   compress = "lzw")
+
+inset+ smelt_map+ plot_layout(ncol =2, widths = c(1,2))
+dev.off()
+
+```
+
