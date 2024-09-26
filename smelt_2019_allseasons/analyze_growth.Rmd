@@ -493,11 +493,11 @@ letter_m1 = cld(m1.emm, Letters = LETTERS,  p.adj.methods = "bonferroni") %>%
 (plot_season_k <- ggplot(data = letter_m1,) + 
    geom_errorbar(aes(x = Season, ymin = lower.CL, ymax = upper.CL), size = 0.5,  width = 0.1) +
   
-  geom_segment(aes(x = Season, y = emmean, xend = Season, yend = rcmpl, color = .group), size = 6, color = "cadetblue3", lineend = "butt") +
-    geom_segment(aes(x = Season, y = emmean, xend = Season, yend = lcmpl, color = .group), size = 6, color = "cadetblue3", lineend = "butt") +
+  geom_segment(aes(x = Season, y = emmean, xend = Season, yend = rcmpl, color = .group), size = 6, color = "#0072B2", lineend = "butt") +
+    geom_segment(aes(x = Season, y = emmean, xend = Season, yend = lcmpl, color = .group), size = 6, color = "#0072B2", lineend = "butt") +
      geom_text( aes(label = .group, x = Season, y = upper.CL + 0.01), position = position_dodge2(width = 0.3)) + 
     geom_hline(yintercept = 0, linetype = "dashed") + 
-     annotate(geom = "text", x = 3.2, y = 0.1, label = "B", size = 8) +
+     annotate(geom = "text", x = 3.2, y = 0.1, label = "A", size = 8) +
   geom_point( aes(x=Season, y=emmean), size = 2.5, shape = 18) +     
   viridis::scale_color_viridis(discrete = TRUE, option = "turbo") +
   labs(y = "Proportional Change in K \nwith 95% Confidence Intervals") +
@@ -521,8 +521,8 @@ letter_m2 = cld(m2.emm, Letters = LETTERS,  p.adj.methods = "bonferroni") %>%
    geom_errorbar(aes(x = Season, ymin = lower.CL, ymax = upper.CL), size = 0.5,  width = 0.1) +
     
   
-  geom_segment(aes(x = Season, y = emmean, xend = Season, yend = rcmpl, color = .group), size = 6, color = "cadetblue3", lineend = "butt") +
-    geom_segment(aes(x = Season, y = emmean, xend = Season, yend = lcmpl, color = .group), size = 6, color = "cadetblue3", lineend = "butt") +
+  geom_segment(aes(x = Season, y = emmean, xend = Season, yend = rcmpl, color = .group), size = 6, color = "#0072B2", lineend = "butt") +
+    geom_segment(aes(x = Season, y = emmean, xend = Season, yend = lcmpl, color = .group), size = 6, color = "#0072B2", lineend = "butt") +
   geom_point( aes(x=Season, y=emmean), size = 2.5, shape = 18) +     
    geom_text( aes(label = .group, x = Season, y = upper.CL + 0.02), position = position_dodge2(width = 0.3)) + 
     geom_hline(yintercept = 0, linetype = "dashed") + 
@@ -546,6 +546,11 @@ library(patchwork)
 png(filename = "smelt_2019_allseasons/figures/RV_weight_k_season.png", height = 5, width = 9,units = "in", 
     res = 300, pointsize = 12, family = "sans")
 plot_season_wt & plot_season_k
+dev.off()
+
+png(filename = "smelt_2019_allseasons/figures/RV_k_season.png", height = 4, width = 5,units = "in", 
+    res = 300, pointsize = 12, family = "sans")
+plot_season_k
 dev.off()
 ```
 
@@ -728,14 +733,14 @@ letter_m3 = cld(m3.emm, Letters = LETTERS,  p.adj.methods = "bonferroni") %>%
 (plot_Site_k <- ggplot(data = letter_m3,) + 
   
   
-  geom_segment(aes(x = Site, y = emmean, xend = Site, yend = rcmpl, color = .group), size = 6, color = "cadetblue3", lineend = "butt") +
-    geom_segment(aes(x = Site, y = emmean, xend = Site, yend = lcmpl, color = .group), size = 6, color = "cadetblue3", lineend = "butt") +
+  geom_segment(aes(x = Site, y = emmean, xend = Site, yend = rcmpl, color = Site), size = 6,  lineend = "butt") +
+    geom_segment(aes(x = Site, y = emmean, xend = Site, yend = lcmpl, color = Site), size = 6,  lineend = "butt") +
       geom_errorbar(aes(x = Site, ymin = lower.CL, ymax = upper.CL), size = 0.5,  width = 0.1) +
     geom_text( aes(label = .group, x = Site, y = upper.CL + 0.01), position = position_dodge2(width = 0.3)) + 
     geom_hline(yintercept = 0, linetype = "dashed") + 
-        annotate(geom = "text", x = 4.1, y = -0.005, label = "D", size =8) +
+        annotate(geom = "text", x = 4.1, y = -0.005, label = "B", size =8) +
   geom_point( aes(x=Site, y=emmean), size = 2.5, shape = 18) +     
-  viridis::scale_color_viridis(discrete = TRUE, option = "turbo") +
+  scale_color_manual(values=c("#E69F00", "#0072B2", "#009E73","#D55E00"))  +
   labs(y = "Proportional Change in K \nwith 95% Confidence Intervals") +
   theme_bw() +
   theme(axis.text.x = element_text(size = 11),
@@ -782,6 +787,16 @@ png(filename = "smelt_2019_allseasons/figures/model_fall_site.png", height = 5, 
     res = 300, pointsize = 12, family = "sans")
 plot_Site_wt & plot_Site_k
 dev.off()
+
+png(filename = "smelt_2019_allseasons/figures/model_fall_site_k.png", height = 4, width = 5,units = "in", 
+    res = 300, pointsize = 12, family = "sans")
+ plot_Site_k
+dev.off()
+
+# plots in Rdata for Britt -------
+save(plot_Site_k, plot_season_k, file = "smelt_2019_allseasons/figures/updated_k_plots.Rdata")
+
+load("smelt_2019_allseasons/figures/updated_k_plots.Rdata")
 ```
 
 ##### Both season and site
