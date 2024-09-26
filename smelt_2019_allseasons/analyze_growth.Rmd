@@ -794,7 +794,7 @@ png(filename = "smelt_2019_allseasons/figures/model_fall_site_k.png", height = 4
 dev.off()
 
 # plots in Rdata for Britt -------
-save(plot_Site_k, plot_season_k, file = "smelt_2019_allseasons/figures/updated_k_plots.Rdata")
+save(plot_Site_k, plot_season_k, letter_m3, letter_m1, file = "smelt_2019_allseasons/figures/updated_k_plots.Rdata")
 
 load("smelt_2019_allseasons/figures/updated_k_plots.Rdata")
 ```
