@@ -418,35 +418,6 @@ ggplot(RV_allfish) + geom_boxplot(aes(Season, Weight_g_Post))
 ggplot(RV_allfish) + geom_boxplot(aes(Season, Weight_g_Pre))
 ```
 
-Make a FCCL set of data
-```{r}
-data2 <- read_csv(here(root,"data_clean","clean_smelt_cf_2019.csv")) %>%
-  # filter(!(grepl("FCCL", Cage) & Season == "Winter")) %<%
-  filter(!(Cage %in% c("A", "E","F") & Season == "Winter")) %>%
-  filter(!(Site == "RV" & is.na(Cage))) %>%
-mutate(Season = factor(Season)) %>%
-  mutate(CageRep = paste0(Season, "_", Site, "_", Cage))
-
-
-FCCL_fish <- data2 %>%
-  filter(!Site %in% c("SM", "Yolo", "DWSC")) %>%
-  pivot_wider(names_from = "Period",
-              values_from = c("FL_cm", "Weight_g", "K")) %>%
-  mutate(K_Pre = case_when(Season == "Fall"~ 0.7214667,
-                         Season == "Summer" ~ 0.6626667,
-                         Season == "Winter" ~ K_Pre),
-         Weight_g_Pre = case_when(Season == "Fall" ~ 1.7213333,
-                                Season == "Summer" ~ 0.8206667,
-                                Season == "Winter" ~ Weight_g_Pre)) %>%
-  mutate(deltaK = (K_Post - K_Pre)/K_Pre,
-         deltaWt = (Weight_g_Post - Weight_g_Pre)/Weight_g_Pre) %>%
-   filter(Site == "FCCL") %>%
-  mutate(Season = factor(Season, levels = c("Winter", "Summer", "Fall"))) %>%
-  filter(!is.na(deltaK))
-
-FCCL_sumfall <- filter(FCCL_fish, Season != "Winter") 
-FCCL_sumfall$Season = factor(FCCL_sumfall$Season, levels = c("Summer", "Fall"))
-```
 
 
 ### Effect of Season at RV
@@ -509,37 +480,6 @@ plot(RV_allfish$Season, resid.m2)
 
 ```
 
-# Effect of season at FCCL
-```{r}
-# CF
-m1_FCCL <- lmer(deltaK ~ Season + (1|CageRep), data = FCCL_fish)
-summary(m1_FCCL)
-anova(m1_FCCL,type =2)
-plot(m1_FCCL)
-
-plot(m1_FCCL)
-resid.m1F <- resid(m1_FCCL, type = "pearson")
-par(mfrow = c(2,2))
-plot(resid.m1F)
-hist(resid.m1F)
-qqnorm(resid.m1F)
-plot(FCCL_fish$Season, resid.m1F)
-
-
-# Weight
-m2_FCCL <- lmer(deltaWt~ Season + (1|CageRep), data = FCCL_fish)
-summary(m2_FCCL)
-plot(m2_FCCL)
-
-plot(m2_FCCL)
-resid.m2F <- resid(m2_FCCL, type = "pearson")
-par(mfrow = c(2,2))
-plot(resid.m2F)
-hist(resid.m2F)
-qqnorm(resid.m2F)
-plot(FCCL_fish$Season, resid.m2F)
-```
-
 #### Plot CI and RE
 ##### m1
 ```{r}
@@ -598,7 +538,70 @@ letter_m2 = cld(m2.emm, Letters = LETTERS,  p.adj.methods = "bonferroni") %>%
         axis.title.x = element_blank()) )
 ```
 
-##### FCCL
+##### FCCL (for manuscript edits)
+
+Make a FCCL set of data
+```{r}
+data2 <- read_csv(here(root,"data_clean","clean_smelt_cf_2019.csv")) %>%
+  # filter(!(grepl("FCCL", Cage) & Season == "Winter")) %<%
+  filter(!(Cage %in% c("A", "E","F") & Season == "Winter")) %>%
+  filter(!(Site == "RV" & is.na(Cage))) %>%
+mutate(Season = factor(Season)) %>%
+  mutate(CageRep = paste0(Season, "_", Site, "_", Cage))
+
+
+FCCL_fish <- data2 %>%
+  filter(!Site %in% c("SM", "Yolo", "DWSC")) %>%
+  pivot_wider(names_from = "Period",
+              values_from = c("FL_cm", "Weight_g", "K")) %>%
+  mutate(K_Pre = case_when(Season == "Fall"~ 0.7214667,
+                         Season == "Summer" ~ 0.6626667,
+                         Season == "Winter" ~ K_Pre),
+         Weight_g_Pre = case_when(Season == "Fall" ~ 1.7213333,
+                                Season == "Summer" ~ 0.8206667,
+                                Season == "Winter" ~ Weight_g_Pre)) %>%
+  mutate(deltaK = (K_Post - K_Pre)/K_Pre,
+         deltaWt = (Weight_g_Post - Weight_g_Pre)/Weight_g_Pre) %>%
+   filter(Site == "FCCL") %>%
+  mutate(Season = factor(Season, levels = c("Winter", "Summer", "Fall"))) %>%
+  filter(!is.na(deltaK))
+
+FCCL_sumfall <- filter(FCCL_fish, Season != "Winter") 
+FCCL_sumfall$Season = factor(FCCL_sumfall$Season, levels = c("Summer", "Fall"))
+```
+
+Models
+```{r}
+# CF
+m1_FCCL <- lmer(deltaK ~ Season + (1|CageRep), data = FCCL_fish)
+summary(m1_FCCL)
+anova(m1_FCCL,type =2)
+plot(m1_FCCL)
+
+plot(m1_FCCL)
+resid.m1F <- resid(m1_FCCL, type = "pearson")
+par(mfrow = c(2,2))
+plot(resid.m1F)
+hist(resid.m1F)
+qqnorm(resid.m1F)
+plot(FCCL_fish$Season, resid.m1F)
+
+
+# Weight
+m2_FCCL <- lmer(deltaWt~ Season + (1|CageRep), data = FCCL_fish)
+summary(m2_FCCL)
+plot(m2_FCCL)
+
+plot(m2_FCCL)
+resid.m2F <- resid(m2_FCCL, type = "pearson")
+par(mfrow = c(2,2))
+plot(resid.m2F)
+hist(resid.m2F)
+qqnorm(resid.m2F)
+plot(FCCL_fish$Season, resid.m2F)
+```
+
+Emmeans
 ```{r}
 # Weight
 m1.FCCL.emm <- emmeans(m1_FCCL, "Season")
@@ -608,7 +611,7 @@ letter_m1_FCCL = cld(m1.FCCL.emm, Letters = LETTERS,  p.adj.methods = "bonferron
   mutate(.group = gsub(" ", "", .group)) %>% 
   mutate(Site = "FCCL")
 
-letter_m1_emm_all <- rbind(letter_m1_FCCL, letter_m1)
+
 
 # K
 m2.FCCL.emm <- emmeans(m2_FCCL, "Season")
@@ -618,6 +621,11 @@ letter_m2_FCCL = cld(m2.FCCL.emm, Letters = LETTERS,  p.adj.methods = "bonferron
   mutate(.group = gsub(" ", "", .group)) %>%
   mutate(Site = "FCCL")
 
+```
+
+Join emmeans from RV with FCCL
+```{r}
+letter_m1_emm_all <- rbind(letter_m1_FCCL, letter_m1)
 letter_m2_emm_all <- rbind(letter_m2_FCCL, letter_m2)
 ```
 
