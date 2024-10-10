@@ -194,8 +194,10 @@ ggplot(wq_wdiscrete, aes(x = Date, y = MeanValue,
   xlab("Date")+
   theme_bw()+
   theme(axis.text.x = element_text(angle = 45, hjust =1))+
-  scale_color_brewer(palette = "Dark2", labels = c("Suisun Marsh", "SDWSC", "Yolo", "Rio Vista"), name = "Location")+
-  scale_fill_brewer(palette = "Dark2", labels = c("Suisun Marsh", "SDWSC", "Yolo", "Rio Vista"), name = "Location")+
+  scale_color_manual(values=c("#009E73", "#00008B","#D55E00", "#0072B2"),
+                              labels = c("Suisun Marsh", "SDWSC", "Yolo", "Rio Vista"), name = "Location")+ 
+  scale_fill_manual(values=c("#009E73", "#00008B","#D55E00", "#0072B2"),
+                              labels = c("Suisun Marsh", "SDWSC", "Yolo", "Rio Vista"), name = "Location")+ 
   geom_hline(data = cuttoffs, aes(yintercept = cuttoff, linetype = Type), 
              color = "black")+
   scale_linetype_manual(values = c(1,3,5), name ="Smelt Tolerance")

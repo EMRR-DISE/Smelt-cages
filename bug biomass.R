@@ -28,6 +28,7 @@ load("data/amph_sum_counts.RData")
 amph_sum = rename(amph_sum_counts, CageID = Location, Biomass = Biomass_median) %>%
   mutate(`Taxa Group` = case_when(NewName == "Chironimidae" ~ "Chironomid",
                                   NewName == "Tanaidacea" ~ "Tanaid",
+                                  NewName == "Ignore" ~ "Other",
                                   TRUE ~ NewName),
          Type = "Biofouling")
 #now the zooplankton
@@ -53,7 +54,7 @@ crossbm = read_csv("data/Cage Biomass crosswalk1.csv")
 zoopsx = left_join(zoops, crossbm, by = c("Species Name" = "CageCode")) %>%
   mutate(Biomass = totalCount* Carbon_weight_ug) 
 
-zoops2.1bm = group_by(zoopsx, `Taxa Group`, Site, CageNum, Treatment, SampleID) %>%
+zoops2.1bm = group_by(zoopsx, `Taxa Group`, Site, Date, CageNum, Treatment, SampleID) %>%
   summarize(Biomass = sum(Biomass, na.rm =T), Count = sum(totalCount)) %>%
   mutate(Type = "Zooplankton") %>%
   rename(CageID = CageNum)
@@ -68,54 +69,91 @@ Allbugsbm = bind_rows(amph_sum, zoops2.1bm, Dietbmx) %>%
                           TRUE ~ Site)) %>%
   filter(Treatment != "Outside", `Taxa Group` != "Ignore")
 
-ggplot(Allbugsbm , aes(x = Type, y = Biomass, fill = `Taxa Group`)) + geom_col(position = "fill")+
+save(Allbugsbm, file = c("biofouling/Allbugsbm.RData"))
+
+#Plots
+#######################################################
+lab = data.frame(Type = "Biofouling", Biomass = 0.9, Site = "Montezuma", Treatment = "Exchanged", label = "A")
+lab2 = data.frame(Type = "Biofouling", Biomass = 0.9, Site = "Montezuma", Treatment = "Exchanged", label = "B")
+
+RBM = ggplot(Allbugsbm , aes(x = Type, y = Biomass, fill = `Taxa Group`)) + geom_col(position = "fill")+
   facet_grid(Site~Treatment)+
   scale_fill_manual(values = mypal)+
   ylab("Relative Biomass")+
-  xlab(NULL)
+  xlab(NULL)+
+  theme_bw()+
+  theme(legend.position = "none")+
+  geom_text(data = lab, aes(x = Type, y = Biomass, label = label),
+            size =8, inherit.aes = FALSE) 
+RBM
 
-ggplot(Allbugsbm , aes(x = Type, y = Count, fill = `Taxa Group`)) + geom_col(position = "fill")+
+RA = ggplot(Allbugsbm , aes(x = Type, y = Count, fill = `Taxa Group`)) + geom_col(position = "fill")+
   facet_grid(Site~Treatment)+
   scale_fill_manual(values = mypal)+
   ylab("Relative Abundance")+
+  theme_bw()+
+  geom_text(data = lab2, aes(x = Type, y = Biomass, label = label), 
+            size =8, inherit.aes = FALSE) +
   xlab(NULL)
 
+RBM+RA
+
+ggsave("plots/dietzoopamp_relativeabundance.tiff", width =10, height =6, device = "tiff")
+
+ggplot(Allbugsbm , aes(x = Type, y = Count, fill = `Taxa Group`)) + geom_col()+
+  facet_grid(Site~Treatment)+
+  scale_fill_manual(values = mypal)+
+  ylab("Abundance")+
+  xlab(NULL)
+
+Allbugsbm = mutate(Allbugsbm, PA = case_when(Count ==0 ~ 0,
+                                             TRUE ~ 1))
+
+ggplot(Allbugsbm, aes(x = `Taxa Group`, y = PA)) + geom_col()+
+  facet_wrap(~Type)
+
+################################################
 #Now the statistics
 
 #permanova comparing the three data type, two  sites, and two treatments
 datamatbm = filter(Allbugsbm, Treatment != "Outside", `Taxa Group` != "Empty") %>%
-  pivot_wider(names_from = `Taxa Group`, values_from = Biomass, values_fill = 0) 
+  select(Site,Treatment, CageID, FishID, Date, Type, `Taxa Group`, Biomass) %>%
+  pivot_wider(names_from = `Taxa Group`, values_from = Biomass, values_fill = 0,
+              values_fn = sum) 
 
-datamatbm = datamatbm[which(rowSums(datamatbm[,11:26]) !=0),]
+datamatbm = datamatbm[which(rowSums(datamatbm[,7:22]) !=0),]
 
-matbm= as.matrix(datamatbm[,11:26])
+#matrix of biomass
+matbm= as.matrix(datamatbm[,7:22])
+
+#matrix of relative biomass
 matbmRA = matbm/rowSums(matbm) 
 
  
-a2 = adonis2(matbm ~ Treatment + Site*Type, data = datamatbm, na.rm = TRUE)
+a2 = adonis2(matbmRA ~ Treatment + Site+Type, data = datamatbm, na.rm = TRUE)
 a2
 write.csv(a2, "biofouling/dietzoop_permanovaBM.csv")
 
 
 #Count version
 datamatc = filter(Allbugsbm, Treatment != "Outside", `Taxa Group` != "Empty") %>%
+  select(Site,Treatment, CageID, FishID, Date, Type, `Taxa Group`, Count) %>%
   pivot_wider(names_from = `Taxa Group`, values_from = Count, values_fill = 0) 
 
-datamatc = datamatc[which(rowSums(datamatc[,11:26]) !=0),]
+datamatc = datamatc[which(rowSums(datamatc[,7:22]) !=0),]
 
-matc= as.matrix(datamatc[,11:26])
+matc= as.matrix(datamatc[,7:22])
 matcRA = matc/rowSums(matc) 
 
 
-a3 = adonis2(matc ~ Treatment + Site*Type, data = datamatc, na.rm = TRUE)
+a3 = adonis2(matcRA ~ Treatment + Site+Type, data = datamatc, na.rm = TRUE)
 a3
 write.csv(a3, "biofouling/dietzoop_permanova_count.csv")
 
-
-#This MDS is having issues, probably because there are groups that don't appear in all types
+#you can also try a non-metric multidimentional scaling analysis
 bugsMDS = metaMDS(matbmRA, try = 100, trymax = 100)
-#stress is nearly zero, you may have insufficient data
 
+#extract the scores for plotting
 bdata.scores <- as_tibble(scores(bugsMDS, display = "sites"))
 bdata.sps <- bugsMDS$species
 bdata.sps2 =  mutate(as.data.frame(bdata.sps), Species = row.names(bdata.sps))

@@ -159,8 +159,36 @@ fishdistances = Waterdist(Water_map = Delta,
 
 It takes a while to run because it's some pretty complicated stuff, so be sure to save your output to avoid rerunning it.
 
-The output is a matrix with distance between each of the points in meters.
+The output is a matrix with distance between each of the points in meters. To calculate the average distance between each pair of fish, take the mean of the lower triangle of the matrix.
 
 ```{r}
 print(fishdistances)
+
+
+```
+
+Now let's reorganize it so we can take the mean
+
+```{r}
+#take out the lower triangle so we just have the upper triangle
+ fishdistances[lower.tri(fishdistances, diag = T)] = NA
+ 
+ 
+  fishd = as.data.frame(fishdistances) %>%
+    mutate(Fish1 = row.names(fishdistances)) %>%
+    pivot_longer(cols = -Fish1, names_to = "Fish2", values_to = "Distance") %>%
+  filter(!is.na(Distance))
+  
+  print(fishd)
+```
+
+THat was the distance between fish. The distance from a particular point is a bit easier. If the coordinates of Rio Vista are 38.1247 and -121.6995, we can do this -
+
+```{r}
+RV = data.frame(Latitude = 38.1247, Longitude = -121.6995)
+
+DistRV = GGdist(Water_map = spacetools::Delta, Points = testdata, Latitude_column = `Latitude`,
+               Longitude_column = `Longitude`, PointID_column = FishID, EndPoint = RV)
+
+DistRV
 ```
