@@ -739,6 +739,18 @@ Fallfish <- data %>%
   filter(!is.na(K_Post))%>%
   mutate(Site = factor(Site))
 
+# Updated for deltaK to be proportional - new version
+Fallfish <- data %>%
+  filter(Season == "Fall") %>%
+  pivot_wider(names_from = "Period",
+              values_from = c("FL_cm", "Weight_g", "K")) %>%
+  mutate(K_Pre = 0.7214667,
+         Weight_g_Pre = 1.721333,
+         deltaK = (K_Post - K_Pre)/K_Pre,
+         deltaWt = (Weight_g_Post - Weight_g_Pre)/Weight_g_Pre) %>%
+  filter(!is.na(K_Post))%>%
+  mutate(Site = factor(Site))
+
 ```
 
 
@@ -753,8 +765,6 @@ summary(m3a)
 m3 <- lmer(deltaK ~ Site + (1|CageRep), data = Fallfish, REML = TRUE)
 summary(m3)
 
-# Not much difference in residual error by including cage effect. (0.09875 to 0.09787)
-
 
 # Weight -----
 m4a <- lm(deltaWt~ Site, data = Fallfish)
@@ -763,7 +773,6 @@ summary(m4a)
 m4 <- lmer(deltaWt~ Site + (1|CageRep), data = Fallfish)
 summary(m4)
 
-# Not much difference in residual error by including cage effect. (0.471 to 0.466)
 
 
 ```
@@ -874,8 +883,8 @@ letter_m4 = cld(m4.emm, Letters = LETTERS,  p.adj.methods = "bonferroni") %>%
 #### Export data and figures
 ```{r}
 # emmeans results -------
-write_csv(letter_m3, "smelt_2019_allseasons/data_clean/emmeans_fall_m3.csv")
-write_csv(letter_m4, "smelt_2019_allseasons/data_clean/emmeans_fall_m4.csv")
+write_csv(letter_m3, "smelt_2019_allseasons/data_clean/emmeans_fall_m3_upd.csv")
+write_csv(letter_m4, "smelt_2019_allseasons/data_clean/emmeans_fall_m4_upd.csv")
 
 # plots ----------
 library(patchwork)
