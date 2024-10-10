@@ -404,7 +404,7 @@ RV_allfish <- data %>%
                                 Season == "Winter" ~ Weight_g_Pre)) %>%
   mutate(deltaK = (K_Post - K_Pre)/K_Pre,
          deltaWt = (Weight_g_Post - Weight_g_Pre)/Weight_g_Pre) %>%
-  filter(Site != "FCCL") %>%
+   filter(Site != "FCCL") %>%
   mutate(Season = factor(Season, levels = c("Winter", "Summer", "Fall"))) %>%
   filter(!is.na(deltaK))
 
@@ -488,16 +488,17 @@ m1.emm <- emmeans(m1, "Season")
 plotm1 = plot(m1.emm, comparisons = TRUE, plotit = F, adjust = "bonferroni")
 letter_m1 = cld(m1.emm, Letters = LETTERS,  p.adj.methods = "bonferroni") %>%
   left_join(plotm1) %>%
-  mutate(.group = gsub(" ", "", .group))
+  mutate(.group = gsub(" ", "", .group))%>%
+  mutate(Site = "RV")
 
-(plot_season_k <- ggplot(data = letter_m1,) + 
+(plot_season_k <- ggplot(data = letter_m1) + 
    geom_errorbar(aes(x = Season, ymin = lower.CL, ymax = upper.CL), size = 0.5,  width = 0.1) +
   
-  geom_segment(aes(x = Season, y = emmean, xend = Season, yend = rcmpl, color = .group), size = 6, color = "cadetblue3", lineend = "butt") +
-    geom_segment(aes(x = Season, y = emmean, xend = Season, yend = lcmpl, color = .group), size = 6, color = "cadetblue3", lineend = "butt") +
+  geom_segment(aes(x = Season, y = emmean, xend = Season, yend = rcmpl, color = .group), size = 6, color = "#0072B2", lineend = "butt") +
+    geom_segment(aes(x = Season, y = emmean, xend = Season, yend = lcmpl, color = .group), size = 6, color = "#0072B2", lineend = "butt") +
      geom_text( aes(label = .group, x = Season, y = upper.CL + 0.01), position = position_dodge2(width = 0.3)) + 
     geom_hline(yintercept = 0, linetype = "dashed") + 
-     annotate(geom = "text", x = 3.2, y = 0.1, label = "B", size = 8) +
+     annotate(geom = "text", x = 3.2, y = 0.1, label = "A", size = 8) +
   geom_point( aes(x=Season, y=emmean), size = 2.5, shape = 18) +     
   viridis::scale_color_viridis(discrete = TRUE, option = "turbo") +
   labs(y = "Proportional Change in K \nwith 95% Confidence Intervals") +
@@ -511,18 +512,20 @@ letter_m1 = cld(m1.emm, Letters = LETTERS,  p.adj.methods = "bonferroni") %>%
 ##### m2
 ```{r}
 library(multcomp)
+library(emmeans)
 m2.emm <- emmeans(m2, "Season")
 plotm2 = plot(m2.emm, comparisons = TRUE, plotit = F, adjust = "bonferroni")
 letter_m2 = cld(m2.emm, Letters = LETTERS,  p.adj.methods = "bonferroni") %>%
   left_join(plotm2) %>%
-  mutate(.group = gsub(" ", "", .group))
+  mutate(.group = gsub(" ", "", .group)) %>%
+  mutate(Site = "RV")
 
 (plot_season_wt <- ggplot(data = letter_m2) + 
    geom_errorbar(aes(x = Season, ymin = lower.CL, ymax = upper.CL), size = 0.5,  width = 0.1) +
     
   
-  geom_segment(aes(x = Season, y = emmean, xend = Season, yend = rcmpl, color = .group), size = 6, color = "cadetblue3", lineend = "butt") +
-    geom_segment(aes(x = Season, y = emmean, xend = Season, yend = lcmpl, color = .group), size = 6, color = "cadetblue3", lineend = "butt") +
+  geom_segment(aes(x = Season, y = emmean, xend = Season, yend = rcmpl, color = .group), size = 6, color = "#0072B2", lineend = "butt") +
+    geom_segment(aes(x = Season, y = emmean, xend = Season, yend = lcmpl, color = .group), size = 6, color = "#0072B2", lineend = "butt") +
   geom_point( aes(x=Season, y=emmean), size = 2.5, shape = 18) +     
    geom_text( aes(label = .group, x = Season, y = upper.CL + 0.02), position = position_dodge2(width = 0.3)) + 
     geom_hline(yintercept = 0, linetype = "dashed") + 
@@ -535,17 +538,115 @@ letter_m2 = cld(m2.emm, Letters = LETTERS,  p.adj.methods = "bonferroni") %>%
         axis.title.x = element_blank()) )
 ```
 
+##### FCCL (for manuscript edits)
+
+Make a FCCL set of data
+```{r}
+data2 <- read_csv(here(root,"data_clean","clean_smelt_cf_2019.csv")) %>%
+  # filter(!(grepl("FCCL", Cage) & Season == "Winter")) %<%
+  filter(!(Cage %in% c("A", "E","F") & Season == "Winter")) %>%
+  filter(!(Site == "RV" & is.na(Cage))) %>%
+mutate(Season = factor(Season)) %>%
+  mutate(CageRep = paste0(Season, "_", Site, "_", Cage))
+
+
+FCCL_fish <- data2 %>%
+  filter(!Site %in% c("SM", "Yolo", "DWSC")) %>%
+  pivot_wider(names_from = "Period",
+              values_from = c("FL_cm", "Weight_g", "K")) %>%
+  mutate(K_Pre = case_when(Season == "Fall"~ 0.7214667,
+                         Season == "Summer" ~ 0.6626667,
+                         Season == "Winter" ~ K_Pre),
+         Weight_g_Pre = case_when(Season == "Fall" ~ 1.7213333,
+                                Season == "Summer" ~ 0.8206667,
+                                Season == "Winter" ~ Weight_g_Pre)) %>%
+  mutate(deltaK = (K_Post - K_Pre)/K_Pre,
+         deltaWt = (Weight_g_Post - Weight_g_Pre)/Weight_g_Pre) %>%
+   filter(Site == "FCCL") %>%
+  mutate(Season = factor(Season, levels = c("Winter", "Summer", "Fall"))) %>%
+  filter(!is.na(deltaK))
+
+FCCL_sumfall <- filter(FCCL_fish, Season != "Winter") 
+FCCL_sumfall$Season = factor(FCCL_sumfall$Season, levels = c("Summer", "Fall"))
+```
+
+Models
+```{r}
+# CF
+m1_FCCL <- lmer(deltaK ~ Season + (1|CageRep), data = FCCL_fish)
+summary(m1_FCCL)
+anova(m1_FCCL,type =2)
+plot(m1_FCCL)
+
+plot(m1_FCCL)
+resid.m1F <- resid(m1_FCCL, type = "pearson")
+par(mfrow = c(2,2))
+plot(resid.m1F)
+hist(resid.m1F)
+qqnorm(resid.m1F)
+plot(FCCL_fish$Season, resid.m1F)
+
+
+# Weight
+m2_FCCL <- lmer(deltaWt~ Season + (1|CageRep), data = FCCL_fish)
+summary(m2_FCCL)
+plot(m2_FCCL)
+
+plot(m2_FCCL)
+resid.m2F <- resid(m2_FCCL, type = "pearson")
+par(mfrow = c(2,2))
+plot(resid.m2F)
+hist(resid.m2F)
+qqnorm(resid.m2F)
+plot(FCCL_fish$Season, resid.m2F)
+```
+
+Emmeans
+```{r}
+# Weight
+m1.FCCL.emm <- emmeans(m1_FCCL, "Season")
+plotm1_FCCL = plot(m1.FCCL.emm, comparisons = TRUE, plotit = F, adjust = "bonferroni")
+letter_m1_FCCL = cld(m1.FCCL.emm, Letters = LETTERS,  p.adj.methods = "bonferroni") %>%
+  left_join(plotm1_FCCL) %>%
+  mutate(.group = gsub(" ", "", .group)) %>% 
+  mutate(Site = "FCCL")
+
+
+
+# K
+m2.FCCL.emm <- emmeans(m2_FCCL, "Season")
+plotm2_FCCL = plot(m2.FCCL.emm, comparisons = TRUE, plotit = F, adjust = "bonferroni")
+letter_m2_FCCL = cld(m2.FCCL.emm, Letters = LETTERS,  p.adj.methods = "bonferroni") %>%
+  left_join(plotm2_FCCL) %>%
+  mutate(.group = gsub(" ", "", .group)) %>%
+  mutate(Site = "FCCL")
+
+```
+
+Join emmeans from RV with FCCL
+```{r}
+letter_m1_emm_all <- rbind(letter_m1_FCCL, letter_m1)
+letter_m2_emm_all <- rbind(letter_m2_FCCL, letter_m2)
+```
+
 #### Export data and figures
 ```{r}
 # emmeans results -------
 write_csv(letter_m1, "smelt_2019_allseasons/data_clean/emmeans_RV_m1.csv")
 write_csv(letter_m2, "smelt_2019_allseasons/data_clean/emmeans_RV_m2.csv")
+write_csv(letter_m1_emm_all, "smelt_2019_allseasons/data_clean/emmeans_RV_FCCL_m1.csv")
+write_csv(letter_m2_emm_all, "smelt_2019_allseasons/data_clean/emmeans_RV_FCCL_m2.csv")
 
 # plots ----------
 library(patchwork)
 png(filename = "smelt_2019_allseasons/figures/RV_weight_k_season.png", height = 5, width = 9,units = "in", 
     res = 300, pointsize = 12, family = "sans")
 plot_season_wt & plot_season_k
+dev.off()
+
+png(filename = "smelt_2019_allseasons/figures/RV_k_season.png", height = 4, width = 5,units = "in", 
+    res = 300, pointsize = 12, family = "sans")
+plot_season_k
 dev.off()
 ```
 
@@ -638,6 +739,18 @@ Fallfish <- data %>%
   filter(!is.na(K_Post))%>%
   mutate(Site = factor(Site))
 
+# Updated for deltaK to be proportional - new version
+Fallfish <- data %>%
+  filter(Season == "Fall") %>%
+  pivot_wider(names_from = "Period",
+              values_from = c("FL_cm", "Weight_g", "K")) %>%
+  mutate(K_Pre = 0.7214667,
+         Weight_g_Pre = 1.721333,
+         deltaK = (K_Post - K_Pre)/K_Pre,
+         deltaWt = (Weight_g_Post - Weight_g_Pre)/Weight_g_Pre) %>%
+  filter(!is.na(K_Post))%>%
+  mutate(Site = factor(Site))
+
 ```
 
 
@@ -652,8 +765,6 @@ summary(m3a)
 m3 <- lmer(deltaK ~ Site + (1|CageRep), data = Fallfish, REML = TRUE)
 summary(m3)
 
-# Not much difference in residual error by including cage effect. (0.09875 to 0.09787)
-
 
 # Weight -----
 m4a <- lm(deltaWt~ Site, data = Fallfish)
@@ -662,7 +773,6 @@ summary(m4a)
 m4 <- lmer(deltaWt~ Site + (1|CageRep), data = Fallfish)
 summary(m4)
 
-# Not much difference in residual error by including cage effect. (0.471 to 0.466)
 
 
 ```
@@ -728,14 +838,14 @@ letter_m3 = cld(m3.emm, Letters = LETTERS,  p.adj.methods = "bonferroni") %>%
 (plot_Site_k <- ggplot(data = letter_m3,) + 
   
   
-  geom_segment(aes(x = Site, y = emmean, xend = Site, yend = rcmpl, color = .group), size = 6, color = "cadetblue3", lineend = "butt") +
-    geom_segment(aes(x = Site, y = emmean, xend = Site, yend = lcmpl, color = .group), size = 6, color = "cadetblue3", lineend = "butt") +
+  geom_segment(aes(x = Site, y = emmean, xend = Site, yend = rcmpl, color = Site), size = 6,  lineend = "butt") +
+    geom_segment(aes(x = Site, y = emmean, xend = Site, yend = lcmpl, color = Site), size = 6,  lineend = "butt") +
       geom_errorbar(aes(x = Site, ymin = lower.CL, ymax = upper.CL), size = 0.5,  width = 0.1) +
     geom_text( aes(label = .group, x = Site, y = upper.CL + 0.01), position = position_dodge2(width = 0.3)) + 
     geom_hline(yintercept = 0, linetype = "dashed") + 
-        annotate(geom = "text", x = 4.1, y = -0.005, label = "D", size =8) +
+        annotate(geom = "text", x = 4.1, y = -0.005, label = "B", size =8) +
   geom_point( aes(x=Site, y=emmean), size = 2.5, shape = 18) +     
-  viridis::scale_color_viridis(discrete = TRUE, option = "turbo") +
+  scale_color_manual(values=c("#E69F00", "#0072B2", "#009E73","#D55E00"))  +
   labs(y = "Proportional Change in K \nwith 95% Confidence Intervals") +
   theme_bw() +
   theme(axis.text.x = element_text(size = 11),
@@ -773,8 +883,8 @@ letter_m4 = cld(m4.emm, Letters = LETTERS,  p.adj.methods = "bonferroni") %>%
 #### Export data and figures
 ```{r}
 # emmeans results -------
-write_csv(letter_m3, "smelt_2019_allseasons/data_clean/emmeans_fall_m3.csv")
-write_csv(letter_m4, "smelt_2019_allseasons/data_clean/emmeans_fall_m4.csv")
+write_csv(letter_m3, "smelt_2019_allseasons/data_clean/emmeans_fall_m3_upd.csv")
+write_csv(letter_m4, "smelt_2019_allseasons/data_clean/emmeans_fall_m4_upd.csv")
 
 # plots ----------
 library(patchwork)
@@ -782,6 +892,16 @@ png(filename = "smelt_2019_allseasons/figures/model_fall_site.png", height = 5, 
     res = 300, pointsize = 12, family = "sans")
 plot_Site_wt & plot_Site_k
 dev.off()
+
+png(filename = "smelt_2019_allseasons/figures/model_fall_site_k.png", height = 4, width = 5,units = "in", 
+    res = 300, pointsize = 12, family = "sans")
+ plot_Site_k
+dev.off()
+
+# plots in Rdata for Britt -------
+save(plot_Site_k, plot_season_k, letter_m3, letter_m1, file = "smelt_2019_allseasons/figures/updated_k_plots.Rdata")
+
+load("smelt_2019_allseasons/figures/updated_k_plots.Rdata")
 ```
 
 ##### Both season and site
