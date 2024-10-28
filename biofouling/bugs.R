@@ -374,6 +374,8 @@ AllbugsRA2.1 = mutate(AllbugsRA2, Species = case_match(Species, "Calanoid_other"
                     Site = case_match(Site, "Montezuma"~ "BDL",
                                       "Rio Vista" ~ "RV"))
 
+save(Allbugs, AllbugsRA2.1, file = "biofouling/Allbugs.RData")
+
 ggplot(filter(AllbugsRA2.1, Treatment != "Outside", Species != "Rotifer", Species != "Copepod nauplii"), 
        aes(x = Type, y = RelativeAbundance, fill = Species)) + geom_col(position = "fill") +
   facet_wrap(Site~Treatment)+

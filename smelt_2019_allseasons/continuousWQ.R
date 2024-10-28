@@ -182,7 +182,11 @@ checkslong = checks%>%
 
 wq_wdiscrete = left_join(WQmean, checkslong)    %>%
   mutate(Season = factor(Season, levels = c("Winter", "Summer", "Fall"))) %>%
-  mutate( Location = factor(Location, levels = c("SM", "DWSC", "Yolo", "RV")))
+  mutate( Location = factor(Location, levels = c("SM", "DWSC", "Yolo", "RV")),
+          Analyte = factor(Analyte, levels = c("Temperature", "Salinity", "Turbidity", "Dissolved Oxygen")))
+
+cuttoffs = mutate(cuttoffs,
+                  Analyte = factor(Analyte, levels = c("Temperature", "Salinity", "Turbidity", "Dissolved Oxygen")))
 
 ggplot(wq_wdiscrete, aes(x = Date, y = MeanValue,
                    color = Location))+ 
@@ -190,7 +194,7 @@ ggplot(wq_wdiscrete, aes(x = Date, y = MeanValue,
   geom_line()+
   geom_ribbon(aes(ymin = MinValue, ymax = MaxValue, fill = Location, color = NULL), alpha = 0.4)+
   geom_point(aes(y = Value))+
-  ylab("Turbidity (FNU)          Temperature (C)             Salinity (PSU)         Dissolved Oxygen (mg/L)")+
+  ylab("Diss. Oxy. (mg/L)           Turbidity (FNU)          Salinity (PSU)         Temperature (C)")+
   xlab("Date")+
   theme_bw()+
   theme(axis.text.x = element_text(angle = 45, hjust =1))+
