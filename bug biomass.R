@@ -9,6 +9,18 @@ library(RColorBrewer)
 mypal = c(brewer.pal(8, "Dark2"), brewer.pal(8, "Set2"), brewer.pal(8, "Set3"), "yellow", "orange", "purple", "grey", "brown",
           "red", "lightgreen", "white", "orangered", "black")
 #Diet bioamss data
+
+diets = read_excel("data/DSM Cage Diets 2019-2023.xlsx", sheet = "2023")
+
+empties = filter(diets, `Prey Taxa`=="EMPTY") %>%
+  rename(Location = Site, FishID = Tag, CageCode = `Prey Taxa`) %>%
+  select(Location, Treatment, `Cage ID`, FishID, Fullness, Digestion, `Total Contents Weight`,
+         CageCode) %>%
+  mutate(Biomass =0, Count =0, Empty = "Y", Treatment = "Exchanged", Location = "Belden's Landing",
+         LabWeight_g = 0.684, `Taxa Group` = "Empty")
+
+
+
 Dietbm = read_csv("data/cagedietbiomass.csv")%>%
   bind_rows(empties)
 Crosswalk = read_csv("data/crosswalk 1.csv")
@@ -47,15 +59,16 @@ zoops = mutate(zoops, InOut = case_when(str_detect(Location, "Outside") ~ "Outsi
                                TRUE ~ Treatment),
          Week = week(Date),
          SampleID = paste(CageNum, Date, InOut),
-         totalCount = Count*`Sample Volume (mL)`/`# of Subsamples`) 
+         totalCount = Count*`Sample Volume (mL)`/`# of Subsamples`,
+         CPUE = totalCount/0.0378541) 
 
 crossbm = read_csv("data/Cage Biomass crosswalk1.csv")
 
 zoopsx = left_join(zoops, crossbm, by = c("Species Name" = "CageCode")) %>%
-  mutate(Biomass = totalCount* Carbon_weight_ug) 
+  mutate(Biomass = CPUE* Carbon_weight_ug) 
 
 zoops2.1bm = group_by(zoopsx, `Taxa Group`, Site, Date, CageNum, Treatment, SampleID) %>%
-  summarize(Biomass = sum(Biomass, na.rm =T), Count = sum(totalCount)) %>%
+  summarize(Biomass = sum(Biomass, na.rm =T), Count = sum(CPUE)) %>%
   mutate(Type = "Zooplankton") %>%
   rename(CageID = CageNum)
 

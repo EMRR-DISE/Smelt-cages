@@ -1,0 +1,826 @@
+"","Date","Site","Type","Species","CPUE","Mass"
+"1","10/18/2023","606","Station","Calanoid_other",0,0
+"2","10/18/2023","606","Station","Calanoid_other",1370.41,3658.9947
+"3","10/18/2023","606","Station","Cladocera",0,0
+"4","10/18/2023","606","Station","Cladocera",1.8,1.8
+"5","10/18/2023","606","Station","Copepod nauplii",0,0
+"6","10/18/2023","606","Station","Cumacean",1.8,23.76
+"7","10/18/2023","606","Station","Cyclopoid_other",3.6,23.976
+"8","10/18/2023","606","Station","Cyclopoid_other",17.5,28
+"9","10/18/2023","606","Station","Eurytemora affinis",0,0
+"10","10/18/2023","606","Station","Eurytemora affinis",3.5,4.9
+"11","10/18/2023","606","Station","Limnoithona",0,0
+"12","10/18/2023","606","Station","Limnoithona",26.2,3.406
+"13","10/18/2023","606","Station","Ostracod",45.4,0
+"14","10/18/2023","606","Station","Pseudodiaptomus forbesi",0,0
+"15","10/18/2023","606","Station","Pseudodiaptomus forbesi",413.7,475.755
+"16","10/18/2023","606","Station","Pseudodiaptomus forbesi",1794.6,4773.636
+"17","10/18/2023","606","Station","Pseudodiaptomus nauplii",0,0
+"18","10/18/2023","606","Station","Rotifer",0,0
+"19","10/18/2023","606","Station","other",0,0
+"20","10/18/2023","606","Station","other",1.8,1.8
+"21","10/18/2023","606","Station","other",7,55.65
+"22","10/18/2023","606","Station","other",21,24.36
+"23","10/6/2023","606","Station","Calanoid_other",0,0
+"24","10/6/2023","606","Station","Calanoid_other",375.57,1002.7719
+"25","10/6/2023","606","Station","Cladocera",0,0
+"26","10/6/2023","606","Station","Cladocera",9.8,9.8
+"27","10/6/2023","606","Station","Copepod nauplii",11.8,1.18
+"28","10/6/2023","606","Station","Cumacean",0,0
+"29","10/6/2023","606","Station","Cyclopoid_other",0,0
+"30","10/6/2023","606","Station","Cyclopoid_other",3.9,6.24
+"31","10/6/2023","606","Station","Eurytemora affinis",0,0
+"32","10/6/2023","606","Station","Limnoithona",0,0
+"33","10/6/2023","606","Station","Limnoithona",3.9,0.507
+"34","10/6/2023","606","Station","Ostracod",23.6,0
+"35","10/6/2023","606","Station","Pseudodiaptomus forbesi",0,0
+"36","10/6/2023","606","Station","Pseudodiaptomus forbesi",43.3,49.795
+"37","10/6/2023","606","Station","Pseudodiaptomus forbesi",416.9,1108.954
+"38","10/6/2023","606","Station","Pseudodiaptomus nauplii",5.9,0.59
+"39","10/6/2023","606","Station","Rotifer",0,0
+"40","10/6/2023","606","Station","other",0,0
+"41","10/6/2023","606","Station","other",8,160.72
+"42","10/6/2023","606","Station","other",9.8,77.91
+"43","10/6/2023","606","Station","other",70.8,269.04
+"44","10/6/2023","606","Station","other",228.1,264.596
+"45","8/21/2023","606","Station","Calanoid_other",0,0
+"46","8/21/2023","606","Station","Calanoid_other",1448.8,3868.296
+"47","8/21/2023","606","Station","Cladocera",0,0
+"48","8/21/2023","606","Station","Copepod nauplii",11.9,1.19
+"49","8/21/2023","606","Station","Cumacean",0,0
+"50","8/21/2023","606","Station","Cyclopoid_other",0,0
+"51","8/21/2023","606","Station","Cyclopoid_other",11.9,19.04
+"52","8/21/2023","606","Station","Eurytemora affinis",0,0
+"53","8/21/2023","606","Station","Limnoithona",0,0
+"54","8/21/2023","606","Station","Limnoithona",95,12.35
+"55","8/21/2023","606","Station","Ostracod",83.1,0
+"56","8/21/2023","606","Station","Pseudodiaptomus forbesi",0,0
+"57","8/21/2023","606","Station","Pseudodiaptomus forbesi",95,109.25
+"58","8/21/2023","606","Station","Pseudodiaptomus forbesi",332.5,884.45
+"59","8/21/2023","606","Station","Pseudodiaptomus nauplii",0,0
+"60","8/21/2023","606","Station","Rotifer",0,0
+"61","8/21/2023","606","Station","other",0,0
+"62","8/21/2023","606","Station","other",23.8,279.65
+"63","8/21/2023","606","Station","other",23.8,71.4
+"64","8/21/2023","606","Station","other",47.5,47.5
+"65","8/21/2023","606","Station","other",95,110.2
+"66","9/11/2023","606","Station","Calanoid_other",0,0
+"67","9/11/2023","606","Station","Calanoid_other",879.05,2347.0635
+"68","9/11/2023","606","Station","Cladocera",0,0
+"69","9/11/2023","606","Station","Cladocera",4.8,4.8
+"70","9/11/2023","606","Station","Cladocera",9.6,9.6
+"71","9/11/2023","606","Station","Copepod nauplii",0,0
+"72","9/11/2023","606","Station","Cumacean",0,0
+"73","9/11/2023","606","Station","Cyclopoid_other",0,0
+"74","9/11/2023","606","Station","Eurytemora affinis",0,0
+"75","9/11/2023","606","Station","Limnoithona",0,0
+"76","9/11/2023","606","Station","Limnoithona",28.7,3.731
+"77","9/11/2023","606","Station","Ostracod",114.7,0
+"78","9/11/2023","606","Station","Pseudodiaptomus forbesi",0,0
+"79","9/11/2023","606","Station","Pseudodiaptomus forbesi",86,98.9
+"80","9/11/2023","606","Station","Pseudodiaptomus forbesi",301,800.66
+"81","9/11/2023","606","Station","Pseudodiaptomus nauplii",0,0
+"82","9/11/2023","606","Station","Rotifer",0,0
+"83","9/11/2023","606","Station","other",0,0
+"84","9/11/2023","606","Station","other",19.2,92.16
+"85","9/11/2023","606","Station","other",19.1,22.156
+"86","9/20/2023","606","Station","Calanoid_other",0,0
+"87","9/20/2023","606","Station","Calanoid_other",308.81,824.5227
+"88","9/20/2023","606","Station","Cladocera",0,0
+"89","9/20/2023","606","Station","Cladocera",5.9,5.9
+"90","9/20/2023","606","Station","Copepod nauplii",0,0
+"91","9/20/2023","606","Station","Cumacean",0,0
+"92","9/20/2023","606","Station","Cyclopoid_other",0,0
+"93","9/20/2023","606","Station","Cyclopoid_other",2.9,4.64
+"94","9/20/2023","606","Station","Cyclopoid_other",5.9,19.824
+"95","9/20/2023","606","Station","Eurytemora affinis",0,0
+"96","9/20/2023","606","Station","Limnoithona",0,0
+"97","9/20/2023","606","Station","Limnoithona",2.9,0.377
+"98","9/20/2023","606","Station","Ostracod",73.5,0
+"99","9/20/2023","606","Station","Pseudodiaptomus forbesi",0,0
+"100","9/20/2023","606","Station","Pseudodiaptomus forbesi",76.5,87.975
+"101","9/20/2023","606","Station","Pseudodiaptomus forbesi",885.3,2354.898
+"102","9/20/2023","606","Station","Pseudodiaptomus nauplii",0,0
+"103","9/20/2023","606","Station","Rotifer",0,0
+"104","9/20/2023","606","Station","other",0,0
+"105","9/20/2023","606","Station","other",5.8,39.44
+"106","9/20/2023","606","Station","other",17.6,38.016
+"107","10/18/2023","609","Station","Calanoid_other",0,0
+"108","10/18/2023","609","Station","Calanoid_other",302.36,807.3012
+"109","10/18/2023","609","Station","Cladocera",0,0
+"110","10/18/2023","609","Station","Cladocera",7.2,7.2
+"111","10/18/2023","609","Station","Copepod nauplii",4.8,0.48
+"112","10/18/2023","609","Station","Cumacean",0,0
+"113","10/18/2023","609","Station","Cyclopoid_other",4.8,31.968
+"114","10/18/2023","609","Station","Cyclopoid_other",100.8,161.28
+"115","10/18/2023","609","Station","Eurytemora affinis",0,0
+"116","10/18/2023","609","Station","Eurytemora affinis",4.8,7.2
+"117","10/18/2023","609","Station","Limnoithona",0,0
+"118","10/18/2023","609","Station","Limnoithona",2.4,0.096
+"119","10/18/2023","609","Station","Limnoithona",134.4,17.472
+"120","10/18/2023","609","Station","Ostracod",9.6,0
+"121","10/18/2023","609","Station","Pseudodiaptomus forbesi",0,0
+"122","10/18/2023","609","Station","Pseudodiaptomus forbesi",235.2,625.632
+"123","10/18/2023","609","Station","Pseudodiaptomus forbesi",264,303.6
+"124","10/18/2023","609","Station","Pseudodiaptomus nauplii",48,4.8
+"125","10/18/2023","609","Station","Rotifer",0,0
+"126","10/18/2023","609","Station","other",0,0
+"127","10/18/2023","609","Station","other",7.2,7.2
+"128","10/18/2023","609","Station","other",12,45.6
+"129","10/18/2023","609","Station","other",24,27.84
+"130","10/6/2023","609","Station","Calanoid_other",0,0
+"131","10/6/2023","609","Station","Calanoid_other",235.69,629.2923
+"132","10/6/2023","609","Station","Cladocera",0,0
+"133","10/6/2023","609","Station","Cladocera",2.8,2.8
+"134","10/6/2023","609","Station","Copepod nauplii",123.5,12.35
+"135","10/6/2023","609","Station","Cumacean",2.8,36.96
+"136","10/6/2023","609","Station","Cyclopoid_other",0,0
+"137","10/6/2023","609","Station","Cyclopoid_other",2.8,9.408
+"138","10/6/2023","609","Station","Cyclopoid_other",19.6,31.36
+"139","10/6/2023","609","Station","Eurytemora affinis",0,0
+"140","10/6/2023","609","Station","Eurytemora affinis",2.8,3.92
+"141","10/6/2023","609","Station","Limnoithona",0,0
+"142","10/6/2023","609","Station","Limnoithona",30.9,4.017
+"143","10/6/2023","609","Station","Ostracod",73,0
+"144","10/6/2023","609","Station","Pseudodiaptomus forbesi",0,0
+"145","10/6/2023","609","Station","Pseudodiaptomus forbesi",356.3,409.745
+"146","10/6/2023","609","Station","Pseudodiaptomus forbesi",1405.7,3739.162
+"147","10/6/2023","609","Station","Pseudodiaptomus nauplii",123.5,12.35
+"148","10/6/2023","609","Station","Rotifer",0,0
+"149","10/6/2023","609","Station","other",0,0
+"150","10/6/2023","609","Station","other",2.8,10.64
+"151","10/6/2023","609","Station","other",22.4,48.384
+"152","8/21/2023","609","Station","Calanoid_other",0,0
+"153","8/21/2023","609","Station","Calanoid_other",809.8,2162.166
+"154","8/21/2023","609","Station","Cladocera",0,0
+"155","8/21/2023","609","Station","Copepod nauplii",7.5,0.75
+"156","8/21/2023","609","Station","Cumacean",0,0
+"157","8/21/2023","609","Station","Cyclopoid_other",0,0
+"158","8/21/2023","609","Station","Eurytemora affinis",0,0
+"159","8/21/2023","609","Station","Limnoithona",0,0
+"160","8/21/2023","609","Station","Limnoithona",30,3.9
+"161","8/21/2023","609","Station","Ostracod",48.7,0
+"162","8/21/2023","609","Station","Pseudodiaptomus forbesi",0,0
+"163","8/21/2023","609","Station","Pseudodiaptomus forbesi",45,51.75
+"164","8/21/2023","609","Station","Pseudodiaptomus forbesi",52.5,139.65
+"165","8/21/2023","609","Station","Pseudodiaptomus nauplii",15,1.5
+"166","8/21/2023","609","Station","Rotifer",0,0
+"167","8/21/2023","609","Station","other",0,0
+"168","8/21/2023","609","Station","other",11.3,11.3
+"169","8/21/2023","609","Station","other",135,156.6
+"170","8/21/2023","609","Station","other",165,627
+"171","8/21/2023","609","Station","other",262.4,787.2
+"172","9/11/2023","609","Station","Calanoid_other",0,0
+"173","9/11/2023","609","Station","Calanoid_other",224.47,599.3349
+"174","9/11/2023","609","Station","Cladocera",0,0
+"175","9/11/2023","609","Station","Cladocera",5.2,5.2
+"176","9/11/2023","609","Station","Cladocera",18.1,18.1
+"177","9/11/2023","609","Station","Copepod nauplii",12.9,1.29
+"178","9/11/2023","609","Station","Cumacean",0,0
+"179","9/11/2023","609","Station","Cyclopoid_other",10.4,69.264
+"180","9/11/2023","609","Station","Cyclopoid_other",49,78.4
+"181","9/11/2023","609","Station","Eurytemora affinis",0,0
+"182","9/11/2023","609","Station","Eurytemora affinis",2.6,3.64
+"183","9/11/2023","609","Station","Limnoithona",0,0
+"184","9/11/2023","609","Station","Limnoithona",2.6,0.338
+"185","9/11/2023","609","Station","Ostracod",46.4,0
+"186","9/11/2023","609","Station","Pseudodiaptomus forbesi",0,0
+"187","9/11/2023","609","Station","Pseudodiaptomus forbesi",314.8,362.02
+"188","9/11/2023","609","Station","Pseudodiaptomus forbesi",451.5,1200.99
+"189","9/11/2023","609","Station","Pseudodiaptomus nauplii",38.7,3.87
+"190","9/11/2023","609","Station","Rotifer",0,0
+"191","9/11/2023","609","Station","Rotifer",5.2,0.52
+"192","9/11/2023","609","Station","other",0,0
+"193","9/11/2023","609","Station","other",5.2,5.2
+"194","9/11/2023","609","Station","other",20.6,23.896
+"195","9/11/2023","609","Station","other",46.4,139.2
+"196","9/11/2023","609","Station","other",291.6,1108.08
+"197","9/20/2023","609","Station","Calanoid_other",0,0
+"198","9/20/2023","609","Station","Calanoid_other",374.2,999.114
+"199","9/20/2023","609","Station","Cladocera",0,0
+"200","9/20/2023","609","Station","Cladocera",1.3,4.433
+"201","9/20/2023","609","Station","Cladocera",2.6,2.6
+"202","9/20/2023","609","Station","Cladocera",6.5,6.5
+"203","9/20/2023","609","Station","Copepod nauplii",0,0
+"204","9/20/2023","609","Station","Cumacean",0,0
+"205","9/20/2023","609","Station","Cyclopoid_other",0,0
+"206","9/20/2023","609","Station","Cyclopoid_other",2.6,8.58
+"207","9/20/2023","609","Station","Cyclopoid_other",7.8,12.48
+"208","9/20/2023","609","Station","Eurytemora affinis",0,0
+"209","9/20/2023","609","Station","Limnoithona",0,0
+"210","9/20/2023","609","Station","Ostracod",41.4,0
+"211","9/20/2023","609","Station","Pseudodiaptomus forbesi",0,0
+"212","9/20/2023","609","Station","Pseudodiaptomus forbesi",185.2,492.632
+"213","9/20/2023","609","Station","Pseudodiaptomus forbesi",291.3,334.995
+"214","9/20/2023","609","Station","Pseudodiaptomus nauplii",0,0
+"215","9/20/2023","609","Station","Rotifer",0,0
+"216","9/20/2023","609","Station","other",0,0
+"217","9/20/2023","609","Station","other",3.9,3.9
+"218","9/20/2023","609","Station","other",35,105
+"219","9/20/2023","609","Station","other",37.6,43.616
+"220","9/20/2023","609","Station","other",64.7,245.86
+"221","10/12/2023","706","Station","Calanoid_other",0,0
+"222","10/12/2023","706","Station","Calanoid_other",2.75,7.3425
+"223","10/12/2023","706","Station","Calanoid_other",5.6,19.6
+"224","10/12/2023","706","Station","Cladocera",0,0
+"225","10/12/2023","706","Station","Cladocera",2.8,2.8
+"226","10/12/2023","706","Station","Cladocera",11,11
+"227","10/12/2023","706","Station","Cladocera",13.7,8.22
+"228","10/12/2023","706","Station","Copepod nauplii",0,0
+"229","10/12/2023","706","Station","Cumacean",0,0
+"230","10/12/2023","706","Station","Cyclopoid_other",0,0
+"231","10/12/2023","706","Station","Cyclopoid_other",13.7,45.21
+"232","10/12/2023","706","Station","Cyclopoid_other",16.5,26.4
+"233","10/12/2023","706","Station","Eurytemora affinis",0,0
+"234","10/12/2023","706","Station","Limnoithona",0,0
+"235","10/12/2023","706","Station","Ostracod",0,0
+"236","10/12/2023","706","Station","Pseudodiaptomus forbesi",0,0
+"237","10/12/2023","706","Station","Pseudodiaptomus forbesi",197.8,526.148
+"238","10/12/2023","706","Station","Pseudodiaptomus forbesi",717.1,824.665
+"239","10/12/2023","706","Station","Pseudodiaptomus nauplii",197.8,19.78
+"240","10/12/2023","706","Station","Rotifer",0,0
+"241","10/12/2023","706","Station","other",0,0
+"242","10/18/2023","706","Station","Calanoid_other",0,0
+"243","10/18/2023","706","Station","Calanoid_other",2.8,4.2
+"244","10/18/2023","706","Station","Calanoid_other",1251.31,3340.9977
+"245","10/18/2023","706","Station","Cladocera",0,0
+"246","10/18/2023","706","Station","Cladocera",2.8,1.68
+"247","10/18/2023","706","Station","Cladocera",11.2,22.4
+"248","10/18/2023","706","Station","Copepod nauplii",0,0
+"249","10/18/2023","706","Station","Cumacean",0,0
+"250","10/18/2023","706","Station","Cyclopoid_other",0,0
+"251","10/18/2023","706","Station","Cyclopoid_other",2.8,9.24
+"252","10/18/2023","706","Station","Cyclopoid_other",14,22.4
+"253","10/18/2023","706","Station","Eurytemora affinis",0,0
+"254","10/18/2023","706","Station","Limnoithona",0,0
+"255","10/18/2023","706","Station","Limnoithona",14,1.82
+"256","10/18/2023","706","Station","Ostracod",2.8,0
+"257","10/18/2023","706","Station","Pseudodiaptomus forbesi",0,0
+"258","10/18/2023","706","Station","Pseudodiaptomus forbesi",624.3,1660.638
+"259","10/18/2023","706","Station","Pseudodiaptomus forbesi",2609,3000.35
+"260","10/18/2023","706","Station","Pseudodiaptomus nauplii",173.6,17.36
+"261","10/18/2023","706","Station","Rotifer",0,0
+"262","10/18/2023","706","Station","other",0,0
+"263","10/18/2023","706","Station","other",8.4,9.744
+"264","8/23/2023","706","Station","Calanoid_other",0,0
+"265","8/23/2023","706","Station","Calanoid_other",893.9,2386.713
+"266","8/23/2023","706","Station","Cladocera",0,0
+"267","8/23/2023","706","Station","Cladocera",13.5,13.5
+"268","8/23/2023","706","Station","Cladocera",27.1,16.26
+"269","8/23/2023","706","Station","Copepod nauplii",0,0
+"270","8/23/2023","706","Station","Cumacean",0,0
+"271","8/23/2023","706","Station","Cyclopoid_other",0,0
+"272","8/23/2023","706","Station","Cyclopoid_other",40.6,198.94
+"273","8/23/2023","706","Station","Eurytemora affinis",0,0
+"274","8/23/2023","706","Station","Limnoithona",0,0
+"275","8/23/2023","706","Station","Ostracod",13.5,0
+"276","8/23/2023","706","Station","Pseudodiaptomus forbesi",0,0
+"277","8/23/2023","706","Station","Pseudodiaptomus forbesi",812.7,2161.782
+"278","8/23/2023","706","Station","Pseudodiaptomus forbesi",3799.2,4369.08
+"279","8/23/2023","706","Station","Pseudodiaptomus nauplii",142.2,14.22
+"280","8/23/2023","706","Station","Rotifer",0,0
+"281","8/23/2023","706","Station","other",0,0
+"282","8/23/2023","706","Station","other",20.4,125.664
+"283","9/15/2023","706","Station","Calanoid_other",0,0
+"284","9/15/2023","706","Station","Calanoid_other",9.1,24.297
+"285","9/15/2023","706","Station","Cladocera",0,0
+"286","9/15/2023","706","Station","Cladocera",18.2,29.12
+"287","9/15/2023","706","Station","Cladocera",15.2,15.2
+"288","9/15/2023","706","Station","Copepod nauplii",0,0
+"289","9/15/2023","706","Station","Cumacean",0,0
+"290","9/15/2023","706","Station","Cyclopoid_other",0,0
+"291","9/15/2023","706","Station","Cyclopoid_other",9.1,30.03
+"292","9/15/2023","706","Station","Cyclopoid_other",24.3,38.88
+"293","9/15/2023","706","Station","Eurytemora affinis",0,0
+"294","9/15/2023","706","Station","Limnoithona",0,0
+"295","9/15/2023","706","Station","Ostracod",3,0
+"296","9/15/2023","706","Station","Pseudodiaptomus forbesi",0,0
+"297","9/15/2023","706","Station","Pseudodiaptomus forbesi",173,460.18
+"298","9/15/2023","706","Station","Pseudodiaptomus forbesi",1353.3,1556.295
+"299","9/15/2023","706","Station","Pseudodiaptomus nauplii",218.5,21.85
+"300","9/15/2023","706","Station","Rotifer",0,0
+"301","9/15/2023","706","Station","other",0,0
+"302","9/20/2023","706","Station","Calanoid_other",0,0
+"303","9/20/2023","706","Station","Calanoid_other",6,12
+"304","9/20/2023","706","Station","Calanoid_other",203.09,542.2503
+"305","9/20/2023","706","Station","Cladocera",0,0
+"306","9/20/2023","706","Station","Cladocera",13.9,13.9
+"307","9/20/2023","706","Station","Cladocera",15.9,9.54
+"308","9/20/2023","706","Station","Cladocera",23.9,23.9
+"309","9/20/2023","706","Station","Copepod nauplii",0,0
+"310","9/20/2023","706","Station","Cumacean",0,0
+"311","9/20/2023","706","Station","Cyclopoid_other",0,0
+"312","9/20/2023","706","Station","Cyclopoid_other",8,26.4
+"313","9/20/2023","706","Station","Cyclopoid_other",45.8,73.28
+"314","9/20/2023","706","Station","Eurytemora affinis",0,0
+"315","9/20/2023","706","Station","Limnoithona",0,0
+"316","9/20/2023","706","Station","Ostracod",4,0
+"317","9/20/2023","706","Station","Pseudodiaptomus forbesi",0,0
+"318","9/20/2023","706","Station","Pseudodiaptomus forbesi",39.8,105.868
+"319","9/20/2023","706","Station","Pseudodiaptomus forbesi",1055.3,1213.595
+"320","9/20/2023","706","Station","Pseudodiaptomus nauplii",27.9,2.79
+"321","9/20/2023","706","Station","Rotifer",0,0
+"322","9/20/2023","706","Station","other",0,0
+"323","9/20/2023","706","Station","other",2,2
+"324","10/12/2023","707","Station","Calanoid_other",0,0
+"325","10/12/2023","707","Station","Calanoid_other",11.4,30.438
+"326","10/12/2023","707","Station","Cladocera",0,0
+"327","10/12/2023","707","Station","Cladocera",5.7,3.42
+"328","10/12/2023","707","Station","Cladocera",8.5,8.5
+"329","10/12/2023","707","Station","Cladocera",25.6,25.6
+"330","10/12/2023","707","Station","Copepod nauplii",0,0
+"331","10/12/2023","707","Station","Cumacean",0,0
+"332","10/12/2023","707","Station","Cyclopoid_other",0,0
+"333","10/12/2023","707","Station","Cyclopoid_other",2.8,9.24
+"334","10/12/2023","707","Station","Cyclopoid_other",19.9,31.84
+"335","10/12/2023","707","Station","Eurytemora affinis",0,0
+"336","10/12/2023","707","Station","Limnoithona",0,0
+"337","10/12/2023","707","Station","Ostracod",2.8,0
+"338","10/12/2023","707","Station","Pseudodiaptomus forbesi",0,0
+"339","10/12/2023","707","Station","Pseudodiaptomus forbesi",406.3,1080.758
+"340","10/12/2023","707","Station","Pseudodiaptomus forbesi",1056.9,1215.435
+"341","10/12/2023","707","Station","Pseudodiaptomus nauplii",102.3,10.23
+"342","10/12/2023","707","Station","Rotifer",0,0
+"343","10/12/2023","707","Station","other",0,0
+"344","8/23/2023","707","Station","Calanoid_other",0,0
+"345","8/23/2023","707","Station","Calanoid_other",178.6,476.862
+"346","8/23/2023","707","Station","Cladocera",0,0
+"347","8/23/2023","707","Station","Cladocera",19.8,19.8
+"348","8/23/2023","707","Station","Cladocera",49.6,79.36
+"349","8/23/2023","707","Station","Copepod nauplii",0,0
+"350","8/23/2023","707","Station","Cumacean",0,0
+"351","8/23/2023","707","Station","Cyclopoid_other",0,0
+"352","8/23/2023","707","Station","Cyclopoid_other",5,16.5
+"353","8/23/2023","707","Station","Cyclopoid_other",9.9,15.84
+"354","8/23/2023","707","Station","Eurytemora affinis",0,0
+"355","8/23/2023","707","Station","Limnoithona",0,0
+"356","8/23/2023","707","Station","Ostracod",0,0
+"357","8/23/2023","707","Station","Pseudodiaptomus forbesi",0,0
+"358","8/23/2023","707","Station","Pseudodiaptomus forbesi",109.1,290.206
+"359","8/23/2023","707","Station","Pseudodiaptomus forbesi",2931.4,3371.11
+"360","8/23/2023","707","Station","Pseudodiaptomus nauplii",9.9,0.99
+"361","8/23/2023","707","Station","Rotifer",0,0
+"362","8/23/2023","707","Station","other",0,0
+"363","9/15/2023","707","Station","Calanoid_other",0,0
+"364","9/15/2023","707","Station","Calanoid_other",3.1,4.65
+"365","9/15/2023","707","Station","Calanoid_other",12.3,32.841
+"366","9/15/2023","707","Station","Cladocera",0,0
+"367","9/15/2023","707","Station","Cladocera",6.2,6.2
+"368","9/15/2023","707","Station","Cladocera",9.2,5.52
+"369","9/15/2023","707","Station","Cladocera",15.4,15.4
+"370","9/15/2023","707","Station","Copepod nauplii",0,0
+"371","9/15/2023","707","Station","Cumacean",0,0
+"372","9/15/2023","707","Station","Cyclopoid_other",0,0
+"373","9/15/2023","707","Station","Cyclopoid_other",6.2,20.46
+"374","9/15/2023","707","Station","Cyclopoid_other",49.3,78.88
+"375","9/15/2023","707","Station","Eurytemora affinis",0,0
+"376","9/15/2023","707","Station","Limnoithona",0,0
+"377","9/15/2023","707","Station","Limnoithona",3.1,0.403
+"378","9/15/2023","707","Station","Ostracod",3.1,0
+"379","9/15/2023","707","Station","Pseudodiaptomus forbesi",0,0
+"380","9/15/2023","707","Station","Pseudodiaptomus forbesi",203.2,540.512
+"381","9/15/2023","707","Station","Pseudodiaptomus forbesi",1062.4,1221.76
+"382","9/15/2023","707","Station","Pseudodiaptomus nauplii",86.2,8.62
+"383","9/15/2023","707","Station","Rotifer",0,0
+"384","9/15/2023","707","Station","other",0,0
+"385","8/21/2023","MONT","Station","Calanoid_other",0,0
+"386","8/21/2023","MONT","Station","Calanoid_other",764.6,2041.482
+"387","8/21/2023","MONT","Station","Cladocera",0,0
+"388","8/21/2023","MONT","Station","Cladocera",4.6,4.6
+"389","8/21/2023","MONT","Station","Copepod nauplii",0,0
+"390","8/21/2023","MONT","Station","Cumacean",0,0
+"391","8/21/2023","MONT","Station","Cyclopoid_other",0,0
+"392","8/21/2023","MONT","Station","Eurytemora affinis",0,0
+"393","8/21/2023","MONT","Station","Limnoithona",0,0
+"394","8/21/2023","MONT","Station","Limnoithona",1.2,0.156
+"395","8/21/2023","MONT","Station","Ostracod",33.5,0
+"396","8/21/2023","MONT","Station","Pseudodiaptomus forbesi",0,0
+"397","8/21/2023","MONT","Station","Pseudodiaptomus forbesi",2.3,2.645
+"398","8/21/2023","MONT","Station","Pseudodiaptomus forbesi",6.9,18.354
+"399","8/21/2023","MONT","Station","Pseudodiaptomus nauplii",0,0
+"400","8/21/2023","MONT","Station","Rotifer",0,0
+"401","8/21/2023","MONT","Station","other",0,0
+"402","8/21/2023","MONT","Station","other",1.2,1.2
+"403","8/21/2023","MONT","Station","other",24.3,72.9
+"404","8/21/2023","MONT","Station","other",33.5,127.3
+"405","8/21/2023","MONT","Station","other",67,77.72
+"406","1696982400","Rio Vista","Flip","Annelida",1,0
+"407","1694649600","Rio Vista","Flip","Cladocera",7.5,145.294697271894
+"408","1695859200","Rio Vista","Flip","Cladocera",5,97.7437054374559
+"409","1696982400","Rio Vista","Flip","Cladocera",3,47.550991834438
+"410","1694649600","Rio Vista","Flip","Copepod nauplii",82.5,217.942045907841
+"411","1695859200","Rio Vista","Flip","Copepod nauplii",53,140.011253734734
+"412","1696982400","Rio Vista","Flip","Copepod nauplii",53,140.011253734734
+"413","1694649600","Rio Vista","Flip","Cyclopoid_other",2.5,105.668870743196
+"414","1695859200","Rio Vista","Flip","Cyclopoid_other",3,126.802644891835
+"415","1696982400","Rio Vista","Flip","Cyclopoid_other",4,169.070193189113
+"416","1694649600","Rio Vista","Flip","Gastropod",7.5,0
+"417","1695859200","Rio Vista","Flip","Gastropod",7,0
+"418","1696982400","Rio Vista","Flip","Gastropod",3,0
+"419","1696982400","Rio Vista","Flip","Insect",1,464.943031270061
+"420","1694649600","Rio Vista","Flip","Limnoithona",20,38.9653960865534
+"421","1695859200","Rio Vista","Flip","Limnoithona",8,10.8310592511775
+"422","1696982400","Rio Vista","Flip","Limnoithona",11,14.0011253734734
+"423","1694649600","Rio Vista","Flip","Ostracod",10,0
+"424","1695859200","Rio Vista","Flip","Ostracod",1,0
+"425","1696982400","Rio Vista","Flip","Ostracod",2,0
+"426","1694649600","Rio Vista","Flip","Pseudodiaptomus forbesi",12.5,379.747504233359
+"427","1695859200","Rio Vista","Flip","Pseudodiaptomus forbesi",11,533.627797253138
+"428","1696982400","Rio Vista","Flip","Pseudodiaptomus forbesi",6,262.058799443125
+"429","1694649600","Rio Vista","Flip","Pseudodiaptomus nauplii",282.5,746.286399623819
+"430","1695859200","Rio Vista","Flip","Pseudodiaptomus nauplii",138,364.557604064025
+"431","1696982400","Rio Vista","Flip","Pseudodiaptomus nauplii",118,311.723168692427
+"432","1694649600","Rio Vista","Flip","Rotifer",92.5,283.985090122338
+"433","1695859200","Rio Vista","Flip","Rotifer",18,55.4761571401777
+"434","1696982400","Rio Vista","Flip","Rotifer",31,82.4217191796926
+"435","1694649600","Rio Vista","Flip","other",5,0
+"436","1695859200","Rio Vista","Flip","other",4,26.4172176857989
+"437","1696982400","Rio Vista","Flip","other",7,0
+"438","1695859200","Rio Vista","Outside","Annelida",1.875,0
+"439","1694649600","Rio Vista","Outside","Cladocera",8,211.337741486391
+"440","1695859200","Rio Vista","Outside","Cladocera",7.5,158.503306114793
+"441","1696982400","Rio Vista","Outside","Cladocera",1.53846153846154,24.3851240176605
+"442","1694649600","Rio Vista","Outside","Copepod nauplii",70,184.920523800592
+"443","1695859200","Rio Vista","Outside","Copepod nauplii",48.75,128.78393621827
+"444","1696982400","Rio Vista","Outside","Copepod nauplii",66.1538461538462,174.7600554599
+"445","1694649600","Rio Vista","Outside","Cyclopoid_other",2,84.5350965945565
+"446","1695859200","Rio Vista","Outside","Cyclopoid_other",9.375,396.258265286983
+"447","1696982400","Rio Vista","Outside","Cyclopoid_other",1.53846153846154,134.118182097133
+"448","1696982400","Rio Vista","Outside","Eurytemora affinis",1.53846153846154,4.06418733627675
+"449","1694649600","Rio Vista","Outside","Gammaridea",4,35927.4160526865
+"450","1696982400","Rio Vista","Outside","Gammaridea",1.53846153846154,13818.236943341
+"451","1694649600","Rio Vista","Outside","Gastropod",8,0
+"452","1695859200","Rio Vista","Outside","Gastropod",11.25,0
+"453","1696982400","Rio Vista","Outside","Gastropod",10.7692307692308,0
+"454","1696982400","Rio Vista","Outside","Hyalella",1.53846153846154,13862.94300404
+"455","1695859200","Rio Vista","Outside","Insect",1.875,871.768183631364
+"456","1696982400","Rio Vista","Outside","Insect",3.07692307692308,1430.59394236942
+"457","1694649600","Rio Vista","Outside","Limnoithona",8,13.2086088428994
+"458","1695859200","Rio Vista","Outside","Limnoithona",13.125,27.2427557384801
+"459","1696982400","Rio Vista","Outside","Limnoithona",10.7692307692308,15.037493144224
+"460","1694649600","Rio Vista","Outside","Ostracod",8,0
+"461","1695859200","Rio Vista","Outside","Ostracod",13.125,0
+"462","1696982400","Rio Vista","Outside","Ostracod",7.69230769230769,0
+"463","1694649600","Rio Vista","Outside","Pseudodiaptomus forbesi",56,1781.04881637656
+"464","1695859200","Rio Vista","Outside","Pseudodiaptomus forbesi",22.5,758.339255192965
+"465","1696982400","Rio Vista","Outside","Pseudodiaptomus forbesi",13.8461538461538,482.012618082423
+"466","1694649600","Rio Vista","Outside","Pseudodiaptomus nauplii",214,565.328458476096
+"467","1695859200","Rio Vista","Outside","Pseudodiaptomus nauplii",204.375,539.901886453515
+"468","1696982400","Rio Vista","Outside","Pseudodiaptomus nauplii",120,317.006612229587
+"469","1694649600","Rio Vista","Outside","Rotifer",100,324.40343318161
+"470","1695859200","Rio Vista","Outside","Rotifer",31.875,98.0739206585284
+"471","1696982400","Rio Vista","Outside","Rotifer",86.1538461538462,262.546501923478
+"472","1694649600","Rio Vista","Outside","other",6,52.8344353715978
+"473","1695859200","Rio Vista","Outside","other",9.375,0
+"474","1696982400","Rio Vista","Outside","other",6.15384615384615,40.6418733627675
+"475","1694649600","Rio Vista","Scrub","Annelida",31.4285714285714,0
+"476","1696982400","Rio Vista","Scrub","Annelida",2.5,0
+"477","1694649600","Rio Vista","Scrub","Cladocera",2.85714285714286,45.286658889941
+"478","1695859200","Rio Vista","Scrub","Cladocera",4,73.9682095202369
+"479","1696982400","Rio Vista","Scrub","Cladocera",3.75,26.4172176857989
+"480","1694649600","Rio Vista","Scrub","Copepod nauplii",65.7142857142857,173.598859078107
+"481","1695859200","Rio Vista","Scrub","Copepod nauplii",39,103.027148974616
+"482","1696982400","Rio Vista","Scrub","Copepod nauplii",33.75,89.1581096895713
+"483","1696982400","Rio Vista","Scrub","Corophiidae",1.25,6211.34830837347
+"484","1694649600","Rio Vista","Scrub","Cyclopoid_other",5.71428571428571,241.528847413018
+"485","1695859200","Rio Vista","Scrub","Cyclopoid_other",2,84.5350965945565
+"486","1696982400","Rio Vista","Scrub","Eurytemora affinis",1.25,3.30215221072486
+"487","1694649600","Rio Vista","Scrub","Gammaridea",40,359274.160526865
+"488","1695859200","Rio Vista","Scrub","Gammaridea",1,8981.85401317163
+"489","1696982400","Rio Vista","Scrub","Gammaridea",51.25,460320.018175046
+"490","1695859200","Rio Vista","Scrub","Gastropod",7,0
+"491","1696982400","Rio Vista","Scrub","Gastropod",12.5,0
+"492","1694649600","Rio Vista","Scrub","Hyalella",17.1428571428571,154472.793473589
+"493","1696982400","Rio Vista","Scrub","Hyalella",5,45054.56476313
+"494","1694649600","Rio Vista","Scrub","Insect",8.57142857142857,3985.22598231481
+"495","1696982400","Rio Vista","Scrub","Insect",1.25,581.178789087576
+"496","1694649600","Rio Vista","Scrub","Limnoithona",5.71428571428571,12.8312200188166
+"497","1695859200","Rio Vista","Scrub","Limnoithona",3,3.17006612229587
+"498","1696982400","Rio Vista","Scrub","Limnoithona",6.25,6.60430442144972
+"499","1694649600","Rio Vista","Scrub","Ostracod",28.5714285714286,0
+"500","1695859200","Rio Vista","Scrub","Ostracod",7,0
+"501","1696982400","Rio Vista","Scrub","Ostracod",1.25,0
+"502","1694649600","Rio Vista","Scrub","Pseudodiaptomus forbesi",31.4285714285714,1524.65084929468
+"503","1695859200","Rio Vista","Scrub","Pseudodiaptomus forbesi",12,683.677593708475
+"504","1696982400","Rio Vista","Scrub","Pseudodiaptomus forbesi",2.5,175.674497610563
+"505","1694649600","Rio Vista","Scrub","Pseudodiaptomus nauplii",180,475.50991834438
+"506","1695859200","Rio Vista","Scrub","Pseudodiaptomus nauplii",55,145.294697271894
+"507","1696982400","Rio Vista","Scrub","Pseudodiaptomus nauplii",98.75,260.870024647264
+"508","1694649600","Rio Vista","Scrub","Rotifer",151.428571428571,427.204148861776
+"509","1695859200","Rio Vista","Scrub","Rotifer",26,85.0634409482724
+"510","1696982400","Rio Vista","Scrub","Rotifer",26.25,93.7811227845861
+"511","1694649600","Rio Vista","Scrub","other",11.4285714285714,75.4777648165683
+"512","1695859200","Rio Vista","Scrub","other",8,52.8344353715978
+"513","1696982400","Rio Vista","Scrub","other",15,66.0430442144972
+"514","1694649600","Rio Vista","Outside","Cladocera",4.54545454545455,96.0626097665414
+"515","1695859200","Rio Vista","Outside","Cladocera",3.33333333333333,70.445913828797
+"516","1696982400","Rio Vista","Outside","Cladocera",1,15.8503306114793
+"517","1694649600","Rio Vista","Outside","Copepod nauplii",95.4545454545455,252.164350637171
+"518","1695859200","Rio Vista","Outside","Copepod nauplii",73.3333333333333,193.726263029192
+"519","1696982400","Rio Vista","Outside","Copepod nauplii",30,79.2516530573967
+"520","1694649600","Rio Vista","Outside","Cyclopoid_other",2.27272727272727,198.129132643492
+"521","1695859200","Rio Vista","Outside","Cyclopoid_other",5,211.337741486391
+"522","1695859200","Rio Vista","Outside","Eurytemora affinis",3.33333333333333,8.80573922859963
+"523","1696982400","Rio Vista","Outside","Gammaridea",2,17963.7080263433
+"524","1694649600","Rio Vista","Outside","Gastropod",15.9090909090909,0
+"525","1695859200","Rio Vista","Outside","Gastropod",8.33333333333333,0
+"526","1696982400","Rio Vista","Outside","Gastropod",6,0
+"527","1696982400","Rio Vista","Outside","Hyalella",1,9010.912952626
+"528","1694649600","Rio Vista","Outside","Insect",4.54545454545455,2113.37741486391
+"529","1695859200","Rio Vista","Outside","Insect",1.66666666666667,774.905052116768
+"530","1696982400","Rio Vista","Outside","Insect",2,929.886062540121
+"531","1694649600","Rio Vista","Outside","Limnoithona",2.27272727272727,2.40156524416354
+"532","1695859200","Rio Vista","Outside","Limnoithona",5,9.24602619002961
+"533","1696982400","Rio Vista","Outside","Limnoithona",8,13.2086088428994
+"534","1694649600","Rio Vista","Outside","Ostracod",4.54545454545455,0
+"535","1695859200","Rio Vista","Outside","Ostracod",5,0
+"536","1696982400","Rio Vista","Outside","Ostracod",1,0
+"537","1694649600","Rio Vista","Outside","Pseudodiaptomus forbesi",20.4545454545455,621.405006927315
+"538","1695859200","Rio Vista","Outside","Pseudodiaptomus forbesi",16.6666666666667,572.813336820406
+"539","1696982400","Rio Vista","Outside","Pseudodiaptomus forbesi",21,637.975807112043
+"540","1694649600","Rio Vista","Outside","Pseudodiaptomus nauplii",229.545454545455,606.395224151293
+"541","1695859200","Rio Vista","Outside","Pseudodiaptomus nauplii",215,567.970180244676
+"542","1696982400","Rio Vista","Outside","Pseudodiaptomus nauplii",110,290.589394543788
+"543","1694649600","Rio Vista","Outside","Rotifer",172.727272727273,489.919309809361
+"544","1695859200","Rio Vista","Outside","Rotifer",21.6666666666667,73.9682095202369
+"545","1696982400","Rio Vista","Outside","Rotifer",13,36.4557604064025
+"546","1694649600","Rio Vista","Outside","other",4.54545454545455,60.0391311040884
+"547","1696982400","Rio Vista","Outside","other",4,0
+"548","1694649600","Rio Vista","Flip","Annelida",12.8571428571429,0
+"549","1696982400","Rio Vista","Flip","Annelida",1,0
+"550","1694649600","Rio Vista","Flip","Cladocera",8.57142857142857,181.146635559764
+"551","1695859200","Rio Vista","Flip","Cladocera",4.5,103.027148974616
+"552","1696982400","Rio Vista","Flip","Cladocera",1,26.4172176857989
+"553","1694649600","Rio Vista","Flip","Copepod nauplii",53.5714285714286,141.520809031066
+"554","1695859200","Rio Vista","Flip","Copepod nauplii",91.5,241.71754182506
+"555","1696982400","Rio Vista","Flip","Copepod nauplii",38,100.385427206036
+"556","1694649600","Rio Vista","Flip","Cyclopoid_other",12.8571428571429,543.439906679292
+"557","1695859200","Rio Vista","Flip","Cyclopoid_other",1.5,63.4013224459173
+"558","1696982400","Rio Vista","Flip","Cyclopoid_other",1,87.1768183631363
+"559","1694649600","Rio Vista","Flip","Gastropod",12.8571428571429,0
+"560","1695859200","Rio Vista","Flip","Gastropod",15,0
+"561","1696982400","Rio Vista","Flip","Gastropod",14,0
+"562","1694649600","Rio Vista","Flip","Hyalella",6.42857142857143,57927.2975525957
+"563","1694649600","Rio Vista","Flip","Insect",2.14285714285714,996.306495578701
+"564","1696982400","Rio Vista","Flip","Insect",1,464.943031270061
+"565","1694649600","Rio Vista","Flip","Limnoithona",15,26.0398288617161
+"566","1695859200","Rio Vista","Flip","Limnoithona",6,9.90645663217459
+"567","1696982400","Rio Vista","Flip","Limnoithona",9,11.8877479586095
+"568","1694649600","Rio Vista","Flip","Ostracod",15,0
+"569","1695859200","Rio Vista","Flip","Ostracod",3,0
+"570","1696982400","Rio Vista","Flip","Ostracod",2,0
+"571","1694649600","Rio Vista","Flip","Pseudodiaptomus forbesi",25.7142857142857,1294.06627778006
+"572","1695859200","Rio Vista","Flip","Pseudodiaptomus forbesi",4.5,136.709101524009
+"573","1696982400","Rio Vista","Flip","Pseudodiaptomus forbesi",2,60.7596006773375
+"574","1694649600","Rio Vista","Flip","Pseudodiaptomus nauplii",150,396.258265286983
+"575","1695859200","Rio Vista","Flip","Pseudodiaptomus nauplii",160.5,423.996343857072
+"576","1696982400","Rio Vista","Flip","Pseudodiaptomus nauplii",88,232.47151563503
+"577","1694649600","Rio Vista","Flip","Rotifer",117.857142857143,350.971606397042
+"578","1695859200","Rio Vista","Flip","Rotifer",51,144.238008564462
+"579","1696982400","Rio Vista","Flip","Rotifer",20,77.6666199962488
+"580","1694649600","Rio Vista","Flip","other",12.8571428571429,73.5908206961541
+"581","1695859200","Rio Vista","Flip","other",9,0
+"582","1696982400","Rio Vista","Flip","other",5,0
+"583","1694649600","Rio Vista","Scrub","Annelida",7.5,0
+"584","1696982400","Rio Vista","Scrub","Annelida",1,0
+"585","1695859200","Rio Vista","Scrub","Calanoid_other",1,52.8344353715978
+"586","1694649600","Rio Vista","Scrub","Cladocera",12.5,151.899001693344
+"587","1695859200","Rio Vista","Scrub","Cladocera",8,124.160923123255
+"588","1694649600","Rio Vista","Scrub","Copepod nauplii",105,277.380785700888
+"589","1695859200","Rio Vista","Scrub","Copepod nauplii",71,187.562245569172
+"590","1696982400","Rio Vista","Scrub","Copepod nauplii",47,124.160923123255
+"591","1694649600","Rio Vista","Scrub","Cyclopoid_other",10,422.675482972782
+"592","1695859200","Rio Vista","Scrub","Cyclopoid_other",3,126.802644891835
+"593","1696982400","Rio Vista","Scrub","Cyclopoid_other",1,42.2675482972782
+"594","1696982400","Rio Vista","Scrub","Gammaridea",4,35927.4160526865
+"595","1694649600","Rio Vista","Scrub","Gastropod",12.5,0
+"596","1695859200","Rio Vista","Scrub","Gastropod",6,0
+"597","1696982400","Rio Vista","Scrub","Gastropod",10,0
+"598","1694649600","Rio Vista","Scrub","Insect",5,2324.7151563503
+"599","1695859200","Rio Vista","Scrub","Insect",1,464.943031270061
+"600","1696982400","Rio Vista","Scrub","Insect",4,1859.77212508024
+"601","1694649600","Rio Vista","Scrub","Limnoithona",2.5,2.64172176857989
+"602","1695859200","Rio Vista","Scrub","Limnoithona",3,3.17006612229587
+"603","1696982400","Rio Vista","Scrub","Limnoithona",3,3.17006612229587
+"604","1694649600","Rio Vista","Scrub","Ostracod",15,0
+"605","1695859200","Rio Vista","Scrub","Ostracod",8,0
+"606","1696982400","Rio Vista","Scrub","Ostracod",2,0
+"607","1694649600","Rio Vista","Scrub","Pseudodiaptomus forbesi",27.5,1234.34449636895
+"608","1695859200","Rio Vista","Scrub","Pseudodiaptomus forbesi",9,432.978197870244
+"609","1696982400","Rio Vista","Scrub","Pseudodiaptomus forbesi",1,70.2697990442251
+"610","1694649600","Rio Vista","Scrub","Pseudodiaptomus nauplii",160,422.675482972782
+"611","1695859200","Rio Vista","Scrub","Pseudodiaptomus nauplii",72,190.203967337752
+"612","1696982400","Rio Vista","Scrub","Pseudodiaptomus nauplii",45,118.877479586095
+"613","1694649600","Rio Vista","Scrub","Rotifer",132.5,409.466874129883
+"614","1695859200","Rio Vista","Scrub","Rotifer",33,88.7618514242843
+"615","1696982400","Rio Vista","Scrub","Rotifer",34,136.841187612438
+"616","1694649600","Rio Vista","Scrub","other",22.5,0
+"617","1695859200","Rio Vista","Scrub","other",8,105.668870743196
+"618","1696982400","Rio Vista","Scrub","other",5,52.8344353715978
+"619","1695859200","Rio Vista","Outside","Annelida",1.66666666666667,0
+"620","1696982400","Rio Vista","Outside","Annelida",1.5,0
+"621","1694649600","Rio Vista","Outside","Cladocera",6.66666666666667,76.3164066478635
+"622","1695859200","Rio Vista","Outside","Cladocera",1.66666666666667,44.0286961429982
+"623","1696982400","Rio Vista","Outside","Cladocera",7.5,59.4387397930475
+"624","1694649600","Rio Vista","Outside","Copepod nauplii",122.222222222222,322.877105048653
+"625","1695859200","Rio Vista","Outside","Copepod nauplii",78.3333333333333,206.934871872091
+"626","1696982400","Rio Vista","Outside","Copepod nauplii",84,221.904628560711
+"627","1694649600","Rio Vista","Outside","Cyclopoid_other",2.22222222222222,93.9278851050627
+"628","1694649600","Rio Vista","Outside","Gammaridea",4.44444444444444,39919.3511696517
+"629","1694649600","Rio Vista","Outside","Gastropod",22.2222222222222,0
+"630","1695859200","Rio Vista","Outside","Gastropod",11.6666666666667,0
+"631","1696982400","Rio Vista","Outside","Gastropod",12,0
+"632","1696982400","Rio Vista","Outside","Insect",3,1394.82909381018
+"633","1694649600","Rio Vista","Outside","Limnoithona",15.5555555555556,21.7208234305458
+"634","1695859200","Rio Vista","Outside","Limnoithona",3.33333333333333,3.52229569143985
+"635","1696982400","Rio Vista","Outside","Limnoithona",16.5,28.1343368353758
+"636","1694649600","Rio Vista","Outside","Ostracod",6.66666666666667,0
+"637","1695859200","Rio Vista","Outside","Ostracod",11.6666666666667,0
+"638","1696982400","Rio Vista","Outside","Ostracod",1.5,0
+"639","1694649600","Rio Vista","Outside","Pseudodiaptomus forbesi",40,1215.19201354675
+"640","1695859200","Rio Vista","Outside","Pseudodiaptomus forbesi",20,674.079337949302
+"641","1696982400","Rio Vista","Outside","Pseudodiaptomus forbesi",15,515.532003138365
+"642","1694649600","Rio Vista","Outside","Pseudodiaptomus nauplii",186.666666666667,493.121396801579
+"643","1695859200","Rio Vista","Outside","Pseudodiaptomus nauplii",200,528.344353715978
+"644","1696982400","Rio Vista","Outside","Pseudodiaptomus nauplii",175.5,463.622170385771
+"645","1694649600","Rio Vista","Outside","Rotifer",57.7777777777778,152.632813295727
+"646","1695859200","Rio Vista","Outside","Rotifer",13.3333333333333,32.5812351458186
+"647","1696982400","Rio Vista","Outside","Rotifer",22.5,57.8537067318996
+"648","1694649600","Rio Vista","Outside","other",11.1111111111111,117.409856381328
+"649","1695772800","Montezuma","Flip","Annelida",5,0
+"650","1696896000","Montezuma","Flip","Annelida",15,0
+"651","1695772800","Montezuma","Flip","Calanoid_other",10,705.33971221083
+"652","1695772800","Montezuma","Flip","Cladocera",5,132.086088428994
+"653","1694563200","Montezuma","Flip","Copepod nauplii",3885,10263.0890709329
+"654","1695772800","Montezuma","Flip","Copepod nauplii",650,1717.11914957693
+"655","1696896000","Montezuma","Flip","Copepod nauplii",2910,7687.41034656748
+"656","1696896000","Montezuma","Flip","Cyclopoid_other",30,1268.02644891835
+"657","1694563200","Montezuma","Flip","Eurytemora affinis",150,396.258265286983
+"658","1695772800","Montezuma","Flip","Eurytemora affinis",115,303.798003386687
+"659","1696896000","Montezuma","Flip","Eurytemora affinis",60,158.503306114793
+"660","1694563200","Montezuma","Flip","Gastropod",30,0
+"661","1696896000","Montezuma","Flip","Gastropod",15,0
+"662","1694563200","Montezuma","Flip","Limnoithona",210,257.567872436539
+"663","1695772800","Montezuma","Flip","Limnoithona",480,1208.5877091253
+"664","1696896000","Montezuma","Flip","Limnoithona",510,1145.18638667938
+"665","1695772800","Montezuma","Flip","Ostracod",10,0
+"666","1696896000","Montezuma","Flip","Ostracod",15,0
+"667","1695772800","Montezuma","Flip","Pseudodiaptomus forbesi",15,455.697005080031
+"668","1696896000","Montezuma","Flip","Pseudodiaptomus forbesi",15,455.697005080031
+"669","1694563200","Montezuma","Flip","Pseudodiaptomus nauplii",450,1188.77479586095
+"670","1695772800","Montezuma","Flip","Pseudodiaptomus nauplii",20,52.8344353715978
+"671","1696896000","Montezuma","Flip","Pseudodiaptomus nauplii",285,752.890704045269
+"672","1694563200","Montezuma","Flip","Rotifer",195,538.911240790297
+"673","1695772800","Montezuma","Flip","Rotifer",80,211.337741486391
+"674","1696896000","Montezuma","Flip","Rotifer",510,1299.72711014131
+"675","1695772800","Montezuma","Flip","other",15,264.172176857989
+"676","1696896000","Montezuma","Flip","other",120,2377.5495917219
+"677","1696896000","Montezuma","Outside","Annelida",20,0
+"678","1694563200","Montezuma","Outside","Copepod nauplii",3225,8519.55270367014
+"679","1695772800","Montezuma","Outside","Copepod nauplii",1087.5,2872.87242333063
+"680","1696896000","Montezuma","Outside","Copepod nauplii",1830,4834.3508365012
+"681","1695772800","Montezuma","Outside","Eurytemora affinis",22.5,59.4387397930475
+"682","1696896000","Montezuma","Outside","Eurytemora affinis",40,105.668870743196
+"683","1696896000","Montezuma","Outside","Gastropod",80,0
+"684","1694563200","Montezuma","Outside","Limnoithona",120,162.465888767663
+"685","1695772800","Montezuma","Outside","Limnoithona",345,970.832749953109
+"686","1696896000","Montezuma","Outside","Limnoithona",470,948.37811492018
+"687","1696896000","Montezuma","Outside","Ostracod",10,0
+"688","1695772800","Montezuma","Outside","Pseudodiaptomus forbesi",82.5,2506.33352794017
+"689","1696896000","Montezuma","Outside","Pseudodiaptomus forbesi",40,1215.19201354675
+"690","1694563200","Montezuma","Outside","Pseudodiaptomus nauplii",495,1307.65227544705
+"691","1695772800","Montezuma","Outside","Pseudodiaptomus nauplii",82.5,217.942045907841
+"692","1696896000","Montezuma","Outside","Pseudodiaptomus nauplii",240,634.013224459174
+"693","1694563200","Montezuma","Outside","Rotifer",270,689.489381599351
+"694","1695772800","Montezuma","Outside","Rotifer",52.5,138.690392850444
+"695","1696896000","Montezuma","Outside","Rotifer",350,924.602619002961
+"696","1694563200","Montezuma","Outside","other",30,2377.5495917219
+"697","1695772800","Montezuma","Outside","other",7.5,198.129132643492
+"698","1696896000","Montezuma","Outside","other",30,528.344353715978
+"699","1694563200","Montezuma","Scrub","Annelida",40,0
+"700","1695772800","Montezuma","Scrub","Calanoid_other",5,352.669856105415
+"701","1694563200","Montezuma","Scrub","Copepod nauplii",1360,3592.74160526865
+"702","1695772800","Montezuma","Scrub","Copepod nauplii",560,1479.36419040474
+"703","1696896000","Montezuma","Scrub","Copepod nauplii",1755,4636.22170385771
+"704","1694563200","Montezuma","Scrub","Cyclopoid_other",10,422.675482972782
+"705","1696896000","Montezuma","Scrub","Eurytemora affinis",15,39.6258265286983
+"706","1694563200","Montezuma","Scrub","Gammaridea",10,89818.5401317162
+"707","1695772800","Montezuma","Scrub","Gammaridea",5,44909.2700658581
+"708","1694563200","Montezuma","Scrub","Gastropod",10,0
+"709","1694563200","Montezuma","Scrub","Limnoithona",320,766.099312888168
+"710","1695772800","Montezuma","Scrub","Limnoithona",420,1121.41089076216
+"711","1696896000","Montezuma","Scrub","Limnoithona",240,538.911240790297
+"712","1694563200","Montezuma","Scrub","Ostracod",20,0
+"713","1695772800","Montezuma","Scrub","Ostracod",10,0
+"714","1696896000","Montezuma","Scrub","Ostracod",30,0
+"715","1696896000","Montezuma","Scrub","Pseudodiaptomus forbesi",30,911.394010160062
+"716","1694563200","Montezuma","Scrub","Pseudodiaptomus nauplii",120,317.006612229587
+"717","1695772800","Montezuma","Scrub","Pseudodiaptomus nauplii",50,132.086088428994
+"718","1696896000","Montezuma","Scrub","Pseudodiaptomus nauplii",240,634.013224459174
+"719","1694563200","Montezuma","Scrub","Rotifer",110,290.589394543788
+"720","1695772800","Montezuma","Scrub","Rotifer",65,171.711914957693
+"721","1696896000","Montezuma","Scrub","Rotifer",675,1711.83570603977
+"722","1694563200","Montezuma","Scrub","other",30,1585.03306114793
+"723","1695772800","Montezuma","Scrub","other",5,132.086088428994
+"724","1696896000","Montezuma","Scrub","other",75,1585.03306114793
+"725","1694563200","Montezuma","Outside","Annelida",45,0
+"726","1696896000","Montezuma","Outside","Annelida",30,0
+"727","1695772800","Montezuma","Outside","Calanoid_other",5,352.669856105415
+"728","1694563200","Montezuma","Outside","Cladocera",15,27.7380785700888
+"729","1694563200","Montezuma","Outside","Copepod nauplii",3210,8479.92687714145
+"730","1695772800","Montezuma","Outside","Copepod nauplii",915,2417.1754182506
+"731","1696896000","Montezuma","Outside","Copepod nauplii",3195,8440.30105061275
+"732","1696896000","Montezuma","Outside","Eurytemora affinis",165,435.884091815682
+"733","1694563200","Montezuma","Outside","Gastropod",45,0
+"734","1695772800","Montezuma","Outside","Insect",5,2324.7151563503
+"735","1694563200","Montezuma","Outside","Limnoithona",285,408.146013245593
+"736","1695772800","Montezuma","Outside","Limnoithona",375,966.87016730024
+"737","1696896000","Montezuma","Outside","Limnoithona",525,947.05725403589
+"738","1695772800","Montezuma","Outside","Ostracod",10,0
+"739","1695772800","Montezuma","Outside","Pseudodiaptomus forbesi",5,151.899001693344
+"740","1696896000","Montezuma","Outside","Pseudodiaptomus forbesi",45,1367.09101524009
+"741","1694563200","Montezuma","Outside","Pseudodiaptomus nauplii",240,634.013224459174
+"742","1695772800","Montezuma","Outside","Pseudodiaptomus nauplii",90,237.75495917219
+"743","1696896000","Montezuma","Outside","Pseudodiaptomus nauplii",345,911.394010160062
+"744","1694563200","Montezuma","Outside","Rotifer",195,515.135744873078
+"745","1695772800","Montezuma","Outside","Rotifer",40,97.7437054374559
+"746","1696896000","Montezuma","Outside","Rotifer",465,1204.62512647243
+"747","1694563200","Montezuma","Outside","other",45,2298.2979386645
+"748","1695772800","Montezuma","Outside","other",25,660.430442144972
+"749","1696896000","Montezuma","Outside","other",15,396.258265286983
+"750","1694563200","Montezuma","Flip","Annelida",45,0
+"751","1696896000","Montezuma","Flip","Annelida",60,0
+"752","1695772800","Montezuma","Flip","Calanoid_other",10,705.33971221083
+"753","1694563200","Montezuma","Flip","Copepod nauplii",1950,5151.35744873079
+"754","1695772800","Montezuma","Flip","Copepod nauplii",905,2390.7582005648
+"755","1696896000","Montezuma","Flip","Copepod nauplii",2840,7502.48982276689
+"756","1695772800","Montezuma","Flip","Cyclopoid_other",10,422.675482972782
+"757","1694563200","Montezuma","Flip","Eurytemora affinis",15,39.6258265286983
+"758","1695772800","Montezuma","Flip","Eurytemora affinis",10,26.4172176857989
+"759","1696896000","Montezuma","Flip","Eurytemora affinis",160,422.675482972782
+"760","1695772800","Montezuma","Flip","Gastropod",5,0
+"761","1694563200","Montezuma","Flip","Limnoithona",382.5,867.805600978494
+"762","1695772800","Montezuma","Flip","Limnoithona",345,863.843018325624
+"763","1696896000","Montezuma","Flip","Limnoithona",420,729.11520812805
+"764","1694563200","Montezuma","Flip","Ostracod",15,0
+"765","1695772800","Montezuma","Flip","Ostracod",5,0
+"766","1695772800","Montezuma","Flip","Pseudodiaptomus forbesi",5,351.348995221125
+"767","1696896000","Montezuma","Flip","Pseudodiaptomus forbesi",20,607.596006773375
+"768","1694563200","Montezuma","Flip","Pseudodiaptomus nauplii",150,396.258265286983
+"769","1695772800","Montezuma","Flip","Pseudodiaptomus nauplii",55,145.294697271894
+"770","1696896000","Montezuma","Flip","Pseudodiaptomus nauplii",440,1162.35757817515
+"771","1694563200","Montezuma","Flip","Rotifer",75,198.129132643492
+"772","1695772800","Montezuma","Flip","Rotifer",50,132.086088428994
+"773","1696896000","Montezuma","Flip","Rotifer",480,1268.02644891835
+"774","1694563200","Montezuma","Flip","other",37.5,3209.69194882457
+"775","1695772800","Montezuma","Flip","other",20,396.258265286983
+"776","1696896000","Montezuma","Flip","other",60,1585.03306114793
+"777","1694563200","Montezuma","Scrub","Annelida",45,0
+"778","1695772800","Montezuma","Scrub","Annelida",4,0
+"779","1696896000","Montezuma","Scrub","Annelida",15,0
+"780","1694563200","Montezuma","Scrub","Calanoid_other",7.5,529.004784158123
+"781","1695772800","Montezuma","Scrub","Cladocera",4,105.668870743196
+"782","1694563200","Montezuma","Scrub","Copepod nauplii",2107.5,5567.42862728212
+"783","1695772800","Montezuma","Scrub","Copepod nauplii",588,1553.33239992498
+"784","1696896000","Montezuma","Scrub","Copepod nauplii",1170,3090.81446923847
+"785","1695772800","Montezuma","Scrub","Cyclopoid_other",8,338.140386378226
+"786","1694563200","Montezuma","Scrub","Eurytemora affinis",112.5,297.193698965238
+"787","1694563200","Montezuma","Scrub","Limnoithona",352.5,925.263049445106
+"788","1695772800","Montezuma","Scrub","Limnoithona",308,858.031230434748
+"789","1696896000","Montezuma","Scrub","Limnoithona",120,215.960754581406
+"790","1694563200","Montezuma","Scrub","Ostracod",15,0
+"791","1695772800","Montezuma","Scrub","Ostracod",8,0
+"792","1694563200","Montezuma","Scrub","Pseudodiaptomus forbesi",7.5,527.023492831688
+"793","1695772800","Montezuma","Scrub","Pseudodiaptomus forbesi",4,121.519201354675
+"794","1694563200","Montezuma","Scrub","Pseudodiaptomus nauplii",180,475.50991834438
+"795","1695772800","Montezuma","Scrub","Pseudodiaptomus nauplii",36,95.101983668876
+"796","1696896000","Montezuma","Scrub","Pseudodiaptomus nauplii",45,118.877479586095
+"797","1694563200","Montezuma","Scrub","Rotifer",30,79.2516530573967
+"798","1695772800","Montezuma","Scrub","Rotifer",24,63.4013224459174
+"799","1696896000","Montezuma","Scrub","Rotifer",952.5,2540.01548048956
+"800","1694563200","Montezuma","Scrub","other",22.5,1347.27810197574
+"801","1695772800","Montezuma","Scrub","other",8,211.337741486391
+"802","1696896000","Montezuma","Scrub","other",7.5,198.129132643492
+"803","1694563200","Montezuma","Outside","Annelida",50,0
+"804","1695772800","Montezuma","Outside","Annelida",13.3333333333333,0
+"805","1696896000","Montezuma","Outside","Annelida",25,0
+"806","1695772800","Montezuma","Outside","Cladocera",6.66666666666667,176.114784571993
+"807","1694563200","Montezuma","Outside","Copepod nauplii",1980,5230.60910178818
+"808","1695772800","Montezuma","Outside","Copepod nauplii",1060,2800.22507469468
+"809","1696896000","Montezuma","Outside","Copepod nauplii",3437.5,9080.91857949337
+"810","1696896000","Montezuma","Outside","Cyclopoid_other",12.5,528.344353715978
+"811","1694563200","Montezuma","Outside","Eurytemora affinis",20,52.8344353715978
+"812","1696896000","Montezuma","Outside","Eurytemora affinis",50,132.086088428994
+"813","1694563200","Montezuma","Outside","Limnoithona",330,776.666199962488
+"814","1695772800","Montezuma","Outside","Limnoithona",320,813.650304722606
+"815","1696896000","Montezuma","Outside","Limnoithona",325,551.459419191052
+"816","1695772800","Montezuma","Outside","Ostracod",6.66666666666667,0
+"817","1694563200","Montezuma","Outside","Pseudodiaptomus nauplii",140,369.841047601185
+"818","1695772800","Montezuma","Outside","Pseudodiaptomus nauplii",46.6666666666667,123.280349200395
+"819","1696896000","Montezuma","Outside","Pseudodiaptomus nauplii",175,462.301309501481
+"820","1694563200","Montezuma","Outside","Rotifer",160,422.675482972782
+"821","1695772800","Montezuma","Outside","Rotifer",26.6666666666667,70.4459138287971
+"822","1696896000","Montezuma","Outside","Rotifer",612.5,1578.42875672648
+"823","1694563200","Montezuma","Outside","other",10,792.516530573967
+"824","1695772800","Montezuma","Outside","other",6.66666666666667,176.114784571993
+"825","1696896000","Montezuma","Outside","other",62.5,1651.07610536243

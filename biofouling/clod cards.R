@@ -44,6 +44,7 @@ ggsave("plots/clodcards.tiff", device = "tiff", width =4, height =5)
 
 clodlm = lm(DiffPerDay ~ Site+treatment2, data = clods2)
 summary(clodlm)
+anova(clodlm)
 plot(clodlm)
 hist(residuals(clodlm))
 pairs(emmeans(clodlm, ~treatment2))
