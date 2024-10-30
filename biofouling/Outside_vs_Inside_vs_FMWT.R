@@ -203,7 +203,19 @@ allinterestingbugs <- filter(alloutbugs, Species != "Hyalella", Species != "Gamm
                              Species != "Insect", Species != "Annelida", Species != "other")
 save(allinterestingbugs, file = "data/allinterestingbugs.RData")
 #We probably want to plot average CPUE rather than total
-InterestingAve = allinterestingbugs %>%
+
+
+allwideCPUE = pivot_wider(allinterestingbugs, id_cols = c(SampleID, Date, Type, Treatment, Site),
+                          names_from = Species, values_from = CPUE, values_fill = 0) %>%
+  pivot_longer(cols = c(Calanoid_other:last_col()), names_to = "Species", values_to = "CPUE")
+
+allwideMass = pivot_wider(allinterestingbugs, id_cols = c(SampleID, Date, Type, Treatment, Site),
+                          names_from = Species, values_from = Mass, values_fill = 0) %>%
+  pivot_longer(cols = c(Calanoid_other:last_col()), names_to = "Species", values_to = "Mass")
+
+allwzeros = left_join(allwideCPUE, allwideMass)
+
+InterestingAve = allwzeros %>%
   group_by(Treatment, Site, Species) %>%
   summarize(CPUE = mean(CPUE), Mass = mean(Mass))
 
@@ -236,7 +248,7 @@ ggplot(filter(InterestingAve,  Species == "Pseudodiaptomus forbesi"),
   geom_bar(stat="identity", position = "dodge") +
   labs(title = "Pseudodiaptomus forbesi")
 
-ggplot(filter(allinterestingbugs, Species == "Pseudodiaptomus forbesi"), 
+ggplot(filter(allwzeros, Species == "Pseudodiaptomus forbesi"), 
        aes(x = Site, y = CPUE, fill = Treatment)) + 
   geom_boxplot(position = "dodge") +
   labs(title = "Pseudodiaptomus forbesi")
@@ -277,26 +289,3 @@ scores(nmds)%>%
   as_tibble(rownames == "Group") %>%
   ggplot(aes(x=NMDS1, y=NMDS2)) +
   geom_point()
-
-#########################################################
-#ANOVAs of Limnoithona abundance, P forbesi abundance, and p nauplii abundance
-#But I have to add the zeros in first!!
-
-allwideCPUE = pivot_wider(allinterestingbugs, id_cols = c(SampleID, Date, Type, Treatment, Site),
-                      names_from = Species, values_from = CPUE, values_fill = 0) %>%
-  pivot_longer(cols = c(Calanoid_other:last_col()), names_to = "Species", values_to = "CPUE")
-
-limno = filter(allwideCPUE, Species == "Limnoithona")
-limlm = lm(log(CPUE+1) ~ Treatment + Site, data = limno)
-summary(limlm)
-anova(limlm)
-emmeans(limlm, pairwise ~ Treatment)
-
-pfor = filter(allwideCPUE,
-              Species == "Pseudodiaptomus forbesi")
-pforlm = lm(log(CPUE+1) ~ Treatment + Site, data = pfor)
-summary(pforlm)
-Anova(pforlm)
-emmeans(pforlm, pairwise ~ Treatment)
-emmeans(pforlm, pairwise ~ Site)
-plot(allEffects(pforlm))

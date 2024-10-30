@@ -336,7 +336,7 @@ allwideCPUE = pivot_wider(allinterestingbugs, id_cols = c(SampleID, Date, Type, 
 limno = filter(allwideCPUE, Species == "Limnoithona")
 limlm = lm(log(CPUE+1) ~ Treatment + Site, data = limno)
 summary(limlm)
-anova(limlm)
+Anova(limlm)
 emmeans(limlm, pairwise ~ Treatment)
 
 pfor = filter(allwideCPUE,
