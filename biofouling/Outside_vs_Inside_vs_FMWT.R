@@ -81,7 +81,8 @@ zoops2.1 = group_by(zoops2, Location, Analy, Site, Date, CageNum, Treatment, Sam
 #zoops2.1[a,6] <- 0
 #zoops2.1[a,2] <- "Rio Vista"
 
-stn2 = left_join(stn_long, select(masscrosswalk_stations, EMP_Code, Analy, Carbon_weight_ug), by = c("Prey" = "EMP_Code"))
+stn2 = left_join(stn_long, select(masscrosswalk_stations, EMP_Code, Analy, Carbon_weight_ug), 
+                 by = c("Prey" = "EMP_Code"))
 
 stn2.1 = stn2 %>%
   mutate(SampleID = paste(Station, Date)) %>%
@@ -230,9 +231,14 @@ ggplot(filter(InterestingAve),
 
 
 
-ggplot(filter(InterestingAve, Treatment != "Scrub" & Treatment != "Flip", Species == "Pseudodiaptomus forbesi"), 
-       aes(x = Site, y = Mass, fill = Treatment)) + 
+ggplot(filter(InterestingAve,  Species == "Pseudodiaptomus forbesi"), 
+       aes(x = Site, y = log(Mass), fill = Treatment)) + 
   geom_bar(stat="identity", position = "dodge") +
+  labs(title = "Pseudodiaptomus forbesi")
+
+ggplot(filter(allinterestingbugs, Species == "Pseudodiaptomus forbesi"), 
+       aes(x = Site, y = CPUE, fill = Treatment)) + 
+  geom_boxplot(position = "dodge") +
   labs(title = "Pseudodiaptomus forbesi")
 
 ggplot(filter(InterestingAve, Treatment != "Scrub" &  Treatment  != "Flip", Species == "Pseudodiaptomus forbesi"), 
@@ -274,15 +280,23 @@ scores(nmds)%>%
 
 #########################################################
 #ANOVAs of Limnoithona abundance, P forbesi abundance, and p nauplii abundance
+#But I have to add the zeros in first!!
 
-limno = filter(allinterestingbugs, Species == "Limnoithona")
+allwideCPUE = pivot_wider(allinterestingbugs, id_cols = c(SampleID, Date, Type, Treatment, Site),
+                      names_from = Species, values_from = CPUE, values_fill = 0) %>%
+  pivot_longer(cols = c(Calanoid_other:last_col()), names_to = "Species", values_to = "CPUE")
+
+limno = filter(allwideCPUE, Species == "Limnoithona")
 limlm = lm(log(CPUE+1) ~ Treatment + Site, data = limno)
 summary(limlm)
 anova(limlm)
 emmeans(limlm, pairwise ~ Treatment)
 
-pfor = filter(allinterestingbugs, Species == "Pseudodiaptomus forbesi")
+pfor = filter(allwideCPUE,
+              Species == "Pseudodiaptomus forbesi")
 pforlm = lm(log(CPUE+1) ~ Treatment + Site, data = pfor)
 summary(pforlm)
+Anova(pforlm)
 emmeans(pforlm, pairwise ~ Treatment)
-#oooo, this is saying that inside the cages has slightly less P forbesi than outside!!!
+emmeans(pforlm, pairwise ~ Site)
+plot(allEffects(pforlm))

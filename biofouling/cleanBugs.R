@@ -325,18 +325,25 @@ emmeans(dlm2, pairwise ~ Treatment)
 emmeans(dlm2, pairwise ~ Site)
 
 
-
 #########################################################
 #ANOVAs of Limnoithona abundance, P forbesi abundance, and p nauplii abundance
+#But I have to add the zeros in first!!
 
-limno = filter(allinterestingbugs, Species == "Limnoithona")
+allwideCPUE = pivot_wider(allinterestingbugs, id_cols = c(SampleID, Date, Type, Treatment, Site),
+                          names_from = Species, values_from = CPUE, values_fill = 0) %>%
+  pivot_longer(cols = c(Calanoid_other:last_col()), names_to = "Species", values_to = "CPUE")
+
+limno = filter(allwideCPUE, Species == "Limnoithona")
 limlm = lm(log(CPUE+1) ~ Treatment + Site, data = limno)
 summary(limlm)
-Anova(limlm)
+anova(limlm)
 emmeans(limlm, pairwise ~ Treatment)
 
-pfor = filter(allinterestingbugs, Species == "Pseudodiaptomus forbesi")
+pfor = filter(allwideCPUE,
+              Species == "Pseudodiaptomus forbesi")
 pforlm = lm(log(CPUE+1) ~ Treatment + Site, data = pfor)
 summary(pforlm)
 Anova(pforlm)
 emmeans(pforlm, pairwise ~ Treatment)
+emmeans(pforlm, pairwise ~ Site)
+plot(allEffects(pforlm))
