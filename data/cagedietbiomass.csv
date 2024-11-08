@@ -1,122 +1,1065 @@
-"Location","Treatment","Cage ID","FishID","LabForkLength_mm","LabWeight_g","Fullness","Digestion","Empty","Total Contents Weight","Taxa Group","CageCode","Count","Carbon_weight_ug","Biomass"
-"Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,"Amphipod","Gammarus daiberi",2,5.7926225,11.585245
-"Rio Vista","Exchanged",1,"C1N37",50,0.7995,3,5,"N",4e-04,"Amphipod","Hyalella",1,15.920186,15.920186
-"Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,"Amphipod","Gammarus daiberi",2,5.7926225,11.585245
-"Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,"Amphipod","Amphipod",2,13.19296767,26.38593534
-"Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,"Amphipod","Gammarus daiberi",2,5.7926225,11.585245
-"Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,"Amphipod","Hyalella",1,15.920186,15.920186
-"Rio Vista","Exchanged",3,"C3N18",54,0.7778,4,5,"N",3e-04,"Amphipod","Gammarus daiberi",1,5.7926225,5.7926225
-"Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,"Amphipod","Gammarus daiberi",3,5.7926225,17.3778675
-"Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,"Amphipod","Amphipod",2,13.19296767,26.38593534
-"Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,"Amphipod","Hyalella",1,15.920186,15.920186
-"Rio Vista","Exchanged",3,"C3N27",42,0.6139,3,3,"N",8e-04,"Amphipod","Gammarus daiberi",1,5.7926225,5.7926225
-"Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,"Amphipod","Gammarus daiberi",1,5.7926225,5.7926225
-"Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,"Other","Tanaid",1,10.93771267,10.93771267
-"Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,"Amphipod","Americorophium spinicorne",1,10.93771267,10.93771267
-"Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,"Amphipod","Americorophium spinicorne",2,10.93771267,21.87542534
-"Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,"Other","Tanaid",1,10.93771267,10.93771267
-"Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,"Amphipod","Gammarus daiberi",1,5.7926225,5.7926225
-"Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,"Amphipod","Americorophium spinicorne",2,10.93771267,21.87542534
-"Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,"Amphipod","Hyalella",4,15.920186,63.680744
-"Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,"Amphipod","Gammarus daiberi",3,5.7926225,17.3778675
-"Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,"Amphipod","Hyalella",1,15.920186,15.920186
-"Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,"Amphipod","Gammarus daiberi",2,5.7926225,11.585245
-"Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,"Amphipod","Amphipod",1,13.19296767,13.19296767
-"Rio Vista","Scrubbed",2,"C2N24",53,0.9017,3,3,"N",7e-04,"Amphipod","Amphipod",1,13.19296767,13.19296767
-"Rio Vista","Scrubbed",2,"C2N24",53,0.9017,3,3,"N",7e-04,"Amphipod","Gammarus daiberi",1,5.7926225,5.7926225
-"Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,"Amphipod","Amphipod",1,13.19296767,13.19296767
-"Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,"Amphipod","Amphipod",2,13.19296767,26.38593534
-"Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,"Amphipod","Hyalella",3,15.920186,47.760558
-"Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,"Amphipod","Gammarus daiberi",9,5.7926225,52.1336025
-"Rio Vista","Scrubbed",4,"C4N41",54,0.9521,2,5,"N",9e-04,"Amphipod","Gammarus daiberi",2,5.7926225,11.585245
-"Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,"Amphipod","Gammarus daiberi",4,5.7926225,23.17049
-"Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,"Amphipod","Americorophium spinicorne",2,10.93771267,21.87542534
-"Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,"Amphipod","Americorophium spinicorne",1,10.93771267,10.93771267
-"Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,"Amphipod","Gammarus daiberi",1,5.7926225,5.7926225
-"Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,"Amphipod","Americorophium spinicorne",1,10.93771267,10.93771267
-"Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,"Amphipod","Gammarus daiberi",1,5.7926225,5.7926225
-"Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,"Amphipod","Gammarus daiberi",2,5.7926225,11.585245
-"Belden's Landing","Scrubbed",8,"C8N25",58,0.7454,6,4,"N",0.0086,"Amphipod","Gammarus daiberi",4,5.7926225,23.17049
-"Belden's Landing","Scrubbed",8,"C8N25",58,0.7454,6,4,"N",0.0086,"Amphipod","Americorophium spinicorne",1,10.93771267,10.93771267
-"Belden's Landing","Scrubbed",8,"C8N26",58,1.0693,4,5,"N",0.0042,"Amphipod","Gammarus daiberi",4,5.7926225,23.17049
-"Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,"Amphipod","Gammarus daiberi",4,5.7926225,23.17049
-"Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,"Amphipod","Gammarus daiberi",2,5.7926225,11.585245
-"Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,"Pseudodiaptomus Juvenile","Pseudodiaptomus forbesi copepodid",2,1.15,2.3
-"Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",3,2.66,7.98
-"Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,"Cladoceran","Simocephalus sp.",1,1,1
-"Rio Vista","Exchanged",1,"C1N37",50,0.7995,3,5,"N",4e-04,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",2,2.66,5.32
-"Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,"Cyclopoid Copepod","Eucyclops sp. adult",1,3.3,3.3
-"Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",4,2.66,10.64
-"Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,"Pseudodiaptomus Juvenile","Pseudodiaptomus forbesi copepodid",1,1.15,1.15
-"Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",7,2.66,18.62
-"Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,"Cladoceran","Simocephalus sp.",1,1,1
-"Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,"Pseudodiaptomus Juvenile","Pseudodiaptomus forbesi copepodid",1,1.15,1.15
-"Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",9,2.66,23.94
-"Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,"Pseudodiaptomus Juvenile","Pseudodiaptomus forbesi copepodid",3,1.15,3.45
-"Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",4,2.66,10.64
-"Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",1,2.66,2.66
-"Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,"Pseudodiaptomus Juvenile","Pseudodiaptomus forbesi copepodid",2,1.15,2.3
-"Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,"Cladoceran","Simocephalus sp.",1,1,1
-"Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,"Cyclopoid Copepod","Macrocyclops sp. adult",1,3.3,3.3
-"Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",4,2.66,10.64
-"Belden's Landing","Exchanged",5,"C5N2",55,0.7444,6,3,"N",0.0021,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",1,2.66,2.66
-"Belden's Landing","Exchanged",5,"C5N4",51,0.5367,2,6,"N",0,"Limnoithona","Limnoithona tetraspina adult",2,0.13,0.26
-"Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,"Cumacean","Cumella vulgaris",2,13.2,26.4
-"Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",2,2.66,5.32
-"Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,"Harpaticoida","Harpaticoida",1,1,1
-"Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,"Limnoithona","Limnoithona tetraspina adult",82,0.13,10.66
-"Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,"Calanoid Copepod","Eurytemora affinis adult",1,3,3
-"Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,"Cyclopoid Copepod","Cyclopoida nauplius",2,0.1,0.2
-"Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,"Calanoid Copepod","Calanoida nauplius",2,0.1,0.2
-"Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",1,2.66,2.66
-"Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,"Pseudodiaptomus","Pseudodiaptomus forbesi nauplius",1,0.1,0.1
-"Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,"Limnoithona","Limnoithona tetraspina adult",1,0.13,0.13
-"Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,"Cumacean","Cumella vulgaris",1,13.2,13.2
-"Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,"Calanoid Copepod","Eurytemora affinis adult",1,3,3
-"Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,"Harpaticoida","Harpaticoida",1,1,1
-"Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,"Limnoithona","Limnoithona tetraspina adult",6,0.13,0.78
-"Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,"Cyclopoid Copepod","Macrocyclops sp. adult",1,3.3,3.3
-"Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,"Cyclopoid Copepod","Macrocyclops sp. copepodid",1,1.6,1.6
-"Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,"Cumacean","Cumella vulgaris",3,13.2,39.6
-"Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,"Cladoceran","ilyocryptus sp.",1,1,1
-"Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,"Harpaticoida","Harpaticoida",1,1,1
-"Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,"Other","Copepod nauplius",1,0.1,0.1
-"Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,"Other","Chironomidae larva",1,17.6,17.6
-"Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",2,2.66,5.32
-"Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,"Cyclopoid Copepod","Macrocyclops sp. adult",1,3.3,3.3
-"Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,"Calanoid Copepod","Calanoida copepodid",1,1.5,1.5
-"Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",1,2.66,2.66
-"Rio Vista","Scrubbed",2,"C2N4",42,0.5668,2,6,"N",0,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",2,2.66,5.32
-"Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,"Cyclopoid Copepod","Acanthocyclops sp. adult",1,3.36,3.36
-"Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,"Cyclopoid Copepod","Acanthocyclops sp. copepodid",1,1.68,1.68
-"Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",6,2.66,15.96
-"Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",16,2.66,42.56
-"Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,"Cyclopoid Copepod","Acanthocyclops sp. adult",2,3.36,6.72
-"Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",3,2.66,7.98
-"Rio Vista","Scrubbed",4,"C4N40",50,0.7258,2,6,"N",0,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",2,2.66,5.32
-"Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,"Harpaticoida","Harpaticoida",2,1,2
-"Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,"Limnoithona","Limnoithona tetraspina adult",38,0.13,4.94
-"Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,"Cyclopoid Copepod","Macrocyclops sp. copepodid",1,1.6,1.6
-"Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,"Cumacean","Cumacean",1,13.2,13.2
-"Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,"Cyclopoid Copepod","Cyclopoida",9,3.3,29.7
-"Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,"Harpaticoida","Harpaticoida",1,1,1
-"Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,"Limnoithona","Limnoithona tetraspina adult",37,0.13,4.81
-"Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,"Harpaticoida","Harpaticoida",2,1,2
-"Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,"Limnoithona","Limnoithona tetraspina adult",96,0.13,12.48
-"Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,"Limnoithona","Limnoithona tetraspina adult",1,0.13,0.13
-"Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,"Cumacean","Nippoleucon hinumensis",1,13.2,13.2
-"Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,"Cumacean","Cumella vulgaris",1,13.2,13.2
-"Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,"Harpaticoida","Harpaticoida",1,1,1
-"Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,"Limnoithona","Limnoithona tetraspina adult",100,0.13,13
-"Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",1,2.66,2.66
-"Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,"Calanoid Copepod","Eurytemora affinis adult",1,3,3
-"Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,"Calanoid Copepod","Eurytemora affinis copepodid",1,1.4,1.4
-"Belden's Landing","Scrubbed",8,"C8N20",56,0.8552,3,3,"N",0,"Cyclopoid Copepod","Cyclopoida nauplius",2,0.1,0.2
-"Belden's Landing","Scrubbed",8,"C8N26",58,1.0693,4,5,"N",0.0042,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",1,2.66,2.66
-"Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,"Harpaticoida","Harpaticoida",2,1,2
-"Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,"Cumacean","Nippoleucon hinumensis",4,13.2,52.8
-"Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,"Limnoithona","Limnoithona tetraspina adult",2,0.13,0.26
-"Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,"Limnoithona","Limnoithona tetraspina adult",10,0.13,1.3
-"Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,"Harpaticoida","Harpaticoida",1,1,1
-"Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,"Pseudodiaptomus Juvenile","Pseudodiaptomus forbesi copepodid",1,1.15,1.15
-"Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,"Pseudodiaptomus","Pseudodiaptomus forbesi adult",1,2.66,2.66
+"","Location","Treatment","Cage ID","FishID","LabForkLength_mm","LabWeight_g","Fullness","Digestion","Empty","Total Contents Weight","Count","Carbon_weight_ug","Biomass","TaxaGroup","WetWeight_g"
+"1","Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,2,5.7926225,11.585245,"Gammaridea",0.00011585245
+"2","Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,0,0,0,"Gammaridea",0
+"3","Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,0,0,0,"Other Amphipod",0
+"4","Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,0,0,0,"Tanaid",0
+"5","Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,0,0,0,"Corophiidae",0
+"6","Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,0,0,0,"Corophiidae",0
+"7","Rio Vista","Exchanged",1,"C1N37",50,0.7995,3,5,"N",4e-04,0,0,0,"Gammaridea",0
+"8","Rio Vista","Exchanged",1,"C1N37",50,0.7995,3,5,"N",4e-04,1,15.920186,15.920186,"Gammaridea",0.00015920186
+"9","Rio Vista","Exchanged",1,"C1N37",50,0.7995,3,5,"N",4e-04,0,0,0,"Other Amphipod",0
+"10","Rio Vista","Exchanged",1,"C1N37",50,0.7995,3,5,"N",4e-04,0,0,0,"Tanaid",0
+"11","Rio Vista","Exchanged",1,"C1N37",50,0.7995,3,5,"N",4e-04,0,0,0,"Corophiidae",0
+"12","Rio Vista","Exchanged",1,"C1N37",50,0.7995,3,5,"N",4e-04,0,0,0,"Corophiidae",0
+"13","Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,0,0,0,"Gammaridea",0
+"14","Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,0,0,0,"Gammaridea",0
+"15","Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,0,0,0,"Other Amphipod",0
+"16","Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,0,0,0,"Tanaid",0
+"17","Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,0,0,0,"Corophiidae",0
+"18","Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,0,0,0,"Corophiidae",0
+"19","Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,0,0,0,"Gammaridea",0
+"20","Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,0,0,0,"Gammaridea",0
+"21","Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,0,0,0,"Other Amphipod",0
+"22","Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,0,0,0,"Tanaid",0
+"23","Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,0,0,0,"Corophiidae",0
+"24","Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,0,0,0,"Corophiidae",0
+"25","Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,2,5.7926225,11.585245,"Gammaridea",0.00011585245
+"26","Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,0,0,0,"Gammaridea",0
+"27","Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,2,13.19296767,26.38593534,"Other Amphipod",0.0002638593534
+"28","Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,0,0,0,"Tanaid",0
+"29","Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,0,0,0,"Corophiidae",0
+"30","Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,0,0,0,"Corophiidae",0
+"31","Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,2,5.7926225,11.585245,"Gammaridea",0.00011585245
+"32","Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,1,15.920186,15.920186,"Gammaridea",0.00015920186
+"33","Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,0,0,0,"Other Amphipod",0
+"34","Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,0,0,0,"Tanaid",0
+"35","Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,0,0,0,"Corophiidae",0
+"36","Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,0,0,0,"Corophiidae",0
+"37","Rio Vista","Exchanged",3,"C3N18",54,0.7778,4,5,"N",3e-04,1,5.7926225,5.7926225,"Gammaridea",5.7926225e-05
+"38","Rio Vista","Exchanged",3,"C3N18",54,0.7778,4,5,"N",3e-04,0,0,0,"Gammaridea",0
+"39","Rio Vista","Exchanged",3,"C3N18",54,0.7778,4,5,"N",3e-04,0,0,0,"Other Amphipod",0
+"40","Rio Vista","Exchanged",3,"C3N18",54,0.7778,4,5,"N",3e-04,0,0,0,"Tanaid",0
+"41","Rio Vista","Exchanged",3,"C3N18",54,0.7778,4,5,"N",3e-04,0,0,0,"Corophiidae",0
+"42","Rio Vista","Exchanged",3,"C3N18",54,0.7778,4,5,"N",3e-04,0,0,0,"Corophiidae",0
+"43","Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,3,5.7926225,17.3778675,"Gammaridea",0.000173778675
+"44","Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,1,15.920186,15.920186,"Gammaridea",0.00015920186
+"45","Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,2,13.19296767,26.38593534,"Other Amphipod",0.0002638593534
+"46","Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,0,0,0,"Tanaid",0
+"47","Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,0,0,0,"Corophiidae",0
+"48","Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,0,0,0,"Corophiidae",0
+"49","Rio Vista","Exchanged",3,"C3N27",42,0.6139,3,3,"N",8e-04,1,5.7926225,5.7926225,"Gammaridea",5.7926225e-05
+"50","Rio Vista","Exchanged",3,"C3N27",42,0.6139,3,3,"N",8e-04,0,0,0,"Gammaridea",0
+"51","Rio Vista","Exchanged",3,"C3N27",42,0.6139,3,3,"N",8e-04,0,0,0,"Other Amphipod",0
+"52","Rio Vista","Exchanged",3,"C3N27",42,0.6139,3,3,"N",8e-04,0,0,0,"Tanaid",0
+"53","Rio Vista","Exchanged",3,"C3N27",42,0.6139,3,3,"N",8e-04,0,0,0,"Corophiidae",0
+"54","Rio Vista","Exchanged",3,"C3N27",42,0.6139,3,3,"N",8e-04,0,0,0,"Corophiidae",0
+"55","Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,1,5.7926225,5.7926225,"Gammaridea",5.7926225e-05
+"56","Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,0,0,0,"Gammaridea",0
+"57","Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,0,0,0,"Other Amphipod",0
+"58","Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,0,0,0,"Tanaid",0
+"59","Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,0,0,0,"Corophiidae",0
+"60","Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,0,0,0,"Corophiidae",0
+"61","Belden's Landing","Exchanged",5,"C5N2",55,0.7444,6,3,"N",0.0021,0,0,0,"Gammaridea",0
+"62","Belden's Landing","Exchanged",5,"C5N2",55,0.7444,6,3,"N",0.0021,0,0,0,"Gammaridea",0
+"63","Belden's Landing","Exchanged",5,"C5N2",55,0.7444,6,3,"N",0.0021,0,0,0,"Other Amphipod",0
+"64","Belden's Landing","Exchanged",5,"C5N2",55,0.7444,6,3,"N",0.0021,0,0,0,"Tanaid",0
+"65","Belden's Landing","Exchanged",5,"C5N2",55,0.7444,6,3,"N",0.0021,0,0,0,"Corophiidae",0
+"66","Belden's Landing","Exchanged",5,"C5N2",55,0.7444,6,3,"N",0.0021,0,0,0,"Corophiidae",0
+"67","Belden's Landing","Exchanged",5,"C5N4",51,0.5367,2,6,"N",0,0,0,0,"Gammaridea",0
+"68","Belden's Landing","Exchanged",5,"C5N4",51,0.5367,2,6,"N",0,0,0,0,"Gammaridea",0
+"69","Belden's Landing","Exchanged",5,"C5N4",51,0.5367,2,6,"N",0,0,0,0,"Other Amphipod",0
+"70","Belden's Landing","Exchanged",5,"C5N4",51,0.5367,2,6,"N",0,0,0,0,"Tanaid",0
+"71","Belden's Landing","Exchanged",5,"C5N4",51,0.5367,2,6,"N",0,0,0,0,"Corophiidae",0
+"72","Belden's Landing","Exchanged",5,"C5N4",51,0.5367,2,6,"N",0,0,0,0,"Corophiidae",0
+"73","Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,0,0,0,"Gammaridea",0
+"74","Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,0,0,0,"Gammaridea",0
+"75","Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,0,0,0,"Other Amphipod",0
+"76","Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,0,0,0,"Tanaid",0
+"77","Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,0,0,0,"Corophiidae",0
+"78","Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,0,0,0,"Corophiidae",0
+"79","Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,0,0,0,"Gammaridea",0
+"80","Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,0,0,0,"Gammaridea",0
+"81","Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,0,0,0,"Other Amphipod",0
+"82","Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,1,10.93771267,10.93771267,"Tanaid",0.0001093771267
+"83","Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,0,0,0,"Corophiidae",0
+"84","Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,0,0,0,"Corophiidae",0
+"85","Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,0,0,0,"Gammaridea",0
+"86","Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,0,0,0,"Gammaridea",0
+"87","Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,0,0,0,"Other Amphipod",0
+"88","Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,0,0,0,"Tanaid",0
+"89","Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,1,10.93771267,10.93771267,"Corophiidae",0.0001093771267
+"90","Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,0,0,0,"Corophiidae",0
+"91","Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,0,0,0,"Gammaridea",0
+"92","Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,0,0,0,"Gammaridea",0
+"93","Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,0,0,0,"Other Amphipod",0
+"94","Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,1,10.93771267,10.93771267,"Tanaid",0.0001093771267
+"95","Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,2,10.93771267,21.87542534,"Corophiidae",0.0002187542534
+"96","Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,0,0,0,"Corophiidae",0
+"97","Belden's Landing","Exchanged",7,"C7N43",54,0.684,1,1,"Y",0,0,0,0,"Gammaridea",0
+"98","Belden's Landing","Exchanged",7,"C7N43",54,0.684,1,1,"Y",0,0,0,0,"Gammaridea",0
+"99","Belden's Landing","Exchanged",7,"C7N43",54,0.684,1,1,"Y",0,0,0,0,"Other Amphipod",0
+"100","Belden's Landing","Exchanged",7,"C7N43",54,0.684,1,1,"Y",0,0,0,0,"Tanaid",0
+"101","Belden's Landing","Exchanged",7,"C7N43",54,0.684,1,1,"Y",0,0,0,0,"Corophiidae",0
+"102","Belden's Landing","Exchanged",7,"C7N43",54,0.684,1,1,"Y",0,0,0,0,"Corophiidae",0
+"103","Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,1,5.7926225,5.7926225,"Gammaridea",5.7926225e-05
+"104","Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,0,0,0,"Gammaridea",0
+"105","Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,0,0,0,"Other Amphipod",0
+"106","Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,0,0,0,"Tanaid",0
+"107","Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,2,10.93771267,21.87542534,"Corophiidae",0.0002187542534
+"108","Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,0,0,0,"Corophiidae",0
+"109","Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,3,5.7926225,17.3778675,"Gammaridea",0.000173778675
+"110","Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,4,15.920186,63.680744,"Gammaridea",0.00063680744
+"111","Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,0,0,0,"Other Amphipod",0
+"112","Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,0,0,0,"Tanaid",0
+"113","Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,0,0,0,"Corophiidae",0
+"114","Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,0,0,0,"Corophiidae",0
+"115","Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,2,5.7926225,11.585245,"Gammaridea",0.00011585245
+"116","Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,1,15.920186,15.920186,"Gammaridea",0.00015920186
+"117","Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,0,0,0,"Other Amphipod",0
+"118","Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,0,0,0,"Tanaid",0
+"119","Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,0,0,0,"Corophiidae",0
+"120","Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,0,0,0,"Corophiidae",0
+"121","Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,0,0,0,"Gammaridea",0
+"122","Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,0,0,0,"Gammaridea",0
+"123","Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,1,13.19296767,13.19296767,"Other Amphipod",0.0001319296767
+"124","Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,0,0,0,"Tanaid",0
+"125","Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,0,0,0,"Corophiidae",0
+"126","Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,0,0,0,"Corophiidae",0
+"127","Rio Vista","Scrubbed",2,"C2N24",53,0.9017,3,3,"N",7e-04,1,5.7926225,5.7926225,"Gammaridea",5.7926225e-05
+"128","Rio Vista","Scrubbed",2,"C2N24",53,0.9017,3,3,"N",7e-04,0,0,0,"Gammaridea",0
+"129","Rio Vista","Scrubbed",2,"C2N24",53,0.9017,3,3,"N",7e-04,1,13.19296767,13.19296767,"Other Amphipod",0.0001319296767
+"130","Rio Vista","Scrubbed",2,"C2N24",53,0.9017,3,3,"N",7e-04,0,0,0,"Tanaid",0
+"131","Rio Vista","Scrubbed",2,"C2N24",53,0.9017,3,3,"N",7e-04,0,0,0,"Corophiidae",0
+"132","Rio Vista","Scrubbed",2,"C2N24",53,0.9017,3,3,"N",7e-04,0,0,0,"Corophiidae",0
+"133","Rio Vista","Scrubbed",2,"C2N4",42,0.5668,2,6,"N",0,0,0,0,"Gammaridea",0
+"134","Rio Vista","Scrubbed",2,"C2N4",42,0.5668,2,6,"N",0,0,0,0,"Gammaridea",0
+"135","Rio Vista","Scrubbed",2,"C2N4",42,0.5668,2,6,"N",0,0,0,0,"Other Amphipod",0
+"136","Rio Vista","Scrubbed",2,"C2N4",42,0.5668,2,6,"N",0,0,0,0,"Tanaid",0
+"137","Rio Vista","Scrubbed",2,"C2N4",42,0.5668,2,6,"N",0,0,0,0,"Corophiidae",0
+"138","Rio Vista","Scrubbed",2,"C2N4",42,0.5668,2,6,"N",0,0,0,0,"Corophiidae",0
+"139","Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,0,0,0,"Gammaridea",0
+"140","Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,0,0,0,"Gammaridea",0
+"141","Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,1,13.19296767,13.19296767,"Other Amphipod",0.0001319296767
+"142","Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,0,0,0,"Tanaid",0
+"143","Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,0,0,0,"Corophiidae",0
+"144","Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,0,0,0,"Corophiidae",0
+"145","Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,0,0,0,"Gammaridea",0
+"146","Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,0,0,0,"Gammaridea",0
+"147","Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,2,13.19296767,26.38593534,"Other Amphipod",0.0002638593534
+"148","Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,0,0,0,"Tanaid",0
+"149","Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,0,0,0,"Corophiidae",0
+"150","Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,0,0,0,"Corophiidae",0
+"151","Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,9,5.7926225,52.1336025,"Gammaridea",0.000521336025
+"152","Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,3,15.920186,47.760558,"Gammaridea",0.00047760558
+"153","Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,0,0,0,"Other Amphipod",0
+"154","Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,0,0,0,"Tanaid",0
+"155","Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,0,0,0,"Corophiidae",0
+"156","Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,0,0,0,"Corophiidae",0
+"157","Rio Vista","Scrubbed",4,"C4N40",50,0.7258,2,6,"N",0,0,0,0,"Gammaridea",0
+"158","Rio Vista","Scrubbed",4,"C4N40",50,0.7258,2,6,"N",0,0,0,0,"Gammaridea",0
+"159","Rio Vista","Scrubbed",4,"C4N40",50,0.7258,2,6,"N",0,0,0,0,"Other Amphipod",0
+"160","Rio Vista","Scrubbed",4,"C4N40",50,0.7258,2,6,"N",0,0,0,0,"Tanaid",0
+"161","Rio Vista","Scrubbed",4,"C4N40",50,0.7258,2,6,"N",0,0,0,0,"Corophiidae",0
+"162","Rio Vista","Scrubbed",4,"C4N40",50,0.7258,2,6,"N",0,0,0,0,"Corophiidae",0
+"163","Rio Vista","Scrubbed",4,"C4N41",54,0.9521,2,5,"N",9e-04,2,5.7926225,11.585245,"Gammaridea",0.00011585245
+"164","Rio Vista","Scrubbed",4,"C4N41",54,0.9521,2,5,"N",9e-04,0,0,0,"Gammaridea",0
+"165","Rio Vista","Scrubbed",4,"C4N41",54,0.9521,2,5,"N",9e-04,0,0,0,"Other Amphipod",0
+"166","Rio Vista","Scrubbed",4,"C4N41",54,0.9521,2,5,"N",9e-04,0,0,0,"Tanaid",0
+"167","Rio Vista","Scrubbed",4,"C4N41",54,0.9521,2,5,"N",9e-04,0,0,0,"Corophiidae",0
+"168","Rio Vista","Scrubbed",4,"C4N41",54,0.9521,2,5,"N",9e-04,0,0,0,"Corophiidae",0
+"169","Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,4,5.7926225,23.17049,"Gammaridea",0.0002317049
+"170","Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,0,0,0,"Gammaridea",0
+"171","Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,0,0,0,"Other Amphipod",0
+"172","Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,0,0,0,"Tanaid",0
+"173","Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,2,10.93771267,21.87542534,"Corophiidae",0.0002187542534
+"174","Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,0,0,0,"Corophiidae",0
+"175","Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,0,0,0,"Gammaridea",0
+"176","Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,0,0,0,"Gammaridea",0
+"177","Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,0,0,0,"Other Amphipod",0
+"178","Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,0,0,0,"Tanaid",0
+"179","Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,0,0,0,"Corophiidae",0
+"180","Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,0,0,0,"Corophiidae",0
+"181","Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,1,5.7926225,5.7926225,"Gammaridea",5.7926225e-05
+"182","Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,0,0,0,"Gammaridea",0
+"183","Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,0,0,0,"Other Amphipod",0
+"184","Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,0,0,0,"Tanaid",0
+"185","Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,1,10.93771267,10.93771267,"Corophiidae",0.0001093771267
+"186","Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,1,10.93771267,10.93771267,"Corophiidae",0.0001093771267
+"187","Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,1,5.7926225,5.7926225,"Gammaridea",5.7926225e-05
+"188","Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,0,0,0,"Gammaridea",0
+"189","Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,0,0,0,"Other Amphipod",0
+"190","Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,0,0,0,"Tanaid",0
+"191","Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,0,0,0,"Corophiidae",0
+"192","Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,0,0,0,"Corophiidae",0
+"193","Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,2,5.7926225,11.585245,"Gammaridea",0.00011585245
+"194","Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,0,0,0,"Gammaridea",0
+"195","Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,0,0,0,"Other Amphipod",0
+"196","Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,0,0,0,"Tanaid",0
+"197","Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,0,0,0,"Corophiidae",0
+"198","Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,0,0,0,"Corophiidae",0
+"199","Belden's Landing","Scrubbed",8,"C8N20",56,0.8552,3,3,"N",0,0,0,0,"Gammaridea",0
+"200","Belden's Landing","Scrubbed",8,"C8N20",56,0.8552,3,3,"N",0,0,0,0,"Gammaridea",0
+"201","Belden's Landing","Scrubbed",8,"C8N20",56,0.8552,3,3,"N",0,0,0,0,"Other Amphipod",0
+"202","Belden's Landing","Scrubbed",8,"C8N20",56,0.8552,3,3,"N",0,0,0,0,"Tanaid",0
+"203","Belden's Landing","Scrubbed",8,"C8N20",56,0.8552,3,3,"N",0,0,0,0,"Corophiidae",0
+"204","Belden's Landing","Scrubbed",8,"C8N20",56,0.8552,3,3,"N",0,0,0,0,"Corophiidae",0
+"205","Belden's Landing","Scrubbed",8,"C8N25",58,0.7454,6,4,"N",0.0086,4,5.7926225,23.17049,"Gammaridea",0.0002317049
+"206","Belden's Landing","Scrubbed",8,"C8N25",58,0.7454,6,4,"N",0.0086,0,0,0,"Gammaridea",0
+"207","Belden's Landing","Scrubbed",8,"C8N25",58,0.7454,6,4,"N",0.0086,0,0,0,"Other Amphipod",0
+"208","Belden's Landing","Scrubbed",8,"C8N25",58,0.7454,6,4,"N",0.0086,0,0,0,"Tanaid",0
+"209","Belden's Landing","Scrubbed",8,"C8N25",58,0.7454,6,4,"N",0.0086,1,10.93771267,10.93771267,"Corophiidae",0.0001093771267
+"210","Belden's Landing","Scrubbed",8,"C8N25",58,0.7454,6,4,"N",0.0086,0,0,0,"Corophiidae",0
+"211","Belden's Landing","Scrubbed",8,"C8N26",58,1.0693,4,5,"N",0.0042,4,5.7926225,23.17049,"Gammaridea",0.0002317049
+"212","Belden's Landing","Scrubbed",8,"C8N26",58,1.0693,4,5,"N",0.0042,0,0,0,"Gammaridea",0
+"213","Belden's Landing","Scrubbed",8,"C8N26",58,1.0693,4,5,"N",0.0042,0,0,0,"Other Amphipod",0
+"214","Belden's Landing","Scrubbed",8,"C8N26",58,1.0693,4,5,"N",0.0042,0,0,0,"Tanaid",0
+"215","Belden's Landing","Scrubbed",8,"C8N26",58,1.0693,4,5,"N",0.0042,0,0,0,"Corophiidae",0
+"216","Belden's Landing","Scrubbed",8,"C8N26",58,1.0693,4,5,"N",0.0042,0,0,0,"Corophiidae",0
+"217","Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,4,5.7926225,23.17049,"Gammaridea",0.0002317049
+"218","Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,0,0,0,"Gammaridea",0
+"219","Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,0,0,0,"Other Amphipod",0
+"220","Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,0,0,0,"Tanaid",0
+"221","Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,0,0,0,"Corophiidae",0
+"222","Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,0,0,0,"Corophiidae",0
+"223","Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,2,5.7926225,11.585245,"Gammaridea",0.00011585245
+"224","Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,0,0,0,"Gammaridea",0
+"225","Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,0,0,0,"Other Amphipod",0
+"226","Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,0,0,0,"Tanaid",0
+"227","Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,0,0,0,"Corophiidae",0
+"228","Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,0,0,0,"Corophiidae",0
+"229","Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,3,2.66,7.98,"Pseudodiaptomus",5.49e-05
+"230","Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,1,1,1,"Cladoceran",3.01e-05
+"231","Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,0,3.3,0,"Other Cyclopoid",4.44e-05
+"232","Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,0,3.3,0,"Other Cyclopoid",4.44e-05
+"233","Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,0,0.13,0,"Limnoithona",5.6e-06
+"234","Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,0,13.2,0,"Cumacean",0.0003307
+"235","Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,0,1,0,"Other",2.27e-05
+"236","Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,0,3,0,"Eurytemora",4.03e-05
+"237","Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,0,0.03,0,"Copepod nauplii",3e-07
+"238","Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,0,0.1,0,"Copepod nauplii",2.4e-06
+"239","Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"240","Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,0,1.6,0,"Other Cyclopoid",1.37e-05
+"241","Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,0,1,0,"Cladoceran",3.01e-05
+"242","Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,0,0.07,0,"Copepod nauplii",2.7e-06
+"243","Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,0,18.32,0,"Chironomidae",0.000458
+"244","Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,0,1.5,0,"Other Calanoid",1.38e-05
+"245","Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,0,3.36,0,"Other Cyclopoid",3.82e-05
+"246","Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,0,1.68,0,"Other Cyclopoid",1.91e-05
+"247","Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,0,9.41,0,"Cumacean",0.000235
+"248","Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,0,3.3,0,"Other Cyclopoid",4.44e-05
+"249","Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,0,9.41,0,"Cumacean",0.000235
+"250","Rio Vista","Exchanged",1,"C1N10",44,0.507,3,5,"N",0.0011,0,1.4,0,"Eurytemora",1.01e-05
+"251","Rio Vista","Exchanged",1,"C1N37",50,0.7995,3,5,"N",4e-04,2,2.66,5.32,"Pseudodiaptomus",5.49e-05
+"252","Rio Vista","Exchanged",1,"C1N37",50,0.7995,3,5,"N",4e-04,0,1,0,"Cladoceran",3.01e-05
+"253","Rio Vista","Exchanged",1,"C1N37",50,0.7995,3,5,"N",4e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"254","Rio Vista","Exchanged",1,"C1N37",50,0.7995,3,5,"N",4e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"255","Rio Vista","Exchanged",1,"C1N37",50,0.7995,3,5,"N",4e-04,0,0.13,0,"Limnoithona",5.6e-06
+"256","Rio Vista","Exchanged",1,"C1N37",50,0.7995,3,5,"N",4e-04,0,13.2,0,"Cumacean",0.0003307
+"257","Rio Vista","Exchanged",1,"C1N37",50,0.7995,3,5,"N",4e-04,0,1,0,"Other",2.27e-05
+"258","Rio Vista","Exchanged",1,"C1N37",50,0.7995,3,5,"N",4e-04,0,3,0,"Eurytemora",4.03e-05
+"259","Rio Vista","Exchanged",1,"C1N37",50,0.7995,3,5,"N",4e-04,0,0.03,0,"Copepod nauplii",3e-07
+"260","Rio Vista","Exchanged",1,"C1N37",50,0.7995,3,5,"N",4e-04,0,0.1,0,"Copepod nauplii",2.4e-06
+"261","Rio Vista","Exchanged",1,"C1N37",50,0.7995,3,5,"N",4e-04,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"262","Rio Vista","Exchanged",1,"C1N37",50,0.7995,3,5,"N",4e-04,0,1.6,0,"Other Cyclopoid",1.37e-05
+"263","Rio Vista","Exchanged",1,"C1N37",50,0.7995,3,5,"N",4e-04,0,1,0,"Cladoceran",3.01e-05
+"264","Rio Vista","Exchanged",1,"C1N37",50,0.7995,3,5,"N",4e-04,0,0.07,0,"Copepod nauplii",2.7e-06
+"265","Rio Vista","Exchanged",1,"C1N37",50,0.7995,3,5,"N",4e-04,0,18.32,0,"Chironomidae",0.000458
+"266","Rio Vista","Exchanged",1,"C1N37",50,0.7995,3,5,"N",4e-04,0,1.5,0,"Other Calanoid",1.38e-05
+"267","Rio Vista","Exchanged",1,"C1N37",50,0.7995,3,5,"N",4e-04,0,3.36,0,"Other Cyclopoid",3.82e-05
+"268","Rio Vista","Exchanged",1,"C1N37",50,0.7995,3,5,"N",4e-04,0,1.68,0,"Other Cyclopoid",1.91e-05
+"269","Rio Vista","Exchanged",1,"C1N37",50,0.7995,3,5,"N",4e-04,0,9.41,0,"Cumacean",0.000235
+"270","Rio Vista","Exchanged",1,"C1N37",50,0.7995,3,5,"N",4e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"271","Rio Vista","Exchanged",1,"C1N37",50,0.7995,3,5,"N",4e-04,0,9.41,0,"Cumacean",0.000235
+"272","Rio Vista","Exchanged",1,"C1N37",50,0.7995,3,5,"N",4e-04,0,1.4,0,"Eurytemora",1.01e-05
+"273","Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,4,2.66,10.64,"Pseudodiaptomus",5.49e-05
+"274","Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,0,1,0,"Cladoceran",3.01e-05
+"275","Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,1,3.3,3.3,"Other Cyclopoid",4.44e-05
+"276","Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,0,3.3,0,"Other Cyclopoid",4.44e-05
+"277","Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,0,0.13,0,"Limnoithona",5.6e-06
+"278","Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,0,13.2,0,"Cumacean",0.0003307
+"279","Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,0,1,0,"Other",2.27e-05
+"280","Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,0,3,0,"Eurytemora",4.03e-05
+"281","Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,0,0.03,0,"Copepod nauplii",3e-07
+"282","Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,0,0.1,0,"Copepod nauplii",2.4e-06
+"283","Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"284","Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,0,1.6,0,"Other Cyclopoid",1.37e-05
+"285","Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,0,1,0,"Cladoceran",3.01e-05
+"286","Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,0,0.07,0,"Copepod nauplii",2.7e-06
+"287","Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,0,18.32,0,"Chironomidae",0.000458
+"288","Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,0,1.5,0,"Other Calanoid",1.38e-05
+"289","Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,0,3.36,0,"Other Cyclopoid",3.82e-05
+"290","Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,0,1.68,0,"Other Cyclopoid",1.91e-05
+"291","Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,0,9.41,0,"Cumacean",0.000235
+"292","Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,0,3.3,0,"Other Cyclopoid",4.44e-05
+"293","Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,0,9.41,0,"Cumacean",0.000235
+"294","Rio Vista","Exchanged",1,"C1N50",64,1.7492,2,5,"N",0,0,1.4,0,"Eurytemora",1.01e-05
+"295","Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,7,2.66,18.62,"Pseudodiaptomus",5.49e-05
+"296","Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,1,1,1,"Cladoceran",3.01e-05
+"297","Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"298","Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"299","Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,0,0.13,0,"Limnoithona",5.6e-06
+"300","Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,0,13.2,0,"Cumacean",0.0003307
+"301","Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,0,1,0,"Other",2.27e-05
+"302","Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,0,3,0,"Eurytemora",4.03e-05
+"303","Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,0,0.03,0,"Copepod nauplii",3e-07
+"304","Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,0,0.1,0,"Copepod nauplii",2.4e-06
+"305","Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"306","Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,0,1.6,0,"Other Cyclopoid",1.37e-05
+"307","Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,0,1,0,"Cladoceran",3.01e-05
+"308","Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,0,0.07,0,"Copepod nauplii",2.7e-06
+"309","Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,0,18.32,0,"Chironomidae",0.000458
+"310","Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,0,1.5,0,"Other Calanoid",1.38e-05
+"311","Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,0,3.36,0,"Other Cyclopoid",3.82e-05
+"312","Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,0,1.68,0,"Other Cyclopoid",1.91e-05
+"313","Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,0,9.41,0,"Cumacean",0.000235
+"314","Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"315","Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,0,9.41,0,"Cumacean",0.000235
+"316","Rio Vista","Exchanged",1,"C1N52",46,0.5688,4,5,"N",8e-04,0,1.4,0,"Eurytemora",1.01e-05
+"317","Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,9,2.66,23.94,"Pseudodiaptomus",5.49e-05
+"318","Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,0,1,0,"Cladoceran",3.01e-05
+"319","Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,0,3.3,0,"Other Cyclopoid",4.44e-05
+"320","Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,0,3.3,0,"Other Cyclopoid",4.44e-05
+"321","Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,0,0.13,0,"Limnoithona",5.6e-06
+"322","Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,0,13.2,0,"Cumacean",0.0003307
+"323","Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,0,1,0,"Other",2.27e-05
+"324","Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,0,3,0,"Eurytemora",4.03e-05
+"325","Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,0,0.03,0,"Copepod nauplii",3e-07
+"326","Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,0,0.1,0,"Copepod nauplii",2.4e-06
+"327","Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"328","Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,0,1.6,0,"Other Cyclopoid",1.37e-05
+"329","Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,0,1,0,"Cladoceran",3.01e-05
+"330","Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,0,0.07,0,"Copepod nauplii",2.7e-06
+"331","Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,0,18.32,0,"Chironomidae",0.000458
+"332","Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,0,1.5,0,"Other Calanoid",1.38e-05
+"333","Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,0,3.36,0,"Other Cyclopoid",3.82e-05
+"334","Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,0,1.68,0,"Other Cyclopoid",1.91e-05
+"335","Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,0,9.41,0,"Cumacean",0.000235
+"336","Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,0,3.3,0,"Other Cyclopoid",4.44e-05
+"337","Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,0,9.41,0,"Cumacean",0.000235
+"338","Rio Vista","Exchanged",1,"C1N6",54,1.1016,4,5,"N",0.0017,0,1.4,0,"Eurytemora",1.01e-05
+"339","Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,4,2.66,10.64,"Pseudodiaptomus",5.49e-05
+"340","Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,0,1,0,"Cladoceran",3.01e-05
+"341","Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,0,3.3,0,"Other Cyclopoid",4.44e-05
+"342","Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,0,3.3,0,"Other Cyclopoid",4.44e-05
+"343","Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,0,0.13,0,"Limnoithona",5.6e-06
+"344","Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,0,13.2,0,"Cumacean",0.0003307
+"345","Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,0,1,0,"Other",2.27e-05
+"346","Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,0,3,0,"Eurytemora",4.03e-05
+"347","Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,0,0.03,0,"Copepod nauplii",3e-07
+"348","Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,0,0.1,0,"Copepod nauplii",2.4e-06
+"349","Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"350","Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,0,1.6,0,"Other Cyclopoid",1.37e-05
+"351","Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,0,1,0,"Cladoceran",3.01e-05
+"352","Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,0,0.07,0,"Copepod nauplii",2.7e-06
+"353","Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,0,18.32,0,"Chironomidae",0.000458
+"354","Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,0,1.5,0,"Other Calanoid",1.38e-05
+"355","Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,0,3.36,0,"Other Cyclopoid",3.82e-05
+"356","Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,0,1.68,0,"Other Cyclopoid",1.91e-05
+"357","Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,0,9.41,0,"Cumacean",0.000235
+"358","Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,0,3.3,0,"Other Cyclopoid",4.44e-05
+"359","Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,0,9.41,0,"Cumacean",0.000235
+"360","Rio Vista","Exchanged",3,"C3N10",50,0.6407,5,5,"N",0.0016,0,1.4,0,"Eurytemora",1.01e-05
+"361","Rio Vista","Exchanged",3,"C3N18",54,0.7778,4,5,"N",3e-04,0,2.66,0,"Pseudodiaptomus",5.49e-05
+"362","Rio Vista","Exchanged",3,"C3N18",54,0.7778,4,5,"N",3e-04,0,1,0,"Cladoceran",3.01e-05
+"363","Rio Vista","Exchanged",3,"C3N18",54,0.7778,4,5,"N",3e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"364","Rio Vista","Exchanged",3,"C3N18",54,0.7778,4,5,"N",3e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"365","Rio Vista","Exchanged",3,"C3N18",54,0.7778,4,5,"N",3e-04,0,0.13,0,"Limnoithona",5.6e-06
+"366","Rio Vista","Exchanged",3,"C3N18",54,0.7778,4,5,"N",3e-04,0,13.2,0,"Cumacean",0.0003307
+"367","Rio Vista","Exchanged",3,"C3N18",54,0.7778,4,5,"N",3e-04,0,1,0,"Other",2.27e-05
+"368","Rio Vista","Exchanged",3,"C3N18",54,0.7778,4,5,"N",3e-04,0,3,0,"Eurytemora",4.03e-05
+"369","Rio Vista","Exchanged",3,"C3N18",54,0.7778,4,5,"N",3e-04,0,0.03,0,"Copepod nauplii",3e-07
+"370","Rio Vista","Exchanged",3,"C3N18",54,0.7778,4,5,"N",3e-04,0,0.1,0,"Copepod nauplii",2.4e-06
+"371","Rio Vista","Exchanged",3,"C3N18",54,0.7778,4,5,"N",3e-04,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"372","Rio Vista","Exchanged",3,"C3N18",54,0.7778,4,5,"N",3e-04,0,1.6,0,"Other Cyclopoid",1.37e-05
+"373","Rio Vista","Exchanged",3,"C3N18",54,0.7778,4,5,"N",3e-04,0,1,0,"Cladoceran",3.01e-05
+"374","Rio Vista","Exchanged",3,"C3N18",54,0.7778,4,5,"N",3e-04,0,0.07,0,"Copepod nauplii",2.7e-06
+"375","Rio Vista","Exchanged",3,"C3N18",54,0.7778,4,5,"N",3e-04,0,18.32,0,"Chironomidae",0.000458
+"376","Rio Vista","Exchanged",3,"C3N18",54,0.7778,4,5,"N",3e-04,0,1.5,0,"Other Calanoid",1.38e-05
+"377","Rio Vista","Exchanged",3,"C3N18",54,0.7778,4,5,"N",3e-04,0,3.36,0,"Other Cyclopoid",3.82e-05
+"378","Rio Vista","Exchanged",3,"C3N18",54,0.7778,4,5,"N",3e-04,0,1.68,0,"Other Cyclopoid",1.91e-05
+"379","Rio Vista","Exchanged",3,"C3N18",54,0.7778,4,5,"N",3e-04,0,9.41,0,"Cumacean",0.000235
+"380","Rio Vista","Exchanged",3,"C3N18",54,0.7778,4,5,"N",3e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"381","Rio Vista","Exchanged",3,"C3N18",54,0.7778,4,5,"N",3e-04,0,9.41,0,"Cumacean",0.000235
+"382","Rio Vista","Exchanged",3,"C3N18",54,0.7778,4,5,"N",3e-04,0,1.4,0,"Eurytemora",1.01e-05
+"383","Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,1,2.66,2.66,"Pseudodiaptomus",5.49e-05
+"384","Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,0,1,0,"Cladoceran",3.01e-05
+"385","Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,0,3.3,0,"Other Cyclopoid",4.44e-05
+"386","Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,0,3.3,0,"Other Cyclopoid",4.44e-05
+"387","Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,0,0.13,0,"Limnoithona",5.6e-06
+"388","Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,0,13.2,0,"Cumacean",0.0003307
+"389","Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,0,1,0,"Other",2.27e-05
+"390","Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,0,3,0,"Eurytemora",4.03e-05
+"391","Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,0,0.03,0,"Copepod nauplii",3e-07
+"392","Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,0,0.1,0,"Copepod nauplii",2.4e-06
+"393","Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"394","Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,0,1.6,0,"Other Cyclopoid",1.37e-05
+"395","Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,0,1,0,"Cladoceran",3.01e-05
+"396","Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,0,0.07,0,"Copepod nauplii",2.7e-06
+"397","Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,0,18.32,0,"Chironomidae",0.000458
+"398","Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,0,1.5,0,"Other Calanoid",1.38e-05
+"399","Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,0,3.36,0,"Other Cyclopoid",3.82e-05
+"400","Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,0,1.68,0,"Other Cyclopoid",1.91e-05
+"401","Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,0,9.41,0,"Cumacean",0.000235
+"402","Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,0,3.3,0,"Other Cyclopoid",4.44e-05
+"403","Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,0,9.41,0,"Cumacean",0.000235
+"404","Rio Vista","Exchanged",3,"C3N25",66,1.7677,5,4,"N",0.0038,0,1.4,0,"Eurytemora",1.01e-05
+"405","Rio Vista","Exchanged",3,"C3N27",42,0.6139,3,3,"N",8e-04,0,2.66,0,"Pseudodiaptomus",5.49e-05
+"406","Rio Vista","Exchanged",3,"C3N27",42,0.6139,3,3,"N",8e-04,0,1,0,"Cladoceran",3.01e-05
+"407","Rio Vista","Exchanged",3,"C3N27",42,0.6139,3,3,"N",8e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"408","Rio Vista","Exchanged",3,"C3N27",42,0.6139,3,3,"N",8e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"409","Rio Vista","Exchanged",3,"C3N27",42,0.6139,3,3,"N",8e-04,0,0.13,0,"Limnoithona",5.6e-06
+"410","Rio Vista","Exchanged",3,"C3N27",42,0.6139,3,3,"N",8e-04,0,13.2,0,"Cumacean",0.0003307
+"411","Rio Vista","Exchanged",3,"C3N27",42,0.6139,3,3,"N",8e-04,0,1,0,"Other",2.27e-05
+"412","Rio Vista","Exchanged",3,"C3N27",42,0.6139,3,3,"N",8e-04,0,3,0,"Eurytemora",4.03e-05
+"413","Rio Vista","Exchanged",3,"C3N27",42,0.6139,3,3,"N",8e-04,0,0.03,0,"Copepod nauplii",3e-07
+"414","Rio Vista","Exchanged",3,"C3N27",42,0.6139,3,3,"N",8e-04,0,0.1,0,"Copepod nauplii",2.4e-06
+"415","Rio Vista","Exchanged",3,"C3N27",42,0.6139,3,3,"N",8e-04,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"416","Rio Vista","Exchanged",3,"C3N27",42,0.6139,3,3,"N",8e-04,0,1.6,0,"Other Cyclopoid",1.37e-05
+"417","Rio Vista","Exchanged",3,"C3N27",42,0.6139,3,3,"N",8e-04,0,1,0,"Cladoceran",3.01e-05
+"418","Rio Vista","Exchanged",3,"C3N27",42,0.6139,3,3,"N",8e-04,0,0.07,0,"Copepod nauplii",2.7e-06
+"419","Rio Vista","Exchanged",3,"C3N27",42,0.6139,3,3,"N",8e-04,0,18.32,0,"Chironomidae",0.000458
+"420","Rio Vista","Exchanged",3,"C3N27",42,0.6139,3,3,"N",8e-04,0,1.5,0,"Other Calanoid",1.38e-05
+"421","Rio Vista","Exchanged",3,"C3N27",42,0.6139,3,3,"N",8e-04,0,3.36,0,"Other Cyclopoid",3.82e-05
+"422","Rio Vista","Exchanged",3,"C3N27",42,0.6139,3,3,"N",8e-04,0,1.68,0,"Other Cyclopoid",1.91e-05
+"423","Rio Vista","Exchanged",3,"C3N27",42,0.6139,3,3,"N",8e-04,0,9.41,0,"Cumacean",0.000235
+"424","Rio Vista","Exchanged",3,"C3N27",42,0.6139,3,3,"N",8e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"425","Rio Vista","Exchanged",3,"C3N27",42,0.6139,3,3,"N",8e-04,0,9.41,0,"Cumacean",0.000235
+"426","Rio Vista","Exchanged",3,"C3N27",42,0.6139,3,3,"N",8e-04,0,1.4,0,"Eurytemora",1.01e-05
+"427","Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,4,2.66,10.64,"Pseudodiaptomus",5.49e-05
+"428","Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,1,1,1,"Cladoceran",3.01e-05
+"429","Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"430","Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,1,3.3,3.3,"Other Cyclopoid",4.44e-05
+"431","Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,0,0.13,0,"Limnoithona",5.6e-06
+"432","Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,0,13.2,0,"Cumacean",0.0003307
+"433","Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,0,1,0,"Other",2.27e-05
+"434","Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,0,3,0,"Eurytemora",4.03e-05
+"435","Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,0,0.03,0,"Copepod nauplii",3e-07
+"436","Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,0,0.1,0,"Copepod nauplii",2.4e-06
+"437","Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"438","Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,0,1.6,0,"Other Cyclopoid",1.37e-05
+"439","Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,0,1,0,"Cladoceran",3.01e-05
+"440","Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,0,0.07,0,"Copepod nauplii",2.7e-06
+"441","Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,0,18.32,0,"Chironomidae",0.000458
+"442","Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,0,1.5,0,"Other Calanoid",1.38e-05
+"443","Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,0,3.36,0,"Other Cyclopoid",3.82e-05
+"444","Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,0,1.68,0,"Other Cyclopoid",1.91e-05
+"445","Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,0,9.41,0,"Cumacean",0.000235
+"446","Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"447","Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,0,9.41,0,"Cumacean",0.000235
+"448","Rio Vista","Exchanged",3,"C3N6",44,0.4957,4,5,"N",7e-04,0,1.4,0,"Eurytemora",1.01e-05
+"449","Belden's Landing","Exchanged",5,"C5N2",55,0.7444,6,3,"N",0.0021,1,2.66,2.66,"Pseudodiaptomus",5.49e-05
+"450","Belden's Landing","Exchanged",5,"C5N2",55,0.7444,6,3,"N",0.0021,0,1,0,"Cladoceran",3.01e-05
+"451","Belden's Landing","Exchanged",5,"C5N2",55,0.7444,6,3,"N",0.0021,0,3.3,0,"Other Cyclopoid",4.44e-05
+"452","Belden's Landing","Exchanged",5,"C5N2",55,0.7444,6,3,"N",0.0021,0,3.3,0,"Other Cyclopoid",4.44e-05
+"453","Belden's Landing","Exchanged",5,"C5N2",55,0.7444,6,3,"N",0.0021,0,0.13,0,"Limnoithona",5.6e-06
+"454","Belden's Landing","Exchanged",5,"C5N2",55,0.7444,6,3,"N",0.0021,0,13.2,0,"Cumacean",0.0003307
+"455","Belden's Landing","Exchanged",5,"C5N2",55,0.7444,6,3,"N",0.0021,0,1,0,"Other",2.27e-05
+"456","Belden's Landing","Exchanged",5,"C5N2",55,0.7444,6,3,"N",0.0021,0,3,0,"Eurytemora",4.03e-05
+"457","Belden's Landing","Exchanged",5,"C5N2",55,0.7444,6,3,"N",0.0021,0,0.03,0,"Copepod nauplii",3e-07
+"458","Belden's Landing","Exchanged",5,"C5N2",55,0.7444,6,3,"N",0.0021,0,0.1,0,"Copepod nauplii",2.4e-06
+"459","Belden's Landing","Exchanged",5,"C5N2",55,0.7444,6,3,"N",0.0021,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"460","Belden's Landing","Exchanged",5,"C5N2",55,0.7444,6,3,"N",0.0021,0,1.6,0,"Other Cyclopoid",1.37e-05
+"461","Belden's Landing","Exchanged",5,"C5N2",55,0.7444,6,3,"N",0.0021,0,1,0,"Cladoceran",3.01e-05
+"462","Belden's Landing","Exchanged",5,"C5N2",55,0.7444,6,3,"N",0.0021,0,0.07,0,"Copepod nauplii",2.7e-06
+"463","Belden's Landing","Exchanged",5,"C5N2",55,0.7444,6,3,"N",0.0021,0,18.32,0,"Chironomidae",0.000458
+"464","Belden's Landing","Exchanged",5,"C5N2",55,0.7444,6,3,"N",0.0021,0,1.5,0,"Other Calanoid",1.38e-05
+"465","Belden's Landing","Exchanged",5,"C5N2",55,0.7444,6,3,"N",0.0021,0,3.36,0,"Other Cyclopoid",3.82e-05
+"466","Belden's Landing","Exchanged",5,"C5N2",55,0.7444,6,3,"N",0.0021,0,1.68,0,"Other Cyclopoid",1.91e-05
+"467","Belden's Landing","Exchanged",5,"C5N2",55,0.7444,6,3,"N",0.0021,0,9.41,0,"Cumacean",0.000235
+"468","Belden's Landing","Exchanged",5,"C5N2",55,0.7444,6,3,"N",0.0021,0,3.3,0,"Other Cyclopoid",4.44e-05
+"469","Belden's Landing","Exchanged",5,"C5N2",55,0.7444,6,3,"N",0.0021,0,9.41,0,"Cumacean",0.000235
+"470","Belden's Landing","Exchanged",5,"C5N2",55,0.7444,6,3,"N",0.0021,0,1.4,0,"Eurytemora",1.01e-05
+"471","Belden's Landing","Exchanged",5,"C5N4",51,0.5367,2,6,"N",0,0,2.66,0,"Pseudodiaptomus",5.49e-05
+"472","Belden's Landing","Exchanged",5,"C5N4",51,0.5367,2,6,"N",0,0,1,0,"Cladoceran",3.01e-05
+"473","Belden's Landing","Exchanged",5,"C5N4",51,0.5367,2,6,"N",0,0,3.3,0,"Other Cyclopoid",4.44e-05
+"474","Belden's Landing","Exchanged",5,"C5N4",51,0.5367,2,6,"N",0,0,3.3,0,"Other Cyclopoid",4.44e-05
+"475","Belden's Landing","Exchanged",5,"C5N4",51,0.5367,2,6,"N",0,2,0.13,0.26,"Limnoithona",5.6e-06
+"476","Belden's Landing","Exchanged",5,"C5N4",51,0.5367,2,6,"N",0,0,13.2,0,"Cumacean",0.0003307
+"477","Belden's Landing","Exchanged",5,"C5N4",51,0.5367,2,6,"N",0,0,1,0,"Other",2.27e-05
+"478","Belden's Landing","Exchanged",5,"C5N4",51,0.5367,2,6,"N",0,0,3,0,"Eurytemora",4.03e-05
+"479","Belden's Landing","Exchanged",5,"C5N4",51,0.5367,2,6,"N",0,0,0.03,0,"Copepod nauplii",3e-07
+"480","Belden's Landing","Exchanged",5,"C5N4",51,0.5367,2,6,"N",0,0,0.1,0,"Copepod nauplii",2.4e-06
+"481","Belden's Landing","Exchanged",5,"C5N4",51,0.5367,2,6,"N",0,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"482","Belden's Landing","Exchanged",5,"C5N4",51,0.5367,2,6,"N",0,0,1.6,0,"Other Cyclopoid",1.37e-05
+"483","Belden's Landing","Exchanged",5,"C5N4",51,0.5367,2,6,"N",0,0,1,0,"Cladoceran",3.01e-05
+"484","Belden's Landing","Exchanged",5,"C5N4",51,0.5367,2,6,"N",0,0,0.07,0,"Copepod nauplii",2.7e-06
+"485","Belden's Landing","Exchanged",5,"C5N4",51,0.5367,2,6,"N",0,0,18.32,0,"Chironomidae",0.000458
+"486","Belden's Landing","Exchanged",5,"C5N4",51,0.5367,2,6,"N",0,0,1.5,0,"Other Calanoid",1.38e-05
+"487","Belden's Landing","Exchanged",5,"C5N4",51,0.5367,2,6,"N",0,0,3.36,0,"Other Cyclopoid",3.82e-05
+"488","Belden's Landing","Exchanged",5,"C5N4",51,0.5367,2,6,"N",0,0,1.68,0,"Other Cyclopoid",1.91e-05
+"489","Belden's Landing","Exchanged",5,"C5N4",51,0.5367,2,6,"N",0,0,9.41,0,"Cumacean",0.000235
+"490","Belden's Landing","Exchanged",5,"C5N4",51,0.5367,2,6,"N",0,0,3.3,0,"Other Cyclopoid",4.44e-05
+"491","Belden's Landing","Exchanged",5,"C5N4",51,0.5367,2,6,"N",0,0,9.41,0,"Cumacean",0.000235
+"492","Belden's Landing","Exchanged",5,"C5N4",51,0.5367,2,6,"N",0,0,1.4,0,"Eurytemora",1.01e-05
+"493","Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,2,2.66,5.32,"Pseudodiaptomus",5.49e-05
+"494","Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,0,1,0,"Cladoceran",3.01e-05
+"495","Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"496","Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"497","Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,82,0.13,10.66,"Limnoithona",5.6e-06
+"498","Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,2,13.2,26.4,"Cumacean",0.0003307
+"499","Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,1,1,1,"Other",2.27e-05
+"500","Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,1,3,3,"Eurytemora",4.03e-05
+"501","Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,0,0.03,0,"Copepod nauplii",3e-07
+"502","Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,0,0.1,0,"Copepod nauplii",2.4e-06
+"503","Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"504","Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,0,1.6,0,"Other Cyclopoid",1.37e-05
+"505","Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,0,1,0,"Cladoceran",3.01e-05
+"506","Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,0,0.07,0,"Copepod nauplii",2.7e-06
+"507","Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,0,18.32,0,"Chironomidae",0.000458
+"508","Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,0,1.5,0,"Other Calanoid",1.38e-05
+"509","Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,0,3.36,0,"Other Cyclopoid",3.82e-05
+"510","Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,0,1.68,0,"Other Cyclopoid",1.91e-05
+"511","Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,0,9.41,0,"Cumacean",0.000235
+"512","Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"513","Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,0,9.41,0,"Cumacean",0.000235
+"514","Belden's Landing","Exchanged",5,"C5N5",54,0.6142,5,5,"N",7e-04,0,1.4,0,"Eurytemora",1.01e-05
+"515","Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,1,2.66,2.66,"Pseudodiaptomus",5.49e-05
+"516","Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,0,1,0,"Cladoceran",3.01e-05
+"517","Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,0,3.3,0,"Other Cyclopoid",4.44e-05
+"518","Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,0,3.3,0,"Other Cyclopoid",4.44e-05
+"519","Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,1,0.13,0.13,"Limnoithona",5.6e-06
+"520","Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,0,13.2,0,"Cumacean",0.0003307
+"521","Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,0,1,0,"Other",2.27e-05
+"522","Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,0,3,0,"Eurytemora",4.03e-05
+"523","Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,2,0.03,0.06,"Copepod nauplii",3e-07
+"524","Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,2,0.1,0.2,"Copepod nauplii",2.4e-06
+"525","Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,1,0.1,0.1,"Pseudodiaptomus nauplii",1.8e-06
+"526","Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,0,1.6,0,"Other Cyclopoid",1.37e-05
+"527","Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,0,1,0,"Cladoceran",3.01e-05
+"528","Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,0,0.07,0,"Copepod nauplii",2.7e-06
+"529","Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,0,18.32,0,"Chironomidae",0.000458
+"530","Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,0,1.5,0,"Other Calanoid",1.38e-05
+"531","Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,0,3.36,0,"Other Cyclopoid",3.82e-05
+"532","Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,0,1.68,0,"Other Cyclopoid",1.91e-05
+"533","Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,0,9.41,0,"Cumacean",0.000235
+"534","Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,0,3.3,0,"Other Cyclopoid",4.44e-05
+"535","Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,0,9.41,0,"Cumacean",0.000235
+"536","Belden's Landing","Exchanged",5,"C5N6",56,0.7509,3,6,"N",0,0,1.4,0,"Eurytemora",1.01e-05
+"537","Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,0,2.66,0,"Pseudodiaptomus",5.49e-05
+"538","Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,0,1,0,"Cladoceran",3.01e-05
+"539","Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,0,3.3,0,"Other Cyclopoid",4.44e-05
+"540","Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,0,3.3,0,"Other Cyclopoid",4.44e-05
+"541","Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,0,0.13,0,"Limnoithona",5.6e-06
+"542","Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,1,13.2,13.2,"Cumacean",0.0003307
+"543","Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,1,1,1,"Other",2.27e-05
+"544","Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,1,3,3,"Eurytemora",4.03e-05
+"545","Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,0,0.03,0,"Copepod nauplii",3e-07
+"546","Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,0,0.1,0,"Copepod nauplii",2.4e-06
+"547","Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"548","Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,0,1.6,0,"Other Cyclopoid",1.37e-05
+"549","Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,0,1,0,"Cladoceran",3.01e-05
+"550","Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,0,0.07,0,"Copepod nauplii",2.7e-06
+"551","Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,0,18.32,0,"Chironomidae",0.000458
+"552","Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,0,1.5,0,"Other Calanoid",1.38e-05
+"553","Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,0,3.36,0,"Other Cyclopoid",3.82e-05
+"554","Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,0,1.68,0,"Other Cyclopoid",1.91e-05
+"555","Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,0,9.41,0,"Cumacean",0.000235
+"556","Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,0,3.3,0,"Other Cyclopoid",4.44e-05
+"557","Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,0,9.41,0,"Cumacean",0.000235
+"558","Belden's Landing","Exchanged",7,"C7N13",53,0.7257,6,5,"N",0.003,0,1.4,0,"Eurytemora",1.01e-05
+"559","Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,0,2.66,0,"Pseudodiaptomus",5.49e-05
+"560","Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,0,1,0,"Cladoceran",3.01e-05
+"561","Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"562","Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,1,3.3,3.3,"Other Cyclopoid",4.44e-05
+"563","Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,6,0.13,0.78,"Limnoithona",5.6e-06
+"564","Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,3,13.2,39.6,"Cumacean",0.0003307
+"565","Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,1,1,1,"Other",2.27e-05
+"566","Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,0,3,0,"Eurytemora",4.03e-05
+"567","Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,0,0.03,0,"Copepod nauplii",3e-07
+"568","Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,0,0.1,0,"Copepod nauplii",2.4e-06
+"569","Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"570","Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,1,1.6,1.6,"Other Cyclopoid",1.37e-05
+"571","Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,1,1,1,"Cladoceran",3.01e-05
+"572","Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,0,0.07,0,"Copepod nauplii",2.7e-06
+"573","Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,0,18.32,0,"Chironomidae",0.000458
+"574","Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,0,1.5,0,"Other Calanoid",1.38e-05
+"575","Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,0,3.36,0,"Other Cyclopoid",3.82e-05
+"576","Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,0,1.68,0,"Other Cyclopoid",1.91e-05
+"577","Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,0,9.41,0,"Cumacean",0.000235
+"578","Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"579","Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,0,9.41,0,"Cumacean",0.000235
+"580","Belden's Landing","Exchanged",7,"C7N24",62,1.2624,2,5,"N",5e-04,0,1.4,0,"Eurytemora",1.01e-05
+"581","Belden's Landing","Exchanged",7,"C7N43",54,0.684,1,1,"Y",0,0,2.66,0,"Pseudodiaptomus",5.49e-05
+"582","Belden's Landing","Exchanged",7,"C7N43",54,0.684,1,1,"Y",0,0,1,0,"Cladoceran",3.01e-05
+"583","Belden's Landing","Exchanged",7,"C7N43",54,0.684,1,1,"Y",0,0,3.3,0,"Other Cyclopoid",4.44e-05
+"584","Belden's Landing","Exchanged",7,"C7N43",54,0.684,1,1,"Y",0,0,3.3,0,"Other Cyclopoid",4.44e-05
+"585","Belden's Landing","Exchanged",7,"C7N43",54,0.684,1,1,"Y",0,0,0.13,0,"Limnoithona",5.6e-06
+"586","Belden's Landing","Exchanged",7,"C7N43",54,0.684,1,1,"Y",0,0,13.2,0,"Cumacean",0.0003307
+"587","Belden's Landing","Exchanged",7,"C7N43",54,0.684,1,1,"Y",0,0,1,0,"Other",2.27e-05
+"588","Belden's Landing","Exchanged",7,"C7N43",54,0.684,1,1,"Y",0,0,3,0,"Eurytemora",4.03e-05
+"589","Belden's Landing","Exchanged",7,"C7N43",54,0.684,1,1,"Y",0,0,0.03,0,"Copepod nauplii",3e-07
+"590","Belden's Landing","Exchanged",7,"C7N43",54,0.684,1,1,"Y",0,0,0.1,0,"Copepod nauplii",2.4e-06
+"591","Belden's Landing","Exchanged",7,"C7N43",54,0.684,1,1,"Y",0,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"592","Belden's Landing","Exchanged",7,"C7N43",54,0.684,1,1,"Y",0,0,1.6,0,"Other Cyclopoid",1.37e-05
+"593","Belden's Landing","Exchanged",7,"C7N43",54,0.684,1,1,"Y",0,0,1,0,"Cladoceran",3.01e-05
+"594","Belden's Landing","Exchanged",7,"C7N43",54,0.684,1,1,"Y",0,0,0.07,0,"Copepod nauplii",2.7e-06
+"595","Belden's Landing","Exchanged",7,"C7N43",54,0.684,1,1,"Y",0,0,18.32,0,"Chironomidae",0.000458
+"596","Belden's Landing","Exchanged",7,"C7N43",54,0.684,1,1,"Y",0,0,1.5,0,"Other Calanoid",1.38e-05
+"597","Belden's Landing","Exchanged",7,"C7N43",54,0.684,1,1,"Y",0,0,3.36,0,"Other Cyclopoid",3.82e-05
+"598","Belden's Landing","Exchanged",7,"C7N43",54,0.684,1,1,"Y",0,0,1.68,0,"Other Cyclopoid",1.91e-05
+"599","Belden's Landing","Exchanged",7,"C7N43",54,0.684,1,1,"Y",0,0,9.41,0,"Cumacean",0.000235
+"600","Belden's Landing","Exchanged",7,"C7N43",54,0.684,1,1,"Y",0,0,3.3,0,"Other Cyclopoid",4.44e-05
+"601","Belden's Landing","Exchanged",7,"C7N43",54,0.684,1,1,"Y",0,0,9.41,0,"Cumacean",0.000235
+"602","Belden's Landing","Exchanged",7,"C7N43",54,0.684,1,1,"Y",0,0,1.4,0,"Eurytemora",1.01e-05
+"603","Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,0,2.66,0,"Pseudodiaptomus",5.49e-05
+"604","Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,0,1,0,"Cladoceran",3.01e-05
+"605","Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"606","Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"607","Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,0,0.13,0,"Limnoithona",5.6e-06
+"608","Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,0,13.2,0,"Cumacean",0.0003307
+"609","Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,0,1,0,"Other",2.27e-05
+"610","Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,0,3,0,"Eurytemora",4.03e-05
+"611","Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,0,0.03,0,"Copepod nauplii",3e-07
+"612","Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,0,0.1,0,"Copepod nauplii",2.4e-06
+"613","Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"614","Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,0,1.6,0,"Other Cyclopoid",1.37e-05
+"615","Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,0,1,0,"Cladoceran",3.01e-05
+"616","Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,1,0.07,0.07,"Copepod nauplii",2.7e-06
+"617","Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,0,18.32,0,"Chironomidae",0.000458
+"618","Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,0,1.5,0,"Other Calanoid",1.38e-05
+"619","Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,0,3.36,0,"Other Cyclopoid",3.82e-05
+"620","Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,0,1.68,0,"Other Cyclopoid",1.91e-05
+"621","Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,0,9.41,0,"Cumacean",0.000235
+"622","Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"623","Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,0,9.41,0,"Cumacean",0.000235
+"624","Belden's Landing","Exchanged",7,"C7N6",70,2.0444,4,5,"N",9e-04,0,1.4,0,"Eurytemora",1.01e-05
+"625","Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,0,2.66,0,"Pseudodiaptomus",5.49e-05
+"626","Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,0,1,0,"Cladoceran",3.01e-05
+"627","Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"628","Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"629","Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,0,0.13,0,"Limnoithona",5.6e-06
+"630","Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,0,13.2,0,"Cumacean",0.0003307
+"631","Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,0,1,0,"Other",2.27e-05
+"632","Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,0,3,0,"Eurytemora",4.03e-05
+"633","Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,0,0.03,0,"Copepod nauplii",3e-07
+"634","Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,0,0.1,0,"Copepod nauplii",2.4e-06
+"635","Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"636","Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,0,1.6,0,"Other Cyclopoid",1.37e-05
+"637","Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,0,1,0,"Cladoceran",3.01e-05
+"638","Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,0,0.07,0,"Copepod nauplii",2.7e-06
+"639","Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,1,18.32,18.32,"Chironomidae",0.000458
+"640","Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,0,1.5,0,"Other Calanoid",1.38e-05
+"641","Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,0,3.36,0,"Other Cyclopoid",3.82e-05
+"642","Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,0,1.68,0,"Other Cyclopoid",1.91e-05
+"643","Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,0,9.41,0,"Cumacean",0.000235
+"644","Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"645","Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,0,9.41,0,"Cumacean",0.000235
+"646","Rio Vista","Scrubbed",2,"C2N16",35,0.2185,5,5,"N",4e-04,0,1.4,0,"Eurytemora",1.01e-05
+"647","Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,2,2.66,5.32,"Pseudodiaptomus",5.49e-05
+"648","Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,0,1,0,"Cladoceran",3.01e-05
+"649","Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,0,3.3,0,"Other Cyclopoid",4.44e-05
+"650","Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,1,3.3,3.3,"Other Cyclopoid",4.44e-05
+"651","Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,0,0.13,0,"Limnoithona",5.6e-06
+"652","Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,0,13.2,0,"Cumacean",0.0003307
+"653","Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,0,1,0,"Other",2.27e-05
+"654","Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,0,3,0,"Eurytemora",4.03e-05
+"655","Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,0,0.03,0,"Copepod nauplii",3e-07
+"656","Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,0,0.1,0,"Copepod nauplii",2.4e-06
+"657","Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"658","Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,0,1.6,0,"Other Cyclopoid",1.37e-05
+"659","Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,0,1,0,"Cladoceran",3.01e-05
+"660","Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,0,0.07,0,"Copepod nauplii",2.7e-06
+"661","Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,0,18.32,0,"Chironomidae",0.000458
+"662","Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,0,1.5,0,"Other Calanoid",1.38e-05
+"663","Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,0,3.36,0,"Other Cyclopoid",3.82e-05
+"664","Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,0,1.68,0,"Other Cyclopoid",1.91e-05
+"665","Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,0,9.41,0,"Cumacean",0.000235
+"666","Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,0,3.3,0,"Other Cyclopoid",4.44e-05
+"667","Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,0,9.41,0,"Cumacean",0.000235
+"668","Rio Vista","Scrubbed",2,"C2N18",43,0.4699,4,5,"N",0.002,0,1.4,0,"Eurytemora",1.01e-05
+"669","Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,1,2.66,2.66,"Pseudodiaptomus",5.49e-05
+"670","Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,0,1,0,"Cladoceran",3.01e-05
+"671","Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,0,3.3,0,"Other Cyclopoid",4.44e-05
+"672","Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,0,3.3,0,"Other Cyclopoid",4.44e-05
+"673","Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,0,0.13,0,"Limnoithona",5.6e-06
+"674","Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,0,13.2,0,"Cumacean",0.0003307
+"675","Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,0,1,0,"Other",2.27e-05
+"676","Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,0,3,0,"Eurytemora",4.03e-05
+"677","Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,0,0.03,0,"Copepod nauplii",3e-07
+"678","Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,0,0.1,0,"Copepod nauplii",2.4e-06
+"679","Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"680","Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,0,1.6,0,"Other Cyclopoid",1.37e-05
+"681","Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,0,1,0,"Cladoceran",3.01e-05
+"682","Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,0,0.07,0,"Copepod nauplii",2.7e-06
+"683","Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,0,18.32,0,"Chironomidae",0.000458
+"684","Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,1,1.5,1.5,"Other Calanoid",1.38e-05
+"685","Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,0,3.36,0,"Other Cyclopoid",3.82e-05
+"686","Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,0,1.68,0,"Other Cyclopoid",1.91e-05
+"687","Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,0,9.41,0,"Cumacean",0.000235
+"688","Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,0,3.3,0,"Other Cyclopoid",4.44e-05
+"689","Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,0,9.41,0,"Cumacean",0.000235
+"690","Rio Vista","Scrubbed",2,"C2N23",62,1.5765,2,4,"N",0,0,1.4,0,"Eurytemora",1.01e-05
+"691","Rio Vista","Scrubbed",2,"C2N24",53,0.9017,3,3,"N",7e-04,0,2.66,0,"Pseudodiaptomus",5.49e-05
+"692","Rio Vista","Scrubbed",2,"C2N24",53,0.9017,3,3,"N",7e-04,0,1,0,"Cladoceran",3.01e-05
+"693","Rio Vista","Scrubbed",2,"C2N24",53,0.9017,3,3,"N",7e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"694","Rio Vista","Scrubbed",2,"C2N24",53,0.9017,3,3,"N",7e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"695","Rio Vista","Scrubbed",2,"C2N24",53,0.9017,3,3,"N",7e-04,0,0.13,0,"Limnoithona",5.6e-06
+"696","Rio Vista","Scrubbed",2,"C2N24",53,0.9017,3,3,"N",7e-04,0,13.2,0,"Cumacean",0.0003307
+"697","Rio Vista","Scrubbed",2,"C2N24",53,0.9017,3,3,"N",7e-04,0,1,0,"Other",2.27e-05
+"698","Rio Vista","Scrubbed",2,"C2N24",53,0.9017,3,3,"N",7e-04,0,3,0,"Eurytemora",4.03e-05
+"699","Rio Vista","Scrubbed",2,"C2N24",53,0.9017,3,3,"N",7e-04,0,0.03,0,"Copepod nauplii",3e-07
+"700","Rio Vista","Scrubbed",2,"C2N24",53,0.9017,3,3,"N",7e-04,0,0.1,0,"Copepod nauplii",2.4e-06
+"701","Rio Vista","Scrubbed",2,"C2N24",53,0.9017,3,3,"N",7e-04,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"702","Rio Vista","Scrubbed",2,"C2N24",53,0.9017,3,3,"N",7e-04,0,1.6,0,"Other Cyclopoid",1.37e-05
+"703","Rio Vista","Scrubbed",2,"C2N24",53,0.9017,3,3,"N",7e-04,0,1,0,"Cladoceran",3.01e-05
+"704","Rio Vista","Scrubbed",2,"C2N24",53,0.9017,3,3,"N",7e-04,0,0.07,0,"Copepod nauplii",2.7e-06
+"705","Rio Vista","Scrubbed",2,"C2N24",53,0.9017,3,3,"N",7e-04,0,18.32,0,"Chironomidae",0.000458
+"706","Rio Vista","Scrubbed",2,"C2N24",53,0.9017,3,3,"N",7e-04,0,1.5,0,"Other Calanoid",1.38e-05
+"707","Rio Vista","Scrubbed",2,"C2N24",53,0.9017,3,3,"N",7e-04,0,3.36,0,"Other Cyclopoid",3.82e-05
+"708","Rio Vista","Scrubbed",2,"C2N24",53,0.9017,3,3,"N",7e-04,0,1.68,0,"Other Cyclopoid",1.91e-05
+"709","Rio Vista","Scrubbed",2,"C2N24",53,0.9017,3,3,"N",7e-04,0,9.41,0,"Cumacean",0.000235
+"710","Rio Vista","Scrubbed",2,"C2N24",53,0.9017,3,3,"N",7e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"711","Rio Vista","Scrubbed",2,"C2N24",53,0.9017,3,3,"N",7e-04,0,9.41,0,"Cumacean",0.000235
+"712","Rio Vista","Scrubbed",2,"C2N24",53,0.9017,3,3,"N",7e-04,0,1.4,0,"Eurytemora",1.01e-05
+"713","Rio Vista","Scrubbed",2,"C2N4",42,0.5668,2,6,"N",0,2,2.66,5.32,"Pseudodiaptomus",5.49e-05
+"714","Rio Vista","Scrubbed",2,"C2N4",42,0.5668,2,6,"N",0,0,1,0,"Cladoceran",3.01e-05
+"715","Rio Vista","Scrubbed",2,"C2N4",42,0.5668,2,6,"N",0,0,3.3,0,"Other Cyclopoid",4.44e-05
+"716","Rio Vista","Scrubbed",2,"C2N4",42,0.5668,2,6,"N",0,0,3.3,0,"Other Cyclopoid",4.44e-05
+"717","Rio Vista","Scrubbed",2,"C2N4",42,0.5668,2,6,"N",0,0,0.13,0,"Limnoithona",5.6e-06
+"718","Rio Vista","Scrubbed",2,"C2N4",42,0.5668,2,6,"N",0,0,13.2,0,"Cumacean",0.0003307
+"719","Rio Vista","Scrubbed",2,"C2N4",42,0.5668,2,6,"N",0,0,1,0,"Other",2.27e-05
+"720","Rio Vista","Scrubbed",2,"C2N4",42,0.5668,2,6,"N",0,0,3,0,"Eurytemora",4.03e-05
+"721","Rio Vista","Scrubbed",2,"C2N4",42,0.5668,2,6,"N",0,0,0.03,0,"Copepod nauplii",3e-07
+"722","Rio Vista","Scrubbed",2,"C2N4",42,0.5668,2,6,"N",0,0,0.1,0,"Copepod nauplii",2.4e-06
+"723","Rio Vista","Scrubbed",2,"C2N4",42,0.5668,2,6,"N",0,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"724","Rio Vista","Scrubbed",2,"C2N4",42,0.5668,2,6,"N",0,0,1.6,0,"Other Cyclopoid",1.37e-05
+"725","Rio Vista","Scrubbed",2,"C2N4",42,0.5668,2,6,"N",0,0,1,0,"Cladoceran",3.01e-05
+"726","Rio Vista","Scrubbed",2,"C2N4",42,0.5668,2,6,"N",0,0,0.07,0,"Copepod nauplii",2.7e-06
+"727","Rio Vista","Scrubbed",2,"C2N4",42,0.5668,2,6,"N",0,0,18.32,0,"Chironomidae",0.000458
+"728","Rio Vista","Scrubbed",2,"C2N4",42,0.5668,2,6,"N",0,0,1.5,0,"Other Calanoid",1.38e-05
+"729","Rio Vista","Scrubbed",2,"C2N4",42,0.5668,2,6,"N",0,0,3.36,0,"Other Cyclopoid",3.82e-05
+"730","Rio Vista","Scrubbed",2,"C2N4",42,0.5668,2,6,"N",0,0,1.68,0,"Other Cyclopoid",1.91e-05
+"731","Rio Vista","Scrubbed",2,"C2N4",42,0.5668,2,6,"N",0,0,9.41,0,"Cumacean",0.000235
+"732","Rio Vista","Scrubbed",2,"C2N4",42,0.5668,2,6,"N",0,0,3.3,0,"Other Cyclopoid",4.44e-05
+"733","Rio Vista","Scrubbed",2,"C2N4",42,0.5668,2,6,"N",0,0,9.41,0,"Cumacean",0.000235
+"734","Rio Vista","Scrubbed",2,"C2N4",42,0.5668,2,6,"N",0,0,1.4,0,"Eurytemora",1.01e-05
+"735","Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,6,2.66,15.96,"Pseudodiaptomus",5.49e-05
+"736","Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,0,1,0,"Cladoceran",3.01e-05
+"737","Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"738","Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"739","Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,0,0.13,0,"Limnoithona",5.6e-06
+"740","Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,0,13.2,0,"Cumacean",0.0003307
+"741","Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,0,1,0,"Other",2.27e-05
+"742","Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,0,3,0,"Eurytemora",4.03e-05
+"743","Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,0,0.03,0,"Copepod nauplii",3e-07
+"744","Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,0,0.1,0,"Copepod nauplii",2.4e-06
+"745","Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"746","Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,0,1.6,0,"Other Cyclopoid",1.37e-05
+"747","Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,0,1,0,"Cladoceran",3.01e-05
+"748","Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,0,0.07,0,"Copepod nauplii",2.7e-06
+"749","Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,0,18.32,0,"Chironomidae",0.000458
+"750","Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,0,1.5,0,"Other Calanoid",1.38e-05
+"751","Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,1,3.36,3.36,"Other Cyclopoid",3.82e-05
+"752","Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,1,1.68,1.68,"Other Cyclopoid",1.91e-05
+"753","Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,0,9.41,0,"Cumacean",0.000235
+"754","Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"755","Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,0,9.41,0,"Cumacean",0.000235
+"756","Rio Vista","Scrubbed",4,"C4N10",54,0.9085,5,5,"N",6e-04,0,1.4,0,"Eurytemora",1.01e-05
+"757","Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,16,2.66,42.56,"Pseudodiaptomus",5.49e-05
+"758","Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,0,1,0,"Cladoceran",3.01e-05
+"759","Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,0,3.3,0,"Other Cyclopoid",4.44e-05
+"760","Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,0,3.3,0,"Other Cyclopoid",4.44e-05
+"761","Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,0,0.13,0,"Limnoithona",5.6e-06
+"762","Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,0,13.2,0,"Cumacean",0.0003307
+"763","Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,0,1,0,"Other",2.27e-05
+"764","Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,0,3,0,"Eurytemora",4.03e-05
+"765","Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,0,0.03,0,"Copepod nauplii",3e-07
+"766","Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,0,0.1,0,"Copepod nauplii",2.4e-06
+"767","Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"768","Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,0,1.6,0,"Other Cyclopoid",1.37e-05
+"769","Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,0,1,0,"Cladoceran",3.01e-05
+"770","Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,0,0.07,0,"Copepod nauplii",2.7e-06
+"771","Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,0,18.32,0,"Chironomidae",0.000458
+"772","Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,0,1.5,0,"Other Calanoid",1.38e-05
+"773","Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,2,3.36,6.72,"Other Cyclopoid",3.82e-05
+"774","Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,0,1.68,0,"Other Cyclopoid",1.91e-05
+"775","Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,0,9.41,0,"Cumacean",0.000235
+"776","Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,0,3.3,0,"Other Cyclopoid",4.44e-05
+"777","Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,0,9.41,0,"Cumacean",0.000235
+"778","Rio Vista","Scrubbed",4,"C4N26",54,0.9235,4,5,"N",0.0011,0,1.4,0,"Eurytemora",1.01e-05
+"779","Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,3,2.66,7.98,"Pseudodiaptomus",5.49e-05
+"780","Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,0,1,0,"Cladoceran",3.01e-05
+"781","Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,0,3.3,0,"Other Cyclopoid",4.44e-05
+"782","Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,0,3.3,0,"Other Cyclopoid",4.44e-05
+"783","Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,0,0.13,0,"Limnoithona",5.6e-06
+"784","Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,0,13.2,0,"Cumacean",0.0003307
+"785","Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,0,1,0,"Other",2.27e-05
+"786","Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,0,3,0,"Eurytemora",4.03e-05
+"787","Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,0,0.03,0,"Copepod nauplii",3e-07
+"788","Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,0,0.1,0,"Copepod nauplii",2.4e-06
+"789","Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"790","Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,0,1.6,0,"Other Cyclopoid",1.37e-05
+"791","Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,0,1,0,"Cladoceran",3.01e-05
+"792","Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,0,0.07,0,"Copepod nauplii",2.7e-06
+"793","Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,0,18.32,0,"Chironomidae",0.000458
+"794","Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,0,1.5,0,"Other Calanoid",1.38e-05
+"795","Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,0,3.36,0,"Other Cyclopoid",3.82e-05
+"796","Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,0,1.68,0,"Other Cyclopoid",1.91e-05
+"797","Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,0,9.41,0,"Cumacean",0.000235
+"798","Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,0,3.3,0,"Other Cyclopoid",4.44e-05
+"799","Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,0,9.41,0,"Cumacean",0.000235
+"800","Rio Vista","Scrubbed",4,"C4N4",67,1.7736,5,5,"N",0.0092,0,1.4,0,"Eurytemora",1.01e-05
+"801","Rio Vista","Scrubbed",4,"C4N40",50,0.7258,2,6,"N",0,2,2.66,5.32,"Pseudodiaptomus",5.49e-05
+"802","Rio Vista","Scrubbed",4,"C4N40",50,0.7258,2,6,"N",0,0,1,0,"Cladoceran",3.01e-05
+"803","Rio Vista","Scrubbed",4,"C4N40",50,0.7258,2,6,"N",0,0,3.3,0,"Other Cyclopoid",4.44e-05
+"804","Rio Vista","Scrubbed",4,"C4N40",50,0.7258,2,6,"N",0,0,3.3,0,"Other Cyclopoid",4.44e-05
+"805","Rio Vista","Scrubbed",4,"C4N40",50,0.7258,2,6,"N",0,0,0.13,0,"Limnoithona",5.6e-06
+"806","Rio Vista","Scrubbed",4,"C4N40",50,0.7258,2,6,"N",0,0,13.2,0,"Cumacean",0.0003307
+"807","Rio Vista","Scrubbed",4,"C4N40",50,0.7258,2,6,"N",0,0,1,0,"Other",2.27e-05
+"808","Rio Vista","Scrubbed",4,"C4N40",50,0.7258,2,6,"N",0,0,3,0,"Eurytemora",4.03e-05
+"809","Rio Vista","Scrubbed",4,"C4N40",50,0.7258,2,6,"N",0,0,0.03,0,"Copepod nauplii",3e-07
+"810","Rio Vista","Scrubbed",4,"C4N40",50,0.7258,2,6,"N",0,0,0.1,0,"Copepod nauplii",2.4e-06
+"811","Rio Vista","Scrubbed",4,"C4N40",50,0.7258,2,6,"N",0,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"812","Rio Vista","Scrubbed",4,"C4N40",50,0.7258,2,6,"N",0,0,1.6,0,"Other Cyclopoid",1.37e-05
+"813","Rio Vista","Scrubbed",4,"C4N40",50,0.7258,2,6,"N",0,0,1,0,"Cladoceran",3.01e-05
+"814","Rio Vista","Scrubbed",4,"C4N40",50,0.7258,2,6,"N",0,0,0.07,0,"Copepod nauplii",2.7e-06
+"815","Rio Vista","Scrubbed",4,"C4N40",50,0.7258,2,6,"N",0,0,18.32,0,"Chironomidae",0.000458
+"816","Rio Vista","Scrubbed",4,"C4N40",50,0.7258,2,6,"N",0,0,1.5,0,"Other Calanoid",1.38e-05
+"817","Rio Vista","Scrubbed",4,"C4N40",50,0.7258,2,6,"N",0,0,3.36,0,"Other Cyclopoid",3.82e-05
+"818","Rio Vista","Scrubbed",4,"C4N40",50,0.7258,2,6,"N",0,0,1.68,0,"Other Cyclopoid",1.91e-05
+"819","Rio Vista","Scrubbed",4,"C4N40",50,0.7258,2,6,"N",0,0,9.41,0,"Cumacean",0.000235
+"820","Rio Vista","Scrubbed",4,"C4N40",50,0.7258,2,6,"N",0,0,3.3,0,"Other Cyclopoid",4.44e-05
+"821","Rio Vista","Scrubbed",4,"C4N40",50,0.7258,2,6,"N",0,0,9.41,0,"Cumacean",0.000235
+"822","Rio Vista","Scrubbed",4,"C4N40",50,0.7258,2,6,"N",0,0,1.4,0,"Eurytemora",1.01e-05
+"823","Rio Vista","Scrubbed",4,"C4N41",54,0.9521,2,5,"N",9e-04,0,2.66,0,"Pseudodiaptomus",5.49e-05
+"824","Rio Vista","Scrubbed",4,"C4N41",54,0.9521,2,5,"N",9e-04,0,1,0,"Cladoceran",3.01e-05
+"825","Rio Vista","Scrubbed",4,"C4N41",54,0.9521,2,5,"N",9e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"826","Rio Vista","Scrubbed",4,"C4N41",54,0.9521,2,5,"N",9e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"827","Rio Vista","Scrubbed",4,"C4N41",54,0.9521,2,5,"N",9e-04,0,0.13,0,"Limnoithona",5.6e-06
+"828","Rio Vista","Scrubbed",4,"C4N41",54,0.9521,2,5,"N",9e-04,0,13.2,0,"Cumacean",0.0003307
+"829","Rio Vista","Scrubbed",4,"C4N41",54,0.9521,2,5,"N",9e-04,0,1,0,"Other",2.27e-05
+"830","Rio Vista","Scrubbed",4,"C4N41",54,0.9521,2,5,"N",9e-04,0,3,0,"Eurytemora",4.03e-05
+"831","Rio Vista","Scrubbed",4,"C4N41",54,0.9521,2,5,"N",9e-04,0,0.03,0,"Copepod nauplii",3e-07
+"832","Rio Vista","Scrubbed",4,"C4N41",54,0.9521,2,5,"N",9e-04,0,0.1,0,"Copepod nauplii",2.4e-06
+"833","Rio Vista","Scrubbed",4,"C4N41",54,0.9521,2,5,"N",9e-04,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"834","Rio Vista","Scrubbed",4,"C4N41",54,0.9521,2,5,"N",9e-04,0,1.6,0,"Other Cyclopoid",1.37e-05
+"835","Rio Vista","Scrubbed",4,"C4N41",54,0.9521,2,5,"N",9e-04,0,1,0,"Cladoceran",3.01e-05
+"836","Rio Vista","Scrubbed",4,"C4N41",54,0.9521,2,5,"N",9e-04,0,0.07,0,"Copepod nauplii",2.7e-06
+"837","Rio Vista","Scrubbed",4,"C4N41",54,0.9521,2,5,"N",9e-04,0,18.32,0,"Chironomidae",0.000458
+"838","Rio Vista","Scrubbed",4,"C4N41",54,0.9521,2,5,"N",9e-04,0,1.5,0,"Other Calanoid",1.38e-05
+"839","Rio Vista","Scrubbed",4,"C4N41",54,0.9521,2,5,"N",9e-04,0,3.36,0,"Other Cyclopoid",3.82e-05
+"840","Rio Vista","Scrubbed",4,"C4N41",54,0.9521,2,5,"N",9e-04,0,1.68,0,"Other Cyclopoid",1.91e-05
+"841","Rio Vista","Scrubbed",4,"C4N41",54,0.9521,2,5,"N",9e-04,0,9.41,0,"Cumacean",0.000235
+"842","Rio Vista","Scrubbed",4,"C4N41",54,0.9521,2,5,"N",9e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"843","Rio Vista","Scrubbed",4,"C4N41",54,0.9521,2,5,"N",9e-04,0,9.41,0,"Cumacean",0.000235
+"844","Rio Vista","Scrubbed",4,"C4N41",54,0.9521,2,5,"N",9e-04,0,1.4,0,"Eurytemora",1.01e-05
+"845","Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,0,2.66,0,"Pseudodiaptomus",5.49e-05
+"846","Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,0,1,0,"Cladoceran",3.01e-05
+"847","Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,0,3.3,0,"Other Cyclopoid",4.44e-05
+"848","Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,0,3.3,0,"Other Cyclopoid",4.44e-05
+"849","Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,38,0.13,4.94,"Limnoithona",5.6e-06
+"850","Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,0,13.2,0,"Cumacean",0.0003307
+"851","Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,2,1,2,"Other",2.27e-05
+"852","Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,0,3,0,"Eurytemora",4.03e-05
+"853","Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,0,0.03,0,"Copepod nauplii",3e-07
+"854","Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,0,0.1,0,"Copepod nauplii",2.4e-06
+"855","Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"856","Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,1,1.6,1.6,"Other Cyclopoid",1.37e-05
+"857","Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,0,1,0,"Cladoceran",3.01e-05
+"858","Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,0,0.07,0,"Copepod nauplii",2.7e-06
+"859","Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,0,18.32,0,"Chironomidae",0.000458
+"860","Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,0,1.5,0,"Other Calanoid",1.38e-05
+"861","Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,0,3.36,0,"Other Cyclopoid",3.82e-05
+"862","Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,0,1.68,0,"Other Cyclopoid",1.91e-05
+"863","Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,1,9.41,9.41,"Cumacean",0.000235
+"864","Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,0,3.3,0,"Other Cyclopoid",4.44e-05
+"865","Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,0,9.41,0,"Cumacean",0.000235
+"866","Belden's Landing","Scrubbed",6,"C6N12",58,1.1233,5,5,"N",0.0039,0,1.4,0,"Eurytemora",1.01e-05
+"867","Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,0,2.66,0,"Pseudodiaptomus",5.49e-05
+"868","Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,0,1,0,"Cladoceran",3.01e-05
+"869","Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"870","Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"871","Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,37,0.13,4.81,"Limnoithona",5.6e-06
+"872","Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,0,13.2,0,"Cumacean",0.0003307
+"873","Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,1,1,1,"Other",2.27e-05
+"874","Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,0,3,0,"Eurytemora",4.03e-05
+"875","Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,0,0.03,0,"Copepod nauplii",3e-07
+"876","Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,0,0.1,0,"Copepod nauplii",2.4e-06
+"877","Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"878","Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,0,1.6,0,"Other Cyclopoid",1.37e-05
+"879","Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,0,1,0,"Cladoceran",3.01e-05
+"880","Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,0,0.07,0,"Copepod nauplii",2.7e-06
+"881","Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,0,18.32,0,"Chironomidae",0.000458
+"882","Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,0,1.5,0,"Other Calanoid",1.38e-05
+"883","Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,0,3.36,0,"Other Cyclopoid",3.82e-05
+"884","Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,0,1.68,0,"Other Cyclopoid",1.91e-05
+"885","Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,0,9.41,0,"Cumacean",0.000235
+"886","Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,9,3.3,29.7,"Other Cyclopoid",4.44e-05
+"887","Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,0,9.41,0,"Cumacean",0.000235
+"888","Belden's Landing","Scrubbed",6,"C6N2",42,0.3477,3,5,"N",2e-04,0,1.4,0,"Eurytemora",1.01e-05
+"889","Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,0,2.66,0,"Pseudodiaptomus",5.49e-05
+"890","Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,0,1,0,"Cladoceran",3.01e-05
+"891","Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"892","Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"893","Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,96,0.13,12.48,"Limnoithona",5.6e-06
+"894","Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,0,13.2,0,"Cumacean",0.0003307
+"895","Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,2,1,2,"Other",2.27e-05
+"896","Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,0,3,0,"Eurytemora",4.03e-05
+"897","Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,0,0.03,0,"Copepod nauplii",3e-07
+"898","Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,0,0.1,0,"Copepod nauplii",2.4e-06
+"899","Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"900","Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,0,1.6,0,"Other Cyclopoid",1.37e-05
+"901","Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,0,1,0,"Cladoceran",3.01e-05
+"902","Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,0,0.07,0,"Copepod nauplii",2.7e-06
+"903","Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,0,18.32,0,"Chironomidae",0.000458
+"904","Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,0,1.5,0,"Other Calanoid",1.38e-05
+"905","Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,0,3.36,0,"Other Cyclopoid",3.82e-05
+"906","Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,0,1.68,0,"Other Cyclopoid",1.91e-05
+"907","Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,0,9.41,0,"Cumacean",0.000235
+"908","Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"909","Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,0,9.41,0,"Cumacean",0.000235
+"910","Belden's Landing","Scrubbed",6,"C6N22",52,0.622,5,5,"N",6e-04,0,1.4,0,"Eurytemora",1.01e-05
+"911","Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,0,2.66,0,"Pseudodiaptomus",5.49e-05
+"912","Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,0,1,0,"Cladoceran",3.01e-05
+"913","Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,0,3.3,0,"Other Cyclopoid",4.44e-05
+"914","Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,0,3.3,0,"Other Cyclopoid",4.44e-05
+"915","Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,1,0.13,0.13,"Limnoithona",5.6e-06
+"916","Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,0,13.2,0,"Cumacean",0.0003307
+"917","Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,0,1,0,"Other",2.27e-05
+"918","Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,0,3,0,"Eurytemora",4.03e-05
+"919","Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,0,0.03,0,"Copepod nauplii",3e-07
+"920","Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,0,0.1,0,"Copepod nauplii",2.4e-06
+"921","Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"922","Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,0,1.6,0,"Other Cyclopoid",1.37e-05
+"923","Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,0,1,0,"Cladoceran",3.01e-05
+"924","Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,0,0.07,0,"Copepod nauplii",2.7e-06
+"925","Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,0,18.32,0,"Chironomidae",0.000458
+"926","Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,0,1.5,0,"Other Calanoid",1.38e-05
+"927","Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,0,3.36,0,"Other Cyclopoid",3.82e-05
+"928","Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,0,1.68,0,"Other Cyclopoid",1.91e-05
+"929","Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,0,9.41,0,"Cumacean",0.000235
+"930","Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,0,3.3,0,"Other Cyclopoid",4.44e-05
+"931","Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,1,9.41,9.41,"Cumacean",0.000235
+"932","Belden's Landing","Scrubbed",6,"C6N41",61,1.4789,2,6,"N",0.0015,0,1.4,0,"Eurytemora",1.01e-05
+"933","Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,1,2.66,2.66,"Pseudodiaptomus",5.49e-05
+"934","Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,0,1,0,"Cladoceran",3.01e-05
+"935","Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"936","Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"937","Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,100,0.13,13,"Limnoithona",5.6e-06
+"938","Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,1,13.2,13.2,"Cumacean",0.0003307
+"939","Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,1,1,1,"Other",2.27e-05
+"940","Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,1,3,3,"Eurytemora",4.03e-05
+"941","Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,0,0.03,0,"Copepod nauplii",3e-07
+"942","Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,0,0.1,0,"Copepod nauplii",2.4e-06
+"943","Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"944","Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,0,1.6,0,"Other Cyclopoid",1.37e-05
+"945","Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,0,1,0,"Cladoceran",3.01e-05
+"946","Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,0,0.07,0,"Copepod nauplii",2.7e-06
+"947","Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,0,18.32,0,"Chironomidae",0.000458
+"948","Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,0,1.5,0,"Other Calanoid",1.38e-05
+"949","Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,0,3.36,0,"Other Cyclopoid",3.82e-05
+"950","Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,0,1.68,0,"Other Cyclopoid",1.91e-05
+"951","Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,0,9.41,0,"Cumacean",0.000235
+"952","Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,0,3.3,0,"Other Cyclopoid",4.44e-05
+"953","Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,0,9.41,0,"Cumacean",0.000235
+"954","Belden's Landing","Scrubbed",6,"C6N46",46,0.4511,5,5,"N",9e-04,1,1.4,1.4,"Eurytemora",1.01e-05
+"955","Belden's Landing","Scrubbed",8,"C8N20",56,0.8552,3,3,"N",0,0,2.66,0,"Pseudodiaptomus",5.49e-05
+"956","Belden's Landing","Scrubbed",8,"C8N20",56,0.8552,3,3,"N",0,0,1,0,"Cladoceran",3.01e-05
+"957","Belden's Landing","Scrubbed",8,"C8N20",56,0.8552,3,3,"N",0,0,3.3,0,"Other Cyclopoid",4.44e-05
+"958","Belden's Landing","Scrubbed",8,"C8N20",56,0.8552,3,3,"N",0,0,3.3,0,"Other Cyclopoid",4.44e-05
+"959","Belden's Landing","Scrubbed",8,"C8N20",56,0.8552,3,3,"N",0,0,0.13,0,"Limnoithona",5.6e-06
+"960","Belden's Landing","Scrubbed",8,"C8N20",56,0.8552,3,3,"N",0,0,13.2,0,"Cumacean",0.0003307
+"961","Belden's Landing","Scrubbed",8,"C8N20",56,0.8552,3,3,"N",0,0,1,0,"Other",2.27e-05
+"962","Belden's Landing","Scrubbed",8,"C8N20",56,0.8552,3,3,"N",0,0,3,0,"Eurytemora",4.03e-05
+"963","Belden's Landing","Scrubbed",8,"C8N20",56,0.8552,3,3,"N",0,2,0.03,0.06,"Copepod nauplii",3e-07
+"964","Belden's Landing","Scrubbed",8,"C8N20",56,0.8552,3,3,"N",0,0,0.1,0,"Copepod nauplii",2.4e-06
+"965","Belden's Landing","Scrubbed",8,"C8N20",56,0.8552,3,3,"N",0,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"966","Belden's Landing","Scrubbed",8,"C8N20",56,0.8552,3,3,"N",0,0,1.6,0,"Other Cyclopoid",1.37e-05
+"967","Belden's Landing","Scrubbed",8,"C8N20",56,0.8552,3,3,"N",0,0,1,0,"Cladoceran",3.01e-05
+"968","Belden's Landing","Scrubbed",8,"C8N20",56,0.8552,3,3,"N",0,0,0.07,0,"Copepod nauplii",2.7e-06
+"969","Belden's Landing","Scrubbed",8,"C8N20",56,0.8552,3,3,"N",0,0,18.32,0,"Chironomidae",0.000458
+"970","Belden's Landing","Scrubbed",8,"C8N20",56,0.8552,3,3,"N",0,0,1.5,0,"Other Calanoid",1.38e-05
+"971","Belden's Landing","Scrubbed",8,"C8N20",56,0.8552,3,3,"N",0,0,3.36,0,"Other Cyclopoid",3.82e-05
+"972","Belden's Landing","Scrubbed",8,"C8N20",56,0.8552,3,3,"N",0,0,1.68,0,"Other Cyclopoid",1.91e-05
+"973","Belden's Landing","Scrubbed",8,"C8N20",56,0.8552,3,3,"N",0,0,9.41,0,"Cumacean",0.000235
+"974","Belden's Landing","Scrubbed",8,"C8N20",56,0.8552,3,3,"N",0,0,3.3,0,"Other Cyclopoid",4.44e-05
+"975","Belden's Landing","Scrubbed",8,"C8N20",56,0.8552,3,3,"N",0,0,9.41,0,"Cumacean",0.000235
+"976","Belden's Landing","Scrubbed",8,"C8N20",56,0.8552,3,3,"N",0,0,1.4,0,"Eurytemora",1.01e-05
+"977","Belden's Landing","Scrubbed",8,"C8N25",58,0.7454,6,4,"N",0.0086,0,2.66,0,"Pseudodiaptomus",5.49e-05
+"978","Belden's Landing","Scrubbed",8,"C8N25",58,0.7454,6,4,"N",0.0086,0,1,0,"Cladoceran",3.01e-05
+"979","Belden's Landing","Scrubbed",8,"C8N25",58,0.7454,6,4,"N",0.0086,0,3.3,0,"Other Cyclopoid",4.44e-05
+"980","Belden's Landing","Scrubbed",8,"C8N25",58,0.7454,6,4,"N",0.0086,0,3.3,0,"Other Cyclopoid",4.44e-05
+"981","Belden's Landing","Scrubbed",8,"C8N25",58,0.7454,6,4,"N",0.0086,0,0.13,0,"Limnoithona",5.6e-06
+"982","Belden's Landing","Scrubbed",8,"C8N25",58,0.7454,6,4,"N",0.0086,0,13.2,0,"Cumacean",0.0003307
+"983","Belden's Landing","Scrubbed",8,"C8N25",58,0.7454,6,4,"N",0.0086,0,1,0,"Other",2.27e-05
+"984","Belden's Landing","Scrubbed",8,"C8N25",58,0.7454,6,4,"N",0.0086,0,3,0,"Eurytemora",4.03e-05
+"985","Belden's Landing","Scrubbed",8,"C8N25",58,0.7454,6,4,"N",0.0086,0,0.03,0,"Copepod nauplii",3e-07
+"986","Belden's Landing","Scrubbed",8,"C8N25",58,0.7454,6,4,"N",0.0086,0,0.1,0,"Copepod nauplii",2.4e-06
+"987","Belden's Landing","Scrubbed",8,"C8N25",58,0.7454,6,4,"N",0.0086,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"988","Belden's Landing","Scrubbed",8,"C8N25",58,0.7454,6,4,"N",0.0086,0,1.6,0,"Other Cyclopoid",1.37e-05
+"989","Belden's Landing","Scrubbed",8,"C8N25",58,0.7454,6,4,"N",0.0086,0,1,0,"Cladoceran",3.01e-05
+"990","Belden's Landing","Scrubbed",8,"C8N25",58,0.7454,6,4,"N",0.0086,0,0.07,0,"Copepod nauplii",2.7e-06
+"991","Belden's Landing","Scrubbed",8,"C8N25",58,0.7454,6,4,"N",0.0086,0,18.32,0,"Chironomidae",0.000458
+"992","Belden's Landing","Scrubbed",8,"C8N25",58,0.7454,6,4,"N",0.0086,0,1.5,0,"Other Calanoid",1.38e-05
+"993","Belden's Landing","Scrubbed",8,"C8N25",58,0.7454,6,4,"N",0.0086,0,3.36,0,"Other Cyclopoid",3.82e-05
+"994","Belden's Landing","Scrubbed",8,"C8N25",58,0.7454,6,4,"N",0.0086,0,1.68,0,"Other Cyclopoid",1.91e-05
+"995","Belden's Landing","Scrubbed",8,"C8N25",58,0.7454,6,4,"N",0.0086,0,9.41,0,"Cumacean",0.000235
+"996","Belden's Landing","Scrubbed",8,"C8N25",58,0.7454,6,4,"N",0.0086,0,3.3,0,"Other Cyclopoid",4.44e-05
+"997","Belden's Landing","Scrubbed",8,"C8N25",58,0.7454,6,4,"N",0.0086,0,9.41,0,"Cumacean",0.000235
+"998","Belden's Landing","Scrubbed",8,"C8N25",58,0.7454,6,4,"N",0.0086,0,1.4,0,"Eurytemora",1.01e-05
+"999","Belden's Landing","Scrubbed",8,"C8N26",58,1.0693,4,5,"N",0.0042,1,2.66,2.66,"Pseudodiaptomus",5.49e-05
+"1000","Belden's Landing","Scrubbed",8,"C8N26",58,1.0693,4,5,"N",0.0042,0,1,0,"Cladoceran",3.01e-05
+"1001","Belden's Landing","Scrubbed",8,"C8N26",58,1.0693,4,5,"N",0.0042,0,3.3,0,"Other Cyclopoid",4.44e-05
+"1002","Belden's Landing","Scrubbed",8,"C8N26",58,1.0693,4,5,"N",0.0042,0,3.3,0,"Other Cyclopoid",4.44e-05
+"1003","Belden's Landing","Scrubbed",8,"C8N26",58,1.0693,4,5,"N",0.0042,0,0.13,0,"Limnoithona",5.6e-06
+"1004","Belden's Landing","Scrubbed",8,"C8N26",58,1.0693,4,5,"N",0.0042,0,13.2,0,"Cumacean",0.0003307
+"1005","Belden's Landing","Scrubbed",8,"C8N26",58,1.0693,4,5,"N",0.0042,0,1,0,"Other",2.27e-05
+"1006","Belden's Landing","Scrubbed",8,"C8N26",58,1.0693,4,5,"N",0.0042,0,3,0,"Eurytemora",4.03e-05
+"1007","Belden's Landing","Scrubbed",8,"C8N26",58,1.0693,4,5,"N",0.0042,0,0.03,0,"Copepod nauplii",3e-07
+"1008","Belden's Landing","Scrubbed",8,"C8N26",58,1.0693,4,5,"N",0.0042,0,0.1,0,"Copepod nauplii",2.4e-06
+"1009","Belden's Landing","Scrubbed",8,"C8N26",58,1.0693,4,5,"N",0.0042,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"1010","Belden's Landing","Scrubbed",8,"C8N26",58,1.0693,4,5,"N",0.0042,0,1.6,0,"Other Cyclopoid",1.37e-05
+"1011","Belden's Landing","Scrubbed",8,"C8N26",58,1.0693,4,5,"N",0.0042,0,1,0,"Cladoceran",3.01e-05
+"1012","Belden's Landing","Scrubbed",8,"C8N26",58,1.0693,4,5,"N",0.0042,0,0.07,0,"Copepod nauplii",2.7e-06
+"1013","Belden's Landing","Scrubbed",8,"C8N26",58,1.0693,4,5,"N",0.0042,0,18.32,0,"Chironomidae",0.000458
+"1014","Belden's Landing","Scrubbed",8,"C8N26",58,1.0693,4,5,"N",0.0042,0,1.5,0,"Other Calanoid",1.38e-05
+"1015","Belden's Landing","Scrubbed",8,"C8N26",58,1.0693,4,5,"N",0.0042,0,3.36,0,"Other Cyclopoid",3.82e-05
+"1016","Belden's Landing","Scrubbed",8,"C8N26",58,1.0693,4,5,"N",0.0042,0,1.68,0,"Other Cyclopoid",1.91e-05
+"1017","Belden's Landing","Scrubbed",8,"C8N26",58,1.0693,4,5,"N",0.0042,0,9.41,0,"Cumacean",0.000235
+"1018","Belden's Landing","Scrubbed",8,"C8N26",58,1.0693,4,5,"N",0.0042,0,3.3,0,"Other Cyclopoid",4.44e-05
+"1019","Belden's Landing","Scrubbed",8,"C8N26",58,1.0693,4,5,"N",0.0042,0,9.41,0,"Cumacean",0.000235
+"1020","Belden's Landing","Scrubbed",8,"C8N26",58,1.0693,4,5,"N",0.0042,0,1.4,0,"Eurytemora",1.01e-05
+"1021","Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,0,2.66,0,"Pseudodiaptomus",5.49e-05
+"1022","Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,0,1,0,"Cladoceran",3.01e-05
+"1023","Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,0,3.3,0,"Other Cyclopoid",4.44e-05
+"1024","Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,0,3.3,0,"Other Cyclopoid",4.44e-05
+"1025","Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,2,0.13,0.26,"Limnoithona",5.6e-06
+"1026","Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,0,13.2,0,"Cumacean",0.0003307
+"1027","Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,2,1,2,"Other",2.27e-05
+"1028","Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,0,3,0,"Eurytemora",4.03e-05
+"1029","Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,0,0.03,0,"Copepod nauplii",3e-07
+"1030","Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,0,0.1,0,"Copepod nauplii",2.4e-06
+"1031","Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"1032","Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,0,1.6,0,"Other Cyclopoid",1.37e-05
+"1033","Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,0,1,0,"Cladoceran",3.01e-05
+"1034","Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,0,0.07,0,"Copepod nauplii",2.7e-06
+"1035","Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,0,18.32,0,"Chironomidae",0.000458
+"1036","Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,0,1.5,0,"Other Calanoid",1.38e-05
+"1037","Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,0,3.36,0,"Other Cyclopoid",3.82e-05
+"1038","Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,0,1.68,0,"Other Cyclopoid",1.91e-05
+"1039","Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,0,9.41,0,"Cumacean",0.000235
+"1040","Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,0,3.3,0,"Other Cyclopoid",4.44e-05
+"1041","Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,4,9.41,37.64,"Cumacean",0.000235
+"1042","Belden's Landing","Scrubbed",8,"C8N27",55,0.8234,5,5,"N",0.0017,0,1.4,0,"Eurytemora",1.01e-05
+"1043","Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,1,2.66,2.66,"Pseudodiaptomus",5.49e-05
+"1044","Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,0,1,0,"Cladoceran",3.01e-05
+"1045","Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,0,3.3,0,"Other Cyclopoid",4.44e-05
+"1046","Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,0,3.3,0,"Other Cyclopoid",4.44e-05
+"1047","Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,10,0.13,1.3,"Limnoithona",5.6e-06
+"1048","Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,0,13.2,0,"Cumacean",0.0003307
+"1049","Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,1,1,1,"Other",2.27e-05
+"1050","Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,0,3,0,"Eurytemora",4.03e-05
+"1051","Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,0,0.03,0,"Copepod nauplii",3e-07
+"1052","Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,0,0.1,0,"Copepod nauplii",2.4e-06
+"1053","Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,0,0.1,0,"Pseudodiaptomus nauplii",1.8e-06
+"1054","Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,0,1.6,0,"Other Cyclopoid",1.37e-05
+"1055","Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,0,1,0,"Cladoceran",3.01e-05
+"1056","Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,0,0.07,0,"Copepod nauplii",2.7e-06
+"1057","Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,0,18.32,0,"Chironomidae",0.000458
+"1058","Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,0,1.5,0,"Other Calanoid",1.38e-05
+"1059","Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,0,3.36,0,"Other Cyclopoid",3.82e-05
+"1060","Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,0,1.68,0,"Other Cyclopoid",1.91e-05
+"1061","Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,0,9.41,0,"Cumacean",0.000235
+"1062","Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,0,3.3,0,"Other Cyclopoid",4.44e-05
+"1063","Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,0,9.41,0,"Cumacean",0.000235
+"1064","Belden's Landing","Scrubbed",8,"C8N33",54,0.9636,4,6,"N",0.0018,0,1.4,0,"Eurytemora",1.01e-05

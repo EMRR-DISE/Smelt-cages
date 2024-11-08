@@ -39,7 +39,7 @@ zoops = mutate(zoops, InOut = case_when(str_detect(Location, "Outside") ~ "Outsi
 # Read in station data ----------------------------------------------------
 stations <- read.csv("biofouling/SMSCG_CBNet_2018to2023CPUE_15Jul2024.csv")
 #pull station numbers of interest (get comprehensive list from christina)
-interest <- c("606","609","MONT","706","707","708","709","710")
+interest <- c("606","609","MONT","706","707")
 stn <- data.frame()
 for (i in 1:length(interest)) {
   a <- interest[i]  
@@ -51,6 +51,8 @@ stn2023 <- stn[which(stn$Year == 2023),]
 
 stn_long <- gather(stn2023, key = 'Prey', value = 'CPUE', ACARTELA:CUMAC)
 #exclude all of the preys that start with "ALL..." because they are the sum of other columns i.e. double counting
+
+stn_longx = filter(stn_long, !str_detect(Prey, "ALL"))
 #does that same thing stand for "OTH..." category?
 
 #Probably need to filter down dates because it includes the full year
@@ -58,15 +60,23 @@ stn_long <- gather(stn2023, key = 'Prey', value = 'CPUE', ACARTELA:CUMAC)
 # Crosswalk zoop data --------------------------------------------
 
 #Use crosswalk list Rosie made
-crosswalk = read_csv("biofouling/crosswalk_wstns.csv")
-biomass <- read.csv("biofouling/Cage Biomass crosswalk1.csv")
-masscrosswalk_zoops <- inner_join(crosswalk, biomass, by = c(Zooplankton = "CageCode"))
-masscrosswalk_stations <- inner_join(crosswalk, biomass, by = c(EMP_Code = "EMPCode"))
+#crosswalk = read_csv("biofouling/crosswalk_wstns.csv")
+#biomass <- read.csv("biofouling/Cage Biomass crosswalk1.csv")
+
+#new crosswalk from Christina
+crosswalk = read_csv("data/Cage Biomass crosswalk Updated.csv")
+
+#masscrosswalk_zoops <- inner_join(crosswalk, biomass, by = c(Zooplankton = "CageCode"))
+#masscrosswalk_stations <- inner_join(crosswalk, biomass, by = c(EMP_Code = "EMPCode"))
 
 #Once I built the crosswalk, I joined the common names to each dataset
-zoops2 = left_join(zoops, select(masscrosswalk_zoops, Zooplankton, Analy, Carbon_weight_ug), by = c("Species Name" = "Zooplankton") )
+crosswalkz = select(crosswalk, CageCode, TaxaGroup,  Carbon_weight_ug, WetWeight_g) %>%
+  filter(!is.na(CageCode)) %>%
+  distinct()
+zoops2 = left_join(zoops, crosswalkz, 
+                   by = c("Species Name" = "CageCode") )
 
-zoops2.1 = group_by(zoops2, Location, Analy, Site, Date, CageNum, Treatment, SampleID) %>%
+zoops2.1 = group_by(zoops2, Location, TaxaGroup, Site, Date, CageNum, Treatment, SampleID) %>%
   summarize(Count = sum(Total_Count, na.rm =T), 
             Mass = sum((Total_Count/0.0378541)*Carbon_weight_ug, na.rm =T),
             CPUE = sum(Total_Count/0.0378541)) %>%
@@ -80,18 +90,23 @@ zoops2.1 = group_by(zoops2, Location, Analy, Site, Date, CageNum, Treatment, Sam
 #zoops2.1[a,8] <- "Zooplankton"
 #zoops2.1[a,6] <- 0
 #zoops2.1[a,2] <- "Rio Vista"
-
-stn2 = left_join(stn_long, select(masscrosswalk_stations, EMP_Code, Analy, Carbon_weight_ug), 
+crosswalkEMP = select(crosswalk, EMP_Code, TaxaGroup,  Carbon_weight_ug, WetWeight_g) %>%
+  filter(!is.na(EMP_Code)) %>%
+  distinct()
+stn2 = left_join(stn_longx, crosswalkEMP, 
                  by = c("Prey" = "EMP_Code"))
 
 stn2.1 = stn2 %>%
   mutate(SampleID = paste(Station, Date)) %>%
   #group_by(Year, Station, Date, Analy, CPUE) %>% Scott's origional code
-  group_by(Year, Station, Date, Analy, SampleID) %>% #Rosie's edit
+  group_by(Year, Station, Date, TaxaGroup, SampleID) %>% #Rosie's edit
   summarize(CPUE = sum(CPUE, na.rm = T), Mass = sum(CPUE*Carbon_weight_ug, na.rm =T)) %>%
-  mutate(Type = "Station")
+  mutate(Type = "Zooplankton", Treatment = "FMWT")
 
-stn2.1 <- stn2.1[which(stn2.1$Analy != "Ignore"),]
+
+ggplot(stn2, aes(x = Station, y = CPUE, fill = Prey)) + geom_col()
+#looks like "other calanoidA" is mostly acartia or acartiella
+#stn2.1 <- stn2.1[which(stn2.1$Analy != "Ignore"),]
 
 #add this bit for graphing only
 #miss <- c("Annelida", "Corophiidae", "Gammaridea", "Gastropod", "Hyallela", "Insect")
@@ -110,30 +125,30 @@ stn2.1 <- stn2.1[which(stn2.1$Analy != "Ignore"),]
 
 #quick graph of the raw data
 #collected data graph
-ggplot(zoops2.1, aes(x = Treatment, y = Count, fill = Analy)) + 
+ggplot(zoops2.1, aes(x = Treatment, y = Count, fill = TaxaGroup)) + 
   geom_col(position = "fill") +
   facet_wrap(~Site)
 
-ggplot(zoops2.1, aes(x = SampleID, y = Count, fill = Analy)) + 
+ggplot(zoops2.1, aes(x = SampleID, y = Count, fill = TaxaGroup)) + 
   geom_col() +
   facet_wrap(~Site)
 
-ggplot(zoops2.1, aes(x = SampleID, y = Mass, fill = Analy)) + 
+ggplot(zoops2.1, aes(x = SampleID, y = Mass, fill = TaxaGroup)) + 
   geom_col() +
   facet_wrap(~Site)
 
 
 
-ggplot(zoops2.1, aes(x = Treatment, y = Mass, fill = Analy)) + 
+ggplot(zoops2.1, aes(x = Treatment, y = Mass, fill = TaxaGroup)) + 
   geom_col(position = "fill") +
   facet_wrap(~Site)
 
 #Station data graph
-ggplot(stn2.1, aes(x = Station, y = CPUE, fill = Analy)) + 
+ggplot(stn2.1, aes(x = Station, y = CPUE, fill = TaxaGroup)) + 
   geom_col(position = "fill") +
   facet_wrap(~Date) 
 
-ggplot(stn2.1, aes(x = Station, y = Mass, fill = Analy)) + 
+ggplot(stn2.1, aes(x = Station, y = Mass, fill = TaxaGroup)) + 
   geom_col(position = "fill") +
   facet_wrap(~Date) 
 
@@ -145,7 +160,7 @@ head(stn2.1)
 zoops2.2 = zoops2.1 %>%
   ungroup() %>%
   select(SampleID, Site, Treatment, CPUE, Mass, 
-         Type, CageNum, Analy, Date)
+         Type, CageNum, TaxaGroup, Date)
 
 #zoops2.2 <- zoops2.1$Date
 #zoops2.2 <- as_tibble(zoops2.2)
@@ -159,7 +174,7 @@ zoops2.2 = zoops2.1 %>%
 stn2.2 = stn2.1 %>%
   ungroup() %>%
   mutate(Date = mdy(Date)) %>%
-  select(SampleID, Date, Type, Analy, CPUE, Mass, Station) %>%
+  select(SampleID, Date, Type, TaxaGroup, CPUE, Mass, Station) %>%
   mutate(Treatment = "FMWT", Site = case_when(Station %in% c("606", "609", "MONT") ~ "Montezuma",
                                               Station %in% c("706", "707") ~ "Rio Vista"))
 
@@ -179,7 +194,7 @@ stn2.2 = stn2.1 %>%
 #alloutbugs <- rbind(stn2.2, zoops2.2)
 
 alloutbugs <- bind_rows(stn2.2, zoops2.2) %>%
-  rename(Species = Analy)
+  rename(Species = TaxaGroup)
 alloutbugs <- filter(alloutbugs, Date > ymd("2023-08-20"))
 
 ggplot(filter(alloutbugs, Treatment != "Scrub" & Treatment != "Flip"), aes(x = Treatment, y = CPUE, fill = Species)) + 
@@ -200,18 +215,17 @@ ggplot(filter(alloutbugs, Type != "Scrub" & Type != "Flip"), aes(x = Site, y = M
   geom_col(position = "fill") 
 
 allinterestingbugs <- filter(alloutbugs, Species != "Hyalella", Species != "Gammaridea", Species != "Corophiidae",
-                             Species != "Insect", Species != "Annelida", Species != "other")
-save(allinterestingbugs, file = "data/allinterestingbugs.RData")
+                             Species != "Insect", Species != "Worm", Species != "Other", Species !="Chironomidae")
 #We probably want to plot average CPUE rather than total
 
 
 allwideCPUE = pivot_wider(allinterestingbugs, id_cols = c(SampleID, Date, Type, Treatment, Site),
                           names_from = Species, values_from = CPUE, values_fill = 0) %>%
-  pivot_longer(cols = c(Calanoid_other:last_col()), names_to = "Species", values_to = "CPUE")
+  pivot_longer(cols = c(Cladoceran:last_col()), names_to = "Species", values_to = "CPUE")
 
 allwideMass = pivot_wider(allinterestingbugs, id_cols = c(SampleID, Date, Type, Treatment, Site),
                           names_from = Species, values_from = Mass, values_fill = 0) %>%
-  pivot_longer(cols = c(Calanoid_other:last_col()), names_to = "Species", values_to = "Mass")
+  pivot_longer(cols = c(Cladoceran:last_col()), names_to = "Species", values_to = "Mass")
 
 allwzeros = left_join(allwideCPUE, allwideMass)
 
@@ -229,7 +243,11 @@ ggplot(filter(InterestingAve),
        aes(x = Treatment, y = Mass, fill = Species)) + 
   geom_col(position = "fill") +
   facet_wrap(~Site)
-  
+ 
+
+
+
+save(allinterestingbugs,alloutbugs,allwzeros, file = "data/allinterestingbugs.RData")
 
 #Make new groupings to compare 
 # allinterestingbugs$Group <- "Place"
@@ -243,17 +261,19 @@ ggplot(filter(InterestingAve),
 
 
 
-ggplot(filter(InterestingAve,  Species == "Pseudodiaptomus forbesi"), 
-       aes(x = Site, y = log(Mass), fill = Treatment)) + 
-  geom_bar(stat="identity", position = "dodge") +
-  labs(title = "Pseudodiaptomus forbesi")
 
-ggplot(filter(allwzeros, Species == "Pseudodiaptomus forbesi"), 
+ggplot(filter(allwzeros, Species == "Pseudodiaptomus"), 
        aes(x = Site, y = CPUE, fill = Treatment)) + 
   geom_boxplot(position = "dodge") +
-  labs(title = "Pseudodiaptomus forbesi")
+  labs(title = "Pseudodiaptomus")
 
-ggplot(filter(InterestingAve, Treatment != "Scrub" &  Treatment  != "Flip", Species == "Pseudodiaptomus forbesi"), 
+
+ggplot(filter(allwzeros, Species == "Pseudodiaptomus"), 
+       aes(x = Site, y = Mass, fill = Treatment)) + 
+  geom_boxplot(position = "dodge") +
+  labs(title = "Pseudodiaptomus")
+
+ggplot(filter(InterestingAve, Treatment != "Scrub" &  Treatment  != "Flip", Species == "Pseudodiaptomus"), 
        aes(x = Site, y = CPUE, fill = Treatment)) + 
   geom_bar(stat="identity", position = "dodge") +
   labs(title = "Pseudodiaptomus forbesi")

@@ -22,15 +22,9 @@ empties = filter(diets, `Prey Taxa`=="EMPTY") %>%
 
 
 Dietbm = read_csv("data/cagedietbiomass.csv")%>%
-  bind_rows(empties)
-Crosswalk = read_csv("data/crosswalk 1.csv")
-
-Dietbmx = mutate(Dietbm, `Taxa Group` = case_when(CageCode == "Chironomidae larva"  ~ "Chironomid",
-                                  CageCode == "Copepod nauplius" ~ "Copepod nauplii",
-                                  CageCode == "Tanaid" ~ "Tanaid",
-                                  TRUE ~ `Taxa Group`)) %>%
+  bind_rows(empties) %>%
   rename(Site = Location, CageID = `Cage ID`) %>%
-  group_by(Site, Treatment, FishID, `Taxa Group`) %>%
+  group_by(Site, Treatment, FishID, `TaxaGroup`) %>%
   summarize(Biomass = sum(Biomass), Count = sum(Count)) %>%
   mutate(Type = "Diet")
 
@@ -38,49 +32,24 @@ Dietbmx = mutate(Dietbm, `Taxa Group` = case_when(CageCode == "Chironomidae larv
 load("data/amph_sum_counts.RData")
 
 amph_sum = rename(amph_sum_counts, CageID = Location, Biomass = Biomass_median) %>%
-  mutate(`Taxa Group` = case_when(NewName == "Chironimidae" ~ "Chironomid",
+  mutate(`TaxaGroup` = case_when(NewName == "Chironimidae" ~ "Chironomid",
                                   NewName == "Tanaidacea" ~ "Tanaid",
                                   NewName == "Ignore" ~ "Other",
                                   TRUE ~ NewName),
          Type = "Biofouling")
+
 #now the zooplankton
-
-
-zoops = read_excel("data/DWR_CageZoop2023_Complete_TEC_1.22.2024.xlsx",
-                   sheet = "Zoop Data") 
-
-zoops = mutate(zoops, uniqueID = paste(Date, Location))
-
-zoops = mutate(zoops, InOut = case_when(str_detect(Location, "Outside") ~ "Outside",
-                                        str_detect(Location, "Inside") ~ "Inside"),
-               CageNum = str_sub(Location, 1, 6)) %>%
-  left_join(treatments, by = c("CageNum" = "Location")) %>%
-  mutate(Treatment = case_when(InOut == "Outside" ~ "Outside",
-                               TRUE ~ Treatment),
-         Week = week(Date),
-         SampleID = paste(CageNum, Date, InOut),
-         totalCount = Count*`Sample Volume (mL)`/`# of Subsamples`,
-         CPUE = totalCount/0.0378541) 
-
-crossbm = read_csv("data/Cage Biomass crosswalk1.csv")
-
-zoopsx = left_join(zoops, crossbm, by = c("Species Name" = "CageCode")) %>%
-  mutate(Biomass = CPUE* Carbon_weight_ug) 
-
-zoops2.1bm = group_by(zoopsx, `Taxa Group`, Site, Date, CageNum, Treatment, SampleID) %>%
-  summarize(Biomass = sum(Biomass, na.rm =T), Count = sum(CPUE)) %>%
-  mutate(Type = "Zooplankton") %>%
-  rename(CageID = CageNum)
+#from Scott's code
+load("data/allinterestingbugs.RData")
 
 #all bugs by biomass
-
-Allbugsbm = bind_rows(amph_sum, zoops2.1bm, Dietbmx) %>%
+allwzeros = rename(allwzeros, Biomass = Mass, TaxaGroup = Species, Count = CPUE)
+Allbugsbm = bind_rows(amph_sum, allwzeros, Dietbm) %>%
   mutate(Treatment = case_when(Treatment == "Flip" ~ "Exchanged",
                                Treatment == "Scrub" ~ "Scrubbed",
                                TRUE ~ Treatment)) %>%
   mutate(Site = case_when(Site == "Belden's Landing" ~ "Montezuma",
-                          TRUE ~ Site)) %>%
-  filter(Treatment != "Outside", `Taxa Group` != "Ignore")
+                          TRUE ~ Site)) 
 
 save(Allbugsbm, file = c("biofouling/Allbugsbm.RData"))
 
@@ -89,7 +58,8 @@ save(Allbugsbm, file = c("biofouling/Allbugsbm.RData"))
 lab = data.frame(Type = "Biofouling", Biomass = 0.9, Site = "Montezuma", Treatment = "Exchanged", label = "A")
 lab2 = data.frame(Type = "Biofouling", Biomass = 0.9, Site = "Montezuma", Treatment = "Exchanged", label = "B")
 
-RBM = ggplot(Allbugsbm , aes(x = Type, y = Biomass, fill = `Taxa Group`)) + geom_col(position = "fill")+
+RBM = ggplot(filter(Allbugsbm, !Treatment %in% c("FMWT", "Outside")),
+             aes(x = Type, y = Biomass, fill = `TaxaGroup`)) + geom_col(position = "fill")+
   facet_grid(Site~Treatment)+
   scale_fill_manual(values = mypal)+
   ylab("Relative Biomass")+
@@ -100,7 +70,8 @@ RBM = ggplot(Allbugsbm , aes(x = Type, y = Biomass, fill = `Taxa Group`)) + geom
             size =8, inherit.aes = FALSE) 
 RBM
 
-RA = ggplot(Allbugsbm , aes(x = Type, y = Count, fill = `Taxa Group`)) + geom_col(position = "fill")+
+RA = ggplot(filter(Allbugsbm, !Treatment %in% c("FMWT", "Outside")), 
+            aes(x = Type, y = Count, fill = `TaxaGroup`)) + geom_col(position = "fill")+
   facet_grid(Site~Treatment)+
   scale_fill_manual(values = mypal)+
   ylab("Relative Abundance")+
@@ -113,7 +84,7 @@ RBM+RA
 
 ggsave("plots/dietzoopamp_relativeabundance.tiff", width =10, height =6, device = "tiff")
 
-ggplot(Allbugsbm , aes(x = Type, y = Count, fill = `Taxa Group`)) + geom_col()+
+ggplot(Allbugsbm , aes(x = Type, y = Count, fill = `TaxaGroup`)) + geom_col()+
   facet_grid(Site~Treatment)+
   scale_fill_manual(values = mypal)+
   ylab("Abundance")+
@@ -129,9 +100,9 @@ ggplot(Allbugsbm, aes(x = `Taxa Group`, y = PA)) + geom_col()+
 #Now the statistics
 
 #permanova comparing the three data type, two  sites, and two treatments
-datamatbm = filter(Allbugsbm, Treatment != "Outside", `Taxa Group` != "Empty") %>%
-  select(Site,Treatment, CageID, FishID, Date, Type, `Taxa Group`, Biomass) %>%
-  pivot_wider(names_from = `Taxa Group`, values_from = Biomass, values_fill = 0,
+datamatbm = filter(Allbugsbm, Treatment != "Outside", `TaxaGroup` != "Empty") %>%
+  select(Site,Treatment, CageID, FishID, Date, Type, `TaxaGroup`, Biomass) %>%
+  pivot_wider(names_from = `TaxaGroup`, values_from = Biomass, values_fill = 0,
               values_fn = sum) 
 
 datamatbm = datamatbm[which(rowSums(datamatbm[,7:22]) !=0),]
