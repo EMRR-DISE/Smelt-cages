@@ -1,0 +1,68 @@
+Taxa,TaxaGroup,Carbon_weight_ug,Length-weight regression,Notes
+Chironomidae larva,Chironomidae,18.32,,Use Chironomid larvae. From diet study data. Carbon weight = wet weight (458ug) *.04
+Chironomidae pupae,Chironomidae,20.52,,From diet study data. Carbon weight = wet weight (513ug) *.04
+Other Cladocera Adult,Cladoceran,1,,
+Bosmina spp,Cladoceran,0.6,,
+Cladocera nauplii,Cladoceran,0.1,,Copepod nauplii value. 
+Daphnia spp,Cladoceran,4,,
+Diaphanosoma spp,Cladoceran,1,,
+Calinoid copepod nauplii,Copepod nauplii,0.1,,
+Copepod nauplii,Copepod nauplii,0.07,,
+Cyclopoid copepod nauplii,Copepod nauplii,0.03,,
+Sinocalanus spp nauplii,Copepod nauplii,0.07,,
+Americorophium spinicorne,Amphipoda,,,Use LW
+Americorophium spp,Amphipoda,188.1,,Use LW
+Cumacean,Cumacean,9.41,,From diet study data. Carbon weight = wet weight (235.3ug) *.04
+Cumella vulgaris,Cumacean,13.2,,Cumacean. Use Nippoleucon value
+Nippoleucon hinumensis,Cumacean,9.41,,From diet study data. Carbon weight = wet weight (235.3ug) *.04
+Eurytemora affinis adult,Eurytemora,3,,
+Eurytemora affinis copepodid,Eurytemora,1.4,,
+Eurytemora affinis nauplius,Eurytemora,0.1,,
+Eurytemora spp nauplii,Copepod nauplii,0.1,,
+Gammaridea,Amphipoda,,,Use LW
+Gammarus daiberi,Amphipoda,,,Use LW
+Hyalella azteca,Amphipoda,,,Use LW
+Hyalella spp,Amphipoda,,,Use LW
+Harpaticoid,Harpaticoid,1,,
+Insect larvae,Insect,18.32,,Use Chironomid larvae. From diet study data. Carbon weight = wet weight (458ug) *.04
+UNID Insect adult,Insect,18.32,,Use Chironomid larvae. From diet study data. Carbon weight = wet weight (458ug) *.04
+Gnorimosphaeroma spp,Isopod,,,Isopod
+Munnidae,Isopod,,,Isopod. Use LW but 50% of what Gnormo is since they're much smaller
+Limnoithona sinensis adult,Limnoithona,0.13,,
+Limnoithona spp adult,Limnoithona,0.13,,
+Limnoithona spp copepodid,Limnoithona,0.04,,
+Limnoithona tetraspina adult,Limnoithona,0.13,,
+Barnacle nauplii,Other,3.8,,
+Crab zoea,Other,3,,
+Harpaticoida,Other,1,,
+Hydrachnidae,Other,1.3,,Water mite. Weight from diet study data. Carbon weight = wet weight (33.3ug) *.04
+Amphipoda,Amphipoda,,,Use LW
+Acartiella sinensis adult,Other Calanoid,2.67,,
+Acartiella sinensis copepodid,Other Calanoid,1.16,,
+Calanoida adult,Other Calanoid,3,,
+Calanoida copepodid,Other Calanoid,1.5,,
+Diaptomidae adult,Other Calanoid,4,,
+Diaptomidae copepodid,Other Calanoid,2,,
+Sinocalanus doerrii adult,Other Calanoid,3.41,,
+Sinocalanus doerrii copepodid,Other Calanoid,1.81,,
+Tortanus adult,Other Calanoid,15.89,,
+Tortanus copepodid,Other Calanoid,7.95,,
+Tortanus dextrilobatus adult,Other Calanoid,15.89,,
+Tortanus dextrilobatus copepodid,Other Calanoid,7.95,,
+Acanthocyclops adult,Other Cyclopoid,3.36,,
+Acanthocyclops sp. copepodid,Other Cyclopoid,1.68,,Half of Acantho adult
+Other Cyclopoid Copepod copepodid,Other Cyclopoid,1.6,,
+Other Cyclopoid Adult,Other Cyclopoid,3.3,,
+Pseudodiaptomus forbesi adult,Pseudodiaptomus,2.66,,
+Pseudodiaptomus forbesi copepodid,Pseudodiaptomus,1.15,,
+Pseudodiaptomus marinus adult,Pseudodiaptomus,4.9,,
+Pseudodiaptomus forbesi nauplius,Pseudodiaptomus nauplii,0.1,,
+Pseudodiaptomus spp nauplii,Pseudodiaptomus nauplii,0.1,,
+Asplanchna spp,Rotifer,0.3,,
+Keratella spp,Rotifer,0.04,,
+Polyarthra spp,Rotifer,0.28,,
+Other Rotifer,Rotifer,0.1,,
+Synchaeta spp adult,Rotifer,0.12,,
+Trichocerca spp,Rotifer,0.12,,
+Trichotria spp,Rotifer,0.1,,Use other rotifer value
+Tanaidacea,Tanaid,NA,,Wet Weight from Diet Study Data. Decided not to convert to carbon from this since it over inflated things. Assume biomass as amphipods since about the same size

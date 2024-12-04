@@ -219,13 +219,15 @@ allinterestingbugs <- filter(alloutbugs, Species != "Hyalella", Species != "Gamm
 #We probably want to plot average CPUE rather than total
 
 
-allwideCPUE = pivot_wider(allinterestingbugs, id_cols = c(SampleID, Date, Type, Treatment, Site),
+allwideCPUE = pivot_wider(allinterestingbugs, id_cols = c(CageNum, SampleID, Date, Type, Treatment, Site),
                           names_from = Species, values_from = CPUE, values_fill = 0) %>%
-  pivot_longer(cols = c(Cladoceran:last_col()), names_to = "Species", values_to = "CPUE")
+  pivot_longer(cols = c(Cladoceran:last_col()), names_to = "Species", values_to = "CPUE") %>%
+  rename(CageID = CageNum)
 
-allwideMass = pivot_wider(allinterestingbugs, id_cols = c(SampleID, Date, Type, Treatment, Site),
+allwideMass = pivot_wider(allinterestingbugs, id_cols = c(CageNum, SampleID, Date, Type, Treatment, Site),
                           names_from = Species, values_from = Mass, values_fill = 0) %>%
-  pivot_longer(cols = c(Cladoceran:last_col()), names_to = "Species", values_to = "Mass")
+  pivot_longer(cols = c(Cladoceran:last_col()), names_to = "Species", values_to = "Mass")%>%
+  rename(CageID = CageNum)
 
 allwzeros = left_join(allwideCPUE, allwideMass)
 

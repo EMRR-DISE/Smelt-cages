@@ -24,9 +24,9 @@ empties = filter(diets, `Prey Taxa`=="EMPTY") %>%
 Dietbm = read_csv("data/cagedietbiomass.csv")%>%
   bind_rows(empties) %>%
   rename(Site = Location, CageID = `Cage ID`) %>%
-  group_by(Site, Treatment, FishID, `TaxaGroup`) %>%
+  group_by(Site, CageID, Treatment, FishID, `TaxaGroup`) %>%
   summarize(Biomass = sum(Biomass), Count = sum(Count)) %>%
-  mutate(Type = "Diet")
+  mutate(Type = "Diet", CageID = as.character(CageID))
 
 #amphipod data
 load("data/amph_sum_counts.RData")
@@ -90,11 +90,7 @@ ggplot(Allbugsbm , aes(x = Type, y = Count, fill = `TaxaGroup`)) + geom_col()+
   ylab("Abundance")+
   xlab(NULL)
 
-Allbugsbm = mutate(Allbugsbm, PA = case_when(Count ==0 ~ 0,
-                                             TRUE ~ 1))
 
-ggplot(Allbugsbm, aes(x = `Taxa Group`, y = PA)) + geom_col()+
-  facet_wrap(~Type)
 
 ################################################
 #Now the statistics

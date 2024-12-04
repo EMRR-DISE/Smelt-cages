@@ -522,8 +522,9 @@ calcfullness = diet_totbm %>%
   group_by(Location, Treatment, `Cage ID`, FishID, LabWeight_g) %>% 
   summarize(tot_fishbm = sum(Biomass), 
             tot_fishwetwt = sum(WetWeight_g)) %>% 
-  mutate("Percent Fullness (%BW)" = ((tot_fishwetwt/LabWeight_g)*100)) %>%  #make a column of % GF as a function of body weight. 
-  mutate("Gut Fullness (%)" = ((`Percent Fullness (%BW)`) )*100) #2% is considered full so divide by 2 to get better numbers to interpret
+  mutate("Percent Fullness (%BW)" = ((tot_fishwetwt/LabWeight_g)*100),
+         CageID = as.character(`Cage ID`)) %>%  #make a column of % GF as a function of body weight. 
+  mutate("Gut Fullness (%)" = ((`Percent Fullness (%BW)`) )*100/2) #2% is considered full so divide by 2 to get better numbers to interpret
 
 #calc fullnessboxplots 
 
@@ -545,7 +546,7 @@ tcf2
 
 ggsave(plot = tcf2, filename = "Graphs/ Calc Fullness Boxplot.tiff", device = "tiff",width = 6, height =5, units = "in", dpi = 300)
 
-save(cagecfull, file = "data/GutFullness_cagecfull.RData")
+save(cagecfull, calcfullness, file = "data/GutFullness_cagecfull.RData")
 
 #glm of the calculated fullness
 #treatments are signif diff, not loc

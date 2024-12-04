@@ -6,6 +6,7 @@ library(RColorBrewer)
 library(patchwork)
 library(emmeans)
 library(car)
+library(vegan)
 
 mypal = c(brewer.pal(8, "Dark2"), brewer.pal(8, "Set2"), brewer.pal(8, "Set3"), "yellow", "orange", "purple", "grey", "brown",
           "red", "lightgreen", "white", "orangered", "black")
@@ -79,7 +80,8 @@ ggsave("plots/dietzoopamp_absoluteeabundance.tiff", width =10, height =6, device
 #version with outside and FMWT samples added
 allinbug = Allbugsbm %>%
   mutate(Type = case_when(Treatment %in% c("FMWT", "Outside") ~"Exterior\nZooplankton",
-                          TRUE ~ Type))
+                          TRUE ~ Type),
+         SampleID = paste(CageID, Treatment, Date, Site, FishID, Type))
 
 Allbugs2 = allinbug %>%
   filter(`TaxaGroup` != "Empty") %>%
@@ -96,7 +98,7 @@ Allbugs2 = allinbug %>%
   #                                 `Taxa Group` == "Cladocera" ~ "Cladoceran",
   #                                 TRUE ~ `Taxa Group`)) %>%
   mutate(Type = factor(Type, levels = c("Diet", "Biofouling", "Zooplankton", "Exterior\nZooplankton"),
-                       labels =  c("Smelt Diet", "Biofouling\nMacroinvertebrates", "Cage\nZooplankton", 
+                       labels =  c("Smelt Diet", "Biofouling\nMacroinvertebrates", "Interior\nZooplankton", 
                                    "Exterior\nZooplankton"))) %>%
   mutate(Taxa = factor(`TaxaGroup`, levels = c( "Eurytemora","Pseudodiaptomus",
                                                "Pseudodiaptomus nauplii","Other Calanoid",
@@ -105,11 +107,12 @@ Allbugs2 = allinbug %>%
                                                 "Cladoceran","Rotifer", "Amphipod",
                                                "Isopod", "Cumacean" ,
                                                 "Insect", "Chironomid", "Gastropod",
-                                                "Ostracod", "Tanaid", "Other")))
+                                                "Ostracod", "Tanaid", "Other")),
+         Location = factor(Site, levels = c("Montezuma", "Rio Vista"), labels = c("Belden's Landing", "Rio Vista")))
 
 RBM2 = ggplot(Allbugs2 , aes(x = Treatment, y = Biomass, fill = Taxa)) + 
   geom_col(position = "fill")+
-  facet_grid(Site ~ Type, scales = "free_x")+
+  facet_grid(Location ~ Type, scales = "free_x")+
   scale_fill_manual(values = mypal)+
   ylab("Relative Biomass")+
   xlab(NULL)+
@@ -121,7 +124,7 @@ RBM2
 
 RA2 = ggplot(Allbugs2 , aes(x = Treatment, y = Count, fill = Taxa)) + 
   geom_col(position = "fill")+
-  facet_grid(Site ~ Type, scales = "free_x")+
+  facet_grid(Location ~ Type, scales = "free_x")+
   scale_fill_manual(values = mypal)+
   ylab("Relative Abundance")+
   xlab(NULL)+
@@ -134,7 +137,7 @@ RBM2/RA2
 
 
 
-ggsave("plots/dietzoopamp_barchart_wfmwt.tiff", width =10, height =10, device = "tiff")
+ggsave("plots/dietzoopamp_barchart_wfmwt.tiff", width =7, height =7, device = "tiff")
 
 
 ################################################
@@ -163,7 +166,7 @@ write.csv(a2, "biofouling/dietzoop_permanovaBM.csv")
 
 
 #Count version
-datamatc = filter(Allbugsbm, Treatment != "Outside", `TaxaGroup` != "Empty") %>%
+datamatc = filter(Allbugsbm, Treatment != "Outside", `TaxaGroup` != "Empty", Treatment != "FMWT", ) %>%
   mutate(SampleID = paste(CageID, Treatment, Date, Site, FishID)) %>%
   select(Site,Treatment, CageID, FishID, Date, Type, `TaxaGroup`, Count, SampleID) %>%
   pivot_wider(names_from = `TaxaGroup`, values_from = Count, values_fill = 0,
@@ -201,7 +204,7 @@ matbmRAZ = matbmZ/rowSums(matbmZ)
 
 a21 = adonis2(matbmRAZ ~ Treatment + Site, data = datamatbmZ, na.rm = TRUE)
 a21
-write.csv(a2, "biofouling/zoopwFMWT_permanovaBM.csv")
+write.csv(a21, "biofouling/zoopwFMWT_permanovaBM.csv")
 
 #individual PERMANOVAs comparing FMWT to cages, cage treatmetns to each other  
 cagematbmZ = filter(datamatbmZ, Treatment %in% c("FMWT", "Outside"))
@@ -229,6 +232,8 @@ matbmRAZ3 = matbmZ3/rowSums(matbmZ3)
 
 a2xb = adonis2(matbmRAZ3 ~ Treatment + Site, data = cagematbmZ2, na.rm = TRUE)
 a2xb
+
+write.csv(a2xb, "biofouling/permanova_scrubvex_zoops.csv")
 #No significant difference bewteen biofouling treatments
 #now compare inside versus outside
 cagematbmZ2b = filter(datamatbmZ, Treatment %in% c("Exchanged", "Scrubbed", "Outside"))
@@ -240,9 +245,55 @@ matbmZ3b= as.matrix(cagematbmZ2b[,5:16])
 matbmRAZ3b = matbmZ3b/rowSums(matbmZ3b) 
 
 
-a2xbb = adonis2(matbmRAZ3b ~ Treatment + Site, data = cagematbmZ2b, na.rm = TRUE)
+a2xbb = adonis2(matbmRAZ3b ~ Type + Site, data = cagematbmZ2b, na.rm = TRUE)
 a2xbb
 #No difference!
+
+write.csv(a2xbb, "biofouling/permanova_invout_zoops.csv")
+
+#################################################################
+#PERMANOVA on biofouling bugs
+datamatamps = filter(Allbugs2,
+                    Type %in% c("Biofouling\nMacroinvertebrates"),
+                    TaxaGroup != "Other") %>%
+  ungroup() %>%
+  select(SampleID, Site,Treatment,  Type, TaxaGroup, Biomass) %>%
+  pivot_wider(names_from = TaxaGroup, values_from = Biomass, values_fill = 0,
+              values_fn = sum) 
+#remove empty rows
+#matrix of biomass
+matam= as.matrix(datamatamps[,5:8])
+
+#matrix of relative biomass
+matamRA= matam/rowSums(matam) 
+
+
+aAmp = adonis2(matamRA ~ Treatment + Site, data = datamatamps, na.rm = TRUE)
+aAmp
+write.csv(aAmp, "biofouling/Amphipods_permanovaBM.csv")
+
+#################################################################
+#PERMANOVA on just diet bugs
+datamatd = filter(Allbugs2,
+                     Type %in% c("Smelt Diet")) %>%
+  ungroup() %>%
+  select(SampleID, Site,Treatment,  Type, TaxaGroup, Biomass) %>%
+  pivot_wider(names_from = TaxaGroup, values_from = Biomass, values_fill = 0,
+              values_fn = sum) 
+#remove empty rows
+datamatd = datamatd[which(rowSums(datamatd[,5:17]) !=0),]
+
+
+#matrix of biomass
+matd= as.matrix(datamatd[,5:17])
+
+#matrix of relative biomass
+matdRA= matd/rowSums(matd) 
+
+
+aD = adonis2(matdRA ~ Treatment + Site, data = datamatd, na.rm = TRUE)
+aD
+write.csv(aD, "biofouling/Diet_permanovaBM.csv")
 
 
   #############################################################
@@ -250,7 +301,7 @@ a2xbb
 #Make the four panel plot of algal biomass, bug biomass, zoop biomass, and diet biomass
 
 #total biomass and abundance
-AllbugsTot = mutate(Allbugsbm, SampleID = paste(CageID, Treatment, Date, Site, FishID)) %>%
+AllbugsTot = Allbugsbm %>%
   group_by(Site, Treatment, Type, CageID, SampleID) %>%
   summarize(Count = sum(Count), Biomass = sum(Biomass, na.rm =T))
 
@@ -264,30 +315,40 @@ algae = rename(algae, Site = Station, CageID = Cage) %>%
   mutate(Site = case_when(Site == "Rio_Vista" ~ "Rio Vista",
                           TRUE ~ Site))
 
-Allbugs_walgae = bind_rows(algae, AllbugsTot)
+Allbugs_walgae = bind_rows(algae, AllbugsTot) %>%
+  mutate(Biomass = case_when(Type == "Biofouling" ~ Biomass*1000,
+                             Type == "Zooplankton" ~ Biomass/1000,
+                             TRUE ~ Biomass))
 
-#exterior zooplankton samples
-outbugs = allinterestingbugs %>%
-  mutate( Type = "Zooplankton", Biomass = Mass)
+#replace diet biomass with diet fullness
 
-outbugsum = group_by(outbugs, Site, Date, Treatment, Type, SampleID) %>%
-  summarize(Biomass = sum(Biomass, na.rm =T), CPUE = sum(CPUE)) %>%
-  filter(Treatment != "Scrub", Treatment != "Flip")
+#load(file = "data/GutFullness_cagecfull.RData")
 
-Reallyallbugs = bind_rows(outbugsum, Allbugs_walgae) %>%
-  mutate(Treatment = factor(Treatment, levels = c("Exchanged", "Scrubbed", "Outside", "FMWT")))
+
+fullness = calcfullness %>%
+  mutate( Type = "Diet", Biomass = `Gut Fullness (%)`,
+          Site = case_when(Location ==  "Belden's Landing"~ "Montezuma",
+                                                      TRUE ~ Location))
+
+
+Reallyallbugs = bind_rows(fullness, filter(Allbugs_walgae, Type != "Diet")) %>%
+  mutate(Treatment = factor(Treatment, levels = c("Exchanged", "Scrubbed", "Outside", "FMWT")),
+         Type2 = factor(Type, levels = c("Algae", "Biofouling", "Zooplankton","Diet"),
+                       labels = c("Algae (mg)", "Biofouling \nMacroinvertebrates (mg)", "Zooplankton (mg/m3)",
+                                  "Gut Fullness (%)")))
 
 ggplot(Reallyallbugs, aes(x = Treatment, y = Biomass, fill = Site)) +
   geom_boxplot()+
-  facet_wrap(~Type, scales = "free")+
+  facet_wrap(~Type2, scales = "free")+
   theme_bw()+
   scale_fill_manual(values = c("#009E73",
                                "#D55E00"),
                     labels=c("Belden's Landing", "Rio Vista"))+
-  theme(legend.position = "bottom")
+  theme(legend.position = "bottom")+
+  ylab(NULL)+
+  xlab(NULL)
 
-#need to replace diet biomass with fullness
-
+ggsave("plots/FourPanelBiomass.tiff", device = "tiff", width =6, height =5)
 ##################################################################
 #Statistics
 
@@ -319,9 +380,7 @@ emmeans(zglm2, pairwise ~ Treatment)
 emmeans(zglm2, pairwise ~ Site)
 #no difference between treatments, but biomass is higher in FMWT
 
-zoops = mutate(zoops, CPUE = case_when(is.na(CPUE) ~ Count,
-                                       TRUE ~ CPUE))
-zglmx = lm(log(CPUE+1)~Site+Treatment, data = zoops)
+zglmx = lm(log(Count+1)~Site+Treatment, data = zoops)
 summary(zglmx)
 Anova(zglmx)
 plot(zglmx)
