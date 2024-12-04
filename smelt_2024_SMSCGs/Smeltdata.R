@@ -21,8 +21,20 @@ fish = mutate(fish, weight = as.numeric(Weight),
 ggplot(fish, aes(x = Location, y = ForkLength))+ geom_boxplot()
 ggplot(fish, aes(x = Location, y = weight))+ geom_boxplot()
 
-ggplot(fish, aes(x = Location, y = Condition))+ geom_boxplot()
+ggplot(fish, aes(x = Location, y = Condition, fill = Location))+ 
+  geom_boxplot()+
+  ylab("Condition Factor")+
+  scale_fill_manual(values = c("orange", "tomato", "skyblue"), guide = NULL)+
+  theme_bw()
 hist(fish$Condition)
+
+survival = read_excel("data/survival_2024.xlsx")
+
+ggplot(survival, aes(x = Cage, y = `Survival%`, fill = Site))+
+  geom_col()+
+  scale_fill_manual(values = c("orange", "tomato", "skyblue"))+
+  theme_bw()
+
 
 conlm = lm(Condition ~ Location, data = fish)
 summary(conlm)
@@ -32,6 +44,7 @@ conlm2 = lm(log(Condition) ~ Location, data = fish)
 summary(conlm2)
 plot(conlm2)
 #log transformed is honestly not much better
+Anova(conlm)
 emmeans(conlm, pairwise ~ Location)
 #montezuma is significantly lower than rio vista, both field sites are lower than FCCL
 plot(allEffects(conlm))
@@ -62,4 +75,13 @@ problems = filter(fish2, LenDiff >2 | LenDiff < -2)
 ggplot(fish2, aes(x = ForkLength, y = weight)) + geom_point()+
   geom_smooth(method = "lm")+
   geom_abline(slope = 1, intercept =0)
+
+#Now HSI!
+
+labfish = mutate(labfish, HSI = LiverWeight/LabWeight*100)
+
+ggplot(labfish, aes(x = Location, y = HSI, fill = Location))+
+  geom_boxplot()+
+  scale_fill_manual(values = c("orange", "tomato", "skyblue"), guide = NULL)+
+  theme_bw()
 

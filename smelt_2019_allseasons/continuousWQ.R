@@ -204,7 +204,7 @@ ggplot(wq_wdiscrete, aes(x = Date, y = MeanValue,
                               labels = c("Suisun Marsh", "SDWSC", "Yolo", "Rio Vista"), name = "Location")+ 
   geom_hline(data = cuttoffs, aes(yintercept = cuttoff, linetype = Type), 
              color = "black")+
-  scale_linetype_manual(values = c(1,3,5), name ="Smelt Tolerance")
+  scale_linetype_manual(values = c(1,3,5), name ="Threshold")
 
 
-ggsave("plots/ContWaterQuality_wdiscrete.tiff", device = "tiff", width =8, height =7)
+ggsave("plots/ContWaterQuality_wdiscreteNov.tiff", device = "tiff", width =8, height =7)
