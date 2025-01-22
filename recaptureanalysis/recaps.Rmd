@@ -13,9 +13,9 @@ library(sf)
 library(lubridate)
 library(spacetools)
 library(deltamapr)
-load("Recaps2.RData")
-save( distances, recaps, recaps2, recaps3,  distances2, alldist, alldist2, alldist2.1, releasestat,
-      turbdat_ave, file = "Recaps2.RData")
+# load("Recaps2.RData")
+# save( distances, recaps, recaps2, recaps3,  distances2, alldist, alldist2, alldist2.1, releasestat,
+#       turbdat_ave, file = "Recaps2.RData")
 ```
 
 ## Spatial stats on Delta Smelt releases
@@ -37,13 +37,13 @@ Fist let's calculate distance from release location to recapture location.
 #Bring in the data and check it out
 
 
-recaps = read_excel("data/Running Delta Smelt Catch.xlsx", 
+recaps = read_excel("data/Running Delta Smelt Catch_2023-09-05.xlsx", 
                     sheet = "Delta Smelt Catch Data") %>%
   rename( Latitude= `LatitudeStart`, Longitude = `LongitudeStart`)
 
 recaps = recaps %>%
   mutate(FishID = paste("Fish", 1:nrow(recaps))) %>%
-  select(-ReleaseDate, -Preservation, -Disposition, -SpecialStudyID, -MarkCode, -Dateknown)
+  select(-ReleaseDate, -Preservation, -Disposition, -SpecialStudyID, -MarkCode)
 
 
 #bring in standaridized release location/mark info
@@ -105,12 +105,30 @@ tesst2 = GGdist(Water_map = spacetools::Delta, Points = Dwscsoft, Latitude_colum
 
 #now let's do Rio Vista hard
 RVhard = filter(recaps2,  Site == "Rio Vista", !is.na(Latitude))
-rvh = filter(release, Site == "Rio Vista", Type == "Hard (trailer)") %>%
+rvh = filter(release, Site == "Rio Vista",  Type == "Hard (large scale)") %>%
   select(LatitudeR, LongitudeR)%>%
   rename(Latitude = LatitudeR, Longitude = LongitudeR) %>%
   distinct()
 tesst3 = GGdist(Water_map = spacetools::Delta, Points = RVhard, Latitude_column = `Latitude`,
                 Longitude_column = `Longitude`, PointID_column = FishID, EndPoint = rvh)
+
+#Sandy Beach
+sandyhard = filter(recaps2,  Site == "Sandy Beach", !is.na(Latitude))
+svh = filter(release, Site == "Sandy Beach") %>%
+  select(LatitudeR, LongitudeR)%>%
+  rename(Latitude = LatitudeR, Longitude = LongitudeR) %>%
+  distinct()
+tesst4 = GGdist(Water_map = spacetools::Delta, Points = sandyhard, Latitude_column = `Latitude`,
+                Longitude_column = `Longitude`, PointID_column = FishID, EndPoint = svh)
+
+#lookout
+lookout = filter(recaps2,  Site == "Lookout Slough", !is.na(Latitude))
+los = filter(release, Site == "Lookout Slough") %>%
+  select(LatitudeR, LongitudeR)%>%
+  rename(Latitude = LatitudeR, Longitude = LongitudeR) %>%
+  distinct()
+tesst5 = GGdist(Water_map = spacetools::Delta, Points = lookout, Latitude_column = `Latitude`,
+                Longitude_column = `Longitude`, PointID_column = FishID, EndPoint = los)
 
 # #now the trailer
 # RVhardt = filter(recaps2, Type == "Hard (Trailer)", Site == "Rio Vista")

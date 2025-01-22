@@ -4,6 +4,9 @@ library(tidyverse)
 library(lubridate)
 library(readxl)
 library(cder)
+library(lme4)
+library(lmerTest)
+library(broom)
 
 #look at the survival data
 survival = read_excel("data/BiofoulingStudy_Survival.xlsx", sheet = "Data")
@@ -58,9 +61,21 @@ ggplot(env, aes(x = as.factor(Date), y = pH, color = InsideOutside))+
   geom_boxplot()+
   facet_wrap(~Location)
 
-library(lme4)
-test = lmer(DO_mg_L ~ InsideOutside + (1|Date), data = env)
-summary(test)
+#######comparisons of inside and outside ###############################
+DOmod = lmer(DO_mg_L ~ InsideOutside + (1|Date), data = env)
+summary(DOmod)
+
+tempmod = lmer(Water.Temp_C ~ InsideOutside + (1|Date), data = env)
+summary(tempmod)
+
+turbmod = lmer(Turb ~ InsideOutside + (1|Date), data = env)
+summary(turbmod)
+
+pHmod = lmer(pH ~ InsideOutside + (1|Date), data = env)
+summary(pHmod)
+
+#put all the summaries together and export
+results = 
 
 ggplot(env, aes(x = as.factor(Date), y = Water.Temp_C, color = InsideOutside))+
   geom_boxplot()+

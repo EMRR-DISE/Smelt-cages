@@ -316,7 +316,7 @@ algae = rename(algae, Site = Station, CageID = Cage) %>%
                           TRUE ~ Site))
 
 Allbugs_walgae = bind_rows(algae, AllbugsTot) %>%
-  mutate(Biomass = case_when(Type == "Biofouling" ~ Biomass*1000,
+  mutate(Biomass = case_when(Type == "Biofouling" ~ Biomass,
                              Type == "Zooplankton" ~ Biomass/1000,
                              TRUE ~ Biomass))
 

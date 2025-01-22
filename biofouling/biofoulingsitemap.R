@@ -24,20 +24,34 @@ data("us_states", package = "spData")
 California = dplyr::filter(us_states, NAME == "California")
 stations_sf_4269 <- st_transform(stations_sf23, crs = st_crs(California))
 WW_Watershed_4269 <- st_transform(WW_Watershed, crs = st_crs(California))
+R_Suisun_4269 <- st_transform(R_Suisun, crs = st_crs(California))
+
+X2positions = filter(P_X2, RKI %in% c(78, 81)) %>%
+  st_transform(crs = st_crs(California)) %>%
+  mutate(lat = st_coordinates(geometry)[,2],
+         long = st_coordinates(geometry)[,1],
+         ymin = lat -0.01,
+         ymax = lat+0.01)
 
 (smelt_map <- ggplot() +
-    geom_sf(data = WW_Watershed_4269, fill = "slategray1", colour = "gray80", alpha = 0.8, inherit.aes = FALSE) +
+    geom_sf(data = R_Suisun_4269, fill = "palegreen2", colour = "gray80", alpha = 0.5, )+
+    geom_sf(data = WW_Watershed_4269, fill = "slategray1", colour = "gray50", inherit.aes = FALSE) +
+    
     geom_sf(data = stations_sf_4269, inherit.aes = FALSE, size = 4, color = "black", shape = c(21, 21,15,  15),
             fill = "orangered2")+
-    geom_sf_label(data = stations_sf_4269, aes(label = factor(Location)), inherit.aes = FALSE, size = 4, color = "black",
-                  nudge_x = c(-0.06, -0.05),
+    geom_sf_label(data = stations_sf_4269, aes(label = factor(Location)), 
+                  inherit.aes = FALSE, size = 4, color = "black",
+                  nudge_x = c(-0.04, -0.04),
                   nudge_y = c(0.01, 0.02))+
     annotate(geom = "text", x = -121.75, y = 38.10, size = 3.2, label = "Sacramento River", fontface = "italic",angle = 36) +
     annotate(geom = "text", x = -121.62, y = 38.09, size = 3.2, label = "San Joaquin River", fontface = "italic", angle = 10) +
     annotate(geom = "text", x = -122.02, y = 38.12, size = 3.2, label = "Grizzly Bay", fontface = "italic") +
+    annotate(geom = "text", x = -122.00, y = 38.16, size = 3.2, label = "Suisun Marsh", fontface = "italic") +
    # annotate(geom = "text", x = -121.68, y = 38.26, size =3.2 , label = "Liberty Island", fontface = "italic") +
     scale_x_continuous(limits = c(-122.1, -121.55)) +
     scale_y_continuous(limits = c(38, 38.3))+
+    geom_segment(data = X2positions, aes(x = long, y= ymin, yend = ymax), size = 1.5) +
+    geom_sf_text(data = X2positions, aes(label = paste("X2@", RKI)), nudge_y= 0.02)+
     annotation_north_arrow(location = "tl", which_north = "true",
                            pad_x = unit(.005, "in"), pad_y = unit(0.15, "in"),
                            style = north_arrow_fancy_orienteering) +
@@ -65,9 +79,8 @@ box_sf <- st_as_sfc(insetbbox)
           axis.title = element_blank(),
           axis.ticks = element_blank(),
           panel.grid.major = element_blank(),
-          panel.grid.minor = element_blank(),
-          plot.background =  element_blank(),
-          panel.background = element_rect(color = "black", fill = "white")))
+          panel.grid.minor = element_blank(),,
+          panel.background = element_rect(color = "black", fill = "grey90")))
 
 (gg_inset_map = ggdraw() +
     draw_plot(smelt_map) +
