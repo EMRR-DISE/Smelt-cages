@@ -335,7 +335,8 @@ Reallyallbugs = bind_rows(fullness, filter(Allbugs_walgae, Type != "Diet")) %>%
   mutate(Treatment = factor(Treatment, levels = c("Exchanged", "Scrubbed", "Outside", "FMWT")),
          Type2 = factor(Type, levels = c("Algae", "Biofouling", "Zooplankton","Diet"),
                        labels = c("Algae (mg)", "Biofouling \nMacroinvertebrates (mg)", "Zooplankton (mg/m3)",
-                                  "Gut Fullness (%)")))
+                                  "Gut Fullness (%)")),
+         Site = factor(Site, levels = c("Rio Vista", "Montezuma")))
 
 ggplot(Reallyallbugs, aes(x = Treatment, y = Biomass, fill = Site)) +
   geom_boxplot()+
@@ -343,7 +344,7 @@ ggplot(Reallyallbugs, aes(x = Treatment, y = Biomass, fill = Site)) +
   theme_bw()+
   scale_fill_manual(values = c("#009E73",
                                "#D55E00"),
-                    labels=c("Belden's Landing", "Rio Vista"))+
+                    labels=c("Rio Vista", "Belden's Landing"))+
   theme(legend.position = "bottom")+
   ylab(NULL)+
   xlab(NULL)

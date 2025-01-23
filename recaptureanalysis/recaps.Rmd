@@ -123,9 +123,7 @@ tesst4 = GGdist(Water_map = spacetools::Delta, Points = sandyhard, Latitude_colu
 
 #lookout
 lookout = filter(recaps2,  Site == "Lookout Slough", !is.na(Latitude))
-los = filter(release, Site == "Lookout Slough") %>%
-  select(LatitudeR, LongitudeR)%>%
-  rename(Latitude = LatitudeR, Longitude = LongitudeR) %>%
+los = data.frame(Latitude = 38.318509, Longitude = -121.6935146) %>%
   distinct()
 tesst5 = GGdist(Water_map = spacetools::Delta, Points = lookout, Latitude_column = `Latitude`,
                 Longitude_column = `Longitude`, PointID_column = FishID, EndPoint = los)
@@ -138,7 +136,7 @@ tesst5 = GGdist(Water_map = spacetools::Delta, Points = lookout, Latitude_column
 # tesst4 = GGdist(Water_map = spacetools::Delta, Points = RVhardt, Latitude_column = `Latitude`,
 #                 Longitude_column = `Longitude`, PointID_column = fishID, EndPoint = rvht)
 
-distances = bind_rows(tesst, tesst2, tesst3)
+distances = bind_rows(tesst, tesst2, tesst3, tesst4, tesst5)
 ```
 
 OK, now let's bind all the distances together and join them back to the origional dataset
@@ -592,6 +590,7 @@ So, first i need to pull turbidity data from that area for the week after each r
 ```{r}
 library(cder)
 library(zoo)
+library(effects)
 
 turbdat = cdec_query("RVB", sensors = 27, start.date = as.Date("2021-01-01"), end.date = today())
 
@@ -608,6 +607,7 @@ releasestat = left_join(releasestat, turbdat_ave, by = c("ReleaseDate" = "Date")
 
 turbm = lm(RecapRate ~ weekturb + Type2, data = releasestat)
 summary(turbm)
+plot(allEffects(turbm))
 #Huh, so percentage recaptures is correlated to turbidity (marginal), but not release type. Distance is correlated to release type, but not turbidity.
 
 #what if i just use the paired hard/soft releases?
