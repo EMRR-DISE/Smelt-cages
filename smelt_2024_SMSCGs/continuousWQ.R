@@ -49,5 +49,18 @@ WQmeans = group_by(WQcages2, Year, StationID, SensorType) %>%
   mutate(MeanValue2 = case_when(SensorType == "TEMP W" ~ (MeanValue -32)*5/9,
                                 SensorType == "EL COND" ~ ec2pss(MeanValue/1000, 20),
                                 TRUE ~ MeanValue))
-  
+
+#Just 2024 for the annual report
+#create daily averages
+WQsum2024 = filter(WQsum, Year == 2024) %>%
+  mutate(Analyte = factor(SensorType, levels = c("EL COND", "TEMP W", "TURB W"),
+                          labels = c("Salinity (PSU)", "Water Temperature (C)", "Turbidity (FNU)")))
+
+ggplot(WQsum2024, aes(x = Day, y = MeanValue2, color = StationID)) +
+  geom_line()+
+  facet_wrap(~Analyte, scales = "free_y")+
+  ylab("Daily Mean Value")+
+  xlab("Date (2024)")+
+  theme_bw()+
+  scale_color_manual(values = c("#D95F02","#1B9E77"), name = "Site")
          

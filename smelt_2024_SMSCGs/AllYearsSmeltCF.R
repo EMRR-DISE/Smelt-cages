@@ -2,6 +2,8 @@
 
 library(tidyverse)
 library(readxl)
+library(readxl)
+library(emmeans)
 
 cf2019 = read_csv("smelt_2019_allseasons/data_clean/clean_smelt_cf_2019.csv")
 cf2019f = filter(cf2019, Deployment == "Fall", Site %in% c("RV", "SM")) %>%
@@ -28,3 +30,22 @@ allcf = bind_rows(cf2019f, cf2023, cf2024)
 
 ggplot(allcf, aes(x = Location, y = Condition))+ geom_boxplot()+
   facet_wrap(~Year)
+
+cfall = read_excel("data/19-24 Cage Growth_allfish.xlsx") %>%
+  filter(!is.na(Year)) 
+
+cfall = mutate(cfall, ID = str_remove(OrigionalID, "2023")) %>%
+  mutate(ID = str_remove(ID, "2024")) %>%
+  rename(FishID = ID, NewID = OrigionalID)
+
+write.csv(cfall, "cfall.csv", row.names = F)
+
+
+########survival#####################
+
+allsurv = read_excel("data/19-24 Cage Survival.xlsx")
+surv2024 = filter(allsurv, Year == 2024, Site != "FCCL")
+
+survlm = lm(PercSurv ~ Site, data = surv2024)
+summary(survlm)
+emmeans(survlm, pairwise ~ Site)

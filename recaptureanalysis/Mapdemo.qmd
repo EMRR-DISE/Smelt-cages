@@ -40,11 +40,17 @@ View(deltamapr::P_Stations)
 #The WW_Delta dataset is a spatial polygon datset
 View(deltamapr::WW_Delta)
 #The geometry column starts with "Polygon" and then has latitudes and longitudes
+
+st_write(deltamapr::P_Stations, dsn = "recaptureanalysis/GISfiles/P_stations.shp")
+st_write(deltamapr::WW_Delta, dsn = "recaptureanalysis/GISfiles/WW_Delta.shp")
+
 ```
 
 The other important component of a spatial dataset is it's coordinate reference system. We can get and set the coordinate reference system of a spatial dataset using `st_crs.`
 
 ```{r}
+
+newww = st_read("recaptureanalysis/GISfiles/WW_Delta.shp")
 
 st_crs(P_Stations)
 st_crs(WW_Delta)

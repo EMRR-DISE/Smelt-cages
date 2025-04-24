@@ -323,10 +323,10 @@ Allbugs_walgae = bind_rows(algae, AllbugsTot) %>%
 #replace diet biomass with diet fullness
 
 #load(file = "data/GutFullness_cagecfull.RData")
-
+load(file = "biofouling/calcfull.RData")
 
 fullness = calcfullness %>%
-  mutate( Type = "Diet", Biomass = `Gut Fullness (%)`,
+  mutate( Type = "Diet", Biomass = `Percent Fullness (%BW)`,
           Site = case_when(Location ==  "Belden's Landing"~ "Montezuma",
                                                       TRUE ~ Location))
 
