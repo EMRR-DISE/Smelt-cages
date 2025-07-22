@@ -177,7 +177,62 @@ allzoops = mutate(allzoops, Taxon = str_remove(Taxon, " spp"),
 
 allzoops = select(allzoops, Study, Site, Date, Cage, SampleType,
                   FlowMeterStart, FlowMeterEnd, Rotations, VolumeSampled,
-                  TotalVolume, SubsampledVolume, Taxon, Count, AdjCount, CPUE)
+                  TotalVolume, SubsampledVolume, Taxon, Count, AdjCount, CPUE) %>%
+  rename(Enclosure = Cage)
+
+
+##### feeding study data ######################
+
+#I missed some data
+
+feedzoop1 = read_csv("data/RIO VISTA_2022-02-08_150_SMELT STUDY.csv")
+feedzoop2 = read_csv("data/RIO VISTA_2022-02-10_150_SMELT STUDY.csv")
+feedzoop3 = read_csv("data/RIO VISTA_2022-02-16_150_SMELT STUDY.csv")
+feedzoop4 = read_csv("data/RIO VISTA_2022-03-01_150_SMELT STUDY.csv")
+feedzoop5 = read_csv("data/RIO VISTA_2022-03-09_150_SMELT STUDY.csv")
+feedzoop6 = read_csv("data/RIO VISTA_2022-02-22_150_SMELT STUDY.csv")
+feedzoop = bind_rows(feedzoop1, feedzoop2, feedzoop3, feedzoop4, feedzoop5, feedzoop6) %>%
+  mutate(Study = "Feeding Study", Site = "Rio Vista", SampleType = "Tow") %>%
+  rename(Date = date, Count = count)
+
+feed_env = read_excel("data/FeedingStudy_Environmental.xlsx", sheet = "Zoop")
+#need the low flow flowmeter constant
+
+
+#CPUE = C*(vsample/vsub)/Vnet
+#vnet = (flowmeterend-flowmeterstart)*57560/999999*pi*r2
+#still need r, but closer
+feed_env = mutate(feed_env, Volume = (MeterStart-MeterEnd)*57560/999999*pi*.5*.5/4) %>%
+  rename(FlowMeterStart = MeterStart, FlowMeterEnd = MeterEnd, Rotations = MeterCheck) %>%
+  select(Date, FlowMeterStart, FlowMeterEnd, Rotations, Volume)
+
+feedzoops = left_join(feedzoop, feed_env) %>%
+  mutate(SubsampledVolume = case_when(category == "MICROZOOPLANKTON & NAUPLII" ~ sub2_ml,
+                                      TRUE ~ sub1_ml),
+         AdjCount = Count*(v1_ml/SubsampledVolume),
+         CPUE = Count*(v1_ml/SubsampledVolume)/Volume) %>%
+  rename(VolumeSampled = Volume, TotalVolume = v1_ml, Taxon = taxon)%>%
+  select(Study, Site, Date, SampleType, FlowMeterStart, FlowMeterEnd, Rotations, 
+         VolumeSampled, TotalVolume, SubsampledVolume, Taxon, Count, AdjCount, CPUE) %>%
+  rename(feedtaxa = Taxon)
+
+write.csv(unique(feedzoops$Taxon), "data/feedzoopstaxa.csv")
+feedcrosswalk = read_csv("data/cagezooptaxa_feedstudycrosswalk.csv") %>%
+  filter(!is.na(feedtaxa))
+
+feedzoops = left_join(feedzoops, feedcrosswalk) %>%
+  mutate(Taxon = case_when(is.na(Taxon) ~ "Rotifer",
+                           TRUE ~ Taxon)) %>%
+  select(-feedtaxa) %>%
+  group_by(Study, Site, Date, SampleType, FlowMeterStart, FlowMeterEnd, Rotations,
+           VolumeSampled, TotalVolume, SubsampledVolume, Taxon) %>%
+  summarise(Count = sum(Count), AdjCount = sum(AdjCount), CPUE = sum(CPUE)) %>%
+  filter(CPUE !=0)
+
+allzoops = bind_rows(allzoops, feedzoops) %>%
+  filter(CPUE !=0)
+
+#############################################################
 
 write.csv(allzoops, "data/allcagezoops.csv", row.names = F)
 save(allzoops, file = "data/allcagezoops.RData")
@@ -236,9 +291,9 @@ bugs2023ed = bugs2023 %>%
 
 bugs2023ed$meanlength = rowMeans(bugs2023ed[,c(10:59)], na.rm =T)
 
-bugs2023sum = group_by(bugs2023ed, Site, Date, Cage, Taxon, SampleType) %>%
+bugs2023sum = group_by(bugs2023ed, Site, Date, Cage, Taxon) %>%
   summarize(Count = sum(count), CountWhole = sum(count[which(is.na(pc_frag_mut))]), fragments = sum(count[which(!is.na(pc_frag_mut))]),
-            length = mean(meanlength, na.rm =T))
+            Meanlength = mean(meanlength, na.rm =T))
 
 
 bugs2024 =  read_excel(("smelt_2024_SMSCGs/DWR_CageZoop_2024_Complete_TEC_12.10.24_corrected.xlsx"), sheet = "Amph Data")
@@ -246,14 +301,14 @@ names(bugs2024)
 bugs2024ed = bugs2024 %>%
   rename(Cage = Location, Taxon = `Species`) %>%
   mutate(SampleType = "quadrat",  CPUE = count)%>%
-  select(Site, Date,station, Taxon, SampleType,
+  select(Site, Date,Cage, Taxon, SampleType,
          count, CPUE,  pc_frag_mut, a_nr_g, m_1:m_50)
 
 bugs2024ed$meanlength = rowMeans(bugs2024ed[,c(10:59)], na.rm =T)
 
-bugs2024sum = group_by(bugs2024ed, Site, Date, Cage, Taxon, SampleType) %>%
+bugs2024sum = group_by(bugs2024ed, Site, Date, Cage, Taxon) %>%
   summarize(Count = sum(count), CountWhole = sum(count[which(is.na(pc_frag_mut))]), fragments = sum(count[which(!is.na(pc_frag_mut))]),
-            length = mean(meanlength, na.rm =T))
+            Meanlength = mean(meanlength, na.rm =T))
 
 allbugs = bind_rows(bugs2024sum, bugs2023sum) %>%
   mutate(Taxon = str_remove(Taxon, " spp"),
@@ -274,3 +329,22 @@ unique(allbugs$Taxon)
 unique(allbugs$Taxon) %in% bugslookup$Taxon
 
 unique(allbugs$Taxon)[which(!unique(allbugs$Taxon) %in% bugslookup$Taxon)]
+
+
+write.csv(allbugs, "data/BiofoulingBugs.csv", row.names = F)
+
+
+###################################################################
+#algae data
+
+
+#add algal biomass
+algae<-read_csv("biofouling/Algae_biomass.csv")
+
+#Convert biomass to milligrams to match the other measurements
+algae = rename(algae, Site = Station, InsideOutside = Sample_Location, Notes = `Lab notes`) %>%
+  mutate(AlgalBiomass_mg = Dry_Weight*1000, Cage = paste("Cage", Cage),  Date = mdy(Date)) %>%
+  select(Site, Treatment, Date,  Cage,  InsideOutside, AlgalBiomass_mg, Algae_color,Notes) %>%
+  mutate(Site = case_when(Site == "Rio_Vista" ~ "Rio Vista",
+                          Site == "Montezuma" ~ "Suisun Marsh"))
+write.csv(algae, "data/AlgalBiomass.csv", row.names = F)

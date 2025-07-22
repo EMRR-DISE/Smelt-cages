@@ -49,3 +49,41 @@ surv2024 = filter(allsurv, Year == 2024, Site != "FCCL")
 survlm = lm(PercSurv ~ Site, data = surv2024)
 summary(survlm)
 emmeans(survlm, pairwise ~ Site)
+
+
+#####################################################
+
+#sort out these fish ID's.
+
+diet2019 = filter(diet, Year ==2019) %>%
+  select(Year, Date, Tag) %>%
+  distinct()
+both = cf2019[which(cf2019$ID %in% diet2019$Tag),]
+notboth = diet2019[which(!diet2019$Tag %in% cf2019$ID),]
+bothdiet = diet2019[which(diet2019$Tag %in% cf2019$ID),]
+
+
+library(pwr)
+
+########reall all the data #####################
+
+allfish = read_excel("data/19-24 Cage Growth_allfish.xlsx")
+
+allfishpre1a = filter(allfish, Site ==  "Pre-deployed", Season %in% c("Summer", "Fall")) %>%
+  mutate(Site ="RV")
+allfishpre2 = filter(allfish, Site ==  "Pre-deployed", Season %in% c("Summer", "Fall")) %>%
+  mutate(Site ="BDL")
+allfishpre3 = filter(allfish, Site ==  "Pre-deployed", Season %in% c("Summer", "Fall")) %>%
+  mutate(Site ="FCCL")
+
+
+allfishnew = filter(allfish, Site != "Pre-deployed") %>%
+  bind_rows(allfishpre1a, allfishpre3, allfishpre2) %>%
+  mutate(group = paste(Year, Period, Site), Weight = as.numeric(Weight_g),
+         date = case_when(Date == ymd("2019-06-19") ~ ymd("2019-11-06"),
+                          TRUE ~ Date)) %>%
+  filter(Season %in% c("Summer", "Fall"), Site %in% c("RV", "BDL", "FCCL", "Pre-deployed"),
+         Date > ymd("2019-10-01")) 
+
+ggplot(allfishnew,  aes(x = Weight, fill = Period))+ geom_density(alpha = 0.5)+
+  facet_grid(Site~Year)

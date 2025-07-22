@@ -1,1245 +1,227 @@
-"Study","Site","Date","Cage","SampleType","FlowMeterStart","FlowMeterEnd","Rotations","VolumeSampled","TotalVolume","SubsampledVolume","Taxon","Count","AdjCount","CPUE"
+"Study","Site","Date","Enclosure","SampleType","FlowMeterStart","FlowMeterEnd","Rotations","VolumeSampled","TotalVolume","SubsampledVolume","Taxon","Count","AdjCount","CPUE"
 "Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,0.4,"Rotifer",149,41720,12773.0716224015
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,0.4,"Barnacle nauplii",0,0,0
 "Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,0.4,"Copepod nauplii",191,53480,16373.5347642864
 "Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,0.4,"Ostracoda",1,280,85.7253129020232
 "Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Acanthocyclops adult",1,20.7407407407407,6.35002317792765
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Acanthocyclops copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Cyclopoida adult",0,0,0
 "Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Cyclopoida copepodid",94,1949.62962962963,596.902178725199
 "Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Diacyclops thomasi",1,20.7407407407407,6.35002317792765
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Ectocyclops phaleratus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Eucyclops elegans",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Eucyclops",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Limnoithona copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Limnoithona sinensis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Limnoithona",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Limnoithona tetraspina",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Mesocyclops edax",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Macrocyclops albidus",0,0,0
 "Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Microcyclops rubellus",3,62.2222222222222,19.0500695337829
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Monospilus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Oithona copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Oithona davisae",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Oithona similis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Oithona",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Paracyclops chiltoni",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Acartia copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Acartia",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Acartiella copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Acartiella sinensis",0,0,0
 "Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Calanoida copepodid",7,145.185185185185,44.4501622454935
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Diaptomus copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Diaptomus",0,0,0
 "Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Eurytemora carolleeae adult",1,20.7407407407407,6.35002317792765
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Eurytemora carolleeae copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Osphranticum copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Osphranticum labronectum",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Pseudodiaptomus forbesi adult",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Pseudodiaptomus forbesi copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Sinocalanus doerrii adult",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Sinocalanus doerrii copepodid",0,0,0
 "Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Skistodiaptomus pallidus",5,103.703703703704,31.7501158896382
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Tortanus copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Tortanus",0,0,0
 "Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Alona",1,20.7407407407407,6.35002317792765
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Alonella",0,0,0
 "Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Bosmina",38,788.148148148148,241.300880761251
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Camptocercus",0,0,0
 "Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Ceriodaphnia",29,601.481481481481,184.150672159902
 "Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Chydorus",16,331.851851851852,101.600370846842
 "Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Daphnia",10,207.407407407407,63.5002317792765
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Diaphanosoma",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Disparalona",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Eurycercus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Graptoleberis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Ilyocryptus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Kurzia",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Leydigia",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Macrothrix",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Moina",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Monospilus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Picripleuroxus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Pleuroxus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Pseudochydorus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Scapholeberis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Sida",0,0,0
 "Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Simocephalus",7,145.185185185185,44.4501622454935
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Harpacticoida",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Americorophium",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Annelida",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Bivalvia",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Gastropoda",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Bivalvia",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Corophium",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Cumacean",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Fish",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Fish eggs",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Gammarus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Insecta larvae",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Isopod",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Larval Fish",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Mysid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Shrimp",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-24,NA,"Tow",970000,970289,289,3.26624646234906,112,5.4,"Gastropoda",0,0,0
 "Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,0.2,"Rotifer",80,30000,2989.21518203242
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,0.2,"Barnacle nauplii",0,0,0
 "Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,0.2,"Copepod nauplii",241,90375,9005.01073587267
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,0.2,"Ostracoda",0,0,0
 "Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Acanthocyclops adult",6,250,24.9101265169368
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Acanthocyclops copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Cyclopoida adult",0,0,0
 "Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Cyclopoida copepodid",157,6541.66666666667,651.814977193181
 "Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Diacyclops thomasi",1,41.6666666666667,4.15168775282281
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Ectocyclops phaleratus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Eucyclops",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Limnoithona copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Limnoithona sinensis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Limnoithona",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Limnoithona tetraspina",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Macrocyclops albidus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Mesocyclops edax",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Microcyclops rubellus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Monospilus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Oithona copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Oithona davisae",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Oithona similis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Oithona",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Paracyclops chiltoni",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Acartia copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Acartia",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Acartiella copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Acartiella sinensis",0,0,0
 "Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Calanoida copepodid",4,166.666666666667,16.6067510112912
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Diaptomus copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Diaptomus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Eurytemora carolleeae adult",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Eurytemora carolleeae copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Osphranticum copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Osphranticum labronectum",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Pseudodiaptomus forbesi adult",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Pseudodiaptomus forbesi copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Sinocalanus doerrii adult",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Sinocalanus doerrii copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Skistodiaptomus pallidus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Tortanus copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Tortanus",0,0,0
 "Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Alona",1,41.6666666666667,4.15168775282281
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Alonella",0,0,0
 "Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Bosmina",14,583.333333333333,58.1236285395193
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Camptocercus",0,0,0
 "Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Ceriodaphnia",2,83.3333333333333,8.30337550564562
 "Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Chydorus",12,500,49.8202530338737
 "Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Daphnia",16,666.666666666667,66.4270040451649
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Diaphanosoma",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Disparalona",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Eurycercus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Graptoleberis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Ilyocryptus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Kurzia",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Leydigia",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Macrothrix",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Moina",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Monospilus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Picripleuroxus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Pleuroxus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Pseudochydorus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Scapholeberis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Sida",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Simocephalus",0,0,0
 "Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Harpacticoida",6,250,24.9101265169368
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Americorophium",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Annelida",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Bivalvia",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Gastropoda",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Bivalvia",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Corophium",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Cumacean",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Fish",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Fish eggs",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Gammarus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Insecta larvae",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Isopod",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Larval Fish",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Mysid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Shrimp",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-29,NA,"Tow",971100,971988,888,10.036079095384,75,1.8,"Gastropoda",0,0,0
 "Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,0.2,"Rotifer",103,38110,5465.15740904824
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,0.2,"Barnacle nauplii",0,0,0
 "Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,0.2,"Copepod nauplii",250,92500,13264.9451675928
 "Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,0.2,"Ostracoda",1,370,53.0597806703713
 "Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Acanthocyclops adult",1,43.5294117647059,6.24232713769074
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Acanthocyclops copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Cyclopoida adult",0,0,0
 "Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Cyclopoida copepodid",155,6747.05882352941,967.560706342065
 "Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Diacyclops thomasi",2,87.0588235294118,12.4846542753815
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Ectocyclops phaleratus",0,0,0
 "Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Eucyclops pectinifer",1,43.5294117647059,6.24232713769074
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Limnoithona copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Limnoithona sinensis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Limnoithona",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Limnoithona tetraspina",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Mesocyclops edax",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Microcyclops rubellus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Monospilus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Oithona copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Oithona davisae",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Oithona similis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Oithona",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Paracyclops",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Acartia copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Acartia",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Acartiella copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Acartiella sinensis",0,0,0
 "Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Calanoida copepodid",4,174.117647058824,24.969308550763
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Diaptomus copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Diaptomus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Eurytemora carolleeae adult",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Eurytemora carolleeae copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Osphranticum copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Osphranticum labronectum",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Pseudodiaptomus forbesi adult",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Pseudodiaptomus forbesi copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Sinocalanus doerrii adult",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Sinocalanus doerrii copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Skistodiaptomus pallidus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Tortanus copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Tortanus",0,0,0
 "Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Alona",4,174.117647058824,24.969308550763
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Alonella",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Anchistropus",0,0,0
 "Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Bosmina",6,261.176470588235,37.4539628261444
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Camptocercus",0,0,0
 "Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Ceriodaphnia",1,43.5294117647059,6.24232713769074
 "Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Chydorus",19,827.058823529412,118.604215616124
 "Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Daphnia",10,435.294117647059,62.4232713769074
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Diaphanosoma",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Disparalona",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Eurycercus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Graptoleberis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Ilyocryptus",0,0,0
 "Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Kurzia",1,43.5294117647059,6.24232713769074
 "Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Leydigia",1,43.5294117647059,6.24232713769074
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Macrothrix",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Moina",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Monospilus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Picripleuroxus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Pleuroxus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Scapholeberis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Sida",0,0,0
 "Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Simocephalus",4,174.117647058824,24.969308550763
 "Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Harpacticoida",1,43.5294117647059,6.24232713769074
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Americorophium",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Annelida",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Bivalvia",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Gastropoda",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Bivalvia",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Corophium",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Cumacean",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Fish",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Fish eggs",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Gammarus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Insecta larvae",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Isopod",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Larval Fish",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Mysid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Shrimp",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Gastropoda",0,0,0
-"Enclosure Prototype","Rio Vista",2019-01-31,NA,"Tow",972400,973017,617,6.97326666875216,74,1.7,"Gastropoda",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,0.5,"Rotifer",178,29548,7781.04099369447
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,0.5,"Barnacle nauplii",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,0.5,"Copepod nauplii",150,24900,6557.05701715826
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,0.5,"Ostracoda",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Acanthocyclops adult",6,199.2,52.4564561372661
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Acanthocyclops copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Cyclopoida adult",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Cyclopoida copepodid",96,3187.2,839.303298196258
 "Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Diacyclops thomasi",4,132.8,34.9709707581774
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Ectocyclops phaleratus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Eucyclops",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Limnoithona copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Limnoithona sinensis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Limnoithona",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Limnoithona tetraspina",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Macrocyclops albidus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Mesocyclops edax",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Microcyclops rubellus",1,33.2,8.74274268954435
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Monospilus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Oithona copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Oithona davisae",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Oithona similis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Oithona",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Paracyclops chiltoni",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Paracyclops",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Acartia copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Acartia",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Acartiella copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Acartiella sinensis",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Calanoida copepodid",10,332,87.4274268954435
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Diaptomus copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Diaptomus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Eurytemora carolleeae adult",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Eurytemora carolleeae copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Osphranticum copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Osphranticum labronectum",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Pseudodiaptomus forbesi adult",3,99.6,26.2282280686331
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Pseudodiaptomus forbesi copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Sinocalanus doerrii adult",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Sinocalanus doerrii copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Skistodiaptomus pallidus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Tortanus copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Tortanus",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Alona",6,199.2,52.4564561372661
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Alonella",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Bosmina",19,630.8,166.112111101343
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Camptocercus",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Ceriodaphnia",5,166,43.7137134477218
 "Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Chydorus",27,896.4,236.054052617697
 "Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Daphnia",11,365.2,96.1701695849879
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Diaphanosoma",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Disparalona",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Eurycercus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Graptoleberis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Ilyocryptus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Kurzia",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Leydigia",1,33.2,8.74274268954435
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Macrothrix",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Moina",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Monospilus",1,33.2,8.74274268954435
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Picripleuroxus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Pleuroxus",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Pseudochydorus",1,33.2,8.74274268954435
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Scapholeberis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Scapholeberis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Sida",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Simocephalus",2,66.4,17.4854853790887
 "Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Harpacticoida",7,232.4,61.1991988268105
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Americorophium",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Annelida",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Bivalvia",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Gastropoda",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Bivalvia",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Corophium",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Cumacean",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Fish",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Fish eggs",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Gammarus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Insecta larvae",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Isopod",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Larval Fish",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Mysid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Shrimp",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Gastropoda",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-06,NA,"Tow",975012,974676,336,3.79743533338853,83,2.5,"Gastropoda",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,0.5,"Rotifer",153,23868,4061.26731491653
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,0.5,"Barnacle nauplii",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,0.5,"Copepod nauplii",190,29640,5043.4038551251
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,0.5,"Ostracoda",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Acanthocyclops adult",11,245.142857142857,41.712362711561
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Acanthocyclops copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Cyclopoida adult",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Cyclopoida copepodid",116,2585.14285714286,439.87582495828
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Diacyclops thomasi",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Ectocyclops phaleratus",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Eucyclops prionophorus",2,44.5714285714286,7.58406594755654
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Limnoithona copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Limnoithona sinensis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Limnoithona",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Limnoithona tetraspina",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Macrocyclops albidus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Mesocyclops edax",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Microcyclops rubellus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Monospilus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Oithona copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Oithona davisae",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Oithona similis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Oithona",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Paracyclops chiltoni",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Paracyclops",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Acartia copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Acartia",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Acartiella copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Acartiella sinensis",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Calanoida copepodid",6,133.714285714286,22.7521978426696
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Diaptomus copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Diaptomus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Eurytemora carolleeae adult",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Eurytemora carolleeae copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Osphranticum copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Osphranticum labronectum",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Pseudodiaptomus forbesi adult",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Pseudodiaptomus forbesi copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Sinocalanus doerrii adult",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Sinocalanus doerrii copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Skistodiaptomus pallidus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Tortanus copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Tortanus",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Alona",4,89.1428571428571,15.1681318951131
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Alonella",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Bosmina",13,289.714285714286,49.2964286591175
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Camptocercus",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Ceriodaphnia",4,89.1428571428571,15.1681318951131
 "Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Chydorus",29,646.285714285714,109.96895623957
 "Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Daphnia",11,245.142857142857,41.712362711561
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Diaphanosoma",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Disparalona",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Eurycercus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Graptoleberis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Ilyocryptus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Kurzia",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Leydigia",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Macrothrix",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Moina",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Monospilus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Picripleuroxus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Pleuroxus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Pseudochydorus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Scapholeberis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Scapholeberis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Sida",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Simocephalus",8,178.285714285714,30.3362637902262
 "Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Harpacticoida",5,111.428571428571,18.9601648688914
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Americorophium",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Annelida",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Bivalvia",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Gastropoda",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Bivalvia",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Corophium",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Cumacean",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Fish",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Fish eggs",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Gammarus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Insecta larvae",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Isopod",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Larval Fish",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Mysid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Shrimp",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Gastropoda",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-08,NA,"Tow",975400,975920,520,5.87698325405368,78,3.5,"Gastropoda",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,0.3,"Rotifer",194,56906.6666666667,14809.2519117124
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,0.3,"Barnacle nauplii",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,0.3,"Copepod nauplii",133,39013.3333333333,10152.7345580296
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,0.3,"Ostracoda",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Acanthocyclops adult",5,157.142857142857,40.8944732466284
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Acanthocyclops copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Cyclopoida adult",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Cyclopoida copepodid",105,3300,858.783938179197
 "Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Diacyclops thomasi",5,157.142857142857,40.8944732466284
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Ectocyclops phaleratus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Eucyclops prionophorus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Limnoithona copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Limnoithona sinensis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Limnoithona",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Limnoithona tetraspina",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Macrocyclops albidus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Mesocyclops edax",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Microcyclops rubellus",1,31.4285714285714,8.17889464932569
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Monospilus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Oithona copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Oithona davisae",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Oithona similis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Oithona",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Paracyclops",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Acartia copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Acartia",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Acartiella copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Acartiella sinensis",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Calanoida copepodid",2,62.8571428571429,16.3577892986514
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Diaptomus copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Diaptomus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Eurytemora carolleeae adult",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Eurytemora carolleeae copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Osphranticum copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Osphranticum labronectum",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Pseudodiaptomus forbesi adult",1,31.4285714285714,8.17889464932569
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Pseudodiaptomus forbesi copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Sinocalanus doerrii adult",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Sinocalanus doerrii copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Skistodiaptomus pallidus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Tortanus copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Tortanus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Alona",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Alonella",2,62.8571428571429,16.3577892986514
 "Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Bosmina",32,1005.71428571429,261.724628778422
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Camptocercus",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Ceriodaphnia",13,408.571428571429,106.325630441234
 "Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Chydorus",23,722.857142857143,188.114576934491
 "Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Daphnia",12,377.142857142857,98.1467357919082
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Diaphanosoma",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Disparalona",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Eurycercus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Graptoleberis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Ilyocryptus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Kurzia",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Leydigia",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Macrothrix",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Moina",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Monospilus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Monospilus dispar",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Picripleuroxus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Pleuroxus",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Pseudochydorus",1,31.4285714285714,8.17889464932569
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Scapholeberis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Sida",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Simocephalus",3,94.2857142857143,24.5366839479771
 "Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Harpacticoida",2,62.8571428571429,16.3577892986514
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Americorophium",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Annelida",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Bivalvia",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Gastropoda",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Bivalvia",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Corophium",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Cumacean",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Fish",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Fish eggs",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Gammarus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Insecta larvae",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Isopod",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Larval Fish",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Mysid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Shrimp",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-12,NA,"Tow",976600,976940,340,3.84264289688125,88,2.8,"Gastropoda",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,0.2,"Rotifer",353,167675,11247.9249485669
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,0.2,"Barnacle nauplii",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,0.2,"Copepod nauplii",124,58900,3951.11244652207
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,0.2,"Ostracoda",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Acanthocyclops adult",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Acanthocyclops copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Cyclopoida adult",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Cyclopoida copepodid",35,2770.83333333333,185.872225306818
 "Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Diacyclops thomasi",3,237.5,15.9319050262987
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Ectocyclops phaleratus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Eucyclops",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Limnoithona copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Limnoithona sinensis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Limnoithona",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Limnoithona tetraspina",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Macrocyclops albidus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Mesocyclops edax",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Microcyclops rubellus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Monospilus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Oithona copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Oithona davisae",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Oithona similis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Oithona",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Paracyclops",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Acartia copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Acartia",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Acartiella copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Acartiella sinensis",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Calanoida copepodid",1,79.1666666666667,5.31063500876622
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Diaptomus copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Diaptomus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Eurytemora carolleeae adult",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Eurytemora carolleeae copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Osphranticum copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Osphranticum labronectum",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Pseudodiaptomus forbesi adult",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Pseudodiaptomus forbesi copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Sinocalanus doerrii adult",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Sinocalanus doerrii copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Skistodiaptomus pallidus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Tortanus copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Tortanus",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Alona",1,79.1666666666667,5.31063500876622
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Alonella",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Bosmina",20,1583.33333333333,106.212700175324
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Camptocercus",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Ceriodaphnia",2,158.333333333333,10.6212700175324
 "Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Chydorus",11,870.833333333333,58.4169850964284
 "Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Daphnia",3,237.5,15.9319050262987
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Diaphanosoma",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Disparalona",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Eurycercus",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Graptoleberis",1,79.1666666666667,5.31063500876622
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Ilyocryptus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Kurzia",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Leydigia",1,79.1666666666667,5.31063500876622
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Macrothrix",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Moina",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Monospilus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Picripleuroxus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Pleuroxus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Scapholeberis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Sida",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Simocephalus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Harpacticoida",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Americorophium",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Annelida",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Bivalvia",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Gastropoda",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Bivalvia",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Corophium",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Cumacean",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Fish",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Fish eggs",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Gammarus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Insecta larvae",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Isopod",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Larval Fish",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Mysid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Shrimp",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-15,NA,"Tow",977000,978319,1319,14.9071940617246,95,1.2,"Gastropoda",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1,"Rotifer",159,17649,6322.25546126166
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1,"Barnacle nauplii",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1,"Copepod nauplii",171,18981,6799.40681682858
 "Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1,"Ostracoda",1,111,39.7626129639098
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Acanthocyclops adult",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Acanthocyclops copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Cyclopoida adult",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Cyclopoida copepodid",13,962,344.609312353885
 "Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Diacyclops thomasi",1,74,26.5084086426065
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Ectocyclops phaleratus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Eucyclops",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Limnoithona copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Limnoithona sinensis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Limnoithona",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Limnoithona tetraspina",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Macrocyclops albidus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Mesocyclops edax",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Microcyclops rubellus",2,148,53.0168172852131
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Monospilus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Oithona copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Oithona davisae",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Oithona similis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Oithona",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Paracyclops chiltoni",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Paracyclops",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Acartia copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Acartia",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Acartiella copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Acartiella sinensis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Calanoida copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Diaptomus copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Diaptomus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Eurytemora carolleeae adult",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Eurytemora carolleeae copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Osphranticum copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Osphranticum labronectum",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Pseudodiaptomus forbesi adult",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Pseudodiaptomus forbesi copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Sinocalanus doerrii adult",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Sinocalanus doerrii copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Skistodiaptomus pallidus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Tortanus copepodid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Tortanus",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Alona",1,74,26.5084086426065
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Alonella",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Bosmina",3,222,79.5252259278196
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Camptocercus",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Ceriodaphnia",3,222,79.5252259278196
 "Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Chydorus",6,444,159.050451855639
 "Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Daphnia",4,296,106.033634570426
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Diaphanosoma",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Disparalona",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Eurycercus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Graptoleberis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Ilyocryptus",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Kurzia",1,74,26.5084086426065
 "Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Leydigia",2,148,53.0168172852131
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Macrothrix",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Moina",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Monospilus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Picripleuroxus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Pleuroxus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Pseudochydorus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Scapholeberis",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Sida",0,0,0
 "Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Simocephalus",2,148,53.0168172852131
 "Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Harpacticoida",1,74,26.5084086426065
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Americorophium",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Annelida",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Bivalvia",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Gastropoda",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Bivalvia",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Corophium",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Cumacean",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Fish",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Fish eggs",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Gammarus",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Insecta larvae",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Isopod",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Larval Fish",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Mysid",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Shrimp",0,0,0
-"Enclosure Prototype","Rio Vista",2019-02-22,NA,"Tow",982647,982894,247,2.7915670456755,111,1.5,"Gastropoda",0,0,0
 "Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,2.5,"Rotifer",177,5026.8,1555.15780265875
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,2.5,"Barnacle nauplii",0,0,0
 "Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,2.5,"Copepod nauplii",135,3834,1186.1373071126
 "Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,2.5,"Ostracoda",5,142,43.9310113745408
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Acanthocyclops adult",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Acanthocyclops copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Cyclopoida adult",0,0,0
 "Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Cyclopoida copepodid",33,187.44,57.9889350143939
 "Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Diacyclops thomasi",1,5.68,1.75724045498163
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Ectocyclops phaleratus",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Eucyclops elegans",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Limnoithona copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Limnoithona sinensis",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Limnoithona",0,0,0
 "Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Limnoithona tetraspina",13,73.84,22.8441259147612
 "Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Mesocyclops edax",1,5.68,1.75724045498163
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Microcyclops rubellus",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Monospilus",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Oithona copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Oithona davisae",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Oithona similis",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Oithona",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Paracyclops",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Paracyclops poppei",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Acartia copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Acartia",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Acartiella copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Acartiella sinensis",0,0,0
 "Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Calanoida copepodid",68,386.24,119.492350938751
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Diaptomus copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Diaptomus",0,0,0
 "Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Eurytemora carolleeae adult",1,5.68,1.75724045498163
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Eurytemora carolleeae copepodid",0,0,0
 "Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Hesperodiaptomus franciscanus",1,5.68,1.75724045498163
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Osphranticum copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Osphranticum labronectum",0,0,0
 "Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Pseudodiaptomus forbesi adult",1,5.68,1.75724045498163
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Pseudodiaptomus forbesi copepodid",0,0,0
 "Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Sinocalanus doerrii adult",15,85.2,26.3586068247245
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Sinocalanus doerrii copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Skistodiaptomus pallidus",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Tortanus copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Tortanus",0,0,0
 "Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Alona",2,11.36,3.51448090996327
 "Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Alonella",2,11.36,3.51448090996327
 "Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Bosmina",33,187.44,57.9889350143939
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Camptocercus",0,0,0
 "Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Ceriodaphnia",10,56.8,17.5724045498163
 "Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Chydorus",8,45.44,14.0579236398531
 "Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Daphnia",10,56.8,17.5724045498163
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Diaphanosoma",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Disparalona",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Dunhevedia",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Eurycercus",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Graptoleberis",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Ilyocryptus",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Kurzia",0,0,0
 "Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Leydigia",1,5.68,1.75724045498163
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Macrothrix",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Moina",0,0,0
 "Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Monospilus",1,5.68,1.75724045498163
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Picripleuroxus",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Pleuroxus",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Pseudochydorus",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Scapholeberis",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Sida",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Simocephalus",0,0,0
 "Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Harpacticoida",2,11.36,3.51448090996327
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Americorophium",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Annelida",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Bivalvia",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Gastropoda",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Bivalvia",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Corophium",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Cumacean",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Fish",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Fish eggs",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Gammarus",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Insecta larvae",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Isopod",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Larval Fish",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Mysid",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Shrimp",0,0,0
-"Enclosure Prototype","SDWSC",2019-02-28,NA,"Tow",985100,985386,286,3.23234078972952,71,12.5,"Gastropoda",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,0.5,"Rotifer",191,25212,2690.92540146476
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,0.5,"Barnacle nauplii",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,0.5,"Copepod nauplii",116,15312,1634.27930141315
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,0.5,"Ostracoda",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Acanthocyclops adult",2,11.4782608695652,1.22509692759606
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Acanthocyclops copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Cyclopoida adult",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Cyclopoida copepodid",83,476.347826086957,50.8415224952367
 "Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Diacyclops thomasi",2,11.4782608695652,1.22509692759606
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Ectocyclops phaleratus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Eucyclops",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Limnoithona copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Limnoithona sinensis",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Limnoithona",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Limnoithona tetraspina",17,97.5652173913043,10.4133238845665
 "Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Macrocyclops albidus",1,5.73913043478261,0.612548463798032
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Mesocyclops edax",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Microcyclops rubellus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Monospilus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Oithona copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Oithona davisae",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Oithona similis",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Oithona",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Paracyclops chiltoni",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Acartia copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Acartia",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Acartiella copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Acartiella sinensis",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Calanoida copepodid",54,309.913043478261,33.0776170450937
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Diaptomus copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Diaptomus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Eurytemora carolleeae adult",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Eurytemora carolleeae copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Hesperodiaptomus franciscanus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Osphranticum copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Osphranticum labronectum",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Pseudodiaptomus forbesi adult",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Pseudodiaptomus forbesi copepodid",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Sinocalanus doerrii adult",47,269.739130434783,28.7897777985075
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Sinocalanus doerrii copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Skistodiaptomus pallidus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Tortanus copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Tortanus",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Alona",3,17.2173913043478,1.8376453913941
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Alonella",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Bosmina",25,143.478260869565,15.3137115949508
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Camptocercus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Ceriodaphnia",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Chydorus",6,34.4347826086956,3.67529078278819
 "Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Daphnia",2,11.4782608695652,1.22509692759606
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Diaphanosoma",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Disparalona",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Eurycercus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Graptoleberis",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Ilyocryptus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Kurzia",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Leydigia",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Macrothrix",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Moina",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Monospilus",3,17.2173913043478,1.8376453913941
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Picripleuroxus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Pleuroxus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Pseudochydorus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Scapholeberis",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Sida",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Simocephalus",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Harpacticoida",9,51.6521739130435,5.51293617418229
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Americorophium",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Annelida",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Bivalvia",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Gastropoda",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Bivalvia",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Corophium",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Cumacean",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Fish",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Fish eggs",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Gammarus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Insecta larvae",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Isopod",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Larval Fish",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Mysid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Shrimp",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-01,NA,"Tow",985000,985829,829,9.36926753386635,66,11.5,"Gastropoda",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,1,"Rotifer",137,8631,1909.19380147302
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,1,"Barnacle nauplii",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,1,"Copepod nauplii",167,10521,2327.26543683207
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,1,"Ostracoda",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Acanthocyclops adult",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Acanthocyclops copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Cyclopoida adult",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Cyclopoida copepodid",125,715.909090909091,158.360467939036
 "Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Diacyclops thomasi",9,51.5454545454545,11.4019536916106
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Ectocyclops phaleratus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Eucyclops",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Limnoithona copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Limnoithona sinensis",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Limnoithona",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Limnoithona tetraspina",22,126,27.8714423572703
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Mesocyclops edax",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Microcyclops rubellus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Monospilus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Oithona copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Oithona davisae",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Oithona similis",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Oithona",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Paracyclops chiltoni",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Paracyclops",1,5.72727272727273,1.26688374351229
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Acartia copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Acartia",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Acartiella copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Acartiella sinensis",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Calanoida adult",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Calanoida copepodid",36,206.181818181818,45.6078147664423
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Diaptomus copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Diaptomus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Eurytemora carolleeae adult",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Eurytemora carolleeae copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Osphranticum copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Osphranticum labronectum",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Pseudodiaptomus forbesi adult",1,5.72727272727273,1.26688374351229
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Pseudodiaptomus forbesi copepodid",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Sinocalanus doerrii adult",10,57.2727272727273,12.6688374351229
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Sinocalanus doerrii copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Skistodiaptomus pallidus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Tortanus copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Tortanus",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Alona",2,11.4545454545455,2.53376748702457
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Alonella",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Bosmina",31,177.545454545455,39.2733960488809
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Camptocercus",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Ceriodaphnia",8,45.8181818181818,10.1350699480983
 "Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Chydorus",12,68.7272727272727,15.2026049221474
 "Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Daphnia",6,34.3636363636364,7.60130246107372
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Diaphanosoma",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Disparalona",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Eurycercus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Graptoleberis",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Ilyocryptus",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Kurzia",2,11.4545454545455,2.53376748702457
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Leydigia",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Macrothrix",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Moina",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Monospilus",4,22.9090909090909,5.06753497404915
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Picripleuroxus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Pleuroxus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Pseudochydorus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Scapholeberis",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Sida",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Simocephalus",3,17.1818181818182,3.80065123053686
 "Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Harpacticoida",5,28.6363636363636,6.33441871756143
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Americorophium",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Annelida",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Bivalvia",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Gastropoda",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Bivalvia",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Corophium",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Cumacean",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Fish",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Fish eggs",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Gammarus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Insecta larvae",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Isopod",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Larval Fish",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Mysid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Shrimp",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-04,NA,"Tow",986000,986400,400,4.52075634927206,63,11,"Gastropoda",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,1.8,"Rotifer",58,2642.22222222222,335.417295719821
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,1.8,"Barnacle nauplii",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,1.8,"Copepod nauplii",256,11662.2222222222,1480.46254662542
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,1.8,"Ostracoda",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Acanthocyclops adult",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Acanthocyclops copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Cyclopoida adult",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Cyclopoida copepodid",26,266.5,33.8308824131199
 "Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Diacyclops thomasi",1,10.25,1.30118778512
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Ectocyclops phaleratus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Eucyclops",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Limnoithona copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Limnoithona sinensis",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Limnoithona",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Limnoithona tetraspina",52,533,67.6617648262398
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Mesocyclops edax",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Microcyclops rubellus",1,10.25,1.30118778512
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Monospilus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Oithona copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Oithona davisae",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Oithona similis",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Oithona",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Paracyclops chiltoni",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Paracyclops poppei",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Acartia copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Acartia",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Acartiella copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Acartiella sinensis",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Calanoida adult",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Calanoida copepodid",192,1968,249.828054743039
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Diaptomus copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Diaptomus",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Eurytemora carolleeae adult",3,30.75,3.90356335535999
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Eurytemora carolleeae copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Osphranticum copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Osphranticum labronectum",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Pseudodiaptomus forbesi adult",1,10.25,1.30118778512
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Pseudodiaptomus forbesi copepodid",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Sinocalanus doerrii adult",23,235.75,29.9273190577599
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Sinocalanus doerrii copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Skistodiaptomus pallidus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Tortanus copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Tortanus",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Alona",1,10.25,1.30118778512
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Alonella",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Bosmina",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Camptocercus",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Ceriodaphnia",1,10.25,1.30118778512
 "Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Chydorus",1,10.25,1.30118778512
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Daphnia",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Diaphanosoma",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Disparalona",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Eurycercus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Graptoleberis",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Ilyocryptus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Kurzia",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Leydigia",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Macrothrix",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Moina",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Monospilus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Picripleuroxus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Pleuroxus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Pseudochydorus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Scapholeberis",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Sida",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Simocephalus",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Harpacticoida",8,82,10.40950228096
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Americorophium",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Annelida",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Bivalvia",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Gastropoda",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Bivalvia",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Corophium",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Cumacean",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Fish",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Fish eggs",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Gammarus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Insecta larvae",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Isopod",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Larval Fish",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Mysid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Shrimp",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-08,NA,"Tow",986400,987097,697,7.87741793860657,82,8,"Gastropoda",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,3,"Rotifer",20,686.666666666667,99.9289391116277
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,3,"Barnacle nauplii",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,3,"Copepod nauplii",320,10986.6666666667,1598.86302578604
 "Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,3,"Ostracoda",1,34.3333333333333,4.99644695558139
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Acanthocyclops adult",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Acanthocyclops copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Cyclopoida adult",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Cyclopoida copepodid",34,269.384615384615,39.2028914976386
 "Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Diacyclops thomasi",1,7.92307692307692,1.15302622051878
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Ectocyclops phaleratus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Eucyclops agilis",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Limnoithona copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Limnoithona sinensis",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Limnoithona",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Limnoithona tetraspina",50,396.153846153846,57.6513110259391
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Mesocyclops edax",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Microcyclops rubellus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Monospilus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Oithona copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Oithona davisae",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Oithona similis",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Oithona",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Paracyclops",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Acartia copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Acartia",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Acartiella copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Acartiella sinensis",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Calanoida copepodid",91,721,104.925386067209
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Diaptomus copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Diaptomus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Eurytemora carolleeae adult",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Eurytemora carolleeae copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Osphranticum copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Osphranticum labronectum",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Pseudodiaptomus forbesi adult",2,15.8461538461538,2.30605244103756
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Pseudodiaptomus forbesi copepodid",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Sinocalanus doerrii adult",29,229.769230769231,33.4377603950447
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Sinocalanus doerrii copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Skistodiaptomus pallidus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Tortanus copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Tortanus",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Alona",1,7.92307692307692,1.15302622051878
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Alonella",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Bosmina",4,31.6923076923077,4.61210488207513
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Camptocercus",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Ceriodaphnia",1,7.92307692307692,1.15302622051878
 "Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Chydorus",1,7.92307692307692,1.15302622051878
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Daphnia",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Diaphanosoma",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Disparalona",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Eurycercus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Graptoleberis",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Ilyocryptus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Kurzia",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Leydigia",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Macrothrix",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Moina",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Monospilus",1,7.92307692307692,1.15302622051878
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Picripleuroxus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Pleuroxus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Pseudochydorus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Scapholeberis",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Sida",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Simocephalus",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Harpacticoida",5,39.6153846153846,5.76513110259391
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Americorophium",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Annelida",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Bivalvia",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Gastropoda",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Bivalvia",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Corophium",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Cumacean",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Fish",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Fish eggs",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Gammarus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Insecta larvae",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Isopod",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Larval Fish",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Mysid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Shrimp",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-13,NA,"Tow",990400,991008,608,6.87154965089353,103,13,"Gastropoda",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,0.5,"Rotifer",25,2550,278.550570296058
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,0.5,"Barnacle nauplii",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,0.5,"Copepod nauplii",328,33456,3654.58348228428
 "Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,0.5,"Ostracoda",2,204,22.2840456236847
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Acanthocyclops adult",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Acanthocyclops copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Cyclopoida adult",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Cyclopoida copepodid",171,8721,952.642950412519
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Diacyclops thomasi",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Ectocyclops phaleratus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Eucyclops agilis",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Limnoithona copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Limnoithona sinensis",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Limnoithona",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Limnoithona tetraspina",36,1836,200.556410613162
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Mesocyclops edax",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Microcyclops rubellus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Monospilus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Oithona copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Oithona davisae",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Oithona similis",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Oithona",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Paracyclops",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Acartia copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Acartia",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Acartiella copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Acartiella sinensis",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Calanoida copepodid",20,1020,111.420228118423
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Diaptomus copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Diaptomus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Eurytemora carolleeae adult",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Eurytemora carolleeae copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Osphranticum copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Osphranticum labronectum",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Pseudodiaptomus forbesi adult",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Pseudodiaptomus forbesi copepodid",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Sinocalanus doerrii adult",3,153,16.7130342177635
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Sinocalanus doerrii copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Skistodiaptomus pallidus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Tortanus copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Tortanus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Alona",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Alonella",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Bosmina",10,510,55.7101140592117
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Camptocercus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Ceriodaphnia",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Chydorus",1,51,5.57101140592117
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Daphnia",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Diaphanosoma",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Disparalona",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Eurycercus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Graptoleberis",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Ilyocryptus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Kurzia",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Leydigia",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Macrothrix",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Moina",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Monospilus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Picripleuroxus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Pleuroxus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Pseudochydorus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Scapholeberis",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Sida",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Simocephalus",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Harpacticoida",4,204,22.2840456236847
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Americorophium",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Annelida",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Bivalvia",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Gastropoda",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Bivalvia",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Corophium",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Cumacean",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Fish",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Fish eggs",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Gammarus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Insecta larvae",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Isopod",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Larval Fish",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Mysid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Shrimp",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-19,NA,"Tow",990094,990904,810,9.15453160727592,51,1,"Gastropoda",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,0.2,"Rotifer",221,100555,7790.87895431383
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,0.2,"Barnacle nauplii",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,0.2,"Copepod nauplii",85,38675,2996.49190550532
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,0.2,"Ostracoda",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Acanthocyclops adult",1,41.3636363636364,3.20480417701104
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Acanthocyclops copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Cyclopoida adult",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Cyclopoida copepodid",136,5625.45454545455,435.853368073501
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Diacyclops thomasi",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Ectocyclops phaleratus",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Eucyclops pectinifer",1,41.3636363636364,3.20480417701104
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Limnoithona copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Limnoithona sinensis",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Limnoithona",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Limnoithona tetraspina",59,2440.45454545455,189.083446443651
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Mesocyclops edax",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Microcyclops rubellus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Monospilus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Oithona copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Oithona davisae",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Oithona similis",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Oithona",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Paracyclops",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Acartia copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Acartia",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Acartiella copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Acartiella sinensis",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Calanoida copepodid",47,1944.09090909091,150.625796319519
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Diaptomus copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Diaptomus",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Eurytemora carolleeae adult",9,372.272727272727,28.8432375930993
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Eurytemora carolleeae copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Osphranticum copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Osphranticum labronectum",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Pseudodiaptomus forbesi adult",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Pseudodiaptomus forbesi copepodid",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Sinocalanus doerrii adult",43,1778.63636363636,137.806579611475
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Sinocalanus doerrii copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Skistodiaptomus pallidus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Tortanus copepodid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Tortanus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Alona",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Alonella",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Anchistropus",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Bosmina",8,330.909090909091,25.6384334160883
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Camptocercus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Ceriodaphnia",0,0,0
 "Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Chydorus",5,206.818181818182,16.0240208850552
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Daphnia",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Diaphanosoma",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Disparalona",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Eurycercus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Graptoleberis",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Ilyocryptus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Kurzia",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Leydigia",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Macrothrix",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Moina",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Monospilus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Picripleuroxus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Pleuroxus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Pseudochydorus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Scapholeberis",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Sida",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Simocephalus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Harpacticoida",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Americorophium",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Annelida",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Bivalvia",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Gastropoda",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Bivalvia",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Corophium",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Cumacean",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Fish",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Fish eggs",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Gammarus",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Insecta larvae",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Isopod",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Larval Fish",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Mysid",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Shrimp",0,0,0
-"Enclosure Prototype","SDWSC",2019-03-25,NA,"Tow",994830,995972,1142,12.9067593771717,91,2.2,"Gastropoda",0,0,0
 "North Delta Pilot","Yolo Bypass",2019-07-31,NA,"Tow",997356,996800,556,6.28385132548816,73,0.3,"Rotifer",39,9490,1510.2203264274
 "North Delta Pilot","Yolo Bypass",2019-07-31,NA,"Tow",997356,996800,556,6.28385132548816,73,0.3,"Copepod nauplii",363,88330,14056.6661152089
 "North Delta Pilot","Yolo Bypass",2019-07-31,NA,"Tow",997356,996800,556,6.28385132548816,73,0.3,"Ostracoda",22,5353.33333333333,851.919158497509
@@ -2608,3 +1590,265 @@
 "Biofouling Study","Rio Vista",2023-10-11,"Cage 4 Inside","Pump",NA,NA,NA,0.0378541,15,15,"Rotifer",24,24,634.013224459173
 "Biofouling Study","Rio Vista",2023-10-11,"Cage 4 Inside","Pump",NA,NA,NA,0.0378541,15,15,"Tardigrada",1,1,26.4172176857989
 "Biofouling Study","Rio Vista",2023-10-11,"Cage 4 Inside","Pump",NA,NA,NA,0.0378541,15,15,"Trichocerca",1,1,26.4172176857989
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Acanthocyclops adult",1,18,2.24317443519278
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Annelida",1,18,2.24317443519278
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Bosmina",25,450,56.0793608798195
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Calanoida copepodid",4,72,8.97269774077112
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Ceriodaphnia",9,162,20.188569916735
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Chydorus",9,162,20.188569916735
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Cyclopoida copepodid",127,2286,284.883153269483
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Daphnia",20,360,44.8634887038556
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Diacyclops thomasi",3,54,6.72952330557834
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Eucyclops pectinifer",1,18,2.24317443519278
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Graptoleberis",1,18,2.24317443519278
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Harpacticoida",2,36,4.48634887038556
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Ilyocryptus",1,18,2.24317443519278
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Kurzia",1,18,2.24317443519278
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Osphranticum labronectum",1,18,2.24317443519278
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Picripleuroxus",1,18,2.24317443519278
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Simocephalus",1,18,2.24317443519278
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Tardigrada",2,36,4.48634887038556
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,13,"Asplanchna",362,2506.15384615385,312.318902130687
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,13,"Brachionus",17,117.692307692308,14.6669097685682
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,13,"Copepod nauplii",10,69.2307692307692,8.6275939815107
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,13,"Euchlanis",1,6.92307692307692,0.86275939815107
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,13,"Lepadella",1,6.92307692307692,0.86275939815107
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,13,"Platyias",2,13.8461538461538,1.72551879630214
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,13,"Rotifer",8,55.3846153846154,6.90207518520856
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,3.3,"Acanthocyclops adult",5,101.515151515152,5.58590715834342
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,3.3,"Acanthocyclops copepodid",1,20.3030303030303,1.11718143166868
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,3.3,"Alona",2,40.6060606060606,2.23436286333737
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,3.3,"Bosmina",33,670,36.8669872450665
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,3.3,"Calanoida copepodid",10,203.030303030303,11.1718143166868
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,3.3,"Ceriodaphnia",7,142.121212121212,7.82027002168078
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,3.3,"Chydorus",5,101.515151515152,5.58590715834342
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,3.3,"Cyclopoida copepodid",127,2578.48484848485,141.882041821923
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,3.3,"Daphnia",4,81.2121212121212,4.46872572667473
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,3.3,"Diacyclops thomasi",4,81.2121212121212,4.46872572667473
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,3.3,"Eurytemora carolleeae adult",1,20.3030303030303,1.11718143166868
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,3.3,"Graptoleberis",1,20.3030303030303,1.11718143166868
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,3.3,"Harpacticoida",1,20.3030303030303,1.11718143166868
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,3.3,"Monospilus",5,101.515151515152,5.58590715834342
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,3.3,"Sinocalanus doerrii adult",3,60.9090909090909,3.35154429500605
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,5,"Brachionus",9,120.6,6.63605770411198
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,5,"Copepod nauplii",9,120.6,6.63605770411198
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,5,"Keratella",3,40.2,2.21201923470399
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,5,"Ostracoda",1,13.4,0.737339744901331
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Acanthocyclops adult",6,65.25,10.996895623957
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Acanthocyclops copepodid",3,32.625,5.49844781197849
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Alona",1,10.875,1.83281593732616
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Bosmina",23,250.125,42.1547665585018
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Calanoida copepodid",12,130.5,21.993791247914
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Ceriodaphnia",3,32.625,5.49844781197849
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Chydorus",11,119.625,20.1609753105878
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Copepod nauplii",8,87,14.6625274986093
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Cyclopoida copepodid",117,1272.375,214.439464667161
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Daphnia",6,65.25,10.996895623957
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Diacyclops thomasi",15,163.125,27.4922390598925
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Eurytemora carolleeae adult",1,10.875,1.83281593732616
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Eurytemora carolleeae copepodid",1,10.875,1.83281593732616
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Graptoleberis",1,10.875,1.83281593732616
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Harpacticoida",2,21.75,3.66563187465233
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Hydrachnidia",1,10.875,1.83281593732616
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Macrocyclops",2,21.75,3.66563187465233
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Macrothrix",1,10.875,1.83281593732616
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Mesocyclops edax",1,10.875,1.83281593732616
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Microcyclops rubellus",1,10.875,1.83281593732616
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Monospilus",2,21.75,3.66563187465233
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Nematoda",1,10.875,1.83281593732616
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Ostracoda",1,10.875,1.83281593732616
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Pseudodiaptomus forbesi adult",5,54.375,9.16407968663083
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Rotifer",2,21.75,3.66563187465233
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Sinocalanus doerrii adult",1,10.875,1.83281593732616
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Acanthocyclops adult",1,13.9285714285714,2.23262810956148
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Alona",2,27.8571428571429,4.46525621912297
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Bivalvia veliger",1,13.9285714285714,2.23262810956148
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Bosmina",17,236.785714285714,37.9546778625452
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Calanoida copepodid",69,961.071428571429,154.051339559742
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Ceriodaphnia",4,55.7142857142857,8.93051243824593
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Chydorus",14,195,31.2567935338608
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Copepod nauplii",8,111.428571428571,17.8610248764919
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Cyclopoida copepodid",73,1016.78571428571,162.981851997988
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Daphnia",3,41.7857142857143,6.69788432868445
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Diacyclops thomasi",6,83.5714285714286,13.3957686573689
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Eurytemora carolleeae adult",3,41.7857142857143,6.69788432868445
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Eurytemora carolleeae copepodid",4,55.7142857142857,8.93051243824593
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Harpacticoida",3,41.7857142857143,6.69788432868445
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Ilyocryptus",1,13.9285714285714,2.23262810956148
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Insecta larvae",2,27.8571428571429,4.46525621912297
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Macrocyclops",1,13.9285714285714,2.23262810956148
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Monospilus",2,27.8571428571429,4.46525621912297
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Nematoda",1,13.9285714285714,2.23262810956148
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Ostracoda",3,41.7857142857143,6.69788432868445
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Picripleuroxus",1,13.9285714285714,2.23262810956148
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Sinocalanus doerrii adult",2,27.8571428571429,4.46525621912297
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Sinocalanus doerrii copepodid",2,27.8571428571429,4.46525621912297
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Tropocyclops",2,27.8571428571429,4.46525621912297
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Acanthocyclops adult",7,44.9166666666667,5.74315205927482
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Acanthocyclops copepodid",1,6.41666666666667,0.820450294182117
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Alona",2,12.8333333333333,1.64090058836423
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Amphipoda",1,6.41666666666667,0.820450294182117
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Bosmina",21,134.75,17.2294561778244
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Calanoida copepodid",58,372.166666666667,47.5861170625628
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Camptocercus",1,6.41666666666667,0.820450294182117
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Chydorus",13,83.4166666666667,10.6658538243675
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Copepod nauplii",10,64.1666666666667,8.20450294182117
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Cyclopoida copepodid",61,391.416666666667,50.0474679451091
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Daphnia",2,12.8333333333333,1.64090058836423
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Diacyclops thomasi",4,25.6666666666667,3.28180117672847
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Eurytemora carolleeae adult",1,6.41666666666667,0.820450294182117
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Harpacticoida",9,57.75,7.38405264763905
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Hydrachnidia",1,6.41666666666667,0.820450294182117
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Macrocyclops",3,19.25,2.46135088254635
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Monospilus",3,19.25,2.46135088254635
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Ostracoda",7,44.9166666666667,5.74315205927482
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Sinocalanus doerrii adult",12,77,9.8454035301854
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Sinocalanus doerrii copepodid",8,51.3333333333333,6.56360235345693
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,2,"Alona",2,83,2.74846701318011
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,2,"Bosmina",48,1992,65.9632083163226
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,2,"Calanoida copepodid",76,3154,104.441746500844
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,2,"Ceriodaphnia",4,166,5.49693402636022
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,2,"Chydorus",6,249,8.24540103954033
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,2,"Cyclopoida copepodid",33,1369.5,45.3497057174718
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,2,"Diacyclops thomasi",1,41.5,1.37423350659006
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,2,"Eurytemora carolleeae adult",26,1079,35.7300711713414
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,2,"Eurytemora carolleeae copepodid",55,2282.5,75.582842862453
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,2,"Macrothrix",1,41.5,1.37423350659006
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,2,"Sinocalanus doerrii adult",2,83,2.74846701318011
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,2,"Sinocalanus doerrii copepodid",2,83,2.74846701318011
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,6,"Brachionus",30,415,13.7423350659005
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,6,"Copepod nauplii",10,138.333333333333,4.58077835530018
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,6,"Euchlanis",2,27.6666666666667,0.916155671060037
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,6,"Ostracoda",4,55.3333333333333,1.83231134212007
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,6,"Rotifer",1,13.8333333333333,0.458077835530018
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Acanthocyclops adult",1,18,2.24317443519278
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Annelida",1,18,2.24317443519278
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Bosmina",25,450,56.0793608798195
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Calanoida copepodid",4,72,8.97269774077112
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Ceriodaphnia",9,162,20.188569916735
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Chydorus",9,162,20.188569916735
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Cyclopoida copepodid",127,2286,284.883153269483
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Daphnia",20,360,44.8634887038556
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Diacyclops thomasi",3,54,6.72952330557834
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Eucyclops pectinifer",1,18,2.24317443519278
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Graptoleberis",1,18,2.24317443519278
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Harpacticoida",2,36,4.48634887038556
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Ilyocryptus",1,18,2.24317443519278
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Kurzia",1,18,2.24317443519278
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Osphranticum labronectum",1,18,2.24317443519278
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Picripleuroxus",1,18,2.24317443519278
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Simocephalus",1,18,2.24317443519278
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,5,"Tardigrada",2,36,4.48634887038556
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,13,"Asplanchna",362,2506.15384615385,312.318902130687
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,13,"Brachionus",17,117.692307692308,14.6669097685682
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,13,"Copepod nauplii",10,69.2307692307692,8.6275939815107
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,13,"Euchlanis",1,6.92307692307692,0.86275939815107
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,13,"Lepadella",1,6.92307692307692,0.86275939815107
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,13,"Platyias",2,13.8461538461538,1.72551879630214
+"Feeding Study","Rio Vista",2022-02-08,NA,"Tow",683668,682958,710,8.02434251995791,90,13,"Rotifer",8,55.3846153846154,6.90207518520856
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,3.3,"Acanthocyclops adult",5,101.515151515152,5.58590715834342
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,3.3,"Acanthocyclops copepodid",1,20.3030303030303,1.11718143166868
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,3.3,"Alona",2,40.6060606060606,2.23436286333737
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,3.3,"Bosmina",33,670,36.8669872450665
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,3.3,"Calanoida copepodid",10,203.030303030303,11.1718143166868
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,3.3,"Ceriodaphnia",7,142.121212121212,7.82027002168078
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,3.3,"Chydorus",5,101.515151515152,5.58590715834342
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,3.3,"Cyclopoida copepodid",127,2578.48484848485,141.882041821923
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,3.3,"Daphnia",4,81.2121212121212,4.46872572667473
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,3.3,"Diacyclops thomasi",4,81.2121212121212,4.46872572667473
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,3.3,"Eurytemora carolleeae adult",1,20.3030303030303,1.11718143166868
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,3.3,"Graptoleberis",1,20.3030303030303,1.11718143166868
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,3.3,"Harpacticoida",1,20.3030303030303,1.11718143166868
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,3.3,"Monospilus",5,101.515151515152,5.58590715834342
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,3.3,"Sinocalanus doerrii adult",3,60.9090909090909,3.35154429500605
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,5,"Brachionus",9,120.6,6.63605770411198
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,5,"Copepod nauplii",9,120.6,6.63605770411198
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,5,"Keratella",3,40.2,2.21201923470399
+"Feeding Study","Rio Vista",2022-02-10,NA,"Tow",682827,681219,1608,18.1734405240737,67,5,"Ostracoda",1,13.4,0.737339744901331
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Acanthocyclops adult",6,65.25,10.996895623957
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Acanthocyclops copepodid",3,32.625,5.49844781197849
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Alona",1,10.875,1.83281593732616
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Bosmina",23,250.125,42.1547665585018
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Calanoida copepodid",12,130.5,21.993791247914
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Ceriodaphnia",3,32.625,5.49844781197849
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Chydorus",11,119.625,20.1609753105878
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Copepod nauplii",8,87,14.6625274986093
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Cyclopoida copepodid",117,1272.375,214.439464667161
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Daphnia",6,65.25,10.996895623957
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Diacyclops thomasi",15,163.125,27.4922390598925
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Eurytemora carolleeae adult",1,10.875,1.83281593732616
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Eurytemora carolleeae copepodid",1,10.875,1.83281593732616
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Graptoleberis",1,10.875,1.83281593732616
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Harpacticoida",2,21.75,3.66563187465233
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Hydrachnidia",1,10.875,1.83281593732616
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Macrocyclops",2,21.75,3.66563187465233
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Macrothrix",1,10.875,1.83281593732616
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Mesocyclops edax",1,10.875,1.83281593732616
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Microcyclops rubellus",1,10.875,1.83281593732616
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Monospilus",2,21.75,3.66563187465233
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Nematoda",1,10.875,1.83281593732616
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Ostracoda",1,10.875,1.83281593732616
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Pseudodiaptomus forbesi adult",5,54.375,9.16407968663083
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Rotifer",2,21.75,3.66563187465233
+"Feeding Study","Rio Vista",2022-02-16,NA,"Tow",681175,680650,525,5.93349270841958,87,8,"Sinocalanus doerrii adult",1,10.875,1.83281593732616
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Acanthocyclops adult",1,13.9285714285714,2.23262810956148
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Alona",2,27.8571428571429,4.46525621912297
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Bivalvia veliger",1,13.9285714285714,2.23262810956148
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Bosmina",17,236.785714285714,37.9546778625452
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Calanoida copepodid",69,961.071428571429,154.051339559742
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Ceriodaphnia",4,55.7142857142857,8.93051243824593
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Chydorus",14,195,31.2567935338608
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Copepod nauplii",8,111.428571428571,17.8610248764919
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Cyclopoida copepodid",73,1016.78571428571,162.981851997988
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Daphnia",3,41.7857142857143,6.69788432868445
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Diacyclops thomasi",6,83.5714285714286,13.3957686573689
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Eurytemora carolleeae adult",3,41.7857142857143,6.69788432868445
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Eurytemora carolleeae copepodid",4,55.7142857142857,8.93051243824593
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Harpacticoida",3,41.7857142857143,6.69788432868445
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Ilyocryptus",1,13.9285714285714,2.23262810956148
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Insecta larvae",2,27.8571428571429,4.46525621912297
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Macrocyclops",1,13.9285714285714,2.23262810956148
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Monospilus",2,27.8571428571429,4.46525621912297
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Nematoda",1,13.9285714285714,2.23262810956148
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Ostracoda",3,41.7857142857143,6.69788432868445
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Picripleuroxus",1,13.9285714285714,2.23262810956148
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Sinocalanus doerrii adult",2,27.8571428571429,4.46525621912297
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Sinocalanus doerrii copepodid",2,27.8571428571429,4.46525621912297
+"Feeding Study","Rio Vista",2022-02-22,NA,"Tow",680506,679954,552,6.23864376199545,78,5.6,"Tropocyclops",2,27.8571428571429,4.46525621912297
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Acanthocyclops adult",7,44.9166666666667,5.74315205927482
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Acanthocyclops copepodid",1,6.41666666666667,0.820450294182117
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Alona",2,12.8333333333333,1.64090058836423
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Amphipoda",1,6.41666666666667,0.820450294182117
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Bosmina",21,134.75,17.2294561778244
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Calanoida copepodid",58,372.166666666667,47.5861170625628
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Camptocercus",1,6.41666666666667,0.820450294182117
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Chydorus",13,83.4166666666667,10.6658538243675
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Copepod nauplii",10,64.1666666666667,8.20450294182117
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Cyclopoida copepodid",61,391.416666666667,50.0474679451091
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Daphnia",2,12.8333333333333,1.64090058836423
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Diacyclops thomasi",4,25.6666666666667,3.28180117672847
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Eurytemora carolleeae adult",1,6.41666666666667,0.820450294182117
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Harpacticoida",9,57.75,7.38405264763905
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Hydrachnidia",1,6.41666666666667,0.820450294182117
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Macrocyclops",3,19.25,2.46135088254635
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Monospilus",3,19.25,2.46135088254635
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Ostracoda",7,44.9166666666667,5.74315205927482
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Sinocalanus doerrii adult",12,77,9.8454035301854
+"Feeding Study","Rio Vista",2022-03-01,NA,"Tow",679912,679220,692,7.82090848424067,77,12,"Sinocalanus doerrii copepodid",8,51.3333333333333,6.56360235345693
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,2,"Alona",2,83,2.74846701318011
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,2,"Bosmina",48,1992,65.9632083163226
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,2,"Calanoida copepodid",76,3154,104.441746500844
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,2,"Ceriodaphnia",4,166,5.49693402636022
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,2,"Chydorus",6,249,8.24540103954033
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,2,"Cyclopoida copepodid",33,1369.5,45.3497057174718
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,2,"Diacyclops thomasi",1,41.5,1.37423350659006
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,2,"Eurytemora carolleeae adult",26,1079,35.7300711713414
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,2,"Eurytemora carolleeae copepodid",55,2282.5,75.582842862453
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,2,"Macrothrix",1,41.5,1.37423350659006
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,2,"Sinocalanus doerrii adult",2,83,2.74846701318011
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,2,"Sinocalanus doerrii copepodid",2,83,2.74846701318011
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,6,"Brachionus",30,415,13.7423350659005
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,6,"Copepod nauplii",10,138.333333333333,4.58077835530018
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,6,"Euchlanis",2,27.6666666666667,0.916155671060037
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,6,"Ostracoda",4,55.3333333333333,1.83231134212007
+"Feeding Study","Rio Vista",2022-03-09,NA,"Tow",679200,676528,2672,30.1986524131374,83,6,"Rotifer",1,13.8333333333333,0.458077835530018
