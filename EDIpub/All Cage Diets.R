@@ -25,7 +25,7 @@ diet2024 = read_xlsx("~/Data/Delta Smelt Cage Studies/Analysis/Data/Delta Smelt 
   mutate(Date = as.Date(Date), 
          Month = as.factor(month(Date)), 
          Year = as.factor(year(Date)), 
-         'CageID' = as.character(`Cage ID`), 
+         'Enclosure' = as.character(`Cage ID`), 
          Study = "SMSCG", 
          StudyCode = "SMS") %>% 
   mutate(`FishID` = paste(Year, StudyCode, Tag, sep = "_")) #create a fish ID so can be conected to other files
@@ -45,7 +45,7 @@ diet2023 = read_xlsx("~/Data/Delta Smelt Cage Studies/Analysis/Data/Delta Smelt 
   mutate(Date = as.Date(Date), 
          Month = as.factor(month(Date)), 
          Year = as.factor(Year), 
-         CageID = as.character(`Cage ID`), 
+         Enclosure = as.character(`Cage ID`), 
          Study = "Biofouling Study", 
          StudyCode = "BFS") %>%
   mutate(`FishID` = paste(Year, StudyCode, Tag, sep = "_")) %>%  #create a fish ID so can be conected to other files
@@ -58,6 +58,7 @@ n2023 = diet2023 %>%
 ##2022-----
 
 diet2022 = read_xlsx("~/Data/Delta Smelt Cage Studies/Analysis/Data/Delta Smelt Cage Diets 2019-2024_CEB.xlsx", sheet = "2022") %>% 
+  mutate(`Prey Taxa` = if_else(`Prey Taxa` == "naupli" & `Cage ID` == "FCCL Control" , "Artemia", `Prey Taxa`)) %>% #Ariella had to use copepod nauplii code for artemia so renaming so the taxa is represented correctly
   mutate("Prey Taxa LH Stage" = paste(`Prey Taxa`, `LH Stage`, sep = " ")) %>%  #add the taxa and life stages together to one column. 
   mutate(Date = as.Date(Date), 
          Month = as.factor(month(Date)), 
@@ -65,9 +66,10 @@ diet2022 = read_xlsx("~/Data/Delta Smelt Cage Studies/Analysis/Data/Delta Smelt 
          Site = "Rio Vista", #add a column adding that it was done in RV
          Study = "Feeding Study",  #add a column that specifies its the feeding experiment
          StudyCode = "FDS") %>% 
-  mutate(`FishID` = paste(Year, StudyCode, Tag, sep = "_")) %>%  #create a fish ID so can be conected to other files
-  rename(CageID = `Cage ID`, 
-         Treatment = `Feed Experiment`)  #change the type of feed column to treatment to match the biofouling
+  mutate(`FishID` = paste(Year, StudyCode, Tag, sep = "_")) %>%  #create a fish ID so can be connected to other files
+  rename(Enclosure = `Cage ID`, 
+         Treatment = `Feed Experiment`)   #change the type of feed column to treatment to match the biofouling
+
 
 n2022 = diet2022 %>% 
   select(`FishID`) %>% 
@@ -80,7 +82,7 @@ dups22 = diet2022%>%
   summarize(n = n()) %>% 
   filter(n>1)
 
-#6 duplicates. 
+#5 duplicates. 
 
 ##2021----
 
@@ -91,16 +93,16 @@ diet2021 = read_xlsx("~/Data/Delta Smelt Cage Studies/Analysis/Data/Delta Smelt 
   rename(Site = Location, 
          Study = Experiment, 
          "TaxaWeight" = `Taxa weight`, 
-         CageID = `Cage ID`) %>% 
+         Enclosure = `Cage ID`) %>% 
   mutate(Date = as.Date(Date), 
          Month = as.factor(month(Date)), 
          Year = as.factor(year(Date)), 
          Study = "Domestication/Behavior", 
          StudyCode = "DBS") %>% 
-  mutate(Treatment = case_when(str_detect(`CageID`, "C") ~ "High",
-                               str_detect(`CageID`, "D") ~ "Low", 
-                               str_detect(`CageID`, "E") ~ "High")) %>% 
-  mutate(`FishID` = paste(Year, StudyCode, Tag, sep = "_"))
+  mutate(Treatment = case_when(str_detect(`Enclosure`, "C") ~ "High",
+                               str_detect(`Enclosure`, "D") ~ "Low", 
+                               str_detect(`Enclosure`, "E") ~ "High")) %>% 
+  mutate(`FishID` = paste(Year, StudyCode, "DSM", Date, Tag, sep = "_"))
 
 n2021 = diet2021 %>% 
   select(`FishID`) %>% 
@@ -117,29 +119,29 @@ diet2019 = read_xlsx("~/Data/Delta Smelt Cage Studies/Analysis/Data/Delta Smelt 
   mutate("Prey Taxa LH Stage" = paste(`Prey Taxa`, `LH Stage`, sep = " ")) %>%  
   rename(Site = Location, 
          Study = Experiment, 
-         CageID = `Cage ID`, 
+         Enclosure = `Cage ID`, 
          TaxaWeight = 'Taxa Weight') %>% 
   mutate(Date = as.Date(Date), 
          Month = as.factor(month(Date)), 
          Year = as.factor(year(Date)), 
          Study = case_when(Date %in% c("2019-11-06","2019-11-07") ~ "Suisun Marsh Pilot",
-                  Date %in% c("2019-08-28") ~ "North Delta Pilot",
-                  .default = "Enclosure Prototype"), 
+                           Date %in% c("2019-08-28") ~ "North Delta Pilot",
+                           Date %in% c("2019-03-27", "2019-03-22") ~ "Enclosure Prototype SDWSC",
+                           Date %in% c("2019-02-25", "2019-02-21") ~ "Enclosure Prototype RV",
+                           .default = "Enclosure Prototype"), 
          StudyCode = case_match(Study, "Suisun Marsh Pilot" ~ "SMP", 
                                 "North Delta Pilot" ~ "NDP", 
-                                "Enclosure Prototype" ~ "ENP" )) %>% 
-  mutate(StudyCode = case_when(StudyCode == "ENP" & Site == "Sac DWSC" ~ "ENPSDWSC", 
-                               StudyCode == "ENP" & Site == "RIVERS" ~ "ENPRV", 
-                               .default = StudyCode)) %>% 
-  mutate(Treatment = case_match(`CageID`, "A" ~ "Wrap", 
+                                "Enclosure Prototype RV" ~ "ENPRV", 
+                                "Enclosure Prototype SDWSC" ~ "ENPSDWSC")) %>% 
+  mutate(Treatment = case_match(`Enclosure`, "A" ~ "Wrap", 
                                 "B"~ "Large", 
                                 "C" ~ "Small", 
                                 "D" ~ "Small", 
                                 "E" ~ "Wrap", 
                                 "F" ~ "Large"),
-         Treatment = case_when(str_detect(`CageID`, "FCCL") ~ "Control", 
+         Treatment = case_when(str_detect(`Enclosure`, "FCCL") ~ "Control", 
                                .default = Treatment)) %>% 
-  mutate(`FishID` = paste(Year, StudyCode, Tag, sep = "_"))
+    mutate(`FishID` = paste(Year, StudyCode, Tag, sep = "_"))
 
 n2019 = diet2019 %>% 
   select(`FishID`) %>% 
@@ -165,7 +167,7 @@ stomachs2024 = read_xlsx("~/Data/Delta Smelt Cage Studies/Analysis/Data/DSM Cage
   mutate(Date = as.Date(Date), 
          Year = as.factor(year(Date)),
          StudyCode = "SMS", 
-         CageID = as.character(`Cage ID`)) %>% 
+         Enclosure = as.character(`Cage ID`)) %>% 
   mutate(`FishID` = paste(Year, StudyCode, Tag, sep = "_")) %>% 
   mutate("Prey Taxa LH Stage" = paste(`Prey Taxa`, `LH Stage`, sep = " ")) %>%  #need to have this so I can join the diets without it freaking out
   rename("FullStomachWeight" = `Stomach weight (g) full`, 
@@ -174,13 +176,13 @@ stomachs2024 = read_xlsx("~/Data/Delta Smelt Cage Studies/Analysis/Data/DSM Cage
   mutate("StomachWeightDifference" = as.character(StomachWeightDifference), 
          "FullStomachWeight" = as.character(FullStomachWeight), 
          "EmptyStomachWeight" = as.character(EmptyStomachWeight)) %>% 
-  select(Year, Date, Tag, CageID, FishID, `FullStomachWeight`, `EmptyStomachWeight`, `StomachWeightDifference`,'Total Contents Weight', 'Prey Taxa LH Stage')
+  select(Year, Date, Tag, Enclosure, FishID, `FullStomachWeight`, `EmptyStomachWeight`, `StomachWeightDifference`,'Total Contents Weight', 'Prey Taxa LH Stage', Count)
 
 stomachs2023 = read_xlsx("~/Data/Delta Smelt Cage Studies/Analysis/Data/DSM Cage Diets 2019-2024 Stomach Wts_New.xlsx", sheet = "2023") %>% 
   mutate(Date = as.Date(Date), 
          Year = as.factor(year(Date)),
          StudyCode = "BFS", 
-         CageID = as.character(`Cage ID`)) %>% 
+         Enclosure = as.character(`Cage ID`)) %>% 
   mutate(`FishID` = paste(Year, StudyCode, Tag, sep = "_")) %>% 
   mutate("Prey Taxa LH Stage" = paste(`Prey Taxa`, `LH Stage`, sep = " ")) %>%  #need to have this so I can join the diets without it freaking out
   rename("FullStomachWeight" = `Stomach weight (g) full`, 
@@ -189,7 +191,7 @@ stomachs2023 = read_xlsx("~/Data/Delta Smelt Cage Studies/Analysis/Data/DSM Cage
   mutate("StomachWeightDifference" = as.character(StomachWeightDifference), 
          "FullStomachWeight" = as.character(FullStomachWeight), 
          "EmptyStomachWeight" = as.character(EmptyStomachWeight)) %>% 
-  select(Year, Date, Tag, CageID, FishID, `FullStomachWeight`, `EmptyStomachWeight`, `StomachWeightDifference`,'Total Contents Weight', 'Prey Taxa LH Stage')
+  select(Year, Date, Tag, Enclosure, FishID, `FullStomachWeight`, `EmptyStomachWeight`, `StomachWeightDifference`,'Total Contents Weight', 'Prey Taxa LH Stage', Count)
 
 
 
@@ -197,7 +199,7 @@ stomachs2022 = read_xlsx("~/Data/Delta Smelt Cage Studies/Analysis/Data/DSM Cage
   mutate(Date = as.Date(Date), 
          Year = as.factor(year(Date)),
          StudyCode = "FDS", 
-         CageID = as.character(`Cage ID`)) %>% 
+         Enclosure = as.character(`Cage ID`)) %>% 
   mutate(`FishID` = paste(Year, StudyCode, Tag, sep = "_")) %>% 
   mutate("Prey Taxa LH Stage" = paste(`Prey Taxa`, `LH Stage`, sep = " ")) %>%  #need to have this so I can join the diets without it freaking out
   rename("FullStomachWeight" = `Stomach weight (g) full`, 
@@ -206,14 +208,14 @@ stomachs2022 = read_xlsx("~/Data/Delta Smelt Cage Studies/Analysis/Data/DSM Cage
   mutate("StomachWeightDifference" = as.character(StomachWeightDifference), 
          "FullStomachWeight" = as.character(FullStomachWeight), 
          "EmptyStomachWeight" = as.character(EmptyStomachWeight)) %>% 
-  select(Year, Date, Tag, CageID, FishID, `FullStomachWeight`, `EmptyStomachWeight`, `StomachWeightDifference`,'Total Contents Weight', 'Prey Taxa LH Stage', Count)
+  select(Year, Date, Tag, Enclosure, FishID, `FullStomachWeight`, `EmptyStomachWeight`, `StomachWeightDifference`,'Total Contents Weight', 'Prey Taxa LH Stage', Count)
 
 
 stomachs2021 = read_xlsx("~/Data/Delta Smelt Cage Studies/Analysis/Data/DSM Cage Diets 2019-2024 Stomach Wts_New.xlsx", sheet = "2021") %>% 
   mutate(Date = as.Date(Date), 
          Year = as.factor(year(Date)),
          StudyCode = "DBS", 
-         CageID = as.character(`Cage ID`)) %>% 
+         Enclosure = as.character(`Cage ID`)) %>% 
   mutate(`FishID` = paste(Year, StudyCode, Tag, sep = "_")) %>% 
   mutate("Prey Taxa LH Stage" = paste(`Prey Taxa`, `LH Stage`, sep = " ")) %>%  #need to have this so I can join the diets without it freaking out
   rename("FullStomachWeight" = `Stomach weight (g) full`, 
@@ -222,7 +224,7 @@ stomachs2021 = read_xlsx("~/Data/Delta Smelt Cage Studies/Analysis/Data/DSM Cage
   mutate("StomachWeightDifference" = as.character(StomachWeightDifference), 
          "FullStomachWeight" = as.character(FullStomachWeight), 
          "EmptyStomachWeight" = as.character(EmptyStomachWeight)) %>% 
-  select(Year, Date, Tag, CageID, FishID, `FullStomachWeight`, `EmptyStomachWeight`, `StomachWeightDifference`,'Total Contents Weight', 'Prey Taxa LH Stage')
+  select(Year, Date, Tag, Enclosure, FishID, `FullStomachWeight`, `EmptyStomachWeight`, `StomachWeightDifference`,'Total Contents Weight', 'Prey Taxa LH Stage', Count)
 
 
 stomachs2019 = read_xlsx("~/Data/Delta Smelt Cage Studies/Analysis/Data/DSM Cage Diets 2019-2024 Stomach Wts_New.xlsx", sheet = "2019") %>% 
@@ -230,16 +232,14 @@ stomachs2019 = read_xlsx("~/Data/Delta Smelt Cage Studies/Analysis/Data/DSM Cage
          Study = Experiment) %>% 
   mutate(Date = as.Date(Date), 
          Year = as.factor(year(Date)),
-         CageID = as.character(`Cage ID`), 
+         Enclosure = as.character(`Cage ID`), 
          Study = case_when(Date %in% c("2019-11-06","2019-11-07") ~ "Suisun Marsh Pilot",
                            Date %in% c("2019-08-28") ~ "North Delta Pilot",
                            .default = "Enclosure Prototype"), 
          StudyCode = case_match(Study, "Suisun Marsh Pilot" ~ "SMP", 
                                 "North Delta Pilot" ~ "NDP", 
-                                "Enclosure Prototype" ~ "ENP" )) %>% 
-  mutate(StudyCode = case_when(StudyCode == "ENP" & Site == "Sac DWSC" ~ "ENPSDWSC", 
-                               StudyCode == "ENP" & Site == "RIVERS" ~ "ENPRV", 
-                               .default = StudyCode)) %>% 
+                                "Enclosure Prototype RV" ~ "ENPRV", 
+                                "Enclosure Prototype SDWSC" ~ "ENPSDWSC" )) %>% 
   mutate(`FishID` = paste(Year, StudyCode, Tag, sep = "_")) %>% 
   mutate("Prey Taxa LH Stage" = paste(`Prey Taxa`, `LH Stage`, sep = " ")) %>%  #need to have this so I can join the diets without it freaking out
   rename("FullStomachWeight" = `Stomach weight (g) full`, 
@@ -248,27 +248,63 @@ stomachs2019 = read_xlsx("~/Data/Delta Smelt Cage Studies/Analysis/Data/DSM Cage
   mutate("StomachWeightDifference" = as.character(StomachWeightDifference), 
          "FullStomachWeight" = as.character(FullStomachWeight), 
          "EmptyStomachWeight" = as.character(EmptyStomachWeight)) %>% 
-  select(Year, Date, Tag, CageID, FishID, `FullStomachWeight`, `EmptyStomachWeight`, `StomachWeightDifference`,'Total Contents Weight', 'Prey Taxa LH Stage', Count)
+  select(Year, Date, Tag, Enclosure, FishID, `FullStomachWeight`, `EmptyStomachWeight`, `StomachWeightDifference`,'Total Contents Weight', 'Prey Taxa LH Stage', Count)
+
+#want to combine the stomach weights to check for errors before moving into the larger dataset
+
+allstomachs = stomachs2024 %>% 
+  rbind(., stomachs2023) %>% 
+  rbind(., stomachs2022) %>% 
+  rbind(., stomachs2021) %>% 
+  rbind(., stomachs2019) %>% 
+  mutate(StomachWeightDifference = as.numeric(StomachWeightDifference)) #need to do this to be able to graph it
+
+#do a scatterplot to visualize errors with the stomach weights and total contents weight to remove any outliers
+
+stomplot = ggplot(data = allstomachs, aes(x =`Total Contents Weight`, y = StomachWeightDifference)) + 
+  geom_point(na.rm = TRUE)
+
+stomplot
+
+#a few outliers where the weight difference is high compared to total content weight. check out those
+
+stomerror = filter(allstomachs, StomachWeightDifference > 0.07)
+
+#all from 2019. RI84, RI44, RC48, S5C6N23
+
+#remove those from the dataset
+
+allstomachs2 = allstomachs %>% 
+  mutate(StomachWeightDifference= if_else(StomachWeightDifference > 0.07, NA, StomachWeightDifference)) 
+
+#test graph again
 
 
-###Diets with Weights by Year-----------
-#add to the diet data
-#doing this separately by year since I made a bunch of edits to the larger dataset after combing that I don't want to have to repeat with the stomach weights
+stomplot2 = ggplot(data = allstomachs2, aes(x =`Total Contents Weight`, y = StomachWeightDifference)) + 
+  geom_point(na.rm = TRUE)
 
-diet2024wt = diet2024 %>% 
-  left_join(., stomachs2024, by= c('Year', 'Date', 'Tag', 'CageID', 'FishID', 'Total Contents Weight', 'Prey Taxa LH Stage'))
+stomplot2
 
-diet2023wt = diet2023 %>% 
-  left_join(., stomachs2023, by= c('Year', 'Date', 'Tag', 'CageID', 'FishID', 'Total Contents Weight', 'Prey Taxa LH Stage'))
+#found that some stomachs had prey, but a total contents weight of zero.... likely ones where she didn't weigh the contents, fix that in the larger dataset with everything else.
 
-diet2022wt = diet2022 %>% 
-  left_join(., stomachs2022, by= c('Year', 'Date', 'Tag', 'CageID', 'FishID', 'Total Contents Weight', 'Prey Taxa LH Stage', 'Count'))
-
-diet2021wt = diet2021 %>% 
-  left_join(., stomachs2021, by= c('Year', 'Date', 'Tag', 'CageID', 'FishID', 'Total Contents Weight', 'Prey Taxa LH Stage'))
-
-diet2019wt = diet2019 %>% 
-  left_join(., stomachs2019, by= c('Year', 'Date', 'Tag', 'CageID', 'FishID', 'Total Contents Weight', 'Prey Taxa LH Stage', 'Count')) #need to add count since there's some funky data with duplicate taxa, but diff counts. Fix later
+# ##Diets with Weights by Year----------- #already combined all the stomachs so don't need to do this
+# #add to the diet data
+# #doing this separately by year since I made a bunch of edits to the larger dataset after combing that I don't want to have to repeat with the stomach weights
+# 
+# diet2024wt = diet2024 %>% 
+#   left_join(., stomachs2024, by= c('Year', 'Date', 'Tag', 'Enclosure', 'FishID', 'Total Contents Weight', 'Prey Taxa LH Stage'))
+# 
+# diet2023wt = diet2023 %>% 
+#   left_join(., stomachs2023, by= c('Year', 'Date', 'Tag', 'Enclosure', 'FishID', 'Total Contents Weight', 'Prey Taxa LH Stage'))
+# 
+# diet2022wt = diet2022 %>% 
+#   left_join(., stomachs2022, by= c('Year', 'Date', 'Tag', 'Enclosure', 'FishID', 'Total Contents Weight', 'Prey Taxa LH Stage', 'Count'))
+# 
+# diet2021wt = diet2021 %>% 
+#   left_join(., stomachs2021, by= c('Year', 'Date', 'Tag', 'Enclosure', 'FishID', 'Total Contents Weight', 'Prey Taxa LH Stage'))
+# 
+# diet2019wt = diet2019 %>% 
+#   left_join(., stomachs2019new, by= c('Year', 'Date', 'Tag', 'Enclosure', 'FishID', 'Total Contents Weight', 'Prey Taxa LH Stage', 'Count')) #need to add count since there's some funky data with duplicate taxa, but diff counts. Fix later
   
 #Combined Diet dataset-----
 
@@ -288,8 +324,11 @@ diet2019wt = diet2019 %>%
 
 #the counts for all the presence absence categories like plant material and such should be blank
 
-dietallwt = diet2024wt %>% 
-  bind_rows(diet2019wt, diet2021wt, diet2022wt,diet2023wt) %>% 
+#change it so all total contents weight that are zeros but have prey are changed to NA
+
+dietallwt = diet2024 %>% 
+  bind_rows(diet2023, diet2022, diet2021, diet2019) %>% 
+  left_join(., allstomachs2, by= c('Year', 'Date', 'Tag', 'Enclosure', 'FishID', 'Total Contents Weight', 'Prey Taxa LH Stage', 'Count'))%>% 
   rename(Taxon = `Prey Taxa LH Stage`,
          TotalContentsWeight = `Total Contents Weight`) %>% 
   mutate(Taxon = str_remove(Taxon, " NA"), 
@@ -333,8 +372,16 @@ dietallwt = diet2024wt %>%
                                              .default = `TotalContentsWeight`)) %>%   #changing any stomach weight that wasn't able to be weighed as NA instead of 0  
   mutate(Count= if_else(Taxon %in% c("Animal parts", "Amphipoda parts", "Plant material", "Digestive material", 
                                      "Detritis"), NA, Count)) %>%  #some of the presence/absence categories have 0 or 1 counts, replace with NA
-  select(Study, Site, Year, Month, Date, CageID, Treatment, FishID, Tag, Error, Empty, Fullness, Digestion, FullStomachWeight:StomachWeightDifference, TotalContentsWeight, Taxon, Count, `TaxaWeight`, Comments)
+  select(Study, Site, Year, Month, Date, Enclosure, Treatment, FishID, Tag, Error, Empty, Fullness, Digestion, FullStomachWeight:StomachWeightDifference, TotalContentsWeight, Taxon, Count, `TaxaWeight`, Comments) 
 
+#check the stomach weights again for any outliers
+
+stomplot3 = ggplot(data = dietallwt, aes(x =`TotalContentsWeight`, y = StomachWeightDifference)) + 
+  geom_point(na.rm = TRUE)
+
+stomplot3
+
+#Woot, looks a lot better
 
 #Taxa Names-----
 
@@ -346,7 +393,7 @@ taxanames = dietallwt %>%
 
 #make a csv of just the taxa names
 
-write.csv(taxanames, "Outputs/cagedietuniquetaxa.csv", row.names = FALSE)
+write.csv(taxanames, "cagedietuniquetaxa.csv", row.names = FALSE)
 
 
 #Duplicates----
@@ -364,7 +411,7 @@ dupsall = dietallwt%>%
 #or I just group all of them and then summarize the counts
 
 dietnewwt = dietallwt %>% 
-  group_by(Study, Site, Year, Month, Date, CageID, Treatment, FishID, Tag, Error, Empty, Fullness, Digestion, FullStomachWeight, EmptyStomachWeight, StomachWeightDifference, TotalContentsWeight, Taxon, TaxaWeight, Comments) %>% 
+  group_by(Study, Site, Year, Month, Date, Enclosure, Treatment, FishID, Tag, Error, Empty, Fullness, Digestion, FullStomachWeight, EmptyStomachWeight, StomachWeightDifference, TotalContentsWeight, Taxon, TaxaWeight, Comments) %>% 
   summarise(sumcount = sum(Count, na.rm = TRUE))
 
 
@@ -414,14 +461,23 @@ n2019_2 = dietnewwt %>%
 dietedicsv = dietnewwt %>% 
   rename(Count = sumcount) %>% 
   ungroup() %>% 
-  select(Study:Year, Date:Taxon, Count, TaxaWeight, Comments)
+  select(Study:Year, Date:Taxon, Count, Comments)
 
 
-write.csv(dietedicsv, "Outputs/cagediets2019to2024.csv", row.names = FALSE)
+write.csv(dietedicsv, "EDIpub/cagediets2019to2024.csv", row.names = FALSE)
 
 
   
 ####################For Analysis to mess with later######################
+
+#want to bring back the taxa weight and month column for analysis since took it out for edi
+
+dietanalys = dietnewwt %>% 
+  rename(Count = sumcount) %>% 
+  ungroup() %>% 
+  select(Study:Taxon, Count, TaxaWeight, Comments)
+
+write.csv(dietanalys, "EDIpub/cagediets2019to2024_analysis.csv", row.names = FALSE)
 
 #Biomass + Group Prey Categories-----
   
