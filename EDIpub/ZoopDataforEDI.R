@@ -28,7 +28,7 @@ unique(zoopsEDI)
 
 #So first we need the rest of the 2019 zooplankton
 
-zoops2019 = read_csv("smelt_2019_allseasons/data_clean/zoop_abundance.csv")
+zoops2019 = read_csv("./smelt_2019_allseasons/data_clean/zoop_abundance.csv")
 names(zoops2019)
 #[1] "Location"          "Date"              "Method"            "TowDistance"       "SetTime"          
 #[6] "FlowMeterStart"    "FlowMeterEnd"      "Rotations"         "MeshSize"          "RingSize"         
@@ -40,11 +40,11 @@ names(zoops2019)
 unique(zoops2019$Date)
 #crap, this is also just spring
 
-zoops2019all = read_csv("smelt_2019_allseasons/data_raw/ZoopDataCombined_1.25.22_qaqc'ed.csv")
+zoops2019all = read_csv("./smelt_2019_allseasons/data_raw/ZoopDataCombined_1.25.22_qaqc'ed.csv")
 unique(zoops2019all$Date...3)
 #nope, that's also jsut spring
 
-zoops2019sumfall = read_csv("smelt_2019_allseasons/data_raw/ZoopData_SummerFall_2019.csv")
+zoops2019sumfall = read_csv("./smelt_2019_allseasons/data_raw/ZoopData_SummerFall_2019.csv")
 unique(zoops2019sumfall$Date)
 # names(zoops2019sumfall)
 # [1] "Station"        "Date"           "MeshSize"       "RingSize_cm"    "TotalVolume_ml" "Subsampled_ml" 
@@ -83,7 +83,7 @@ zoops2019sumfalled = zoops2019sumfall %>%
 
 test = filter(zoops2019sumfalled, Taxon == "Rotifers")
 
-zoops2023 = read_excel("biofouling/ICF_zoops_data_cages.xlsx", sheet = "Zoop Data")
+zoops2023 = read_excel("./biofouling/ICF_zoops_data_cages.xlsx", sheet = "Zoop Data")
 names(zoops2023)
 # [1] "Location"            "Date"                "Time"                "Site"                "ID'd By"            
 # [6] "ID Date"             "Sample Volume (mL)"  "Pipette Volume (mL)" "# of Subsamples"     "Species Name"       
@@ -98,7 +98,7 @@ zoops2023ed = zoops2023 %>%
          Count, AdjCount, CPUE)
 
 
-zoops2024 =  read_excel(("smelt_2024_SMSCGs/DWR_CageZoop_2024_Complete_TEC_12.10.24_corrected.xlsx"), sheet = "Zoop Data")
+zoops2024 =  read_excel("./smelt_2024_SMSCGs/DWR_CageZoop_2024_Complete_TEC_12.10.24_corrected.xlsx", sheet = "Zoop Data")
 names(zoops2024)
 # [1] "Location"            "Date"                "Time"                "Site"                "ID'd By"            
 # [6] "ID Date"             "Sample Volume (mL)"  "Pipette Volume (mL)" "# of Subsamples"     "Species Name"       
@@ -168,7 +168,8 @@ allzoops = mutate(allzoops, Taxon = str_remove(Taxon, " spp"),
                                         "Yolo" ~ "Yolo Bypass",
                                     .default = Site),
                   Study = NA,
-                  Study = case_when(Date < ymd("2019-4-1") ~ "Enclosure Prototype",
+                  Study = case_when(Date < ymd("2019-4-1") & Site == "SDWSC" ~ "Enclosure Prototype SDWSC",
+                                    Date < ymd("2019-4-1") & Site == "Rio Vista" ~ "Enclosure Prototype RV",
                                     is.na(Study) & Date < ymd("2019-9-1") ~ "North Delta Pilot",
                                     is.na(Study) & Date < ymd("2019-11-10") ~ "Suisun Marsh Pilot",
                                     is.na(Study) & Date < ymd("2023-12-10") ~ "Biofouling Study",
