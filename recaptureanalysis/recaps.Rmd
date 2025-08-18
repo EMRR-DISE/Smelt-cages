@@ -37,7 +37,7 @@ Fist let's calculate distance from release location to recapture location.
 #Bring in the data and check it out
 
 
-recaps = read_excel("data/Running Delta Smelt Catch_2023-09-05.xlsx", 
+recaps = read_excel("data/Running Delta Smelt Catch.xlsx", 
                     sheet = "Delta Smelt Catch Data") %>%
   rename( Latitude= `LatitudeStart`, Longitude = `LongitudeStart`)
 
@@ -55,9 +55,10 @@ recaps2 = left_join(recaps, select(release, -TotalReleased), by = "ReleaseEvent"
   mutate(DaysSinceRelease = SampleDate - ReleaseDate,
          Type = case_when(ReleaseMethod == "Unknown" ~ "Unknown",
                           ReleaseMethod == "NA" ~ "Wild/unmarked",
-                          TRUE ~ Type))
+                          TRUE ~ Type)) %>%
+  select(-c(`...25`:`...32`))
 
-str(recaps)
+str(recaps2)
 
 
 
@@ -239,6 +240,8 @@ ggplot(filter(recaps3, Type != "Wild/unmarked"), aes(x = Type2, y = Distance))+
   theme_bw()
 
 ```
+
+
 ```{r}
 
 ggplot(filter(recaps3, Type != "Wild", BroodYear != 2024), aes(x = Type2, y = Distance))+ 
@@ -250,6 +253,8 @@ ggplot(filter(recaps3, Type != "Wild", BroodYear != 2024), aes(x = Type2, y = Di
   theme_bw()
 
 ```
+
+
 ```{r}
 
 tots2023 = filter(recaps3, Type != "Wild/unmarked", BroodYear == 2023) %>%
@@ -608,7 +613,15 @@ releasestat = left_join(releasestat, turbdat_ave, by = c("ReleaseDate" = "Date")
 turbm = lm(RecapRate ~ weekturb + Type2, data = releasestat)
 summary(turbm)
 plot(allEffects(turbm))
-#Huh, so percentage recaptures is correlated to turbidity (marginal), but not release type. Distance is correlated to release type, but not turbidity.
+#Huh, so percentage recaptures is highly to turbidityy.
+
+turbm2 = lmer(RecapRate ~ log(weekturb) + (1|BroodYear), data = releasestat)
+summary(turbm2)
+plot(allEffects(turbm2))
+
+ggplot(releasestat, aes(x = log(weekturb), y = RecapRate))+
+  geom_point(aes(shape = as.factor(BroodYear)))+ geom_smooth(method = "lm")
+
 
 #what if i just use the paired hard/soft releases?
 #oh, but some of the pairs are trailer and some are carboy 
