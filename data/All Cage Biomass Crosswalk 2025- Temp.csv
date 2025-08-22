@@ -1,0 +1,217 @@
+Taxon,Life History Stage,Taxa Group,Carbon Weight,Notes,Taxonomic level,Class,Order,Family,Genus,Species
+Acanthocyclops,Undifferentiated,Other Cyclopoid,3.36,Use Adult Value,Genus,Copepoda,Cyclopoida,Cyclopidae,Acanthocyclops,
+Acanthocyclops adult,Adult,Other Cyclopoid,3.36,,Genus,Copepoda,Cyclopoida,Cyclopidae,Acanthocyclops,
+Acanthocyclops copepodid,Juvenile,Other Cyclopoid,1.68,Half Acantho adult,Genus,Copepoda,Cyclopoida,Cyclopidae,Acanthocyclops,
+Acari,Undifferentiated,Other,NA,,Subclass,Acari,,,,
+Acartia,Undifferentiated,Other Calanoid,2.98,,Genus,Copepoda,Calanoida,Acartiidae,Acartia,
+Acartia copepodid,Juvenile,Other Calanoid,1.3,,Genus,Copepoda,Calanoida,Acartiidae,Acartia,
+Acartiella copepodid,Juvenile,Acartiella,1.16,,Genus,Copepoda,Calanoida,Acartiidae,Acartiella,
+Acartiella sinensis,Undifferentiated,Acartiella,2.67,,Species,Copepoda,Calanoida,Acartiidae,Acartiella,Acartiella sinensis
+Acartiella sinensis adult,Adult,Acartiella,2.67,,Species,Copepoda,Calanoida,Acartiidae,Acartiella,Acartiella sinensis
+Alona,Undifferentiated,Cladoceran,1,,Genus,Branchiopoda,Cladocera,Chydoridae,Alona,
+Alona/Alonella,Undifferentiated,Cladoceran,1,,Genus,Branchiopoda,Cladocera,Chydoridae,,
+Alonella,Undifferentiated,Cladoceran,1,,Genus,Branchiopoda,Cladocera,Chydoridae,Alonella,
+Americorophium,Undifferentiated,Amphipod,,LW,Genus,Malacostraca,Amphipoda,Corophiidae,Americorophium,
+Americorophium juvenile,Juvenile,Amphipod,,LW,Genus,Malacostraca,Amphipoda,Corophiidae,Americorophium,
+Americorophium spinicorne,Undifferentiated,Amphipod,,LW,Species,Malacostraca,Amphipoda,Corophiidae,Americorophium,Americorophium spinicorne
+Americorophium spinicorne adult,Adult,Amphipod,,LW,Species,Malacostraca,Amphipoda,Corophiidae,Americorophium,Americorophium spinicorne
+Americorophium spinicorne juvenile,Juvenile,Amphipod,,LW,Species,Malacostraca,Amphipoda,Corophiidae,Americorophium,Americorophium spinicorne
+Amphipoda,Undifferentiated,Amphipod,,LW,Order,Malacostraca,Amphipoda,,,
+Amphipoda parts,Undifferentiated,Amphipod,,LW,Order,Malacostraca,Amphipoda,,,
+Anchistropus,Undifferentiated,Cladoceran,1,,Genus,Branchiopoda,Diplostraca,Chydoridae,Anchistropus,
+Animal parts,Undifferentiated,NA,NA,,NA,,,,,
+Annelida,Undifferentiated,Worm,NA,,Phylum,,,,,
+Aphididae (winged) adult,Adult,Insect,NA,,Family,Insecta,Hemiptera,Aphididae,,
+Arthropoda parts,Undifferentiated,NA,NA,,Phylum,,,,,
+Asplanchna,Undifferentiated,Rotifer,0.3,,Genus,Eurotatoria,Ploima,Asplanchnidae,Asplanchna,
+Barnacle nauplii,Larva,Other,3.8,,Class,Cirripedia,,,,
+Bivalvia,Undifferentiated,Other,NA,,Class,Bivalvia,,,,
+Bivalvia juvenile,Juvenile,Other,NA,,Class,Bivalvia,,,,
+Bivalvia veliger,Larva,Other,NA,,Class,Bivalvia,,,,
+Bosmina,Undifferentiated,Cladoceran,0.6,,Genus,Branchiopoda,Cladocera,Bosminidae,Bosmina,
+Brachionus,Undifferentiated,Rotifer,0.1,,Genus,Eurotatoria,Ploima,Brachionidae,Brachionus,
+Calanoida,Undifferentiated,Other Calanoid,3,,Order,Copepoda,Calanoida,,,
+Calanoida adult,Adult,Other Calanoid,3,,Order,Copepoda,Calanoida,,,
+Calanoida copepodid,Juvenile,Other Calanoid,1.5,,Order,Copepoda,Calanoida,,,
+Calanoida nauplii,Larva,Copepod nauplii,0.1,,Order,Copepoda,Calanoida,,,
+Camptocercus,Undifferentiated,Cladoceran,1,,Genus,Branchiopoda,Diplostraca,Eurycercidae,Camptocercus,
+Ceriodaphnia,Undifferentiated,Cladoceran,1,,Genus,Branchiopoda,Cladocera,Daphniidae,Ceriodaphnia,
+Chironomidae adult,Adult,Chironomidae,,LW,Family,Insecta,Hymenoptera,Chalcidoidea,,
+Chironomidae emergent,Adult,Chironomidae,20.52,,Family,Insecta,Hymenoptera,Chalcidoidea,,
+Chironomidae larvae,Larva,Chironomidae,18.32,,Family,Insecta,Hymenoptera,Chalcidoidea,,
+Chironomidae pupae,Larva,Chironomidae,20.52,,Family,Insecta,Hymenoptera,Chalcidoidea,,
+Chydoridae,Undifferentiated,Cladoceran,1,,Family,Branchiopoda,Cladocera,Chydoridae,,
+Chydorus,Undifferentiated,Cladoceran,1,,Genus,Branchiopoda,Cladocera,Chydoridae,Chydorus,
+Cladocera,Undifferentiated,Cladoceran,1,,Order,Branchiopoda,Cladocera,,,
+Cladocera nauplii,Larva,Cladoceran,1,,Order,Branchiopoda,Cladocera,,,
+Copepod nauplii,Larva,Copepod nauplii,0.1,,Class,Copepoda,,,,
+Copepoda,Undifferentiated,Other,3,,Class,Copepoda,,,,
+Copepoda copepodid,Juvenile,Other,1.5,,Class,Copepoda,,,,
+Copepoda mush,Undifferentiated,NA,NA,,Class,Copepoda,,,,
+Corixidae,Undifferentiated,Insect,18.32,,Family,Insecta,Hemiptera,Corixidae,,
+Corophiidae,Undifferentiated,Amphipod,,LW,Family,Malacostraca,Amphipoda,Corophiidae,,
+Corophiidae juvenile,Juvenile,Amphipod,,LW,Family,Malacostraca,Amphipoda,Corophiidae,,
+Corophiidae parts (head),Undifferentiated,Amphipod,NA,,Family,Malacostraca,Amphipoda,Corophiidae,,
+Corophium,Undifferentiated,Amphipod,,LW,Genus,Malacostraca,Amphipoda,Corophiidae,Corophium,
+Crab zoea,Larva,Other,3,,Order,Malacostraca,Decapoda,,,
+Crangonyx,Undifferentiated,Amphipod,,LW,Genus,Malacostraca,Amphipoda,Crangonycitidae,Crangonyx,
+Crustacea,Undifferentiated,Other,NA,,Subphylum,,,,,
+Culicidae larvae,Larva,Insect,18.32,,Family,Insecta,Diptera,Culicidae,,
+Cumacean,Undifferentiated,Cumacean,9.41,,Order,Malacostraca,Cumacea,,,
+Cumella vulgaris,Undifferentiated,Cumacean,13.2,,Species,Malacostraca,Cumacea,Nannastacidae,,
+Cyclopoida,Undifferentiated,Other Cyclopoid,3.3,,Order,Copepoda,Cyclopoida,,,
+Cyclopoida adult,Adult,Other Cyclopoid,3.3,,Order,Copepoda,Cyclopoida,,,
+Cyclopoida copepodid,Juvenile,Other Cyclopoid,1.6,,Order,Copepoda,Cyclopoida,,,
+Cyclopoida nauplii,Larva,Copepod nauplii,0.1,,Order,Copepoda,Cyclopoida,,,
+Daphnia,Undifferentiated,Cladoceran,4,,Genus,Branchiopoda,Cladocera,Daphniidae,Daphnia,
+Daphnia Resting egg,Egg,NA,NA,,Genus,Branchiopoda,Cladocera,Daphniidae,Daphnia,
+Detritis,NA,NA,NA,,NA,,,,,
+Diacyclops thomasi,Undifferentiated,Other Cyclopoid,3.3,Use other cyclopoid aka Acantho,Species,Copepoda,Cyclopoida,Cyclopodidae,Diacyclops,Diacyclops thomasi
+Diacyclops thomasi adult,Adult,Other Cyclopoid,3.3,,Species,Copepoda,Cyclopoida,Cyclopodidae,Diacyclops,Diacyclops thomasi
+Diacyclops thomasi copepodid,Juvenile,Other Cyclopoid,1.6,,Species,Copepoda,Cyclopoida,Cyclopodidae,Diacyclops,Diacyclops thomasi
+Diaphanosoma,Undifferentiated,Cladoceran,1,,Genus,Branchiopoda,Cladocera,Sididae,Diaphanosoma,
+Diaptomidae,Undifferentiated,Other Calanoid,4,,Family,Copepoda,Calanoida,Diaptomidae,,
+Diaptomidae adult,Adult,Other Calanoid,4,,Family,Copepoda,Calanoida,Diaptomidae,,
+Diaptomidae copepodid,Juvenile,Other Calanoid,2,,Family,Copepoda,Calanoida,Diaptomidae,,
+Diaptomus,Undifferentiated,Other Calanoid,4,,Genus,Copepoda,Calanoida,Diaptomidae,Diaptomus,
+Diaptomus copepodid,Juvenile,Other Calanoid,2,,Genus,Copepoda,Calanoida,Diaptomidae,Diaptomus,
+Digestive material,NA,NA,NA,,NA,,,,,
+Diptera adult,Adult,Insect,,LW,Order,Insecta,Diptera,,,
+Disparalona,Undifferentiated,Cladoceran,1,,Genus,Branchiopoda,Cladocera,Chydoridae,Disparalona,
+Dunhevedia,Undifferentiated,Cladoceran,1,,Genus,Branchiopoda,Cladocera,Chydoridae,Dunhevedia,
+Ectocyclops phaleratus,Undifferentiated,Other Cyclopoid,3.3,,Species,Copepoda,Cyclopoida,Cyclopidae,Ectocyclops,Ectocyclops phaleratus
+Egg,,NA,NA,,,,,,,
+Elmidae,Undifferentiated,Insect,NA,,Family,Insecta,Coleoptera,Elmidae,,
+Empty,NA,Empty,0,,NA,,,,,
+Eogammarus confervicolus,Undifferentiated,Amphipod,,LW,Species,Malacostraca,Amphipoda,Gammaridae,Eogammarus,Eogammarus confervicolus
+Eogammarus confervicolus juvenile,Juvenile,Amphipod,,LW,Species,Malacostraca,Amphipoda,Gammaridae,Eogammarus,Eogammarus confervicolus
+Euchlanis,Undifferentiated,Rotifer,0.1,,Genus,Eurotatoria,Ploima,Euchlanidae,Euchlanis,
+Eucyclops,Undifferentiated,Other Cyclopoid,3.3,,Genus,Copepoda,Cyclopoida,Cyclopidae,Eucyclops,
+Eucyclops adult,Adult,Other Cyclopoid,3.3,,Genus,Copepoda,Cyclopoida,Cyclopidae,Eucyclops,
+Eucyclops agilis,Undifferentiated,Other Cyclopoid,3.3,,Species,Copepoda,Cyclopoida,Cyclopidae,Eucyclops,Eucyclops agilis
+Eucyclops copepodid,Juvenile,Other Cyclopoid,1.6,,Genus,Copepoda,Cyclopoida,Cyclopidae,Eucyclops,
+Eucyclops elegans,Undifferentiated,Other Cyclopoid,3.3,,Species,Copepoda,Cyclopoida,Cyclopidae,Eucyclops,Eucyclops elegans
+Eucyclops pectinifer,Undifferentiated,Other Cyclopoid,3.3,,Species,Copepoda,Cyclopoida,Cyclopidae,Eucyclops,Eucyclops pectinifer
+Eucyclops prionophorus,Undifferentiated,Other Cyclopoid,3.3,,Species,Copepoda,Cyclopoida,Cyclopidae,Eucyclops,Eucyclops prionophorus
+Eurycercus,Undifferentiated,Cladoceran,1,,Genus,Branchiopoda,Cladocera,Chydoridae,Eurycercus,
+Eurytemora carolleeae,Undifferentiated,Eurytemora,3,,Species,Copepoda,Calanoida,Temoridae,Eurytemora,Eurytemora carolleeae
+Eurytemora carolleeae adult,Adult,Eurytemora,3,,Species,Copepoda,Calanoida,Temoridae,Eurytemora,Eurytemora carolleeae
+Eurytemora carolleeae copepodid,Juvenile,Eurytemora,1.4,,Species,Copepoda,Calanoida,Temoridae,Eurytemora,Eurytemora carolleeae
+Eurytemora carolleeae nauplii,Larva,Eurytemora,0.1,,Species,Copepoda,Calanoida,Temoridae,Eurytemora,Eurytemora carolleeae
+Fish,Undifferentiated,Fish,,LW,Class,Actinopterygii,,,,
+Fish eggs,Egg,Eggs,NA,,Class,Actinopterygii,,,,
+Gammaridae,Undifferentiated,Amphipod,,LW,Family,Malacostraca,Amphipoda,Gammaridae,,
+Gammaridae juvenile,Juvenile,Amphipod,,LW,Family,Malacostraca,Amphipoda,Gammaridae,,
+Gammarus,Undifferentiated,Amphipod,,LW,Genus,Malacostraca,Amphipoda,Gammaridae,Gammarus,
+Gammarus daiberi,Undifferentiated,Amphipod,,LW,Species,Malacostraca,Amphipoda,Gammaridae,Gammarus,Gammarus daiberi
+Gastropoda,Undifferentiated,NA,NA,,Class,Gastropoda,,,,
+Gastropoda veliger,Larva,NA,NA,,Class,Gastropoda,,,,
+Gnorimosphaeroma,,Isopoda,,Use LW,,,,,,
+Graptoleberis,Undifferentiated,Cladoceran,1,,Genus,Branchiopoda,Cladocera,Chydoridae,Graptoleberis,
+Halicyclops,Undifferentiated,Other Cyclopoid,3.3,,Genus,Copepoda,Cyclopoida,Cyclopidae,Halicyclops,
+Halicyclops adult,Adult,Other Cyclopoid,3.3,,Genus,Copepoda,Cyclopoida,Cyclopidae,Halicyclops,
+Hard pellet/ can't ID,NA,NA,NA,,NA,,,,,
+Harpacticoida,Undifferentiated,Other,1,,Order,Copepoda,Harpacticoida,,,
+Harpacticoida adult,Adult,Other,1,,Order,Copepoda,Harpacticoida,,,
+Hemiptera,Undifferentiated,Insect,18.32,,Order,Insecta,Hemiptera,,,
+Hemiptera nymph,Juvenile,Insect,18.32,,Order,Insecta,Hemiptera,,,
+Hesperodiaptomus franciscanus,Undifferentiated,Other Calanoid,3,,Species,Copepoda,Calanoida,Diaptomidae,Hesperodiaptomus,Hesperodiaptomus franciscanus
+Hyalella,Undifferentiated,Amphipod,,LW,Genus,Malacostraca,Amphipoda,Hyalellidae,Hyalella,
+Hyalella azteca,Undifferentiated,Amphipod,,LW,Species,Malacostraca,Amphipoda,Hyalellidae,Hyalella,Hyalella azteca
+Hydrachnidae,Undifferentiated,Other,1.3,,Family,Arachnida,Hydrachnidia,,,
+Hydrachnidia,Undifferentiated,Other,1.3,,Family,Arachnida,Hydrachnidia,,,
+Hydroptilidae larvae,Larva,Insect,NA,,Family,Insecta,Trichoptera,Hydroptilidae,,
+Hydroptilidae pupae,Larva,Insect,NA,,Family,Insecta,Trichoptera,Hydroptilidae,,
+Ilyocryptus,Undifferentiated,Cladoceran,1,,Genus,Branchiopoda,Cladocera,Ilyocryptidae,Ilyocryptus,
+Insect parts,NA,NA,NA,,Class,Insecta,,,,
+Insect pupae,Larva,Insect,20.52,,Class,Insecta,,,,
+Insecta,Undifferentiated,Insect,18.32,,Class,Insecta,,,,
+Insecta adult,Adult,Insect,18.32,,Class,Insecta,,,,
+Insecta larvae,Larva,Insect,18.32,,Class,Insecta,,,,
+Isopod,Undifferentiated,Isopod,,LW,Order,Malacostraca,Isopoda,,,
+Keratella,Undifferentiated,Rotifer,0.04,,Genus,Eurotatoria,Ploima,Brachionidae,Keratella,
+Kurzia,Undifferentiated,Cladoceran,1,,Genus,Branchiopoda,Cladocera,Chydoridae,Kurzia,
+Larval Fish,Larva,Fish,,LW,Class,Actinopterygii,,,,
+Lecane,Undifferentiated,Rotifer,0.1,,Genus,Eurotatoria,Ploima,Lecanidae,Lecane,
+Lepadella,Undifferentiated,Rotifer,0.1,,Genus,Eurotatoria,Ploima,Lepadellidae,Lepadella,
+Leptoceridae larvae,Larva,Insect,18.32,,Family,Insecta,Trichoptera,Leptoceridae,,
+Leydigia,Undifferentiated,Cladoceran,1,,Genus,Branchiopoda,Cladocera,Chydoridae,Leydigia,
+Limnoithona,Undifferentiated,Limnoithona,0.13,,Genus,Copepoda,Cyclopoida,Cyclopettidae,Limnoithona,
+Limnoithona adult,Adult,Limnoithona,0.13,,Genus,Copepoda,Cyclopoida,Cyclopettidae,Limnoithona,
+Limnoithona copepodid,Juvenile,Limnoithona,0.04,,Genus,Copepoda,Cyclopoida,Cyclopettidae,Limnoithona,
+Limnoithona sinensis,Undifferentiated,Limnoithona,0.13,,Species,Copepoda,Cyclopoida,Cyclopettidae,Limnoithona,Limnoithona sinensis
+Limnoithona sinensis adult,Adult,Limnoithona,0.13,,Species,Copepoda,Cyclopoida,Cyclopettidae,Limnoithona,Limnoithona sinensis
+Limnoithona tetraspina,Undifferentiated,Limnoithona,0.13,,Species,Copepoda,Cyclopoida,Cyclopettidae,Limnoithona,Limnoithona tetraspina
+Limnoithona tetraspina adult,Adult,Limnoithona,0.13,,Species,Copepoda,Cyclopoida,Cyclopettidae,Limnoithona,Limnoithona tetraspina
+Loose copepod eggs,Egg,Eggs,NA,,Class,Copepoda,,,,
+Macrocyclops,Undifferentiated,Other Cyclopoid,3.3,,Genus,Copepoda,Cyclopoida,Cyclopidae,Macrocyclops,
+Macrocyclops adult,Adult,Other Cyclopoid,3.3,,Genus,Copepoda,Cyclopoida,Cyclopidae,Macrocyclops,
+Macrocyclops albidus,Undifferentiated,Other Cyclopoid,3.3,,Species,Copepoda,Cyclopoida,Cyclopidae,Macrocyclops,Macrocyclops albidus
+Macrocyclops copepodid,Juvenile,Other Cyclopoid,1.6,,Genus,Copepoda,Cyclopoida,Cyclopidae,Macrocyclops,
+Macrothrix,Undifferentiated,Cladoceran,1,,Genus,Branchiopoda,Cladocera,Macrothricidae,Macrothrix,
+Maeotias marginata (large),Undifferentiated,Maeotias,NA,,Species,Hydrozoa,Limnomedusae,Olindiidae,Maeotias,Maeotias marginata
+Mesocyclops,Undifferentiated,Other Cyclopoid,3.3,,Genus,Copepoda,Cyclopoida,Cyclopidae,Mesocyclops,
+Mesocyclops adult,Adult,Other Cyclopoid,3.3,,Genus,Copepoda,Cyclopoida,Cyclopidae,Mesocyclops,
+Mesocyclops edax,Undifferentiated,Other Cyclopoid,3.3,,Species,Copepoda,Cyclopoida,Cyclopidae,Mesocyclops,Mesocyclops edax
+Microcyclops adult,Adult,Other Cyclopoid,3.3,,Genus,Copepoda,Cyclopoida,Cyclopidae,Microcyclops,
+Microcyclops rubellus,Undifferentiated,Other Cyclopoid,3.3,,Species,Copepoda,Cyclopoida,Cyclopidae,Microcyclops,Microcyclops rubellus
+Moina,Undifferentiated,Cladoceran,1,,Genus,Branchiopoda,Cladocera,Moinidae,Moina,
+Monospilus,Undifferentiated,Cladoceran,1,,Genus,Branchiopoda,Cladocera,Chydoridae,Monospilus,
+Monospilus dispar,Undifferentiated,Cladoceran,1,,Genus,Branchiopoda,Cladocera,Chydoridae,Monospilus,Monospilus dispar
+Munnidae,,Isopod,,LW,,,,,,
+Munnidae,Undifferentiated,Isopod,,LW,Family,Malacostraca,Isopoda,Munnidae,,
+Mysid,Undifferentiated,Mysid,,LW,Order,Malacostraca,Mysida,Mysidae,,
+Naididae,Undifferentiated,Worm,NA,,Family,Polychaeta,Tubificida,Naididae,,
+Nematoda,Undifferentiated,Worm,NA,,Phylum,,,,,
+Nippoleucon hinumensis,Undifferentiated,Cumacean,9.41,,Species,Malacostraca,Cumacea,Leuconidae,Nippoleucon,Nippoleucon hinumensis
+Notholca,Undifferentiated,Rotifer,0.1,,Genus,Eurotatoria,Ploima,Brachionidae,Notholca,
+Oithona,Undifferentiated,Other Cyclopoid,0.2,,Genus,Copepoda,Cyclopoida,Oithonidae,Oithona,
+Oithona copepodid,Juvenile,Other Cyclopoid,0.1,,Genus,Copepoda,Cyclopoida,Oithonidae,Oithona,
+Oithona davisae,Undifferentiated,Other Cyclopoid,0.2,,Species,Copepoda,Cyclopoida,Oithonidae,Oithona,Oithona davisae
+Oithona similis,Undifferentiated,Other Cyclopoid,0.2,,Species,Copepoda,Cyclopoida,Oithonidae,Oithona,Oithona similis
+Osphranticum copepodid,Juvenile,Other Calanoid,1.5,,Genus,Copepoda,Calanoida,Centropagidae,Osphranticum,
+Osphranticum labronectum,Undifferentiated,Other Calanoid,3,,Species,Copepoda,Calanoida,Centropagidae,Osphranticum,Osphranticum labronectum
+Osphranticum labronectum adult,Adult,Other Calanoid,3,,Species,Copepoda,Calanoida,Centropagidae,Osphranticum,Osphranticum labronectum
+Ostracoda,Undifferentiated,Other,NA,,Order,Ostracoda,,,,
+Paracyclops,Undifferentiated,Other Cyclopoid,3.3,,Genus,Copepoda,Cyclopoida,Cyclopidae,Paracyclops,
+Paracyclops chiltoni,Undifferentiated,Other Cyclopoid,3.3,,Species,Copepoda,Cyclopoida,Cyclopidae,Paracyclops,Paracyclops chiltoni
+Paracyclops poppei,Undifferentiated,Other Cyclopoid,3.3,,Species,Copepoda,Cyclopoida,Cyclopidae,Paracyclops,Paracyclops poppei
+Picripleuroxus,Undifferentiated,Cladoceran,1,,Genus,Branchiopoda,Cladocera,Chydoridae,Picripleuroxus,
+Plant material,NA,NA,NA,,NA,,,,,
+Plationus,Undifferentiated,Rotifer,0.1,,Genus,Eurotatoria,Ploima,Brachionidae,Plaionus,
+Platyias,Undifferentiated,Rotifer,0.1,,Genus,Eurotatoria,Ploima,Brachionidae,Platyias,
+Pleuroxus,Undifferentiated,Cladoceran,1,,Genus,Branchiopoda,Cladocera,Chydoridae,Pleuroxus,
+Polyarthra,Undifferentiated,Rotifer,0.28,,Genus,Eurotatoria,Ploima,Synchaetidae,Polyarthra,
+Polycentropodidae larvae,Larva,Insect,NA,,Family,Insecta,Trichoptera,Polycentropodidae,,
+Polychaete larvae,Larva,Worm,NA,,Class,Polychaeta,,,,
+Pseudochydorus,Undifferentiated,Cladoceran,1,,Genus,Branchiopoda,Cladocera,Chydoridae,Pseudochydorus,
+Pseudodiaptomus forbesi,Undifferentiated,Pseudodiaptomus,2.66,,Species,Copepoda,Calanoida,Pseudodiaptomidae,Pseudodiaptomus,Pseudodiaptomus forbesi
+Pseudodiaptomus forbesi adult,Adult,Pseudodiaptomus,2.66,,Species,Copepoda,Calanoida,Pseudodiaptomidae,Pseudodiaptomus,Pseudodiaptomus forbesi
+Pseudodiaptomus forbesi copepodid,Juvenile,Pseudodiaptomus,1.15,,Species,Copepoda,Calanoida,Pseudodiaptomidae,Pseudodiaptomus,Pseudodiaptomus forbesi
+Pseudodiaptomus forbesi nauplii,Larva,Copepod nauplii,0.1,,Species,Copepoda,Calanoida,Pseudodiaptomidae,Pseudodiaptomus,Pseudodiaptomus forbesi
+Pseudodiaptomus nauplii,Larva,Copepod nauplii,0.1,,Genus,Copepoda,Calanoida,Pseudodiaptomidae,Pseudodiaptomus,
+Rotifer,Undifferentiated,Rotifer,0.1,,Phylum,,,,,
+Scapholeberis,Undifferentiated,Cladoceran,1,,Genus,Branchiopoda,Cladocera,Daphniidae,Scapholeberis,
+Shrimp,Undifferentiated,Shrimp,,LW,Class,Malacostraca,Decapoda,,,
+Sida,Undifferentiated,Cladoceran,1,,Genus,Branchiopoda,Cladocera,Sididae,Sida,
+Simocephalus,Undifferentiated,Cladoceran,1,,Genus,Branchiopoda,Cladocera,Daphniidae,Simocephalus,
+Sinocalanus adult,Adult,Sinocalanus,3.41,,Genus,Copepoda,Calanoida,Centropagidae,Sinocalanus,
+Sinocalanus doerrii adult,Adult,Sinocalanus,3.41,,Species,Copepoda,Calanoida,Centropagidae,Sinocalanus,Sinocalanus doerrii
+Sinocalanus doerrii copepodid,Juvenile,Sinocalanus,1.81,,Species,Copepoda,Calanoida,Centropagidae,Sinocalanus,Sinocalanus doerrii
+Sinocalanus nauplii,Larva,Copepod nauplii,0.1,,Genus,Copepoda,Calanoida,Centropagidae,Sinocalanus,
+Skistodiaptomus pallidus,Undifferentiated,Other Calanoid,3,,Species,Copepoda,Calanoida,Diaptomidae,Skistodiaptomus,Skistodiaptomus pallidus
+Small rock,NA,NA,NA,,NA,,,,,
+Sphaeromatidae,Undifferentiated,Isopod,,LW,Family,Malacostraca,Isopoda,Sphaeromatidae,,
+Tanaidacea,Undifferentiated,Tanaid,,LW,Class,Malacostraca,Tanaidacea,,,
+Tardigrada,Undifferentiated,Other,NA,,Phylum,,,,,
+Testudinella,Undifferentiated,Rotifer,0.1,,Genus,Eurotatoria,Flosculariaceae,Testudinellidae,Testudinella,
+Tortanus,Undifferentiated,Other Calanoid,15.89,,Genus,Copepoda,Calanoida,Tortanidae,Tortanus,
+Tortanus copepodid,Juvenile,Other Calanoid,7.95,,Genus,Copepoda,Calanoida,Tortanidae,Tortanus,
+Trichocerca,Undifferentiated,Rotifer,0.12,,Genus,Eurotatoria,Ploima,Trichocercidae,Trichocerca,
+Trichoptera adult,Adult,Insect,NA,,Order,Insecta,Trichoptera,,,
+Trichotria,Undifferentiated,Insect,NA,,Genus,Insecta,Trichoptera,Trichotriidae,Trichotria,
+Tricoptera larvae,Larva,Insect,NA,,Order,Insecta,Trichoptera,,,
+Tropocyclops,Undifferentiated,Other Cyclopoid,3.3,,Genus,Copepoda,Cyclopoida,Cyclopidae,Tropocyclops,
+Tropocyclops prasinus,Undifferentiated,Other Cyclopoid,3.3,,Species,Copepoda,Cyclopoida,Cyclopidae,Tropocyclops,Tropocyclops prasinus
+Turbellaria,Undifferentiated,Worm,NA,,Class,Turbellaria,,,,
+Unidentified eggs,Egg,Eggs,NA,,NA,,,,,
